@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CRA.Dal;
 using CRA.Data;
+using System.Data.Entity;
 
 namespace CRA.BL
 {
@@ -61,7 +62,16 @@ namespace CRA.BL
 
         }
 
+        public void Confirmation(Deal_Details dd)
+        {
+            using (var context = new CRA_Context())
+            {
+                context.Deals.Attach(dd);
+                context.Entry(dd).State = EntityState.Added;
+                context.SaveChanges();
 
+            }
+        }
 
     }
 }
