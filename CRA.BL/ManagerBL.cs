@@ -32,5 +32,55 @@ namespace CRA.BL
 
         }
 
+        public void UpdateCar()
+        {
+
+        }
+
+        public void DeleteCar()
+        {
+
+        }
+
+
+
+
+
+
+        public void AddClient()
+        {
+
+        }
+
+        public void UpdateClient()
+        {
+
+        }
+
+        public void DeleteClient()
+        {
+
+        }
+
+
+
+
+
+        public void AddReservation()
+        {
+
+        }
+
+        public void UpdateReservation()
+        {
+
+        }
+
+
+        public void DeleteReservation()
+        {
+
+        }
+
     }
 }
