@@ -62,6 +62,58 @@ namespace CRA.BL
 
         }
 
+        public IEnumerable<Car_Details> SearchbyModel(string carModel)
+        {
+            IEnumerable<Car_Details> allCars;
+
+            using (var context = new CRA_Context())
+            {
+                allCars = from car in context.Cars
+                          where car.ProperState == true
+                          where car.Model.Model == carModel
+                          orderby car.Model descending
+                          select car;
+            }
+
+                return allCars;
+
+        }
+
+
+
+        public IEnumerable<Car_Details> SearchbyFreeText(string text)
+        {
+
+            if (!string.IsNullOrWhiteSpace(text))
+            {
+                IEnumerable<Car_Details> allCars;
+
+                using (var context = new CRA_Context())
+                {
+                    allCars = from car in context.Cars
+                              where car.Model.Model.ToLower().Contains(text.ToLower()) ||
+                              car.Model.Manufacturer.ToLower().Contains(text.ToLower()) ||
+                              car.Model.gear.ToString().ToLower().Contains(text.ToLower()) ||
+                              car.Model.DailyPrice.ToString().Contains(text.ToLower()) ||
+                              car.Branch.City.ToLower().Contains(text.ToLower()) ||
+                              car.Branch.BranchName.ToLower().Contains(text.ToLower()) ||
+                              car.Branch.District.ToLower().Contains(text.ToLower())
+                              select car;
+
+
+
+                }
+
+
+                return allCars;
+            }
+            else
+                return null;
+           
+        }
+
+
+
         public void Confirmation(Deal_Details dd)
         {
             using (var context = new CRA_Context())
