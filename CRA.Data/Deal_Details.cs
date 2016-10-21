@@ -12,15 +12,19 @@ namespace CRA.Data
         [Key]
         public int ID { get; set; }
 
-        public DateTime Start { get; set; }
+        public DateTime? Start { get; set; }
 
-        public DateTime SupposedReturn { get; set; }
+        public DateTime? SupposedReturn { get; set; }
 
-        public DateTime RealReturn { get; set; }
+        public DateTime? RealReturn { get; set; }
 
-        public Client_Details Client { get; set; }
+        public int ClientID {get;set;}
 
-        public Car_Details Car { get; set; }
+        public virtual Client_Details Client { get; set; }
+
+        public int CarID { get; set; }
+
+        public virtual Car_Details Car { get; set; }
 
 
     }

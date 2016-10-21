@@ -25,6 +25,7 @@ namespace CRA.Data
         [Column(TypeName = "money")]
         public decimal DailyPrice { get; set; }
 
+        [Column(TypeName = "money")]
         public decimal LateReturnFine { get; set; }
 
         public Gear gear { get; set; }

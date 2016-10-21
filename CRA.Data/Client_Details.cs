@@ -16,8 +16,9 @@ namespace CRA.Data
         [Key]
         public int ClientID { get; set; }
 
-        [StringLength(15)]
+
         [Required]
+        [StringLength(15)]      
         public string FirstName { get; set; }
 
         [StringLength(15)]
@@ -29,9 +30,8 @@ namespace CRA.Data
         [Required]
         public Gender gender { get; set; }
 
-
-        [StringLength(30)]
         [Required]
+        [StringLength(30)]      
         public string Email { get; set; }
 
         [Required]
