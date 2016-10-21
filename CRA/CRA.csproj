@@ -117,6 +117,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BranchViewModel.cs" />
+    <Compile Include="Models\CarViewModel.cs" />
+    <Compile Include="Models\ClientViewModel.cs" />
+    <Compile Include="Models\DealViewModel.cs" />
+    <Compile Include="Models\ModelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,7 +140,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
