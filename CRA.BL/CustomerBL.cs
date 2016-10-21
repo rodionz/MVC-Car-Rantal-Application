@@ -112,7 +112,12 @@ namespace CRA.BL
            
         }
 
+        public IEnumerable<Car_Details> SearchbyDateRange (DateTime start, DateTime end)
+        {
 
+
+            return null;
+        }
 
         public void Confirmation(Deal_Details dd)
         {
