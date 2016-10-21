@@ -5,7 +5,7 @@ using System.Web;
 using CRA.Data;
 using System.ComponentModel.DataAnnotations;
 
-namespace CRA.Models
+namespace CRA.MVC.Models
 {
     public class DealViewModel
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using CRA.Data;
 
-namespace CRA.Models
+namespace CRA.MVC.Models
 {
     public class ClientViewModel
     {
@@ -25,7 +25,7 @@ namespace CRA.Models
         public string Email { get; set; }
 
       
-        public int Password { get; set; }
+        public string Password { get; set; }
 
 
         public byte?[] Picture { get; set; }

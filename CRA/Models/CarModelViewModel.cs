@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using CRA.Data;
 
-namespace CRA.Models
+namespace CRA.MVC.Models
 {
     public class CarModelViewModel
     {

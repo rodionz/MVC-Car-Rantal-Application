@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace CRA.BL
 {
-    class CustomerBL
+   public class CustomerBL
     {
         public IEnumerable<Car_Details> GetAllCars()
         {
@@ -23,7 +23,7 @@ namespace CRA.BL
                           select car;
             }
 
-            return allCars;
+            return allCars.ToArray();
         }
 
         public IEnumerable<Car_Details> SearchByGear (Gear g)

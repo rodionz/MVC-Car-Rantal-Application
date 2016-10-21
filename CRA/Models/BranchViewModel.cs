@@ -6,7 +6,7 @@ using System.Web;
 using CRA;
 using CRA.Data;
 
-namespace CRA.Models
+namespace CRA.MVC.Models
 {
     public class BranchViewModel
     {

@@ -5,7 +5,7 @@ using System.Web;
 using CRA.Data;
 using System.ComponentModel.DataAnnotations;
 
-namespace CRA.Models
+namespace CRA.MVC.Models
 {
     public class CarViewModel
     {
@@ -25,6 +25,9 @@ namespace CRA.Models
         public int ModelID { get; set; }
 
 
+
+
+        public CarViewModel() { }
 
       public CarViewModel(Car_Details domainCarDetails)
         {

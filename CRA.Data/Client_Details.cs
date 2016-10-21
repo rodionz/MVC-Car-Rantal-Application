@@ -37,7 +37,7 @@ namespace CRA.Data
 
         [Required]
         [StringLength(20)]
-        public int Password { get; set; }
+        public string Password { get; set; }
 
 
         [Column(TypeName = "image")]
