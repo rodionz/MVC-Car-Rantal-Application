@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using CRA.Data;
-using CRA.Dal;
+using CarRental.Data;
+using CarRental.Dal;
 
-namespace CRA.BL
+namespace CarRental.BL
 {
     class EmployeeBL
     {
@@ -15,7 +15,7 @@ namespace CRA.BL
         {
             Deal_Details dd;
 
-            using (var context = new CRA_Context())
+            using (var context = new Dal.CarRentalContext())
             {
                 dd = (from d in context.Deals.Include(w => w.Car)                      
                       where d.Car.CarNumber == carNum
@@ -27,7 +27,7 @@ namespace CRA.BL
 
         public void ReservationClosing(Deal_Details dd)
         {
-            using (var context = new CRA_Context())
+            using (var context = new Dal.CarRentalContext())
             {
                 context.Deals.Attach(dd);
                 context.Entry(dd).State = EntityState.Modified;

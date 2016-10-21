@@ -4,11 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CRA.Data;
+using CarRental.Data;
 
-namespace CRA.Dal
+namespace CarRental.Dal
 {
-   public class CRA_Context : DbContext
+   public class CarRentalContext : DbContext
     {
         public virtual DbSet<Branch_Details> Branches { get; set; }
 

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8D3E4F1A-EA57-45DA-9293-5D5F149AF8AB}</ProjectGuid>
+    <ProjectGuid>{4027683C-4997-42A9-9D50-37F27CC46EBC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CRA.Dal</RootNamespace>
-    <AssemblyName>CRA.Dal</AssemblyName>
+    <RootNamespace>CRA.BL</RootNamespace>
+    <AssemblyName>CRA.BL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,27 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CRA_Context.cs" />
-    <Compile Include="Migrations\201610211906457_InitialCreate.cs" />
-    <Compile Include="Migrations\201610211906457_InitialCreate.Designer.cs">
-      <DependentUpon>201610211906457_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="CustomerBL.cs" />
+    <Compile Include="EmployeeBL.cs" />
+    <Compile Include="ManagerBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CRA.Data\CRA.Data.csproj">
+    <ProjectReference Include="..\CRA.Dal\CarRental.Dal.csproj">
+      <Project>{8d3e4f1a-ea57-45da-9293-5d5f149af8ab}</Project>
+      <Name>CarRental.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CRA.Data\CarReantal.Data.csproj">
       <Project>{d37fab39-ca7b-40ac-adef-95d17b2ab644}</Project>
-      <Name>CRA.Data</Name>
+      <Name>CarReantal.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610211906457_InitialCreate.resx">
-      <DependentUpon>201610211906457_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

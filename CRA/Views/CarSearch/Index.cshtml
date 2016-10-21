@@ -1,5 +1,4 @@
-﻿@using CRA.MVC.Models
-@model IEnumerable<CarViewModel>
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_layout.cshtml";
@@ -7,11 +6,3 @@
 
 <h2>Success</h2>
 
-<ul>
-    @foreach (var car in Model)
-    {
-        <li>@car.CarID</li>
-
-
-    }
-</ul>

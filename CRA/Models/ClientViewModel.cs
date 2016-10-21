@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using CRA.Data;
+using CarRental.Data;
 
-namespace CRA.MVC.Models
+namespace CarRental.MVC.Models
 {
     public class ClientViewModel
     {

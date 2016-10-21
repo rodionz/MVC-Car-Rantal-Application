@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using CRA;
-using CRA.Data;
+using CarRental;
+using CarRental.Data;
 
-namespace CRA.MVC.Models
+namespace CarRental.MVC.Models
 {
     public class BranchViewModel
     {

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CRA.Dal;
-using CRA.Data;
+using CarRental.Dal;
+using CarRental.Data;
 using System.Data.Entity;
 
-namespace CRA.BL
+namespace CarRental.BL
 {
    public class CustomerBL
     {
@@ -15,7 +15,7 @@ namespace CRA.BL
         {
             IEnumerable<Car_Details> allCars;
 
-            using (var context = new CRA_Context())
+            using (var context = new CarRentalContext())
             {
                 allCars = (from car in context.Cars
                           where car.ProperState == true
@@ -30,9 +30,9 @@ namespace CRA.BL
         {
             IEnumerable<Car_Details> allCars;
 
-            using (var context = new CRA_Context())
+            using (var context = new CarRentalContext())
             {
-                allCars = from car in context.Cars.Include(c=>c.Model)
+                allCars = from car in context.Cars.Include(c => c.Model)
                           where car.ProperState == true
                           where car.Model.gear == g
                           orderby car.Model descending
@@ -48,9 +48,9 @@ namespace CRA.BL
         {
             IEnumerable<Car_Details> allCars;
 
-            using (var context = new CRA_Context())
+            using (var context = new Dal.CarRentalContext())
             {
-                allCars = from car in context.Cars.Include(c=>c.Model)
+                allCars = from car in context.Cars.Include(c => c.Model)
                           where car.ProperState == true
                           where car.Model.Manufacturer == manufac
                           orderby car.Model descending
@@ -66,9 +66,9 @@ namespace CRA.BL
         {
             IEnumerable<Car_Details> allCars;
 
-            using (var context = new CRA_Context())
+            using (var context = new Dal.CarRentalContext())
             {
-                allCars = from car in context.Cars.Include(c=>c.Model)
+                allCars = from car in context.Cars.Include(c => c.Model)
                           where car.ProperState == true
                           where car.Model.Model == carModel
                           orderby car.Model descending
@@ -88,11 +88,11 @@ namespace CRA.BL
             {
                 IEnumerable<Car_Details> allCars;
 
-                using (var context = new CRA_Context())
+                using (var context = new Dal.CarRentalContext())
                 {
                     allCars = from car in context.Cars
-                              .Include(c=>c.Model)
-                              .Include(p=>p.Branch)
+                              .Include(c => c.Model)
+                              .Include(p => p.Branch)
                               where car.Model.Model.ToLower().Contains(text.ToLower()) ||
                               car.Model.Manufacturer.ToLower().Contains(text.ToLower()) ||
                               car.Model.gear.ToString().ToLower().Contains(text.ToLower()) ||
@@ -123,7 +123,7 @@ namespace CRA.BL
 
         public void Confirmation(Deal_Details dd)
         {
-            using (var context = new CRA_Context())
+            using (var context = new Dal.CarRentalContext())
             {
                 context.Deals.Attach(dd);
                 context.Entry(dd).State = EntityState.Added;

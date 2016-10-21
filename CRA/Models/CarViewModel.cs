@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using CRA.Data;
+using CarRental.Data;
 using System.ComponentModel.DataAnnotations;
 
-namespace CRA.MVC.Models
+namespace CarRental.MVC.Models
 {
     public class CarViewModel
     {
