@@ -19,9 +19,9 @@ namespace CarRental.MVC.Models
 
         public DateTime? RealReturn { get; set; }
 
-        public int ClientID { get; set; }
+        public int? ClientID { get; set; }
         
-        public int CarID { get; set; }
+        public int? CarID { get; set; }
 
 
 

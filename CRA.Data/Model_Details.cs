@@ -28,7 +28,7 @@ namespace CarRental.Data
         [Column(TypeName = "money")]
         public decimal LateReturnFine { get; set; }
 
-        public Gear gear { get; set; }
+        public Gear? gear { get; set; }
 
     }
 }

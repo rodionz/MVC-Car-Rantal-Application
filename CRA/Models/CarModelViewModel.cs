@@ -26,7 +26,7 @@ namespace CarRental.MVC.Models
        
         public decimal LateReturnFine { get; set; }
 
-        public Gear gear { get; set; }
+        public Gear? gear { get; set; }
 
 
 

@@ -14,7 +14,7 @@ namespace CarRental.Data
         public  int CarID { get; set; }
 
 
-        public double Mileage { get; set; }
+        public double? Mileage { get; set; }
 
         [Column(TypeName = "image")]
         public byte[] Picture { get; set; }
@@ -24,11 +24,11 @@ namespace CarRental.Data
         [StringLength(15)]
         public string CarNumber { get; set; }
 
-        public int BranchID { get; set; }
+        public int? BranchID { get; set; }
 
         public virtual Branch_Details Branch { get; set; }
 
-        public int ModelID { get; set; }
+        public int? ModelID { get; set; }
 
         public virtual Model_Details Model { get; set; }
     }

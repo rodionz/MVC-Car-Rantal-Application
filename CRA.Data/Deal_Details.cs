@@ -18,11 +18,11 @@ namespace CarRental.Data
 
         public DateTime? RealReturn { get; set; }
 
-        public int ClientID {get;set;}
+        public int? ClientID {get;set;}
 
         public virtual Client_Details Client { get; set; }
 
-        public int CarID { get; set; }
+        public int? CarID { get; set; }
 
         public virtual Car_Details Car { get; set; }
 
