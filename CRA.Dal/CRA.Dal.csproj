@@ -50,6 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CRA_Context.cs" />
+    <Compile Include="Migrations\201610211906457_InitialCreate.cs" />
+    <Compile Include="Migrations\201610211906457_InitialCreate.Designer.cs">
+      <DependentUpon>201610211906457_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +65,11 @@
       <Project>{d37fab39-ca7b-40ac-adef-95d17b2ab644}</Project>
       <Name>CRA.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610211906457_InitialCreate.resx">
+      <DependentUpon>201610211906457_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

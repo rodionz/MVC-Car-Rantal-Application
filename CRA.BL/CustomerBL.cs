@@ -17,13 +17,13 @@ namespace CRA.BL
 
             using (var context = new CRA_Context())
             {
-                allCars = from car in context.Cars
+                allCars = (from car in context.Cars
                           where car.ProperState == true
-                          orderby car.Model descending
-                          select car;
+                          orderby car.Model.Model descending
+                          select car).ToArray();
             }
 
-            return allCars.ToArray();
+            return allCars;
         }
 
         public IEnumerable<Car_Details> SearchByGear (Gear g)
