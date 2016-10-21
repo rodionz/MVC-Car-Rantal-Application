@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CRA.Models
 {
-    public class CarViewModel
+    public class ModelViewModel
     {
     }
 }

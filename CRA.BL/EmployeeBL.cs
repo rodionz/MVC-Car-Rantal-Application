@@ -17,7 +17,7 @@ namespace CRA.BL
 
             using (var context = new CRA_Context())
             {
-                dd = (from d in context.Deals.Include(w => w.Car)                      
+                dd = (from d in context.Deals
                       where d.Car.CarNumber == carNum
                       select d).SingleOrDefault();
 

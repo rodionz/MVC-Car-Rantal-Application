@@ -127,7 +127,7 @@
     <Compile Include="Models\CarViewModel.cs" />
     <Compile Include="Models\ClientViewModel.cs" />
     <Compile Include="Models\DealViewModel.cs" />
-    <Compile Include="Models\CarModelViewModel.cs" />
+    <Compile Include="Models\ModelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,12 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CRA.Data\CRA.Data.csproj">
-      <Project>{D37FAB39-CA7B-40AC-ADEF-95D17B2AB644}</Project>
-      <Name>CRA.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
