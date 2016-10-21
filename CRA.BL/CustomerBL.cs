@@ -32,7 +32,7 @@ namespace CRA.BL
 
             using (var context = new CRA_Context())
             {
-                allCars = from car in context.Cars
+                allCars = from car in context.Cars.Include(c=>c.Model)
                           where car.ProperState == true
                           where car.Model.gear == g
                           orderby car.Model descending
@@ -50,7 +50,7 @@ namespace CRA.BL
 
             using (var context = new CRA_Context())
             {
-                allCars = from car in context.Cars
+                allCars = from car in context.Cars.Include(c=>c.Model)
                           where car.ProperState == true
                           where car.Model.Manufacturer == manufac
                           orderby car.Model descending
@@ -68,7 +68,7 @@ namespace CRA.BL
 
             using (var context = new CRA_Context())
             {
-                allCars = from car in context.Cars
+                allCars = from car in context.Cars.Include(c=>c.Model)
                           where car.ProperState == true
                           where car.Model.Model == carModel
                           orderby car.Model descending
@@ -91,6 +91,8 @@ namespace CRA.BL
                 using (var context = new CRA_Context())
                 {
                     allCars = from car in context.Cars
+                              .Include(c=>c.Model)
+                              .Include(p=>p.Branch)
                               where car.Model.Model.ToLower().Contains(text.ToLower()) ||
                               car.Model.Manufacturer.ToLower().Contains(text.ToLower()) ||
                               car.Model.gear.ToString().ToLower().Contains(text.ToLower()) ||

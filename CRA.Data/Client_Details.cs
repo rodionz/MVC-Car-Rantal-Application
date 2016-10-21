@@ -21,8 +21,9 @@ namespace CRA.Data
         [StringLength(15)]      
         public string FirstName { get; set; }
 
-        [StringLength(15)]
+
         [Required]
+        [StringLength(15)]      
         public string LastName { get; set; }
 
         public DateTime? BirthData { get; set; }
@@ -35,6 +36,7 @@ namespace CRA.Data
         public string Email { get; set; }
 
         [Required]
+        [StringLength(20)]
         public int Password { get; set; }
 
 
