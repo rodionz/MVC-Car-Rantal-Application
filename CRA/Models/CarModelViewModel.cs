@@ -8,6 +8,10 @@ using CarRental.Data;
 
 namespace CarRental.MVC.Models
 {
+
+    public enum ModelGear { Automatic, Manual };
+
+
     public class CarModelViewModel
     {
 
@@ -18,7 +22,7 @@ namespace CarRental.MVC.Models
         public string Manufacturer { get; set; }
 
         
-        public string Model { get; set; }
+        public string NameofModel { get; set; }
 
         
         public decimal DailyPrice { get; set; }
@@ -26,7 +30,25 @@ namespace CarRental.MVC.Models
        
         public decimal LateReturnFine { get; set; }
 
-        public Gear? gear { get; set; }
+        public ModelGear gear { get; set; }
+
+
+
+        public static implicit operator Model_Details(CarModelViewModel vm)
+        {
+            return new Model_Details
+            {
+                ModelID = vm.ModelID,
+                Manufacturer = vm.Manufacturer,
+                NameofModel = vm.NameofModel,
+                DailyPrice = vm.DailyPrice,
+                LateReturnFine = vm.LateReturnFine,
+                gear = (Gear)vm.gear
+
+
+            };
+        }
+
 
 
 
@@ -37,14 +59,16 @@ namespace CarRental.MVC.Models
 
             this.Manufacturer = domainModelDetails.Manufacturer;
 
-            this.Model = domainModelDetails.Model;
+            this.NameofModel = domainModelDetails.NameofModel
+                ;
 
             this.DailyPrice = domainModelDetails.DailyPrice;
 
             this.LateReturnFine = domainModelDetails.LateReturnFine;
 
-            this.gear = domainModelDetails.gear;
-        }
+        //TODO
+              this.gear = (ModelGear)domainModelDetails.gear;
+    }
 
     }
 }

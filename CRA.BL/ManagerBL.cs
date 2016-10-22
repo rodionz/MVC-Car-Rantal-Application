@@ -13,10 +13,11 @@ namespace CarRental.BL
    public class ManagerBL
     {
 
+      
         public void AddModel(Model_Details model)
 
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Models.Attach(model);
                 context.Entry(model).State = EntityState.Added;
@@ -26,7 +27,7 @@ namespace CarRental.BL
 
         public void UpdateModel(Model_Details model)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Models.Attach(model);
                 context.Entry(model).State = EntityState.Modified;
@@ -36,7 +37,7 @@ namespace CarRental.BL
 
         public void DeleteModel(Model_Details model)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Models.Attach(model);
                 context.Entry(model).State = EntityState.Deleted;
@@ -48,7 +49,7 @@ namespace CarRental.BL
 
         public void AddCar(Car_Details car)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Cars.Attach(car);
                 context.Entry(car).State = EntityState.Added;
@@ -58,7 +59,7 @@ namespace CarRental.BL
 
         public void UpdateCar(Car_Details car)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Cars.Attach(car);
                 context.Entry(car).State = EntityState.Modified;
@@ -68,7 +69,7 @@ namespace CarRental.BL
 
         public void DeleteCar(Car_Details car)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Cars.Attach(car);
                 context.Entry(car).State = EntityState.Deleted;
@@ -83,7 +84,7 @@ namespace CarRental.BL
 
         public void AddClient(Client_Details client)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Clients.Attach(client);
                 context.Entry(client).State = EntityState.Added;
@@ -93,7 +94,7 @@ namespace CarRental.BL
 
         public void UpdateClient(Client_Details client)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Clients.Attach(client);
                 context.Entry(client).State = EntityState.Modified; 
@@ -103,7 +104,7 @@ namespace CarRental.BL
 
         public void DeleteClient(Client_Details client)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Clients.Attach(client);
                 context.Entry(client).State = EntityState.Deleted;
@@ -117,7 +118,7 @@ namespace CarRental.BL
 
         public void AddReservation(Deal_Details deal)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Deals.Attach(deal);
                 context.Entry(deal).State = EntityState.Added;
@@ -127,7 +128,7 @@ namespace CarRental.BL
 
         public void UpdateReservation(Deal_Details deal)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Deals.Attach(deal);
                 context.Entry(deal).State = EntityState.Modified;
@@ -138,7 +139,7 @@ namespace CarRental.BL
 
         public void DeleteReservation(Deal_Details deal)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Deals.Attach(deal);
                 context.Entry(deal).State = EntityState.Deleted;

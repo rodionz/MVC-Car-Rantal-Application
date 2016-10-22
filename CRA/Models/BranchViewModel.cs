@@ -25,6 +25,23 @@ namespace CarRental.MVC.Models
 
         //Location
 
+
+
+
+        public static implicit operator Branch_Details (BranchViewModel vm)
+        {
+            return new Branch_Details
+            {
+                BranchID = vm.BranchID,
+                BranchName = vm.BranchName,
+                City = vm.City,
+                District = vm.District
+            };
+        }
+
+
+
+
         public BranchViewModel(Branch_Details domainBranch)
         {
             this.BranchID = domainBranch.BranchID;

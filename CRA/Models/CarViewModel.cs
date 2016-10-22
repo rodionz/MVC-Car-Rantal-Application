@@ -7,6 +7,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarRental.MVC.Models
 {
+
+   
+
     public class CarViewModel
     {
        
@@ -27,9 +30,23 @@ namespace CarRental.MVC.Models
 
 
 
-        public CarViewModel() { }
+        public static implicit operator Car_Details(CarViewModel vm)
+        {
+            return new Car_Details
+            {
+                CarID = vm.CarID,
+                Mileage = vm.Mileage,
+                Picture = vm.Picture,
+                ProperState = vm.ProperState,
+                CarNumber = vm.CarNumber,
+                BranchID = vm.BranchID,
+                ModelID = vm.ModelID
 
-      public CarViewModel(Car_Details domainCarDetails)
+
+            };
+        }
+
+        public CarViewModel(Car_Details domainCarDetails)
         {
             this.CarID = domainCarDetails.CarID;
 

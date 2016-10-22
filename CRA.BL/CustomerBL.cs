@@ -19,7 +19,7 @@ namespace CarRental.BL
             {
                 allCars = (from car in context.Cars
                           where car.ProperState == true
-                          orderby car.Model.Model descending
+                          orderby car.Model.NameofModel descending
                           select car).ToArray();
             }
 
@@ -70,7 +70,7 @@ namespace CarRental.BL
             {
                 allCars = from car in context.Cars.Include(c => c.Model)
                           where car.ProperState == true
-                          where car.Model.Model == carModel
+                          where car.Model.NameofModel == carModel
                           orderby car.Model descending
                           select car;
             }
@@ -93,7 +93,7 @@ namespace CarRental.BL
                     allCars = from car in context.Cars
                               .Include(c => c.Model)
                               .Include(p => p.Branch)
-                              where car.Model.Model.ToLower().Contains(text.ToLower()) ||
+                              where car.Model.NameofModel.ToLower().Contains(text.ToLower()) ||
                               car.Model.Manufacturer.ToLower().Contains(text.ToLower()) ||
                               car.Model.gear.ToString().ToLower().Contains(text.ToLower()) ||
                               car.Model.DailyPrice.ToString().Contains(text.ToLower()) ||

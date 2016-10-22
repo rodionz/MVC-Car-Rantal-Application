@@ -31,6 +31,28 @@ namespace CarRental.MVC.Models
         public byte?[] Picture { get; set; }
 
 
+
+
+
+
+        public static implicit operator Client_Details(ClientViewModel vm)
+        {
+            return new Client_Details
+            {
+                ClientID = vm.ClientID,
+                FirstName = vm.FirstName,
+                LastName = vm.LastName,
+                BirthData = vm.BirthData,
+                gender = vm.gender,
+                Email = vm.Email,
+                Password = vm.Password,
+                Picture = vm.Picture
+
+            };
+        }
+
+
+
         public ClientViewModel(Client_Details domainClieentDetails)
         {
 

@@ -20,7 +20,7 @@ namespace CarRental.Data
         public string Manufacturer { get; set; }
 
         [StringLength(30)]
-        public string Model { get; set; }
+        public string NameofModel { get; set; }
 
         [Column(TypeName = "money")]
         public decimal DailyPrice { get; set; }
@@ -28,7 +28,7 @@ namespace CarRental.Data
         [Column(TypeName = "money")]
         public decimal LateReturnFine { get; set; }
 
-        public Gear? gear { get; set; }
+        public Gear gear { get; set; }
 
     }
 }
