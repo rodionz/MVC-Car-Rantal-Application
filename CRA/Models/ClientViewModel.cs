@@ -17,14 +17,26 @@ namespace CarRental.MVC.Models
       
         public string LastName { get; set; }
 
+
+        [Display (Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+
+
+
         public DateTime? BirthData { get; set; }
 
         public Gender gender { get; set; }
 
-       
+       [RegularExpression(@"/[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}/", ErrorMessage ="Email is invalid")]
         public string Email { get; set; }
 
-      
+      [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Minimum 8 characters at least 1 Alphabet and 1 Number")]
         public string Password { get; set; }
 
 
@@ -33,6 +45,7 @@ namespace CarRental.MVC.Models
 
 
 
+       
 
 
         public static implicit operator Client_Details(ClientViewModel vm)
