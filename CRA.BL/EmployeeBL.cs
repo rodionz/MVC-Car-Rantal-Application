@@ -9,8 +9,13 @@ using CarRental.Dal;
 
 namespace CarRental.BL
 {
-    class EmployeeBL
+  public  class EmployeeBL
     {
+
+       
+
+
+
         public Deal_Details ReservationSearch(string carNum)
         {
             Deal_Details dd;
