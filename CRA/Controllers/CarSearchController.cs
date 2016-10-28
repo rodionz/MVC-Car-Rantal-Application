@@ -18,7 +18,14 @@ namespace CarRental.Controllers
 
             manager = new CustomerBL();
         }
-       
+
+
+
+        public ActionResult Index()
+        {
+
+            return View();
+        }
 
 
         public IEnumerable<CarViewModel> CarModelConvertor(IEnumerable<Car_Details> collection)
