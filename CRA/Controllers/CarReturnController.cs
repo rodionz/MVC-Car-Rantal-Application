@@ -1,4 +1,5 @@
 ﻿using CarRental.BL;
+using CarRental.Data;
 using CarRental.MVC.Models;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,16 @@ namespace CarRental.Controllers
 
             return View(dvm);
 
+        }
+
+
+        public ActionResult CloseTheDeal(DealViewModel dvm)
+        {
+
+            Deal_Details dd = (Deal_Details)dvm;
+
+            _employee.ReservationClosing(dd);
+            return View();
         }
     }
 }

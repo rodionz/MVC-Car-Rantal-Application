@@ -20,7 +20,7 @@ namespace CarRental.BL
         {
             Deal_Details dd;
 
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 dd = (from d in context.Deals.Include(w => w.Car)                      
                       where d.Car.CarNumber == carNum
@@ -32,7 +32,7 @@ namespace CarRental.BL
 
         public void ReservationClosing(Deal_Details dd)
         {
-            using (var context = new Dal.CarRentalContext())
+            using (var context = new CarRentalContext())
             {
                 context.Deals.Attach(dd);
                 context.Entry(dd).State = EntityState.Modified;
