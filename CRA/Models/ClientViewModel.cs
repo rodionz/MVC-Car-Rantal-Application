@@ -48,18 +48,18 @@ namespace CarRental.MVC.Models
        
 
 
-        public static implicit operator Client_Details(ClientViewModel vm)
+        public   Client_Details toBaseClient_Details()
         {
             return new Client_Details
             {
-                ClientID = vm.ClientID,
-                FirstName = vm.FirstName,
-                LastName = vm.LastName,
-                BirthData = vm.BirthData,
-                gender = vm.gender,
-                Email = vm.Email,
-                Password = vm.Password,
-                Picture = vm.Picture
+                ClientID = ClientID,
+                FirstName = FirstName,
+                LastName = LastName,
+                BirthData = BirthData,
+                gender = gender,
+                Email = Email,
+                Password = Password,
+                Picture = Picture
 
             };
         }

@@ -44,7 +44,7 @@ namespace CarRental.Controllers
         public ActionResult CloseTheDeal(DealViewModel dvm)
         {
 
-            Deal_Details dd = (Deal_Details)dvm;
+            Deal_Details dd = dvm.toBaseDateDetails();
 
             _employee.ReservationClosing(dd);
             return View();

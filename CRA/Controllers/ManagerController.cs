@@ -33,7 +33,7 @@ namespace CarRental.Controllers
 
         public ActionResult AddModel(CarModelViewModel cmvm)
         {
-            var originalModel = (Model_Details)cmvm;
+            var originalModel = cmvm.toBaseModelDetail();
             _manager.AddModel(originalModel);
 
             return RedirectToAction("Index");
@@ -41,14 +41,14 @@ namespace CarRental.Controllers
 
         public ActionResult UpdateModel(CarModelViewModel cmvm)
         {
-            var originalModel = (Model_Details)cmvm;
+            var originalModel = cmvm.toBaseModelDetail();
             _manager.UpdateModel(originalModel);
             return View();
         }
 
         public ActionResult DeleteModel(CarModelViewModel cmvm)
         {
-            var originalModel = (Model_Details)cmvm;
+            var originalModel = cmvm.toBaseModelDetail();
             _manager.DeleteModel(originalModel);
             return View();
         }
@@ -56,7 +56,7 @@ namespace CarRental.Controllers
         public ActionResult AddCar(CarViewModel cvm)
         {
 
-            var originalCar = (Car_Details)cvm;
+            var originalCar = cvm.toBaseCarDetails();
             _manager.AddCar(originalCar);
 
             return View();
@@ -64,14 +64,14 @@ namespace CarRental.Controllers
 
         public ActionResult UpdateCar(CarViewModel cvm)
         {
-            var originalCar = (Car_Details)cvm;
+            var originalCar = cvm.toBaseCarDetails();
             _manager.UpdateCar(originalCar);
             return View();
         }
 
         public ActionResult DeleteCar(CarViewModel cvm)
         {
-            var originalCar = (Car_Details)cvm;
+            var originalCar = cvm.toBaseCarDetails();
             _manager.DeleteCar(originalCar);
             return View();
         }
@@ -79,42 +79,42 @@ namespace CarRental.Controllers
 
         public ActionResult AddClient(ClientViewModel client)
         {
-            var originalClient = (Client_Details)client;
+            var originalClient = client.toBaseClient_Details();
             _manager.AddClient(originalClient);
             return View();
         }
 
         public ActionResult UpdateClient(ClientViewModel client)
         {
-            var originalClient = (Client_Details)client;
+            var originalClient = client.toBaseClient_Details();
             _manager.UpdateClient(originalClient);
             return View();
         }
 
         public ActionResult DeleteClient(ClientViewModel client)
         {
-            var originalClient = (Client_Details)client;
+            var originalClient = client.toBaseClient_Details();
             _manager.DeleteClient(originalClient);
             return View();
         }
 
         public ActionResult AddDeal(DealViewModel dvm)
         {
-            var originalDeal = (Deal_Details)dvm;
+            var originalDeal = dvm.toBaseDateDetails();
             _manager.AddReservation(originalDeal);
             return View();
         }
 
         public ActionResult UpdateDeal(DealViewModel dvm)
         {
-            var originalDeal = (Deal_Details)dvm;
+            var originalDeal = dvm.toBaseDateDetails();
             _manager.UpdateReservation(originalDeal);
             return View();
         }
 
         public ActionResult DeleteDeal(DealViewModel dvm)
         {
-            var originalDeal = (Deal_Details)dvm;
+            var originalDeal = dvm.toBaseDateDetails();
             _manager.DeleteReservation(originalDeal);
             return View();
         }

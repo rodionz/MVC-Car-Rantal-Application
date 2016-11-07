@@ -28,14 +28,14 @@ namespace CarRental.MVC.Models
 
 
 
-        public static implicit operator Branch_Details (BranchViewModel vm)
+        public  Branch_Details toBaseBranchDetails ()
         {
             return new Branch_Details
             {
-                BranchID = vm.BranchID,
-                BranchName = vm.BranchName,
-                City = vm.City,
-                District = vm.District
+                BranchID = BranchID,
+                BranchName = BranchName,
+                City = City,
+                District = District
             };
         }
 

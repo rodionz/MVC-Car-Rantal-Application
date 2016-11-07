@@ -25,16 +25,16 @@ namespace CarRental.MVC.Models
 
 
 
-        public static implicit operator Deal_Details(DealViewModel vm)
+        public  Deal_Details toBaseDateDetails ()
         {
             return new Deal_Details
             {
-                ID = vm.ID,
-                Start = vm.Start,
-                SupposedReturn = vm.SupposedReturn,
-                RealReturn = vm.RealReturn,
-                ClientID = vm.ClientID,
-                CarID = vm.CarID
+                ID = ID,
+                Start = Start,
+                SupposedReturn = SupposedReturn,
+                RealReturn = RealReturn,
+                ClientID = ClientID,
+                CarID = CarID
 
             };
         }
