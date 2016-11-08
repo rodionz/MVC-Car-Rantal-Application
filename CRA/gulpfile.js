@@ -13,5 +13,5 @@ var paths = {
 gulp.task("sass", function () {
     return gulp.src('Content/Sass/MainSass.scss')
             .pipe(sass())
-            .pipe(gulp.dest(paths.webroot + '/css'))
+            .pipe(gulp.dest(paths.webroot + '/css')) paths.webroot
 });
