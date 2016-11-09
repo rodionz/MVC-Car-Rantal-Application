@@ -138,7 +138,7 @@
     </Compile>
     <Compile Include="Models\BranchViewModel.cs" />
     <Compile Include="Models\CarViewModel.cs" />
-    <Compile Include="Models\ClientViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\DealViewModel.cs" />
     <Compile Include="Models\CarModelViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
