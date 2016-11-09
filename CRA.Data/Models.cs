@@ -11,7 +11,7 @@ namespace CarRental.Data
 
     public enum Gear {Automatic, Manual };
 
-   public class Model_Details
+   public class Model
     {
         [Key]
         public int ModelID { get; set; }

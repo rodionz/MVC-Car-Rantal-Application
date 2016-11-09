@@ -48,9 +48,9 @@ namespace CarRental.MVC.Models
        
 
 
-        public   Client_Details toBaseClient_Details()
+        public   User toBaseClient_Details()
         {
-            return new Client_Details
+            return new User
             {
                 ClientID = ClientID,
                 FirstName = FirstName,
@@ -66,7 +66,7 @@ namespace CarRental.MVC.Models
 
 
 
-        public ClientViewModel(Client_Details domainClieentDetails)
+        public ClientViewModel(User domainClieentDetails)
         {
 
             this.ClientID = domainClieentDetails.ClientID;

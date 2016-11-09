@@ -16,9 +16,9 @@ namespace CarRental.BL
 
 
 
-        public Deal_Details ReservationSearch(string carNum)
+        public Deal ReservationSearch(string carNum)
         {
-            Deal_Details dd;
+            Deal dd;
 
             using (var context = new CarRentalContext())
             {
@@ -30,7 +30,7 @@ namespace CarRental.BL
             return dd;
         }
 
-        public void ReservationClosing(Deal_Details dd)
+        public void ReservationClosing(Deal dd)
         {
             using (var context = new CarRentalContext())
             {

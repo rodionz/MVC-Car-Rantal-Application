@@ -62,9 +62,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CRA.Data\CarReantal.Data.csproj">
+    <ProjectReference Include="..\CRA.Data\CarRental.Data.csproj">
       <Project>{d37fab39-ca7b-40ac-adef-95d17b2ab644}</Project>
-      <Name>CarReantal.Data</Name>
+      <Name>CarRental.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

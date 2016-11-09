@@ -59,9 +59,9 @@
       <Project>{8d3e4f1a-ea57-45da-9293-5d5f149af8ab}</Project>
       <Name>CarRental.Dal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CRA.Data\CarReantal.Data.csproj">
+    <ProjectReference Include="..\CRA.Data\CarRental.Data.csproj">
       <Project>{d37fab39-ca7b-40ac-adef-95d17b2ab644}</Project>
-      <Name>CarReantal.Data</Name>
+      <Name>CarRental.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

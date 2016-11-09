@@ -14,7 +14,7 @@ namespace CarRental.BL
     {
 
       
-        public void AddModel(Model_Details model)
+        public void AddModel(Model model)
 
         {
             using (var context = new CarRentalContext())
@@ -25,7 +25,7 @@ namespace CarRental.BL
             }
         }
 
-        public void UpdateModel(Model_Details model)
+        public void UpdateModel(Model model)
         {
             using (var context = new CarRentalContext())
             {
@@ -35,7 +35,7 @@ namespace CarRental.BL
             }
         }
 
-        public void DeleteModel(Model_Details model)
+        public void DeleteModel(Model model)
         {
             using (var context = new CarRentalContext())
             {
@@ -47,7 +47,7 @@ namespace CarRental.BL
         }
 
 
-        public void AddCar(Car_Details car)
+        public void AddCar(Car car)
         {
             using (var context = new CarRentalContext())
             {
@@ -57,7 +57,7 @@ namespace CarRental.BL
             }
         }
 
-        public void UpdateCar(Car_Details car)
+        public void UpdateCar(Car car)
         {
             using (var context = new CarRentalContext())
             {
@@ -67,7 +67,7 @@ namespace CarRental.BL
             }
         }
 
-        public void DeleteCar(Car_Details car)
+        public void DeleteCar(Car car)
         {
             using (var context = new CarRentalContext())
             {
@@ -82,7 +82,7 @@ namespace CarRental.BL
 
 
 
-        public void AddClient(Client_Details client)
+        public void AddClient(User client)
         {
             using (var context = new CarRentalContext())
             {
@@ -92,7 +92,7 @@ namespace CarRental.BL
             }
         }
 
-        public void UpdateClient(Client_Details client)
+        public void UpdateClient(User client)
         {
             using (var context = new CarRentalContext())
             {
@@ -102,7 +102,7 @@ namespace CarRental.BL
             }
         }
 
-        public void DeleteClient(Client_Details client)
+        public void DeleteClient(User client)
         {
             using (var context = new CarRentalContext())
             {
@@ -116,7 +116,7 @@ namespace CarRental.BL
 
 
 
-        public void AddReservation(Deal_Details deal)
+        public void AddReservation(Deal deal)
         {
             using (var context = new CarRentalContext())
             {
@@ -126,7 +126,7 @@ namespace CarRental.BL
             }
         }
 
-        public void UpdateReservation(Deal_Details deal)
+        public void UpdateReservation(Deal deal)
         {
             using (var context = new CarRentalContext())
             {
@@ -137,7 +137,7 @@ namespace CarRental.BL
         }
 
 
-        public void DeleteReservation(Deal_Details deal)
+        public void DeleteReservation(Deal deal)
         {
             using (var context = new CarRentalContext())
             {

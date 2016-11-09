@@ -10,15 +10,15 @@ namespace CarRental.Dal
 {
    public class CarRentalContext : DbContext
     {
-        public virtual DbSet<Branch_Details> Branches { get; set; }
+        public virtual DbSet<Branch> Branches { get; set; }
 
-        public virtual DbSet<Car_Details> Cars { get; set; }
+        public virtual DbSet<Car> Cars { get; set; }
 
-        public virtual DbSet<Client_Details> Clients { get; set; }
+        public virtual DbSet<User> Clients { get; set; }
 
-        public virtual DbSet<Deal_Details> Deals { get; set; }
+        public virtual DbSet<Deal> Deals { get; set; }
 
-        public virtual DbSet<Model_Details> Models { get; set; }
+        public virtual DbSet<Model> Models { get; set; }
 
 
     }

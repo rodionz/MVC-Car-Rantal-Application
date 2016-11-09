@@ -28,7 +28,7 @@ namespace CarRental.Controllers
         }
 
 
-        public IEnumerable<CarViewModel> CarModelConvertor(IEnumerable<Car_Details> collection)
+        public IEnumerable<CarViewModel> CarModelConvertor(IEnumerable<Car> collection)
         {
             List<CarViewModel> convertedList = new List<CarViewModel>();
 

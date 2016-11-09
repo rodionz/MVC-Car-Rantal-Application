@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarReantal.Data", "CRA.Data\CarReantal.Data.csproj", "{D37FAB39-CA7B-40AC-ADEF-95D17B2AB644}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Data", "CRA.Data\CarRental.Data.csproj", "{D37FAB39-CA7B-40AC-ADEF-95D17B2AB644}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Dal", "CRA.Dal\CarRental.Dal.csproj", "{8D3E4F1A-EA57-45DA-9293-5D5F149AF8AB}"
 EndProject

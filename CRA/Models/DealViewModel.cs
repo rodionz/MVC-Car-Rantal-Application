@@ -25,9 +25,9 @@ namespace CarRental.MVC.Models
 
 
 
-        public  Deal_Details toBaseDateDetails ()
+        public  Deal toBaseDateDetails ()
         {
-            return new Deal_Details
+            return new Deal
             {
                 ID = ID,
                 Start = Start,
@@ -43,7 +43,7 @@ namespace CarRental.MVC.Models
 
 
 
-        public DealViewModel(Deal_Details domainDealDetails)
+        public DealViewModel(Deal domainDealDetails)
 
 
         {

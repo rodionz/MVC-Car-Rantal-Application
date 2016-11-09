@@ -34,9 +34,9 @@ namespace CarRental.MVC.Models
 
 
 
-        public  Model_Details toBaseModelDetail()
+        public  Model toBaseModelDetail()
         {
-            return new Model_Details
+            return new Model
             {
                 ModelID = ModelID,
                 Manufacturer = Manufacturer,
@@ -52,7 +52,7 @@ namespace CarRental.MVC.Models
 
 
 
-        public CarModelViewModel(Model_Details domainModelDetails)
+        public CarModelViewModel(Model domainModelDetails)
 
         {
             this.ModelID = domainModelDetails.ModelID;

@@ -30,9 +30,9 @@ namespace CarRental.MVC.Models
 
 
 
-        public  Car_Details toBaseCarDetails ()
+        public  Car toBaseCarDetails ()
         {
-            return new Car_Details
+            return new Car
             {
                 CarID = CarID,
                 Mileage = Mileage,
@@ -46,7 +46,7 @@ namespace CarRental.MVC.Models
             };
         }
 
-        public CarViewModel(Car_Details domainCarDetails)
+        public CarViewModel(Car domainCarDetails)
         {
             this.CarID = domainCarDetails.CarID;
 

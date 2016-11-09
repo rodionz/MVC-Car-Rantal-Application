@@ -11,9 +11,9 @@ namespace CarRental.BL
 {
    public class CustomerBL
     {
-        public IEnumerable<Car_Details> GetAllCars()
+        public IEnumerable<Car> GetAllCars()
         {
-            IEnumerable<Car_Details> allCars;
+            IEnumerable<Car> allCars;
 
             using (var context = new CarRentalContext())
             {
@@ -26,9 +26,9 @@ namespace CarRental.BL
             return allCars;
         }
 
-        public IEnumerable<Car_Details> SearchByGear (Gear g)
+        public IEnumerable<Car> SearchByGear (Gear g)
         {
-            IEnumerable<Car_Details> allCars;
+            IEnumerable<Car> allCars;
 
             using (var context = new CarRentalContext())
             {
@@ -44,9 +44,9 @@ namespace CarRental.BL
         }
 
 
-        public IEnumerable<Car_Details > SearchByManufacrurer (string manufac)
+        public IEnumerable<Car > SearchByManufacrurer (string manufac)
         {
-            IEnumerable<Car_Details> allCars;
+            IEnumerable<Car> allCars;
 
             using (var context = new Dal.CarRentalContext())
             {
@@ -62,9 +62,9 @@ namespace CarRental.BL
 
         }
 
-        public IEnumerable<Car_Details> SearchbyModel(string carModel)
+        public IEnumerable<Car> SearchbyModel(string carModel)
         {
-            IEnumerable<Car_Details> allCars;
+            IEnumerable<Car> allCars;
 
             using (var context = new Dal.CarRentalContext())
             {
@@ -81,12 +81,12 @@ namespace CarRental.BL
 
 
 
-        public IEnumerable<Car_Details> SearchbyFreeText(string text)
+        public IEnumerable<Car> SearchbyFreeText(string text)
         {
 
             if (!string.IsNullOrWhiteSpace(text))
             {
-                IEnumerable<Car_Details> allCars;
+                IEnumerable<Car> allCars;
 
                 using (var context = new Dal.CarRentalContext())
                 {
@@ -114,14 +114,14 @@ namespace CarRental.BL
            
         }
 
-        public IEnumerable<Car_Details> SearchbyDateRange (DateTime start, DateTime end)
+        public IEnumerable<Car> SearchbyDateRange (DateTime start, DateTime end)
         {
 
 
             return null;
         }
 
-        public void Confirmation(Deal_Details dd)
+        public void Confirmation(Deal dd)
         {
             using (var context = new Dal.CarRentalContext())
             {

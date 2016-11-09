@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Data
 {
-  public  class Branch_Details
+  public  class Branch
     {
         [Key]
         public int BranchID { get; set; }

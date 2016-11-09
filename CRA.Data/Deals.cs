@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Data
 {
-   public class Deal_Details
+   public class Deal
     {
         [Key]
         public int ID { get; set; }
@@ -20,11 +20,11 @@ namespace CarRental.Data
 
         public int? ClientID {get;set;}
 
-        public virtual Client_Details Client { get; set; }
+        public virtual User Client { get; set; }
 
         public int? CarID { get; set; }
 
-        public virtual Car_Details Car { get; set; }
+        public virtual Car Car { get; set; }
 
 
     }

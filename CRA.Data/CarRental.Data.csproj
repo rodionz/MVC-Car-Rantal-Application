@@ -49,12 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Branch_Details.cs" />
-    <Compile Include="Car_Details.cs" />
-    <Compile Include="Deal_Details.cs" />
-    <Compile Include="Model_Details.cs" />
+    <Compile Include="Branches.cs" />
+    <Compile Include="Cars.cs" />
+    <Compile Include="Deals.cs" />
+    <Compile Include="Models.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User_Details.cs" />
+    <Compile Include="Roles.cs" />
+    <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

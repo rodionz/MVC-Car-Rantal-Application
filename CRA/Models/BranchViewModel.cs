@@ -28,9 +28,9 @@ namespace CarRental.MVC.Models
 
 
 
-        public  Branch_Details toBaseBranchDetails ()
+        public  Branch toBaseBranchDetails ()
         {
-            return new Branch_Details
+            return new Branch
             {
                 BranchID = BranchID,
                 BranchName = BranchName,
@@ -42,7 +42,7 @@ namespace CarRental.MVC.Models
 
 
 
-        public BranchViewModel(Branch_Details domainBranch)
+        public BranchViewModel(Branch domainBranch)
         {
             this.BranchID = domainBranch.BranchID;
 

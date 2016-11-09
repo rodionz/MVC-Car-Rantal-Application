@@ -11,7 +11,7 @@ namespace CarRental.Data
 
     public enum Gender {Male, Female };
 
-   public class Client_Details
+   public class User
     {
         [Key]
         public int ClientID { get; set; }
