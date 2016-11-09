@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarRental.Data;
+using CRA.Data;
 
 namespace CarRental.Dal
 {
@@ -19,6 +20,8 @@ namespace CarRental.Dal
         public virtual DbSet<Deal> Deals { get; set; }
 
         public virtual DbSet<Model> Models { get; set; }
+
+        public virtual DbSet<Roles> Roles { get; set; }
 
 
     }

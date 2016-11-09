@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRA.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,6 +17,7 @@ namespace CarRental.Data
         [Key]
         public int ClientID { get; set; }
 
+       
 
         [Required]
         [StringLength(15)]      
@@ -43,6 +45,8 @@ namespace CarRental.Data
         [Column(TypeName = "image")]
         public byte?[] Picture { get; set; }
 
+
+        public ICollection<Roles> Roles { get; set; }
 
     }
 }

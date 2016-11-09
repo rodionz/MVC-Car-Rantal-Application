@@ -9,7 +9,7 @@ namespace CRA.Dal.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "CarRental.Dal.CarRentalContext";
         }
 
