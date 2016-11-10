@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace CarRent.Data
 {
-   public class Roles
+   public class CompanyRoles
     {
         [Key]
         public int RoleId { get; set; }
 
+        [Required]
         public string RoleName { get; set; }
 
-        public ICollection<User> users { get; set; }
+        public ICollection<User> Users { get; set; }
 
 
     }

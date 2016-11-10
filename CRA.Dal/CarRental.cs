@@ -15,13 +15,13 @@ namespace CarRental.Dal
 
         public virtual DbSet<Car> Cars { get; set; }
 
-        public virtual DbSet<User> Clients { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         public virtual DbSet<Deal> Deals { get; set; }
 
         public virtual DbSet<Model> Models { get; set; }
 
-        public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<CompanyRoles> CompanyRoles { get; set; }
 
 
     }

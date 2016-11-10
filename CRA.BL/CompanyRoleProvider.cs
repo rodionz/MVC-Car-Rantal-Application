@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarRent.Data;
+using CarRental.Dal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,17 +26,46 @@ namespace CarRent.BL
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
-            throw new NotImplementedException();
+            using (var context = new CarRentalContext())
+            {
+                foreach(string role in roleNames)
+                {
+                    var _role = context.CompanyRoles.Where(r => r.RoleName == role).FirstOrDefault();
+
+
+                    foreach(string user in usernames)
+                    {
+                        var _user = context.Users.Where(u => u.UserName == user).FirstOrDefault();
+
+                        _role.Users.Add(_user);
+                    }
+                    
+                }
+
+                context.SaveChanges();
+
+            }
         }
 
         public override void CreateRole(string roleName)
         {
-            throw new NotImplementedException();
+            using (var context = new CarRentalContext())
+            {
+                context.CompanyRoles.Add(new CompanyRoles() {RoleName = roleName });
+                context.SaveChanges();
+
+            }
         }
 
         public override bool DeleteRole(string roleName, bool throwOnPopulatedRole)
         {
-            throw new NotImplementedException();
+            using (var context = new CarRentalContext())
+            {
+                var roletoRemove = context.CompanyRoles.FirstOrDefault(r => r.RoleName == roleName);
+                context.CompanyRoles.Remove(roletoRemove);
+                context.SaveChanges();
+            }
+            return true;
         }
 
         public override string[] FindUsersInRole(string roleName, string usernameToMatch)
@@ -44,7 +75,13 @@ namespace CarRent.BL
 
         public override string[] GetAllRoles()
         {
-            throw new NotImplementedException();
+            using (var context = new CarRentalContext())
+            {
+
+                var allroles = context.CompanyRoles.Select(r => r.RoleName);
+
+                return allroles.ToArray();
+            }
         }
 
         public override string[] GetRolesForUser(string username)
@@ -69,7 +106,19 @@ namespace CarRent.BL
 
         public override bool RoleExists(string roleName)
         {
-            throw new NotImplementedException();
+            using (var context = new CarRentalContext())
+            {
+                var role = context.CompanyRoles.Select(r => r.RoleName).FirstOrDefault();
+
+                if (role == null)
+                {
+                    return false;
+                }
+
+                else
+                    return true;
+
+            }
         }
     }
 }
