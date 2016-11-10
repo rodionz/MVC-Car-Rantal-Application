@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarRent.Data
 {
-   public class CompanyRoles
+   public class Roles
     {
         [Key]
         public int RoleId { get; set; }

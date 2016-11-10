@@ -29,8 +29,7 @@ namespace CarRental.Data
         public string LastName { get; set; }
 
 
-        [Required]
-        [StringLength(30)]
+       
         public string UserName { get; set; }
 
         public DateTime? BirthData { get; set; }
@@ -51,7 +50,7 @@ namespace CarRental.Data
         public byte?[] Picture { get; set; }
 
 
-        public ICollection<CompanyRoles> Roles { get; set; }
+        public ICollection<Roles> Roles { get; set; }
 
     }
 }

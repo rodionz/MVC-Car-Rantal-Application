@@ -51,7 +51,7 @@ namespace CarRent.BL
         {
             using (var context = new CarRentalContext())
             {
-                context.CompanyRoles.Add(new CompanyRoles() {RoleName = roleName });
+                context.CompanyRoles.Add(new Data.Roles() { RoleName = roleName });
                 context.SaveChanges();
 
             }

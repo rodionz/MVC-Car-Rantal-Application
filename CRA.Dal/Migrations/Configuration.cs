@@ -10,6 +10,7 @@ namespace CarRent.Dal.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "CarRental.Dal.CarRentalContext";
         }
 

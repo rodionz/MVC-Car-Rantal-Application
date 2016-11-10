@@ -86,7 +86,7 @@ namespace CarRental.BL
         {
             using (var context = new CarRentalContext())
             {
-                context.Clients.Attach(client);
+                context.Users.Attach(client);
                 context.Entry(client).State = EntityState.Added;
                 context.SaveChanges();
             }
@@ -96,7 +96,7 @@ namespace CarRental.BL
         {
             using (var context = new CarRentalContext())
             {
-                context.Clients.Attach(client);
+                context.Users.Attach(client);
                 context.Entry(client).State = EntityState.Modified; 
                 context.SaveChanges();
             }
@@ -106,7 +106,7 @@ namespace CarRental.BL
         {
             using (var context = new CarRentalContext())
             {
-                context.Clients.Attach(client);
+                context.Users.Attach(client);
                 context.Entry(client).State = EntityState.Deleted;
                 context.SaveChanges();
             }

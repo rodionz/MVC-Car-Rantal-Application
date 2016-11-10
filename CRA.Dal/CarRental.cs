@@ -21,7 +21,7 @@ namespace CarRental.Dal
 
         public virtual DbSet<Model> Models { get; set; }
 
-        public virtual DbSet<CompanyRoles> CompanyRoles { get; set; }
+        public virtual DbSet<Roles> CompanyRoles { get; set; }
 
 
     }
