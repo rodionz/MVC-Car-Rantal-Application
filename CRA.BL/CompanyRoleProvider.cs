@@ -9,7 +9,7 @@ using System.Web.Security;
 
 namespace CarRent.BL
 {
-    class CompanyRoleProvider : RoleProvider
+  public  class CompanyRoleProvider : RoleProvider
     {
         public override string ApplicationName
         {
