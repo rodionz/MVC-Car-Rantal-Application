@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRA.Data
+namespace CarRent.Data
 {
    public class Roles
     {

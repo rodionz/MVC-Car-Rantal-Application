@@ -1,4 +1,4 @@
-namespace CRA.Dal.Migrations
+namespace CarRent.Dal.Migrations
 {
     using System;
     using System.Data.Entity;
