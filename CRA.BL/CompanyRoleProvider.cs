@@ -74,7 +74,18 @@ namespace CarRent.BL
 
         public override string[] FindUsersInRole(string roleName, string usernameToMatch)
         {
-            throw new NotImplementedException();
+
+            string[] matchingusers;
+
+            using (var context = new CarRentalContext())
+            {
+                matchingusers = context.CompanyRoles.Where(r => r.RoleName == roleName)
+                    .FirstOrDefault()
+                    .Users.Select(u => u.UserName).ToArray();
+                
+            }
+
+            return matchingusers;
         }
 
         public override string[] GetAllRoles()
