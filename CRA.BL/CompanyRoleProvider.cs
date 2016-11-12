@@ -11,6 +11,8 @@ namespace CarRent.BL
 {
   public  class CompanyRoleProvider : RoleProvider
     {
+
+
         public override string ApplicationName
         {
             get
@@ -23,6 +25,8 @@ namespace CarRent.BL
                 throw new NotImplementedException();
             }
         }
+
+
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
