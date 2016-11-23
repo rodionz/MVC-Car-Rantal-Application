@@ -215,6 +215,10 @@
       <Project>{4027683c-4997-42a9-9d50-37f27cc46ebc}</Project>
       <Name>CarRental.BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CRA.Dal\CarRental.Dal.csproj">
+      <Project>{8D3E4F1A-EA57-45DA-9293-5D5F149AF8AB}</Project>
+      <Name>CarRental.Dal</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CRA.Data\CarRental.Data.csproj">
       <Project>{D37FAB39-CA7B-40AC-ADEF-95D17B2AB644}</Project>
       <Name>CarRental.Data</Name>

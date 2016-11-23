@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using CarRental.BL;
 using CarRental.MVC.Models;
 using CarRental.Data;
+using CarRental.Dal;
 
 namespace CarRental.Controllers
 {
@@ -21,11 +22,11 @@ namespace CarRental.Controllers
 
 
 
-        public ActionResult Index()
-        {
+        //public ActionResult Index()
+        //{
 
-            return View();
-        }
+        //    return View();
+        //}
 
 
         public IEnumerable<CarViewModel> CarModelConvertor(IEnumerable<Car> collection)
@@ -41,7 +42,7 @@ namespace CarRental.Controllers
             return convertedList;
         }
 
-        public ActionResult GettAll()
+        public ActionResult Index()
         {
             var allCars = manager.GetAllCars();
 
@@ -76,6 +77,17 @@ namespace CarRental.Controllers
             var modelCars = CarModelConvertor(allCars);
 
             return View();
+        }
+
+        public ActionResult Image()
+        {
+            byte[] img;
+
+            using (var context = new CarRentalContext())
+            {
+                img = context.Cars.FirstOrDefault().Picture;
+            }
+                return File(img, "image/jpeg");
         }
     }
 }

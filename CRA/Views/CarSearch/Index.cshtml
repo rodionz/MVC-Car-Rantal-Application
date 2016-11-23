@@ -1,7 +1,16 @@
-﻿
+﻿@using CarRental.MVC.Models
+@model IEnumerable<CarViewModel>
+
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_layout.cshtml";
 }
 
 <h2>Car Search</h2>
+
+@foreach (var car in Model)
+{
+
+    <img src="@Url.Action("Image")" />
+}
