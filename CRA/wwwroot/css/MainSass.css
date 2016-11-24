@@ -13,3 +13,7 @@ footer {
 header, body, footer {
   margin-left: 2.5%;
   margin-right: 2.5%; }
+
+img{
+    width:600px;
+}
