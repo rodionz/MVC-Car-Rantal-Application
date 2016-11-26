@@ -197,6 +197,7 @@
     <Content Include="Views\Manager\Index.cshtml" />
     <Content Include="Views\CarSearch\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\SignUp.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

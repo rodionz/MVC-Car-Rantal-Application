@@ -32,7 +32,8 @@
                     }
                     else
                     {
-                        <span>Hello guest! @Html.ActionLink("Login", "Login", "Home")</span>
+                        <span>Hello guest! @Html.ActionLink("Please Login", "Login", "Home")</span>
+                        <span>@Html.ActionLink("or Sign Upn", "SignUp", "Home")</span>
                     }
 
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))

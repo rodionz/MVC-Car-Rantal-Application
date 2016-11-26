@@ -39,6 +39,20 @@ namespace CarRental.Controllers
             }
         }
 
+
+
+        public ActionResult SignUp()
+        {
+
+            return View();
+        }
+
+
+
+
+
+
+
         private bool Validate(LoginViewModel login)
         {
             return true;
