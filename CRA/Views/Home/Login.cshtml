@@ -1,8 +1,17 @@
-﻿
+﻿@using CarRental.Models
+@model LoginViewModel
+
+
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_layout.cshtml";
 }
 
 <h2>Login</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    @Html.EditorForModel()
+    <button type="submit">Login</button>
+}
 

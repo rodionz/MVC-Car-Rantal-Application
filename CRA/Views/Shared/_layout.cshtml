@@ -21,6 +21,26 @@
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <a href="/" class="navbar-brand" id="brand">Zodiac Car Rental</a>
+
+
+                <div style="float:left">
+                    @if (User.Identity.IsAuthenticated)
+            {
+                        <span>Hello @User.Identity.Name</span>
+                        <br />
+                        @Html.ActionLink("Sign out", "LogOff")
+                    }
+                    else
+                    {
+                        <span>Hello guest! @Html.ActionLink("Login", "Login", "Home")</span>
+                    }
+
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
+            {
+                        @Html.ActionLink("Managers only", "Index")
+                    }
+                </div>
+
                 <ul class="nav nav-pills navbar-right">
 
                     <li><a href="@Url.Action("Index","CarSearch")" >Search a Car</a></li>
