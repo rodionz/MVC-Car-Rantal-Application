@@ -19,12 +19,12 @@ namespace CarRental.Controllers
 
         public ActionResult Login()
         {
-            return View(new LoginViewModel());
+            return View(new LoginVM());
         }
 
 
         [HttpPost]
-        public ActionResult Login(LoginViewModel login)
+        public ActionResult Login(LoginVM login)
         {
 
             if (Validate(login))
@@ -53,7 +53,7 @@ namespace CarRental.Controllers
 
 
 
-        private bool Validate(LoginViewModel login)
+        private bool Validate(LoginVM login)
         {
             return true;
         }

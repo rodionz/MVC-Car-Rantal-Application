@@ -29,13 +29,13 @@ namespace CarRental.Controllers
         //}
 
 
-        public IEnumerable<CarViewModel> CarModelConvertor(IEnumerable<Car> collection)
+        public IEnumerable<CarVM> CarModelConvertor(IEnumerable<Car> collection)
         {
-            List<CarViewModel> convertedList = new List<CarViewModel>();
+            List<CarVM> convertedList = new List<CarVM>();
 
             foreach(var car in collection)
             {
-                convertedList.Add(new CarViewModel(car));
+                convertedList.Add(new CarVM(car));
 
             }
 

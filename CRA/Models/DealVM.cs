@@ -7,7 +7,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarRental.MVC.Models
 {
-    public class DealViewModel
+    public class DealVM
+
     {
 
      
@@ -43,7 +44,7 @@ namespace CarRental.MVC.Models
 
 
 
-        public DealViewModel(Deal domainDealDetails)
+        public DealVM(Deal domainDealDetails)
 
 
         {

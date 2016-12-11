@@ -10,7 +10,7 @@ namespace CarRental.MVC.Models
 
    
 
-    public class CarViewModel
+    public class CarVM
     {
        
         public int CarID { get; set; }
@@ -46,7 +46,7 @@ namespace CarRental.MVC.Models
             };
         }
 
-        public CarViewModel(Car domainCarDetails)
+        public CarVM(Car domainCarDetails)
         {
             this.CarID = domainCarDetails.CarID;
 

@@ -12,7 +12,7 @@ namespace CarRental.MVC.Models
     public enum ModelGear { Automatic, Manual };
 
 
-    public class CarModelViewModel
+    public class CarModelVM
     {
 
         
@@ -52,7 +52,7 @@ namespace CarRental.MVC.Models
 
 
 
-        public CarModelViewModel(Model domainModelDetails)
+        public CarModelVM(Model domainModelDetails)
 
         {
             this.ModelID = domainModelDetails.ModelID;
