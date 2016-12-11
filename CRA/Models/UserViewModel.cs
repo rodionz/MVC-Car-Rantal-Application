@@ -8,7 +8,7 @@ using CarRental.Data;
 
 namespace CarRental.MVC.Models
 {
-    public class ClientVM
+    public class ClientViewModel
     {
        
         public int ClientID { get; set; }
@@ -66,7 +66,7 @@ namespace CarRental.MVC.Models
 
 
 
-        public ClientVM(User domainClieentDetails)
+        public ClientViewModel(User domainClieentDetails)
         {
 
             this.ClientID = domainClieentDetails.ClientID;

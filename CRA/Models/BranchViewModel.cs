@@ -8,7 +8,7 @@ using CarRental.Data;
 
 namespace CarRental.MVC.Models
 {
-    public class BranchVM
+    public class BranchViewModel
     {
 
       
@@ -42,7 +42,7 @@ namespace CarRental.MVC.Models
 
 
 
-        public BranchVM(Branch domainBranch)
+        public BranchViewModel(Branch domainBranch)
         {
             this.BranchID = domainBranch.BranchID;
 

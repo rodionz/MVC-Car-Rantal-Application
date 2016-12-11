@@ -34,14 +34,14 @@ namespace CarRental.Controllers
 
             var domainModel = _employee.ReservationSearch(carNumber);
 
-            DealVM dvm = new DealVM(domainModel);
+            DealViewModel dvm = new DealViewModel(domainModel);
 
             return View(dvm);
 
         }
 
 
-        public ActionResult CloseTheDeal(DealVM dvm)
+        public ActionResult CloseTheDeal(DealViewModel dvm)
         {
 
             Deal dd = dvm.toBaseDateDetails();

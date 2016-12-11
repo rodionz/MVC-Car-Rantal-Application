@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CarRental.Models
 {
-    public class LoginVM
+    public class LoginViewModel
     {
         public string Username { get; set; }
         public string Password { get; set; }

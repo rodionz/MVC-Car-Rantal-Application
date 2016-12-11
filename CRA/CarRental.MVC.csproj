@@ -176,12 +176,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BranchVM.cs" />
-    <Compile Include="Models\CarVM.cs" />
-    <Compile Include="Models\UserVM.cs" />
-    <Compile Include="Models\DealVM.cs" />
-    <Compile Include="Models\CarModelVM.cs" />
-    <Compile Include="Models\LoginVM.cs" />
+    <Compile Include="Models\BranchViewModel.cs" />
+    <Compile Include="Models\CarViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Models\DealViewModel.cs" />
+    <Compile Include="Models\CarModelViewModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
