@@ -22,18 +22,13 @@ namespace CarRental.Controllers
 
 
 
-        //public ActionResult Index()
-        //{
-
-        //    return View();
-        //}
 
 
         public IEnumerable<CarViewModel> CarModelConvertor(IEnumerable<Car> collection)
         {
             List<CarViewModel> convertedList = new List<CarViewModel>();
 
-            foreach(var car in collection)
+            foreach (var car in collection)
             {
                 convertedList.Add(new CarViewModel(car));
 
@@ -46,7 +41,7 @@ namespace CarRental.Controllers
         {
             var allCars = manager.GetAllCars();
 
-            var modelCars = CarModelConvertor(allCars);
+            var modelCars = allCars.Select(c => new CarViewModel(c));
 
             return View(modelCars);
         }

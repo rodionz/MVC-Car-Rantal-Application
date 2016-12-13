@@ -1,4 +1,5 @@
 ﻿@using CarRental.MVC.Models
+
 @model IEnumerable<CarViewModel>
 
 
@@ -8,9 +9,14 @@
 }
 
 <h2>Car Search</h2>
+<main>
+    <ul>
+        @foreach (var car in Model)
+        {
+            <li>
+                @Html.Partial("SingleCarPartialView", car);
+            </li>
+        }
+        </ul>
 
-@foreach (var car in Model)
-{
-
-    <img src="@Url.Action("Image")" />
-}
+</main>
