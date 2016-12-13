@@ -24,18 +24,6 @@ namespace CarRental.Controllers
 
 
 
-        public IEnumerable<CarViewModel> CarModelConvertor(IEnumerable<Car> collection)
-        {
-            List<CarViewModel> convertedList = new List<CarViewModel>();
-
-            foreach (var car in collection)
-            {
-                convertedList.Add(new CarViewModel(car));
-
-            }
-
-            return convertedList;
-        }
 
         public ActionResult Index()
         {
@@ -59,7 +47,7 @@ namespace CarRental.Controllers
         {
             var allCars = manager.SearchByManufacrurer(manuf);
 
-            var modelCars = CarModelConvertor(allCars);
+            var modelCars = allCars.Select(c => new CarViewModel(c));
 
             return View();
 
@@ -69,7 +57,7 @@ namespace CarRental.Controllers
         {
             var allCars = manager.SearchbyFreeText(text);
 
-            var modelCars = CarModelConvertor(allCars);
+            var modelCars = allCars.Select(c => new CarViewModel(c));
 
             return View();
         }
