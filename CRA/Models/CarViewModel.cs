@@ -19,7 +19,7 @@ namespace CarRental.MVC.Models
        
         public byte[] Picture { get; set; }
 
-        public bool ProperState { get; set; }
+      
 
         public string CarNumber { get; set; }
 
@@ -37,7 +37,7 @@ namespace CarRental.MVC.Models
                 CarID = CarID,
                 Mileage = Mileage,
                 Picture = Picture,
-                ProperState = ProperState,
+               
                 CarNumber = CarNumber,
                 BranchID = BranchID,
                 ModelID = ModelID
@@ -54,7 +54,7 @@ namespace CarRental.MVC.Models
 
             this.Picture = domainCarDetails.Picture;
 
-            this.ProperState = domainCarDetails.ProperState;
+            
 
             this.CarNumber = domainCarDetails.CarNumber;
 

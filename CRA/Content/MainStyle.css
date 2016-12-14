@@ -4,13 +4,13 @@ body {
     
 }
 
+
+main{
+    margin-bottom: 30px;
+}
+
 footer{
   color: white;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
   background-color: #1a8cff;
   margin-top: 30px;
 }
@@ -21,5 +21,5 @@ header, body, footer
     margin-right: 2.5%;
 }
 img{
-    width:600px;
+    width:100px;
 }
