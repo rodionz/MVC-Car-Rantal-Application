@@ -7,6 +7,7 @@ using CarRental.BL;
 using CarRental.MVC.Models;
 using CarRental.Data;
 using CarRental.Dal;
+using CRA.BL;
 
 namespace CarRental.Controllers
 {
@@ -14,10 +15,13 @@ namespace CarRental.Controllers
     {
         private readonly CustomerBL manager;
 
+        private readonly GuestBL guest;
+
         public CarSearchController()
         {
 
             manager = new CustomerBL();
+            guest = new GuestBL();
         }
 
 
@@ -62,15 +66,16 @@ namespace CarRental.Controllers
             return View();
         }
 
-        public ActionResult Image()
-        {
-            byte[] img;
 
-            using (var context = new CarRentalContext())
-            {
-                img = context.Cars.FirstOrDefault().Picture;
-            }
-                return File(img, "image/jpeg");
+       
+        public ActionResult GetImage(int modelNum)
+        {
+            
+                var image = guest.GetImage(modelNum);
+
+                return File(image, "image/jpeg");
+           
+          
         }
     }
 }

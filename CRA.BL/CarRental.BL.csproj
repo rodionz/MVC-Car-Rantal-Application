@@ -55,6 +55,7 @@
     <Compile Include="CompanyRoleProvider.cs" />
     <Compile Include="CustomerBL.cs" />
     <Compile Include="EmployeeBL.cs" />
+    <Compile Include="GuestBL.cs" />
     <Compile Include="ManagerBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

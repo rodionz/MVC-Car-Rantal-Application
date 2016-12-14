@@ -35,12 +35,11 @@ namespace CarRental.MVC.Models
             return new Car
             {
                 CarID = CarID,
-                Mileage = Mileage,
-                Picture = Picture,
-               
+                Mileage = Mileage,                             
                 CarNumber = CarNumber,
                 BranchID = BranchID,
-                ModelID = ModelID
+                ModelID = ModelID,
+                Picture = Picture
 
 
             };
@@ -52,8 +51,8 @@ namespace CarRental.MVC.Models
 
             this.Mileage = domainCarDetails.Mileage;
 
-            this.Picture = domainCarDetails.Picture;
 
+            this.Picture = domainCarDetails.Picture;
             
 
             this.CarNumber = domainCarDetails.CarNumber;

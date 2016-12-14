@@ -14,7 +14,11 @@
         @foreach (var car in Model)
         {
             <li>
-                @Html.Partial("SingleCarPartialView", car);
+           
+                  @Html.Partial("SingleCarPartialView", car);
+                  <img src="@Url.Action("GetImage", new {id = car.ModelID })" />
+               
+              
             </li>
         }
         </ul>
