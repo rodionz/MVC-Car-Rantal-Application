@@ -68,10 +68,10 @@ namespace CarRental.Controllers
 
 
        
-        public ActionResult GetImage(int modelNum)
+        public ActionResult GetImage(int id)
         {
             
-                var image = guest.GetImage(modelNum);
+                var image = guest.GetImage(id);
 
                 return File(image, "image/jpeg");
            
