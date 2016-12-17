@@ -10,6 +10,24 @@
 
 <h2>Car Search</h2>
 <main>
+
+    <select name="transmission">
+        <option value="0">Manual</option>
+        <option value="1">Automatic</option>
+    </select>
+
+    <br />
+    <select name="manufacturer">
+
+    </select>
+    <br />
+    <select name="model"></select>
+    <br />
+    <input type="search" placeholder="search" />
+    <br />
+    <input type="datetime" />
+    <br />
+    
     <ul>
         @foreach (var car in Model)
         {
