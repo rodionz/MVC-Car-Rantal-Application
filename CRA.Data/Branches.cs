@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Types;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace CarRental.Data
 {
@@ -21,7 +23,7 @@ namespace CarRental.Data
         [StringLength(15)]
         public string District { get; set; }
 
-        //Location
+        public SqlGeography Location { get; set; }
 
     }
 }
