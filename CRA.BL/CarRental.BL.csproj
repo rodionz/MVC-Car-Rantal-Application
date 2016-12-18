@@ -7,8 +7,8 @@
     <ProjectGuid>{4027683C-4997-42A9-9D50-37F27CC46EBC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CRA.BL</RootNamespace>
-    <AssemblyName>CRA.BL</AssemblyName>
+    <RootNamespace>CarRental.BL</RootNamespace>
+    <AssemblyName>CarRental.BL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

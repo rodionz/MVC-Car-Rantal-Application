@@ -7,8 +7,8 @@
     <ProjectGuid>{8D3E4F1A-EA57-45DA-9293-5D5F149AF8AB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CRA.Dal</RootNamespace>
-    <AssemblyName>CRA.Dal</AssemblyName>
+    <RootNamespace>CarRental.Dal</RootNamespace>
+    <AssemblyName>CarRental.Dal</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
