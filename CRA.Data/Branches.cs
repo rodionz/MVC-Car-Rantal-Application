@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Spatial;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace CarRental.Data
         [StringLength(15)]
         public string District { get; set; }
 
-        public SqlGeography Location { get; set; }
+        public DbGeography Location { get; set; }
 
     }
 }
