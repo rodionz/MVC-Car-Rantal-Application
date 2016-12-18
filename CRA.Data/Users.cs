@@ -38,6 +38,7 @@ namespace CarRental.Data
         public Gender gender { get; set; }
 
         [Required]
+        [EmailAddress]
         [StringLength(30)]      
         public string Email { get; set; }
 
