@@ -17,7 +17,7 @@ namespace CarRental.MVC.Models
 
         public double? Mileage { get; set; }
        
-        public byte[] Picture { get; set; }
+ 
 
       
 
@@ -39,7 +39,7 @@ namespace CarRental.MVC.Models
                 CarNumber = CarNumber,
                 BranchID = BranchID,
                 ModelID = ModelID,
-                Picture = Picture
+             
 
 
             };
@@ -52,7 +52,6 @@ namespace CarRental.MVC.Models
             this.Mileage = domainCarDetails.Mileage;
 
 
-            this.Picture = domainCarDetails.Picture;
             
 
             this.CarNumber = domainCarDetails.CarNumber;

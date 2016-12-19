@@ -8,8 +8,46 @@
     Layout = "~/Views/Shared/_layout.cshtml";
 }
 
+<script>
+
+    $(function () {
+
+        var GetAllCars = function (url) {
+            $.getJSON(url, function (data) {
+
+                allcars = data;
+
+              
+
+                for(let car of data)
+                {
+                    let result = ("<li>" + 'CarID: ' + car.CarID + '</br>'
+                        + 'Milliage: ' + car.Mileage + '</br>'
+                        + 'Car Number: ' + car.CarNumber + "</li></br></br></br>")
+                    
+
+                @*var dataID = data.ModelID;
+               var imgSource = '@Url.Action("GetImage")'
+                var img = $.get(imgSource, { id: data.ModelID })
+                    .done(function (data) {
+                        $('.carlist').append(result);
+                    })*@
+
+                    $('.carlist').append(result);
+                }
+            })
+
+        }
+
+        var allcarslink = '@Url.Action("GettAllCars", "CarSearch")';
+        GetAllCars(allcarslink);
+    });
+</script>
+
 <h2>Car Search</h2>
 <main>
+   
+
 
     <select name="transmission">
         <option value="0">Manual</option>
@@ -28,8 +66,8 @@
     <input type="datetime" />
     <br />
     
-    <ul>
-        @foreach (var car in Model)
+    <ul class="list-group carlist">
+        @*@foreach (var car in Model)
         {
             <li>
            
@@ -38,7 +76,7 @@
                
               
             </li>
-        }
+        }*@
         </ul>
 
 </main>

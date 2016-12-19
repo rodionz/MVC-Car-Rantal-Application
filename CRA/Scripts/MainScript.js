@@ -1,1 +1,8 @@
-﻿
+﻿$(function () {
+
+
+
+})
+
+
+var getImage = 

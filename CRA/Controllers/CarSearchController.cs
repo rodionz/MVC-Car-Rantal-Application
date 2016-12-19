@@ -31,13 +31,19 @@ namespace CarRental.Controllers
 
         public ActionResult Index()
         {
+           
+
+            return View();
+        }
+
+        public ActionResult GettAllCars()
+        {
             var allCars = manager.GetAllCars();
 
             var modelCars = allCars.Select(c => new CarViewModel(c));
 
-            return View(modelCars);
+            return Json(modelCars, JsonRequestBehavior.AllowGet);
         }
-
 
         //public ActionResult SearchbyGear(Gear gear)
         //{
