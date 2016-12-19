@@ -23,6 +23,7 @@ namespace CarRental.Dal
 
         public virtual DbSet<Roles> CompanyRoles { get; set; }
 
+        public virtual DbSet<Manufacturers> Manufacturer { get; set; }
 
     }
 }
