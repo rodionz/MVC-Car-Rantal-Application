@@ -29,7 +29,7 @@ namespace CarRental.Data
         public string LastName { get; set; }
 
 
-       
+        [StringLength(15)]
         public string UserName { get; set; }
 
         public DateTime? BirthData { get; set; }
