@@ -47,7 +47,7 @@ namespace CarRental.Controllers
         //}
 
 
-        public ActionResult ManufacturerSearch(string manuf)
+        public ActionResult ManufacturerSearch(int manuf)
         {
             var allCars = manager.SearchByManufacrurer(manuf);
 

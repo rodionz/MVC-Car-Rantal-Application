@@ -19,7 +19,7 @@ namespace CarRental.MVC.Models
         public int ModelID { get; set; }
 
        
-        public string Manufacturer { get; set; }
+        public int Manufacturer { get; set; }
 
         
         public string NameofModel { get; set; }

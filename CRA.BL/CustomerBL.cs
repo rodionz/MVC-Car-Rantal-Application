@@ -44,7 +44,7 @@ namespace CarRental.BL
         }
 
 
-        public IEnumerable<Car > SearchByManufacrurer (string manufac)
+        public IEnumerable<Car > SearchByManufacrurer (int manufac)
         {
             IEnumerable<Car> allCars;
 
@@ -61,6 +61,7 @@ namespace CarRental.BL
 
 
         }
+
 
         public IEnumerable<Car> SearchbyModel(string carModel)
         {
@@ -94,7 +95,7 @@ namespace CarRental.BL
                               .Include(c => c.Model)
                               .Include(p => p.Branch)
                               where car.Model.NameofModel.ToLower().Contains(text.ToLower()) ||
-                              car.Model.Manufacturer.ToLower().Contains(text.ToLower()) ||
+                              //car.Model.Manufacturer.ToLower().Contains(text.ToLower()) ||
                               car.Model.gear.ToString().ToLower().Contains(text.ToLower()) ||
                               car.Model.DailyPrice.ToString().Contains(text.ToLower()) ||
                               car.Branch.City.ToLower().Contains(text.ToLower()) ||

@@ -11,9 +11,7 @@ namespace CarRental.Data
         public int ID { get; set; }
 
         public string Manufacturer { get; set; }
-
-        public int ModelId { get; set; }
-
+       
         public ICollection<Model> Models {get; set;}
     }
 }
