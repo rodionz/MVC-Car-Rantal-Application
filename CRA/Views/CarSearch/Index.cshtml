@@ -26,14 +26,17 @@
                         + 'Car Number: ' + car.CarNumber + "</li></br></br></br>")
                     
 
-                @*var dataID = data.ModelID;
-               var imgSource = '@Url.Action("GetImage")'
-                var img = $.get(imgSource, { id: data.ModelID })
-                    .done(function (data) {
-                        $('.carlist').append(result);
+                    var dataID = data.ModelID;
+                    $('.carlist').append(result);
+
+
+                    @*var imgSource = '@Url.Action("GetImage")'
+                    img.src = $.get(imgSource, { carId: car.ModelID })
+                    .done(function (data) {                                                                                        
+                       $('.carlist').append(data);
                     })*@
 
-                    $('.carlist').append(result);
+                   
                 }
             })
 
@@ -67,16 +70,7 @@
     <br />
     
     <ul class="list-group carlist">
-        @*@foreach (var car in Model)
-        {
-            <li>
-           
-                  @Html.Partial("SingleCarPartialView", car);
-                  <img src="@Url.Action("GetImage", new {id = car.ModelID })" />
-               
-              
-            </li>
-        }*@
+     
         </ul>
 
 </main>

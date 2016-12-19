@@ -179,6 +179,7 @@
     </Compile>
     <Compile Include="Models\BranchViewModel.cs" />
     <Compile Include="Models\CarViewModel.cs" />
+    <Compile Include="Models\HelpViewModel.cs" />
     <Compile Include="Models\ManufactorerViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\DealViewModel.cs" />

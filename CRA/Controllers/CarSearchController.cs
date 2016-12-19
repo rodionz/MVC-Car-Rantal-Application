@@ -8,6 +8,7 @@ using CarRental.MVC.Models;
 using CarRental.Data;
 using CarRental.Dal;
 using CRA.BL;
+using CarRental.Models;
 
 namespace CarRental.Controllers
 {
@@ -74,10 +75,10 @@ namespace CarRental.Controllers
 
 
        
-        public ActionResult GetImage(int id)
+        public ActionResult GetImage(HelpViewModel hvm)
         {
             
-                var image = guest.GetImage(id);
+                var image = guest.GetImage(hvm.carId);
 
                 return File(image, "image/jpeg");
            
