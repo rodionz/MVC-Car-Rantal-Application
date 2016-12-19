@@ -52,7 +52,7 @@ namespace CarRental.BL
             {
                 allCars = from car in context.Cars.Include(c => c.Model)
                           where car.ProperState == true
-                          where car.Model.Manufacturer == manufac
+                          where car.Model.ManufacturerId == manufac
                           orderby car.Model descending
                           select car;
             }

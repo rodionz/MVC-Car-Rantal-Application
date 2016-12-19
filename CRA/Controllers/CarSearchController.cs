@@ -43,6 +43,8 @@ namespace CarRental.Controllers
 
             var modelCars = allCars.Select(c => new CarViewModel(c));
 
+          
+
             return Json(modelCars, JsonRequestBehavior.AllowGet);
         }
 
@@ -75,10 +77,10 @@ namespace CarRental.Controllers
 
 
        
-        public ActionResult GetImage(HelpViewModel hvm)
+        public ActionResult GetImage(int ModelID)
         {
             
-                var image = guest.GetImage(hvm.carId);
+                var image = guest.GetImage(ModelID);
 
                 return File(image, "image/jpeg");
            

@@ -24,20 +24,28 @@
                     let result = ("<li>" + 'CarID: ' + car.CarID + '</br>'
                         + 'Milliage: ' + car.Mileage + '</br>'
                         + 'Car Number: ' + car.CarNumber + "</li></br></br></br>")
+                
                     
+                    var imgSource = '@Url.Action("GetImage")'
+                    var img = $('<img/>').attr('src', imgSource + "/" + car.ModelID)
+                    .on('load', function () {
+                       $('.carlist').append(img)
+                    });
 
-                    var dataID = data.ModelID;
+
+                                 
+                 
+                      
+                   
+
+
                     $('.carlist').append(result);
 
 
-                    @*var imgSource = '@Url.Action("GetImage")'
-                    img.src = $.get(imgSource, { carId: car.ModelID })
-                    .done(function (data) {                                                                                        
-                       $('.carlist').append(data);
-                    })*@
+            
 
                    
-                }
+            }
             })
 
         }

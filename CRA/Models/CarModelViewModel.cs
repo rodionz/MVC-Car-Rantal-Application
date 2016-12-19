@@ -39,7 +39,7 @@ namespace CarRental.MVC.Models
             return new Model
             {
                 ModelID = ModelID,
-                Manufacturer = Manufacturer,
+                ManufacturerId = Manufacturer,
                 NameofModel = NameofModel,
                 DailyPrice = DailyPrice,
                 LateReturnFine = LateReturnFine,
@@ -57,7 +57,7 @@ namespace CarRental.MVC.Models
         {
             this.ModelID = domainModelDetails.ModelID;
 
-            this.Manufacturer = domainModelDetails.Manufacturer;
+            this.Manufacturer = domainModelDetails.ManufacturerId;
 
             this.NameofModel = domainModelDetails.NameofModel
                 ;
