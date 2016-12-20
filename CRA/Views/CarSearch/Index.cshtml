@@ -34,18 +34,16 @@
 
     <br />
 
-    @{ 
-        IEnumerable<SelectListItem> modelsList = ViewBag.model;
-
-       IEnumerable<SelectListItem> manufacturerList = ViewBag.man;
-    }
+    
     
     <br />
 
 
     @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model,"Select by Model");
     <br />
-    @Html.DropDownList("man", (IEnumerable<SelectListItem>)ViewBag.man, "Search by manufacturer");
+    <br />
+    @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, "Search by manufacturer");
+    <br />
     <br />
     <input type="search" placeholder="search" />
     <br />

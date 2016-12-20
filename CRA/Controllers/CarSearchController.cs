@@ -62,7 +62,7 @@ namespace CarRental.Controllers
 
             ViewBag.model = modelsItems;
 
-            ViewBag.man = manufacturersItems;
+            ViewBag.manufac = manufacturersItems;
 
 
 
