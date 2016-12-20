@@ -1,4 +1,6 @@
 ﻿using CarRental.Models;
+using CarRental.MVC.Models;
+using CRA.BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,28 @@ namespace CarRental.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly GuestBL guest;
+
+        internal  IEnumerable <CarModelViewModel> allmodels;
+
+        internal   IEnumerable <ManufactorerViewModel> allManufacturers;
+
+
+        public HomeController()
+        {
+            guest = new GuestBL();
+
+            allmodels = guest.GettAllModels().Select(c => new CarModelViewModel(c));
+
+            allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
+
+        }
+            
+
+
+
+
         // GET: Home
         public ActionResult Index()
         {

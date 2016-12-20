@@ -77,10 +77,10 @@ namespace CarRental.Controllers
 
 
        
-        public ActionResult GetImage(int ModelID)
+        public ActionResult GetImage(HelpViewModel hvm)
         {
             
-                var image = guest.GetImage(ModelID);
+                var image = guest.GetImage(hvm.modelId);
 
                 return File(image, "image/jpeg");
            

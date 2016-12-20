@@ -27,13 +27,14 @@
                 
                     
                     var imgSource = '@Url.Action("GetImage")'
-                    var img = $('<img/>').attr('src', imgSource + "/" + car.ModelID)
+                    var img = $('<img/>').attr('src', $.get(imgSource, { modelId: car.ModelID }))
                     .on('load', function () {
                        $('.carlist').append(img)
                     });
 
 
-                                 
+               
+                  $.get(imgSource, { id: data.ModelID })
                  
                       
                    

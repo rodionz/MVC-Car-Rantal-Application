@@ -7,6 +7,6 @@ namespace CarRental.Models
 {
     public class HelpViewModel
     {
-        public int carId { get; set; }
+        public int modelId { get; set; }
     }
 }
