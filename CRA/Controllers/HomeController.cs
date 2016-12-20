@@ -28,6 +28,10 @@ namespace CarRental.Controllers
 
             allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
 
+            ViewBag.models = allmodels;
+
+            ViewBag.manufacturers = allManufacturers;
+
         }
             
 
