@@ -2,5 +2,14 @@
 @model CarViewModel
  
 
-@Html.DisplayForModel()
+@Html.LabelFor(m => m.CarID)
+@Html.DisplayFor(m => m.CarID)
+<br />
+@Html.LabelFor(m => m.Mileage)
+@Html.DisplayFor(m => m.Mileage)
+<br />
+@Html.LabelFor(m => m.CarNumber)
+@Html.DisplayFor(m => m.CarNumber)
+<br />
+<br />
 

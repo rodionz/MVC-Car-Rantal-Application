@@ -30,14 +30,14 @@ namespace CarRental.Controllers
 
 
 
-        public ActionResult Index()
-        {
+        //public ActionResult Index()
+        //{
            
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        public ActionResult GettAllCars()
+        public ActionResult Index()
         {
             var allCars = manager.GetAllCars();
 
@@ -45,7 +45,7 @@ namespace CarRental.Controllers
 
           
 
-            return Json(modelCars, JsonRequestBehavior.AllowGet);
+            return View(modelCars);
         }
 
         //public ActionResult SearchbyGear(Gear gear)
@@ -77,10 +77,10 @@ namespace CarRental.Controllers
 
 
        
-        public ActionResult GetImage(HelpViewModel hvm)
+        public ActionResult GetImage(int id)
         {
             
-                var image = guest.GetImage(hvm.modelId);
+                var image = guest.GetImage(id);
 
                 return File(image, "image/jpeg");
            
