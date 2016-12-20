@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using CarRental.Data;
+using System.Web.Mvc;
 
 namespace CarRental.MVC.Models
 {
@@ -69,6 +70,17 @@ namespace CarRental.MVC.Models
         //TODO
               this.gear = (ModelGear)domainModelDetails.gear;
     }
+
+
+
+
+        //public static IEnumerable<SelectListItem> _listofModels;
+
+        //public static IEnumerable<SelectListItem> listofModels
+        //{
+        //    get {return new SelectListItem }
+
+        //}
 
     }
 }

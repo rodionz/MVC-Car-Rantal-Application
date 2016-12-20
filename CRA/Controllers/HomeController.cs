@@ -15,22 +15,14 @@ namespace CarRental.Controllers
 
         private readonly GuestBL guest;
 
-        internal static IEnumerable <CarModelViewModel> allmodels;
-
-        internal static  IEnumerable <ManufactorerViewModel> allManufacturers;
+       
 
 
         public HomeController()
         {
             guest = new GuestBL();
 
-            allmodels = guest.GettAllModels().Select(c => new CarModelViewModel(c));
-
-            allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
-
-            ViewBag.models = allmodels;
-
-            ViewBag.manufacturers = allManufacturers;
+           
 
         }
             

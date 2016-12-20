@@ -18,6 +18,12 @@ namespace CarRental.Controllers
 
         private readonly GuestBL guest;
 
+        internal static IEnumerable<CarModelViewModel> allmodels;
+
+        internal static IEnumerable<ManufactorerViewModel> allManufacturers;
+
+
+
         public CarSearchController()
         {
 
@@ -33,7 +39,35 @@ namespace CarRental.Controllers
 
             var modelCars = allCars.Select(c => new CarViewModel(c));
 
-          
+
+           
+
+            allmodels = guest.GettAllModels().Select(c => new CarModelViewModel(c));
+
+            allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
+
+            List<SelectListItem> modelsItems = new List<SelectListItem>();
+
+            List<SelectListItem> manufacturersItems = new List<SelectListItem>();
+
+            foreach (var model in allmodels)
+            {
+                modelsItems.Add(new SelectListItem { Text = model.NameofModel, Value = model.ModelID.ToString() });
+            }
+
+            foreach (var man in allManufacturers)
+            {
+                manufacturersItems.Add(new SelectListItem { Text = man.Manufacturer, Value = man.ID.ToString() });
+            }
+
+            ViewBag.model = modelsItems;
+
+            ViewBag.man = manufacturersItems;
+
+
+
+
+
 
             return View(modelCars);
         }
@@ -43,9 +77,9 @@ namespace CarRental.Controllers
         {
             var helper = new HelpViewModel();
 
-            helper.carManufacturers = HomeController.allManufacturers;
+            helper.carManufacturers = allManufacturers;
 
-            helper.carModels = HomeController.allmodels;
+            helper.carModels = allmodels;
 
             return Json(helper, JsonRequestBehavior.AllowGet);
         }
