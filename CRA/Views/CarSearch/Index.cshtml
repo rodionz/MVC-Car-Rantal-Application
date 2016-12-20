@@ -9,14 +9,17 @@
 }
 <script src="~/Scripts/jquery-3.1.1.js"></script>
 <script>
-
-    var helperUrl = '@Url.Action("HelpAjax")';
     
-    $.getJSON(helperUrl, function (data) {
+    $(function () {
+        var helperUrl = '@Url.Action("HelpAjax")';
 
-        console.log(data);
-    })
-  
+        var result;
+
+     $.getJSON(helperUrl, function (data) {
+         result = data;
+         console.log(result);
+        });
+    });
 </script>
 
 <h2>Car Search</h2>

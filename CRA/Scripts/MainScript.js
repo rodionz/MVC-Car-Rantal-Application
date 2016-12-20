@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿//$(function () {
      //$(function () {
 
      //     var GetAllCars = function (url) {
@@ -45,6 +45,6 @@
      // });
 
 
-})
+//})
 
 

@@ -10,8 +10,8 @@ namespace CarRental.Models
     {
         public int modelId { get; set; }
 
-        internal IEnumerable<CarModelViewModel> carModels {get;set;}
+       public IEnumerable<CarModelViewModel> carModels {get;set;}
 
-        internal IEnumerable<ManufactorerViewModel> carManufacturers { get; set; }
+        public IEnumerable<ManufactorerViewModel> carManufacturers { get; set; }
     }
 }
