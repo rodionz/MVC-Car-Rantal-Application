@@ -27,19 +27,9 @@ namespace CarRental.Controllers
 
 
 
-
-
-
-        //public ActionResult Index()
-        //{
-           
-
-        //    return View();
-        //}
-
         public ActionResult Index()
         {
-            var allCars = manager.GetAllCars();
+            var allCars = guest.GetAllCars();
 
             var modelCars = allCars.Select(c => new CarViewModel(c));
 

@@ -11,20 +11,7 @@ namespace CarRental.BL
 {
    public class CustomerBL
     {
-        public IEnumerable<Car> GetAllCars()
-        {
-            IEnumerable<Car> allCars;
-
-            using (var context = new CarRentalContext())
-            {
-                allCars = (from car in context.Cars
-                          where car.ProperState == true
-                          orderby car.Model.NameofModel descending
-                          select car).ToArray();
-            }
-
-            return allCars;
-        }
+     
 
         public IEnumerable<Car> SearchByGear (Gear g)
         {

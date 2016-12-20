@@ -5,11 +5,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace CRA.BL
 {
   public class GuestBL
     {
+
+        public IEnumerable<Car> GetAllCars()
+        {
+            IEnumerable<Car> allCars;
+
+            using (var context = new CarRentalContext())
+            {
+                allCars = (from car in context.Cars
+                           .Include(c => c.Model)
+                           where car.ProperState == true                          
+                           orderby car.Model.NameofModel descending
+                           select car).ToArray();
+            }
+
+            return allCars;
+        }
+
+
+
         public byte[] GetImage(int id)
         {
             using (var context = new CarRentalContext())
