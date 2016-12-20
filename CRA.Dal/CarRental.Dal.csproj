@@ -62,10 +62,6 @@
     <Compile Include="Migrations\201611092131560_Roles.Designer.cs">
       <DependentUpon>201611092131560_Roles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611092153068_rename.cs" />
-    <Compile Include="Migrations\201611092153068_rename.Designer.cs">
-      <DependentUpon>201611092153068_rename.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -87,9 +83,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611092131560_Roles.resx">
       <DependentUpon>201611092131560_Roles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611092153068_rename.resx">
-      <DependentUpon>201611092153068_rename.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

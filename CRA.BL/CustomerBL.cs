@@ -31,23 +31,23 @@ namespace CarRental.BL
         }
 
 
-        public IEnumerable<Car > SearchByManufacrurer (int manufac)
-        {
-            IEnumerable<Car> allCars;
+        //public IEnumerable<Car > SearchByManufacrurer (int manufac)
+        //{
+        //    IEnumerable<Car> allCars;
 
-            using (var context = new Dal.CarRentalContext())
-            {
-                allCars = from car in context.Cars.Include(c => c.Model)
-                          where car.ProperState == true
-                          where car.Model.ManufacturerId == manufac
-                          orderby car.Model descending
-                          select car;
-            }
+        //    using (var context = new Dal.CarRentalContext())
+        //    {
+        //        allCars = from car in context.Cars.Include(c => c.Model)
+        //                  where car.ProperState == true
+        //                  where car.Model.ManufId == manufac
+        //                  orderby car.Model descending
+        //                  select car;
+        //    }
 
-            return allCars;
+        //    return allCars;
 
 
-        }
+        //}
 
 
         public IEnumerable<Car> SearchbyModel(string carModel)

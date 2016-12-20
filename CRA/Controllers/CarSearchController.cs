@@ -38,6 +38,18 @@ namespace CarRental.Controllers
             return View(modelCars);
         }
 
+
+        public ActionResult HelpAjax()
+        {
+            var helper = new HelpViewModel();
+
+            helper.carManufacturers = HomeController.allManufacturers;
+
+            helper.carModels = HomeController.allmodels;
+
+            return Json(helper, JsonRequestBehavior.AllowGet);
+        }
+
         //public ActionResult SearchbyGear(Gear gear)
         //{
         //    var allCars = manager.SearchByGear(gear);
@@ -46,15 +58,15 @@ namespace CarRental.Controllers
         //}
 
 
-        public ActionResult ManufacturerSearch(int manuf)
-        {
-            var allCars = manager.SearchByManufacrurer(manuf);
+        //public ActionResult ManufacturerSearch(int manuf)
+        //{
+        //    var allCars = manager.SearchByManufacrurer(manuf);
 
-            var modelCars = allCars.Select(c => new CarViewModel(c));
+        //    var modelCars = allCars.Select(c => new CarViewModel(c));
 
-            return View();
+        //    return View();
 
-        }
+        //}
 
         public ActionResult FreeTextSearch (string text)
         {

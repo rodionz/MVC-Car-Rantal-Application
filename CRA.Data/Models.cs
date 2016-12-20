@@ -16,8 +16,7 @@ namespace CarRental.Data
         [Key]
         public int ModelID { get; set; }
 
-      
-        public int ManufacturerId { get; set; }
+
 
         [StringLength(30)]
         public string NameofModel { get; set; }

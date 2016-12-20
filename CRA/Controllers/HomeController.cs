@@ -15,9 +15,9 @@ namespace CarRental.Controllers
 
         private readonly GuestBL guest;
 
-        internal  IEnumerable <CarModelViewModel> allmodels;
+        internal static IEnumerable <CarModelViewModel> allmodels;
 
-        internal   IEnumerable <ManufactorerViewModel> allManufacturers;
+        internal static  IEnumerable <ManufactorerViewModel> allManufacturers;
 
 
         public HomeController()

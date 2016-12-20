@@ -20,7 +20,7 @@ namespace CarRental.Models
 
             this.ID = domainManuf.ID;
             this.Manufacturer = domainManuf.Manufacturer;
-            this.Models = domainManuf.Models;
+            //this.Models = domainManuf.Models;
 
         }
 
@@ -30,7 +30,7 @@ namespace CarRental.Models
             {
                 ID = ID,
                 Manufacturer = Manufacturer,
-                Models = Models
+                //Models = Models
             };
         }
 
