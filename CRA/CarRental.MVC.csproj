@@ -192,13 +192,13 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Shared\_layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\CarReturn\Index.cshtml" />
-    <Content Include="Views\CarSearch\Index.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\Shared\SingleCarPartialView.cshtml" />
     <Content Include="Views\Manager\ManagersLayout.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Views\Guest\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

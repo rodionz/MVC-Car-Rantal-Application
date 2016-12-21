@@ -9,9 +9,9 @@
 }
 <script src="~/Scripts/jquery-3.1.1.js"></script>
 <script>
-    
+
     $(function () {
-        var helperUrl = '@Url.Action("HelpAjax")';
+        var helperUrl = '@Url.Action("HelpAjax","Guest")';
 
         var result;
 
@@ -24,7 +24,7 @@
 
 <h2>Car Search</h2>
 <main>
-   
+
 
 
     <select name="transmission">
@@ -34,36 +34,36 @@
 
     <br />
 
-    
-    
+
+
     <br />
 
 
-    @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model,"Select by Model");
+    @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, new { @class = "dropdown" });
     <br />
     <br />
-    @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, "Search by manufacturer");
+    @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, new { @class = "dropdown" });
     <br />
     <br />
     <input type="search" placeholder="search" />
     <br />
     <input type="datetime" />
     <br />
-    
-    <ul class="list-group carlist">
 
-       
-            @foreach (var car in Model)
+    <ul class="list-inline carlist">
+
+
+        @foreach (var car in Model)
             {
-                <li id="@car.CarID">
+            <li class="" id="@car.CarID">
 
-                    @Html.Partial("SingleCarPartialView", car);
-                    <img src="@Url.Action("GetImage", new { id = car.ModelID })" />
+                @Html.Partial("SingleCarPartialView", car);
+                <img src="@Url.Action("GetImage", new { id = car.ModelID })" />
 
 
-                </li>
-            }
+            </li>
+        }
 
-        </ul>
+    </ul>
 
 </main>
