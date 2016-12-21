@@ -7,7 +7,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_layout.cshtml";
 }
-<script src="~/Scripts/jquery-3.1.1.js"></script>
+
 <script>
 
     $(function () {
@@ -26,44 +26,47 @@
 <main>
 
 
+    <div class="input-group">
+        <select name="transmission">
+            <option value="0">Manual</option>
+            <option value="1">Automatic</option>
+        </select>
+        <br />
+        <br />
+        @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, new { @class = "dropdown form-control" });
+        <br />
+        <br />
+        @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, new { @class = "dropdown form-control" });
+        <br />
+        <br />
+      
 
-    <select name="transmission">
-        <option value="0">Manual</option>
-        <option value="1">Automatic</option>
-    </select>
-
+        
+        <p>Date: <input type="text" id="datepicker" class="form-control" /></p>
+        <br />
+    </div>
     <br />
-
-
-
     <br />
+    <div class="col-md-3">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button">Go!</button>
+        </span>
+    </div>
+        <ul class="list-inline carlist">
 
 
-    @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, new { @class = "dropdown" });
-    <br />
-    <br />
-    @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, new { @class = "dropdown" });
-    <br />
-    <br />
-    <input type="search" placeholder="search" />
-    <br />
-    <input type="datetime" />
-    <br />
-
-    <ul class="list-inline carlist">
-
-
-        @foreach (var car in Model)
+            @foreach (var car in Model)
             {
-            <li class="" id="@car.CarID">
+                <li class="" id="@car.CarID">
 
-                @Html.Partial("SingleCarPartialView", car);
-                <img src="@Url.Action("GetImage", new { id = car.ModelID })" />
+                    @Html.Partial("SingleCarPartialView", car);
+                    <img src="@Url.Action("GetImage", new { id = car.ModelID })" />
 
 
-            </li>
-        }
+                </li>
+            }
 
-    </ul>
+        </ul>
 
 </main>
