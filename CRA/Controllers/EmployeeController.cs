@@ -9,11 +9,11 @@ using System.Web.Mvc;
 
 namespace CarRental.Controllers
 {
-    public class CarReturnController : Controller
+    public class EmployeeController : Controller
     {
         public readonly EmployeeBL _employee;
 
-        public CarReturnController()
+        public EmployeeController()
         {
 
             _employee = new EmployeeBL();

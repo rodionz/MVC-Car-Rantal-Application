@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CarRental.Data
 {
 
-    public enum Gear {Automatic, Manual };
+    public enum Gear {Automatic, Manual, Robotic };
 
    public class Model
     {

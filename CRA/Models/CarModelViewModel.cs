@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace CarRental.MVC.Models
 {
 
-    public enum ModelGear { Automatic, Manual };
+    public enum ModelGear { Automatic, Manual, Robotic };
 
 
     public class CarModelViewModel

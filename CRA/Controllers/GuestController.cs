@@ -12,7 +12,7 @@ using CarRental.Models;
 
 namespace CarRental.Controllers
 {
-    public class CarSearchController : Controller
+    public class GuestController : Controller
     {
         private readonly CustomerBL manager;
 
@@ -24,7 +24,7 @@ namespace CarRental.Controllers
 
 
 
-        public CarSearchController()
+        public GuestController()
         {
 
             manager = new CustomerBL();
