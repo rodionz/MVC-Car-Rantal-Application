@@ -8,19 +8,7 @@
     Layout = "~/Views/Shared/_layout.cshtml";
 }
 
-<script>
-
-    $(function () {
-        var helperUrl = '@Url.Action("HelpAjax","Guest")';
-
-        var result;
-
-     $.getJSON(helperUrl, function (data) {
-         result = data;
-         console.log(result);
-        });
-    });
-</script>
+<script src="~/Views/Guest/GuestControllerScript.js"></script>
 
 <h2>Car Search</h2>
 <main>
@@ -38,21 +26,15 @@
         <br />
         @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, new { @class = "dropdown form-control" });
         <br />
-        <br />
-      
-
-        
+        <br />             
         <p>Date: <input type="text" id="datepicker" class="form-control" /></p>
         <br />
-    </div>
-    <br />
-    <br />
-    <div class="col-md-3">
+        <br />
         <input type="text" class="form-control" placeholder="Search for...">
-        <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button">Go!</button>
-        </span>
     </div>
+    <br />
+    <br />
+  
         <ul class="list-inline carlist">
 
 

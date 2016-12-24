@@ -1,9 +1,1 @@
 ﻿
-$(function () {
-
-
-
-
-     $( "#datepicker" ).datepicker();
- } );
-
