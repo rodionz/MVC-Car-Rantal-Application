@@ -1,6 +1,9 @@
 ﻿
 $(function () {
     $("#datepicker").datepicker();
+
+
+
     var helperUrl = '@Url.Action("HelpAjax","Guest")';
 
     var result;

@@ -8,7 +8,29 @@
     Layout = "~/Views/Shared/_layout.cshtml";
 }
 
-<script src="~/Views/Guest/GuestControllerScript.js"></script>
+<script >
+    $(function () {
+        $("#datepicker").datepicker();
+
+
+
+        var helperUrl = '@Url.Action("HelpAjax","Guest")';
+
+        var result;
+
+        $.getJSON(helperUrl, function (data) {
+            result = data;
+            console.log(result);
+        });
+
+        $('#searchbyModel').click(function () {
+
+        });
+
+    });
+
+
+</script>
 
 <h2>Car Search</h2>
 <main>
@@ -22,15 +44,17 @@
         <br />
         <br />
         @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, new { @class = "dropdown form-control" });
+        <button id="searchbyModel">Search by Model</button>
         <br />
         <br />
         @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, new { @class = "dropdown form-control" });
+        <button id="searchbyManufacturer">Search by Manufacturer</button>
         <br />
         <br />             
-        <p>Date: <input type="text" id="datepicker" class="form-control" /></p>
+        <p>Date: <input type="text" id="datepicker" class="form-control" /></p><button>Search by Date</button>
         <br />
         <br />
-        <input type="text" class="form-control" placeholder="Search for...">
+        <input type="text" class="form-control" placeholder="Search for..."><button>Search</button>
     </div>
     <br />
     <br />
@@ -44,6 +68,8 @@
 
                     @Html.Partial("SingleCarPartialView", car);
                     <img src="@Url.Action("GetImage", new { id = car.ModelID })" />
+                    <br />
+                    <button>Order</button>
 
 
                 </li>
