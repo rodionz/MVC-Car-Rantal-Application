@@ -39,9 +39,6 @@ namespace CarRental.Controllers
 
             var modelCars = allCars.Select(c => new CarViewModel(c));
 
-
-           
-
             allmodels = guest.GettAllModels().Select(c => new CarModelViewModel(c));
 
             allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));

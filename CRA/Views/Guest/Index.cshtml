@@ -60,10 +60,10 @@
 
             @foreach (var car in Model)
             {
-                <li class="" id="@car.CarID">
+                <li class="@car.Model.NameofModel @car.Model.Manufacturer.Manufacturer"  id="@car.CarID">
 
                     @Html.Partial("SingleCarPartialView", car);
-                    <img src="@Url.Action("GetImage", new { id = car.ModelID })" />
+                    <img src="@Url.Action("GetImage", new {  id = car.ModelID })" />
                     <br />
                     <button>Order</button>
 

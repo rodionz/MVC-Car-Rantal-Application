@@ -19,7 +19,7 @@ namespace CRA.BL
             using (var context = new CarRentalContext())
             {
                 allCars = (from car in context.Cars
-                           .Include(c => c.Model)
+                           .Include(c => c.Model.Manufacturer)
                            where car.ProperState == true                          
                            orderby car.Model.NameofModel descending
                            select car).ToArray();

@@ -5,7 +5,20 @@ $(function () {
 
 
 
-        
+        var carSelection = function (selected) {
+         
+            $('.carlist li').each(function () {
+                if ($(this).hasClass(selected)) {
+
+                    $(this).show();
+                }
+
+                else {
+
+                    $(this).hide();
+                }
+            })
+        }
 
 
         $('#searchbyTransmission').click(function () {
@@ -14,9 +27,13 @@ $(function () {
 
         $('#searchbyModel').click(function () {
             
-            if($('#model').val() != "")
+            let selected = $('#model').val();
+
+            if(selected != "")
             {
                 console.log('searchbyModel')
+
+                carSelection(selected);
             }
         });
 
