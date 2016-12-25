@@ -13,19 +13,37 @@ $(function () {
         });
 
         $('#searchbyModel').click(function () {
-            console.log('searchbyModel')
+            
+            if($('#model').val() != "")
+            {
+                console.log('searchbyModel')
+            }
         });
 
         $('#searchbyManufacturer').click(function () {
-            console.log('searchbyManufacturer')
+
+            if ($('#manufa').val() != "")
+            {
+                console.log('searchbyManufacturer')
+            }
+            
         });
 
         $('#searchbyDate').click(function () {
-            console.log('searchbyDate')
+            {
+                if($('#datepicker').val() != "")
+                {
+                    console.log('searchbyDate')
+                }
+            }
+            
         });
 
         $('#freeSearch').click(function () {
-            console.log('freeSearch')
+            if($('#freeText').val() != "")
+            {
+                console.log("FreeTextSeach")
+            }
         });
 
     });
