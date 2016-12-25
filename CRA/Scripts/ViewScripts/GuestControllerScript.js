@@ -1,5 +1,5 @@
 ﻿
-$(function () {
+
     $(function () {
         $("#datepicker").datepicker();
 
@@ -29,9 +29,9 @@ $(function () {
 
         $('#searchbyModel').click(function () {
             
-            let selectedVal = parseInt($('#model').val()) + 1;
+         
 
-            let selectedModel = result.carModels[selectedVal].NameofModel;
+            let selectedModel = $('#model').find(":selected").text();
 
 
             if(selectedModel)
@@ -47,17 +47,18 @@ $(function () {
 
         $('#searchbyManufacturer').click(function () {
 
-            let selectedVal = parseInt($('#manufa').val()) + 1;
+            let selectedManufacturer = $('#manufa').find(":selected").text();
 
-            let selectedManufacturer = result.carManufacturers[selectedVal].manufacturerName;
-
-            if ( selected != "")
+            if (selectedManufacturer)
             {
                 console.log('searchbyManufacturer')
-                carSelection(selected);
+                carSelection(selectedManufacturer);
             }
             
         });
+
+
+
 
         $('#searchbyDate').click(function () {
             {
@@ -85,7 +86,6 @@ $(function () {
         });
 
     });
-});
 
 
   

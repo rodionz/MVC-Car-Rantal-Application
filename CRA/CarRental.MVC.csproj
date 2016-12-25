@@ -165,6 +165,7 @@
     <Content Include="Scripts\jQuery\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\MainScript.js" />
     <Content Include="Scripts\ViewScripts\GuestControllerScript.js" />
+    <Content Include="Scripts\ViewScripts\ManagerControllerScript.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +201,9 @@
     <Content Include="Views\Manager\ManagersLayout.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
     <Content Include="Views\Guest\Index.cshtml" />
+    <Content Include="Views\Manager\DealsEdit.cshtml" />
+    <Content Include="Views\Manager\VehiclesEdit.cshtml" />
+    <Content Include="Views\Manager\UsersEdit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

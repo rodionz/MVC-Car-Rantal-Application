@@ -5,10 +5,11 @@
 }
 
 <h2>ManagersLayout</h2>
-<ul class="nav nav-pills">
-    <li role="presentation" class="active"><a href="#">Orders</a></li>
-    <li role="presentation"><a href="#">Vehicles</a></li>
-    <li role="presentation"><a href="#">Users</a></li>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#">Home</a></li>
+    <li role="presentation"><a href="@Url.Action("DealIndex")">Orders</a></li>
+    <li role="presentation"><a href="@Url.Action("VehiclesEdit")">Vehicles</a></li>
+    <li role="presentation"><a href="@Url.Action("Users")">Users</a></li>
 </ul>
 
 @RenderBody();

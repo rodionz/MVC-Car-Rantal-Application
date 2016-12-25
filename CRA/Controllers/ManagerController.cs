@@ -29,6 +29,10 @@ namespace CarRental.Controllers
         }
 
 
+        public ActionResult VehiclesEdit()
+        {
+            return View("VehiclesEdit");
+        }
 
 
         public ActionResult AddModel(CarModelViewModel cmvm)
@@ -77,6 +81,11 @@ namespace CarRental.Controllers
         }
 
 
+        public ActionResult Users()
+        {
+            return View("UsersEdit");
+        }
+
         public ActionResult AddClient(ClientViewModel client)
         {
             var originalClient = client.toBaseClient_Details();
@@ -96,6 +105,13 @@ namespace CarRental.Controllers
             var originalClient = client.toBaseClient_Details();
             _manager.DeleteClient(originalClient);
             return View();
+        }
+
+
+        public ActionResult DealIndex()
+        {
+
+            return View("DealsEdit");
         }
 
         public ActionResult AddDeal(DealViewModel dvm)
