@@ -154,17 +154,17 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Scripts\jquery-ui-1.12.1.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
-    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.js" />
-    <Content Include="Scripts\jquery-3.1.1.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jQuery\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jQuery\jquery-ui-1.12.1.min.js" />
+    <None Include="Scripts\jQuery\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\Bootstrap\bootstrap.js" />
+    <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\jQuery\jquery-3.1.1.js" />
+    <Content Include="Scripts\jQuery\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jQuery\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jQuery\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\MainScript.js" />
-    <Content Include="Views\Guest\GuestControllerScript.js" />
+    <Content Include="Scripts\ViewScripts\GuestControllerScript.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -189,8 +189,8 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Scripts\jQuery\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jQuery\jquery-3.1.1.min.map" />
     <Content Include="Views\Shared\_layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />

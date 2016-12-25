@@ -8,25 +8,18 @@
     Layout = "~/Views/Shared/_layout.cshtml";
 }
 
+t src="~/Scripts/ViewScripts/GuestControllerScript.js"></script>
+
+
 <script >
     $(function () {
-        $("#datepicker").datepicker();
-
-
-
+        
         var helperUrl = '@Url.Action("HelpAjax","Guest")';
-
         var result;
-
         $.getJSON(helperUrl, function (data) {
             result = data;
             console.log(result);
-        });
-
-        $('#searchbyModel').click(function () {
-
-        });
-
+        });   
     });
 
 
@@ -41,6 +34,7 @@
             <option value="0">Manual</option>
             <option value="1">Automatic</option>
         </select>
+        <button id="searchbyTransmission"></button>
         <br />
         <br />
         @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, new { @class = "dropdown form-control" });
@@ -51,10 +45,12 @@
         <button id="searchbyManufacturer">Search by Manufacturer</button>
         <br />
         <br />             
-        <p>Date: <input type="text" id="datepicker" class="form-control" /></p><button>Search by Date</button>
+        <p>Date: <input type="text" id="datepicker" class="form-control" /></p>
+        <button id="searchbyDate">Search by Date</button>
         <br />
         <br />
-        <input type="text" class="form-control" placeholder="Search for..."><button>Search</button>
+        <input type="text" class="form-control" placeholder="Search for...">
+        <button id="freeSearch">Search</button>
     </div>
     <br />
     <br />
