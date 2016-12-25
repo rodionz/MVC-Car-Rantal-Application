@@ -5,10 +5,10 @@ $(function () {
 
 
 
-        var carSelection = function (selected) {
+        var carSelection = function (atr,selected) {
          
             $('.carlist li').each(function () {
-                if ($(this).hasClass(selected)) {
+                if ($(this).attr(atr) == selected) {
 
                     $(this).show();
                 }
@@ -27,39 +27,50 @@ $(function () {
 
         $('#searchbyModel').click(function () {
             
-            let selected = $('#model').val();
+            let selected = $('#model').attr("data-carModel");
 
             if(selected != "")
             {
                 console.log('searchbyModel')
 
-                carSelection(selected);
+                carSelection("data-carModel",selected);
             }
         });
 
         $('#searchbyManufacturer').click(function () {
 
-            if ($('#manufa').val() != "")
+            let selected = $('#manufa').val();
+
+            if ( selected != "")
             {
                 console.log('searchbyManufacturer')
+                carSelection(selected);
             }
             
         });
 
         $('#searchbyDate').click(function () {
             {
-                if($('#datepicker').val() != "")
+                let selected = $('#datepicker').val();
+
+
+                if( selected != "")
                 {
                     console.log('searchbyDate')
+                    carSelection(selected);
                 }
             }
             
         });
 
         $('#freeSearch').click(function () {
-            if($('#freeText').val() != "")
+
+            let selected = $('#freeText').val();
+
+            if( selected != "")
             {
                 console.log("FreeTextSeach")
+                carSelection(selected);
             }
         });
 

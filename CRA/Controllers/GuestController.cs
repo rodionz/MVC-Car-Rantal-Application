@@ -22,7 +22,7 @@ namespace CarRental.Controllers
 
         internal static IEnumerable<ManufactorerViewModel> allManufacturers;
 
-
+        internal static IEnumerable<CarViewModel> allCars;
 
         public GuestController()
         {
@@ -35,9 +35,11 @@ namespace CarRental.Controllers
 
         public ActionResult Index()
         {
-            var allCars = guest.GetAllCars();
+            var allCarsintheDB = guest.GetAllCars();
 
-            var modelCars = allCars.Select(c => new CarViewModel(c));
+            var modelCars = allCarsintheDB.Select(c => new CarViewModel(c));
+
+            allCars = modelCars;
 
             allmodels = guest.GettAllModels().Select(c => new CarModelViewModel(c));
 
@@ -54,7 +56,7 @@ namespace CarRental.Controllers
 
             foreach (var man in allManufacturers)
             {
-                manufacturersItems.Add(new SelectListItem { Text = man.Manufacturer, Value = man.ID.ToString() });
+                manufacturersItems.Add(new SelectListItem { Text = man.manufacturerName, Value = man.ID.ToString() });
             }
 
             ViewBag.model = modelsItems;
@@ -77,6 +79,8 @@ namespace CarRental.Controllers
             helper.carManufacturers = allManufacturers;
 
             helper.carModels = allmodels;
+
+           
 
             return Json(helper, JsonRequestBehavior.AllowGet);
         }

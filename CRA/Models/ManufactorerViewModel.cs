@@ -11,7 +11,7 @@ namespace CarRental.Models
 
         public int ID { get; set; }
 
-        public string Manufacturer { get; set; }
+        public string manufacturerName { get; set; }
 
         public ICollection<Model> Models { get; set; }
 
@@ -19,7 +19,7 @@ namespace CarRental.Models
         public ManufactorerViewModel(Manufacturers domainManuf) {
 
             this.ID = domainManuf.ID;
-            this.Manufacturer = domainManuf.Manufacturer;
+            this.manufacturerName = domainManuf.Manufacturer;
             //this.Models = domainManuf.Models;
 
         }
@@ -29,7 +29,7 @@ namespace CarRental.Models
             return new Manufacturers
             {
                 ID = ID,
-                Manufacturer = Manufacturer,
+                Manufacturer = manufacturerName,
                 //Models = Models
             };
         }

@@ -13,5 +13,7 @@ namespace CarRental.Models
        public IEnumerable<CarModelViewModel> carModels {get;set;}
 
         public IEnumerable<ManufactorerViewModel> carManufacturers { get; set; }
+
+        public IEnumerable<CarViewModel> allCars { get; set; }
     }
 }

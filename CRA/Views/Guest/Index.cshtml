@@ -37,11 +37,11 @@
         <button id="searchbyTransmission"></button>
         <br />
         <br />
-        @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, new { @class = "dropdown form-control" });
+        @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, new { @class = "dropdown form-control", data_carModel = ViewBag.model });
         <button id="searchbyModel">Search by Model</button>
         <br />
         <br />
-        @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, new { @class = "dropdown form-control" });
+        @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, new { @class = "dropdown form-control", data_manufacturer = ViewBag.manufac });
         <button id="searchbyManufacturer">Search by Manufacturer</button>
         <br />
         <br />             
@@ -60,7 +60,7 @@
 
             @foreach (var car in Model)
             {
-                <li class="@car.Model.NameofModel @car.Model.Manufacturer.Manufacturer"  id="@car.CarID">
+                <li data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer" id="@car.CarID">
 
                     @Html.Partial("SingleCarPartialView", car);
                     <img src="@Url.Action("GetImage", new {  id = car.ModelID })" />
