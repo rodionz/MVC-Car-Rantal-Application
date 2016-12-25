@@ -25,21 +25,31 @@ $(function () {
             console.log('searchbyTransmission')
         });
 
+
+
         $('#searchbyModel').click(function () {
             
-            let selected = $('#model').attr("data-carModel");
+            let selectedVal = parseInt($('#model').val()) + 1;
 
-            if(selected != "")
+            let selectedModel = result.carModels[selectedVal].NameofModel;
+
+
+            if(selectedModel)
             {
                 console.log('searchbyModel')
 
-                carSelection("data-carModel",selected);
+                carSelection("data-carModel", selectedModel);
             }
         });
 
+
+
+
         $('#searchbyManufacturer').click(function () {
 
-            let selected = $('#manufa').val();
+            let selectedVal = parseInt($('#manufa').val()) + 1;
+
+            let selectedManufacturer = result.carManufacturers[selectedVal].manufacturerName;
 
             if ( selected != "")
             {

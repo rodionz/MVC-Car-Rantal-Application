@@ -12,10 +12,13 @@
 
 
 <script >
+
+    var result;
+
     $(function () {
         
         var helperUrl = '@Url.Action("HelpAjax","Guest")';
-        var result;
+        
         $.getJSON(helperUrl, function (data) {
             result = data;
             console.log(result);
@@ -37,11 +40,11 @@
         <button id="searchbyTransmission"></button>
         <br />
         <br />
-        @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, new { @class = "dropdown form-control", data_carModel = ViewBag.model });
+        @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, new { @class = "dropdown form-control"});
         <button id="searchbyModel">Search by Model</button>
         <br />
         <br />
-        @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, new { @class = "dropdown form-control", data_manufacturer = ViewBag.manufac });
+        @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, new { @class = "dropdown form-control"});
         <button id="searchbyManufacturer">Search by Manufacturer</button>
         <br />
         <br />             
