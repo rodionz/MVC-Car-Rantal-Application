@@ -1,4 +1,5 @@
-﻿body {
+﻿body{
+    background-color: #03D9FA;
 }
 
 img{
@@ -9,4 +10,14 @@ img{
 
 .carlist{
     margin-top: 50px;
+}
+
+
+
+header{
+    background-color: #0781C9;
+}
+
+footer{
+    background-color: #0781C9;
 }
