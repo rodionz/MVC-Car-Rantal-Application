@@ -37,23 +37,23 @@
             <option value="0">Manual</option>
             <option value="1">Automatic</option>
         </select>
-        <button id="searchbyTransmission"></button>
+        <button class="btn btn-default" id="searchbyTransmission">Search</button>
         <br />
         <br />
         @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, new { @class = "dropdown form-control"});
-        <button id="searchbyModel">Search by Model</button>
+        <button class="btn btn-default" id="searchbyModel">Search by Model</button>
         <br />
         <br />
         @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, new { @class = "dropdown form-control"});
-        <button id="searchbyManufacturer">Search by Manufacturer</button>
+        <button class="btn btn btn-default" id="searchbyManufacturer">Search by Manufacturer</button>
         <br />
         <br />             
         <p>Date: <input type="text" id="datepicker" class="form-control" /></p>
-        <button id="searchbyDate">Search by Date</button>
+        <button class="btn btn-default" id="searchbyDate">Search by Date</button>
         <br />
         <br />
         <input type="text" id="freeText" class="form-control" placeholder="Search for...">
-        <button id="freeSearch">Search</button>
+        <button class="btn btn-default" id="freeSearch">Search</button>
     </div>
     <br />
     <br />
