@@ -52,7 +52,7 @@
             if (selectedManufacturer)
             {
                 console.log('searchbyManufacturer')
-                carSelection(selectedManufacturer);
+                carSelection("data-manufacturer", selectedManufacturer);
             }
             
         });

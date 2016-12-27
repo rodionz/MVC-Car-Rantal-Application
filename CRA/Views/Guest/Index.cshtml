@@ -68,7 +68,7 @@
 
             @foreach (var car in Model)
             {
-                <li data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer" id="@car.CarID">
+                <li data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer" data-gear="@car.Model.gear" id="@car.CarID">
 
                     @Html.Partial("SingleCarPartialView", car);
                     <img src="@Url.Action("GetImage", new {  id = car.ModelID })" />
