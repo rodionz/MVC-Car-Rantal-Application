@@ -40,34 +40,41 @@
             <option value="1">Automatic</option>
             <option value="2">Robotic</option>
         </select>
-        <br />
-        <button class="btn btn-default" id="searchbyTransmission">Search</button>
+        <div><button class="btn btn-default" id="searchbyTransmission">Search</button></div>
     </div>
         <br />
         <br />
     <div class="input-group col-md-3">
         <label>Search by model</label>
-        @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, "-- Please Select --", new {  @class = "dropdown form-control" })<span class="input-group-btn"><button class="btn btn-default" id="searchbyModel">Search</button></span>
+        <br />
+        @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, "-- Please Select --", new {  @class = "dropdown form-control" })
+        <div><button class="btn btn-default" id="searchbyModel">Search</button></div>
     </div>
         <br />
         <br />
     <div class="input-group col-md-3">
         <label>Search by manufacturer</label>
-        @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, "-- Please Select --", new { @class = "dropdown form-control" })<span class="input-group-btn"><button class="btn btn btn-default" id="searchbyManufacturer">Search</button></span>
+        <br />
+        @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, "-- Please Select --", new { @class = "dropdown form-control" })
+        <div><button class="btn btn btn-default" id="searchbyManufacturer">Search</button></div>
     </div>
         <br />
         <br />
     <div class="input-group col-md-3">
         <label>Please Select Date</label>
+        <br />
         <input type="text" id="datepicker1" class="form-control" placeholder="From..." />
-        <input type="text" id="datepicker2" class="form-control" placeholder="To..." /><span class="input-group-btn" > <button class="btn btn-default" id="searchbyDate">Search</button></span>
+        <input type="text" id="datepicker2" class="form-control" placeholder="To..." />
+        <div> <button class="btn btn-default" id="searchbyDate">Search</button></div>
     </div>
         <br />
         <br />
     <div class="input-group col-md-3">
         <label>Free Search</label>
+        <br />
         <input type="text" id="freeText" class="form-control" placeholder="Search for...">
-        <span class="input-group-btn"><button class="btn btn-default" id="freeSearch">Search</button></span>
+        <br />
+        <div><button class="btn btn-default" id="freeSearch">Search</button></div>
     </div>
         <br />
         <br />

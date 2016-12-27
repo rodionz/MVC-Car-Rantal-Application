@@ -204,6 +204,7 @@
     <Content Include="Views\Manager\DealsEdit.cshtml" />
     <Content Include="Views\Manager\VehiclesEdit.cshtml" />
     <Content Include="Views\Manager\UsersEdit.cshtml" />
+    <Content Include="Views\Manager\Partials\AddNewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -213,7 +214,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Manager\Partials\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CRA.BL\CarRental.BL.csproj">

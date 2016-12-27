@@ -10,12 +10,12 @@
     <li class="active"><a href="#">Home</a></li>
     <li class="dropdown" role="presentation"><a class="dropdown-toggle" data-toggle="dropdown"  role ="button" aria-haspopup="true" aria-expanded="false"
     href="@Url.Action("DealIndex")">Orders<span class="caret"></span></a>
-     <ul class="dropdown-menu">
-     <li>Add Deal</li>
-    <li>Edit Deal</li>
-    <li>Delete Deal</li>
-                                                    
+    <ul class="dropdown-menu">
+    <li><a href="#">Add Deal</a></li>
+    <li><a href="#">Edit Deal</a></li>
+    <li><a href="#">Delete Deal</a></li>                                                  
     </ul></li>
+
     <li class="dropdown" role="presentation"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vehicles<span class="caret"></span></a>
     <ul class="dropdown-menu">
         <li class="active"><a href="#">Home</a></li>
@@ -29,14 +29,34 @@
         <li><a href="#">Edit  Manufacturer</a></li>
         <li><a href="#">Delete Manufacturer</a></li>
     </ul></li>
+
     <li class="dropdown" role="presentation"><a class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  href="#">Users<span class="caret"></span></a>
     <ul class="dropdown-menu">
-        <li>Add Client</li>
-        <li>Edit Client</li>
-        <li>Delete Client</li>
+        <li> <a href="#">Add Client</a></li>
+        <li> <a href="#"> Edit Client</a></li>
+        <li> <a href="#"> Delete Client</a></li>
     </ul>
     
     </li>
 </ul>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Two Column Vertical Divider with Text</h1>
+        </div>
+    </div>
+    <!-- row requires "row-divided" class -->
+    <div class="row row-divided">
+        <div class="col-xs-6 column-one">
+            <h2>Column 1</h2>
+            <p>6 column wide (col-xs-6)</p>
+        </div>
+        <div class="vertical-divider">or</div>
+        <div class="col-xs-6 column-two">
+            <h2>Column 2</h2>
+            <p>6 column wide (col-xs-6)</p>
+        </div>
+    </div>
 </div>
 @RenderBody();
