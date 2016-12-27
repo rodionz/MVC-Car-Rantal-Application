@@ -31,7 +31,7 @@ namespace CarRental.Controllers
 
         public ActionResult VehiclesEdit()
         {
-            return View("VehiclesEdit");
+            return PartialView("AddNewModel");
         }
 
 
@@ -40,7 +40,7 @@ namespace CarRental.Controllers
             var originalModel = cmvm.toBaseModelDetail();
             _manager.AddModel(originalModel);
 
-            return RedirectToAction("Index");
+            return PartialView("AddNewModel");
         }
 
         public ActionResult UpdateModel(CarModelViewModel cmvm)
