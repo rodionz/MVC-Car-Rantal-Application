@@ -29,18 +29,18 @@ namespace CarRental.Controllers
         }
 
         [HttpGet]
-        public ActionResult VehiclesEdit()
+        public ActionResult AddNewModel()
         {
             return PartialView("~/Views/Manager/Partials/AddNewModel.cshtml");
         }
 
 
-        public ActionResult AddModel(CarModelViewModel cmvm)
+        public ActionResult AddNewModel(CarModelViewModel cmvm)
         {
             var originalModel = cmvm.toBaseModelDetail();
             _manager.AddModel(originalModel);
 
-            return PartialView("AddNewModel");
+            return View();
         }
 
         public ActionResult UpdateModel(CarModelViewModel cmvm)
@@ -56,6 +56,13 @@ namespace CarRental.Controllers
             _manager.DeleteModel(originalModel);
             return View();
         }
+
+
+        public ActionResult AddCar()
+        {
+            return PartialView("~/Views/Manager/Partials/AddNewCar.cshtml");
+        }
+
 
         public ActionResult AddCar(CarViewModel cvm)
         {
@@ -85,6 +92,13 @@ namespace CarRental.Controllers
         {
             return View("UsersEdit");
         }
+
+
+        public ActionResult AddClient()
+        {
+            return PartialView("~/Views/Manager/Partials/AddNewCustomer.cshtml");
+        }
+
 
         public ActionResult AddClient(ClientViewModel client)
         {
