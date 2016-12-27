@@ -57,7 +57,7 @@ namespace CarRental.Controllers
             return View();
         }
 
-
+        [HttpGet]
         public ActionResult AddCar()
         {
             return PartialView("~/Views/Manager/Partials/AddNewCar.cshtml");
@@ -93,7 +93,7 @@ namespace CarRental.Controllers
             return View("UsersEdit");
         }
 
-
+        [HttpGet]
         public ActionResult AddClient()
         {
             return PartialView("~/Views/Manager/Partials/AddNewCustomer.cshtml");
