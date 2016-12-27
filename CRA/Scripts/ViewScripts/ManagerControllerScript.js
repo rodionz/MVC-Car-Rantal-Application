@@ -1,9 +1,9 @@
 ﻿$(function () {
 
-    $('#addnewModel').on('select', function () {
+    $('#addnewModel').on('click', function () {
         $.ajax({
             type: "GET",
-            url: '/ManagerController/AddModel',
+            url: '/Manager/VehiclesEdit',
             success: function (data, textStatus, jqXHR) {
                 $('.column-one').html(data);
 
@@ -15,6 +15,10 @@
 
     });
 
+    $('.test').click(function () {
+
+        console.log("It Works!!!")
+    });
 
 
 

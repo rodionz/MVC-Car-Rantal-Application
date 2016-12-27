@@ -28,10 +28,10 @@ namespace CarRental.Controllers
             return View();
         }
 
-
+        [HttpGet]
         public ActionResult VehiclesEdit()
         {
-            return PartialView("AddNewModel");
+            return PartialView("~/Views/Manager/Partials/AddNewModel.cshtml");
         }
 
 
