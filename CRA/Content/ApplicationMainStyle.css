@@ -2,6 +2,11 @@
     background-color: #03D9FA;
 }
 
+main{
+    margin-bottom: 100px;
+}
+
+
 img{
 
     width:300px;
@@ -10,6 +15,7 @@ img{
 
 .carlist{
     margin-top: 50px;
+    margin-bottom:30px;
 }
 
 
@@ -27,4 +33,16 @@ footer{
 
 .mainnavbar a{
     color:white;
+}
+
+.list-group-item{
+    margin-bottom:20px;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.carsearch{
+
+    margin-bottom: 60px;
+
 }

@@ -31,7 +31,7 @@
 <h2>Car Search</h2>
 <main>
 
-    <div class="container col-lg-12">
+    <div class="container carsearch col-lg-12">
     <div class="input-group col-md-3">
         <label>Search by gear</label>
         <select name="transmission" class="dropdown form-control" id="gear">
@@ -40,7 +40,8 @@
             <option value="1">Automatic</option>
             <option value="2">Robotic</option>
         </select>
-        <span class="input-group-btn"><button class="btn btn-default" id="searchbyTransmission">Search</button></span>
+        <br />
+        <button class="btn btn-default" id="searchbyTransmission">Search</button>
     </div>
         <br />
         <br />
@@ -72,12 +73,13 @@
         <br />
         <button class="btn btn-default" id="reset">Clear Results</button>
     </div>
+
+
+
         <ul class="list-inline carlist">
-
-
             @foreach (var car in Model)
             {
-                <li data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer" data-gear="@car.Model.gear" id="@car.CarID">
+                <li class="list-group-item" data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer" data-gear="@car.Model.gear" id="@car.CarID">
 
                     @Html.Partial("SingleCarPartialView", car);
                     <img src="@Url.Action("GetImage", new {  id = car.ModelID })" />

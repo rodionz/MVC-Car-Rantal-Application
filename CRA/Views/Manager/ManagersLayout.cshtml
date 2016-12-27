@@ -9,21 +9,34 @@
 <ul class="nav nav-tabs">
     <li class="active"><a href="#">Home</a></li>
     <li class="dropdown" role="presentation"><a class="dropdown-toggle" data-toggle="dropdown"  role ="button" aria-haspopup="true" aria-expanded="false"
-                                                 href="@Url.Action("DealIndex")">Orders<span class="caret"></span></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>Add Model</li>
-                                                    <li>Edit Model</li>
-                                                    <li>Delete Model</li>
-                                                    <li>Add Car</li>
-                                                    <li>Edit Car</li>
-                                                    <li>Delete Car</li>
-                                                </ul></li>
-
-
-
-
-    <li class="dropdown" role="presentation"><a class="dropdown-toggle"  href="@Url.Action("VehiclesEdit")">Vehicles</a></li>
-    <li class="dropdown" role="presentation"><a class="dropdown-toggle" href="@Url.Action("Users")">Users</a></li>
+    href="@Url.Action("DealIndex")">Orders<span class="caret"></span></a>
+     <ul class="dropdown-menu">
+     <li>Add Deal</li>
+    <li>Edit Deal</li>
+    <li>Delete Deal</li>
+                                                    
+    </ul></li>
+    <li class="dropdown" role="presentation"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vehicles<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Add Model</a></li>
+        <li><a href="#">Edit Model</a></li>
+        <li><a href="#">Delete Model</a></li>
+        <li><a href="#">Add Car</a></li>
+        <li><a href="#">Edit Car</a></li>
+        <li><a href="#">Delete Car</a></li>
+        <li><a href="#">Add Manufacturer</a></li>
+        <li><a href="#">Edit  Manufacturer</a></li>
+        <li><a href="#">Delete Manufacturer</a></li>
+    </ul></li>
+    <li class="dropdown" role="presentation"><a class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  href="#">Users<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li>Add Client</li>
+        <li>Edit Client</li>
+        <li>Delete Client</li>
+    </ul>
+    
+    </li>
 </ul>
 </div>
 @RenderBody();
