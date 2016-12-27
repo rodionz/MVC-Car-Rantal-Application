@@ -3,7 +3,10 @@
 $(function () {
 
 
-        $("#datepicker").datepicker();
+        $("#datepicker1").datepicker();
+
+        $("#datepicker2").datepicker();
+
 
 
         var carSelection = function (atr,selected) {       
