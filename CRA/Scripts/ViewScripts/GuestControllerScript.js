@@ -85,6 +85,17 @@
             }
         });
 
+        $('#reset').click(function () {
+
+
+            console.log("Reset Clicked")
+
+            $('.carlist li').each(function () {
+                $(this).show();
+            })
+        });
+
+
     });
 
 

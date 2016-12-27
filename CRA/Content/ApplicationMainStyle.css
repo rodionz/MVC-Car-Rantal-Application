@@ -14,8 +14,9 @@ img{
 
 
 
-header{
-    background-color: #0781C9;
+header,  .mainnavigation{
+background-color: #0781C9;
+color:white;
 }
 
 footer{
