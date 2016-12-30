@@ -3,7 +3,22 @@
     $('#addnewModel').on('click', function () {
         $.ajax({
             type: "GET",
-            url: '/Manager/AddNewModel',
+            data: {ManagerAction : 'AddModel'},
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-one').html(data);
+
+                console.log("Success");
+            }
+        });
+    });
+
+   
+    $('#editModel').on('click', function () {
+        $.ajax({
+            type: "GET",
+            data: { ManagerAction: 'EditModel' },
+            url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-one').html(data);
 
@@ -14,10 +29,12 @@
 
 
 
+
     $('#addnewClient').on('click', function () {
         $.ajax({
             type: "GET",
-            url: '/Manager/AddClient',
+            data: {ManagerAction : 'AddCustomer'},
+            url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-one').html(data);
 
@@ -31,7 +48,8 @@
     $('#addnewcar').on('click', function () {
         $.ajax({
             type: "GET",
-            url: '/Manager/AddCar',
+            data: { ManagerAction: 'AddCar' },
+            url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-one').html(data);
 

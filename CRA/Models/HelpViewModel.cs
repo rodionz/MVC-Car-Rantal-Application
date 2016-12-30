@@ -10,10 +10,12 @@ namespace CarRental.Models
     {
         public int modelId { get; set; }
 
-       public IEnumerable<CarModelViewModel> carModels {get;set;}
+        public IEnumerable<CarModelViewModel> carModels {get;set;}
 
         public IEnumerable<ManufactorerViewModel> carManufacturers { get; set; }
 
         public IEnumerable<CarViewModel> allCars { get; set; }
+
+        public string ManagerAction { get; set; }
     }
 }

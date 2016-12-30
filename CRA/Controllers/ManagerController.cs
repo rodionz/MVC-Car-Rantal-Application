@@ -1,5 +1,6 @@
 ﻿using CarRental.BL;
 using CarRental.Data;
+using CarRental.Models;
 using CarRental.MVC.Models;
 using System;
 using System.Collections.Generic;
@@ -29,9 +30,24 @@ namespace CarRental.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddNewModel()
+        public ActionResult ManagerActions(HelpViewModel hvm)
         {
-            return PartialView("~/Views/Manager/Partials/AddNewModel.cshtml");
+
+            switch (hvm.ManagerAction)
+                {
+
+                case "AddModel":
+                return PartialView("~/Views/Manager/Partials/AddNewModel.cshtml");
+
+                case "AddCar":
+                    return PartialView("~/Views/Manager/Partials/AddNewCar.cshtml");
+
+                default:
+                    return PartialView("~/Views/Manager/Partials/AddNewCustomer.cshtml");
+
+                }
+
+
         }
 
 
@@ -60,7 +76,7 @@ namespace CarRental.Controllers
         [HttpGet]
         public ActionResult AddCar()
         {
-            return PartialView("~/Views/Manager/Partials/AddNewCar.cshtml");
+            return PartialView();
         }
 
 
@@ -93,11 +109,7 @@ namespace CarRental.Controllers
             return View("UsersEdit");
         }
 
-        [HttpGet]
-        public ActionResult AddClient()
-        {
-            return PartialView("~/Views/Manager/Partials/AddNewCustomer.cshtml");
-        }
+  
 
 
         public ActionResult AddClient(ClientViewModel client)
