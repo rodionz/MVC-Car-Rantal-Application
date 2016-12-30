@@ -75,12 +75,22 @@ namespace CarRental.Controllers
 
             allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
 
+            allDeals = _manager.GetAllDeals().Select(d => new DealViewModel(d));
+
+            allCustomers = _manager.GetAllUsers().Select(u => new CustomerViewModel(u));
+
 
             var helper = new HelpViewModel();
 
             helper.AllManufacturers = allManufacturers;
 
             helper.AllCarModels = allmodels;
+
+            helper.AllCars = allCars;
+
+            helper.AllDeals = allDeals;
+
+            helper.AllCustomers = allCustomers;
 
 
 
