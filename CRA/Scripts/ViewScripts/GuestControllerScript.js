@@ -2,6 +2,18 @@
 
 $(function () {
 
+    var result;
+
+    var helperUrl = '/Guest/HelpAjax';
+
+    $.getJSON(helperUrl, function (data) {
+        async: true;
+        result = data;
+        console.log(helperUrl);
+        console.log(result);
+    });
+
+
 
         $("#datepicker1").datepicker();
 

@@ -112,21 +112,21 @@ namespace CarRental.Controllers
   
 
 
-        public ActionResult AddClient(ClientViewModel client)
+        public ActionResult AddClient(CustomerViewModel client)
         {
             var originalClient = client.toBaseClient_Details();
             _manager.AddClient(originalClient);
             return View();
         }
 
-        public ActionResult UpdateClient(ClientViewModel client)
+        public ActionResult UpdateClient(CustomerViewModel client)
         {
             var originalClient = client.toBaseClient_Details();
             _manager.UpdateClient(originalClient);
             return View();
         }
 
-        public ActionResult DeleteClient(ClientViewModel client)
+        public ActionResult DeleteClient(CustomerViewModel client)
         {
             var originalClient = client.toBaseClient_Details();
             _manager.DeleteClient(originalClient);

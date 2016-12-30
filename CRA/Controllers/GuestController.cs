@@ -76,9 +76,9 @@ namespace CarRental.Controllers
         {
             var helper = new HelpViewModel();
 
-            helper.carManufacturers = allManufacturers;
+            helper.AllManufacturers = allManufacturers;
 
-            helper.carModels = allmodels;
+            helper.AllCarModels = allmodels;
 
            
 
