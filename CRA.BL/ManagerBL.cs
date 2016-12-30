@@ -80,6 +80,17 @@ namespace CarRental.BL
 
 
 
+        public IEnumerable<User> GetAllUsers ()
+        {
+            using (var context = new CarRentalContext())
+            {
+                var allusers = (from u in context.Users
+                                select u).ToArray();
+
+                return allusers;
+            }
+
+        }
 
 
         public void AddClient(User client)
@@ -115,6 +126,19 @@ namespace CarRental.BL
 
 
 
+
+
+        public IEnumerable<Deal> GetAllDeals()
+        {
+            using (var context = new CarRentalContext())
+            {
+                var alldeals = (from u in context.Deals
+                                select u).ToArray();
+
+                return alldeals;
+            }
+
+        }
 
         public void AddReservation(Deal deal)
         {

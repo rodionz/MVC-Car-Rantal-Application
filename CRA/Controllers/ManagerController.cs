@@ -2,6 +2,7 @@
 using CarRental.Data;
 using CarRental.Models;
 using CarRental.MVC.Models;
+using CRA.BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,23 @@ namespace CarRental.Controllers
 
         private readonly ManagerBL _manager;
 
+        private readonly GuestBL guest;
+
+        private static IEnumerable<CarModelViewModel> allmodels;
+
+        private static IEnumerable<ManufactorerViewModel> allManufacturers;
+
+        private static IEnumerable<CarViewModel> allCars;
+
+        private static IEnumerable<DealViewModel> allDeals;
+
+        private static IEnumerable<CustomerViewModel> allCustomers;
+
 
         public ManagerController()
         {
             _manager = new ManagerBL();
+            guest = new GuestBL();
         }
 
 
@@ -49,6 +63,31 @@ namespace CarRental.Controllers
 
 
         }
+
+
+
+        public ActionResult HelpAjax()
+        {
+
+            allCars = guest.GetAllCars().Select(c => new CarViewModel(c));
+
+            allmodels = guest.GettAllModels().Select(c => new CarModelViewModel(c));
+
+            allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
+
+
+            var helper = new HelpViewModel();
+
+            helper.AllManufacturers = allManufacturers;
+
+            helper.AllCarModels = allmodels;
+
+
+
+            return Json(helper, JsonRequestBehavior.AllowGet);
+        }
+
+
 
 
         public ActionResult AddNewModel(CarModelViewModel cmvm)

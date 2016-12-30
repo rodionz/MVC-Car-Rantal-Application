@@ -18,11 +18,11 @@ namespace CarRental.Controllers
 
         private readonly GuestBL guest;
 
-        internal static IEnumerable<CarModelViewModel> allmodels;
+       private static IEnumerable<CarModelViewModel> allmodels;
 
-        internal static IEnumerable<ManufactorerViewModel> allManufacturers;
+        private static IEnumerable<ManufactorerViewModel> allManufacturers;
 
-        internal static IEnumerable<CarViewModel> allCars;
+        private static IEnumerable<CarViewModel> allCars;
 
         public GuestController()
         {
@@ -35,11 +35,9 @@ namespace CarRental.Controllers
 
         public ActionResult Index()
         {
-            var allCarsintheDB = guest.GetAllCars();
+           
 
-            var modelCars = allCarsintheDB.Select(c => new CarViewModel(c));
-
-            allCars = modelCars;
+            allCars = guest.GetAllCars().Select(c => new CarViewModel(c));
 
             allmodels = guest.GettAllModels().Select(c => new CarModelViewModel(c));
 
@@ -68,7 +66,7 @@ namespace CarRental.Controllers
 
 
 
-            return View(modelCars);
+            return View(allCars);
         }
 
 
