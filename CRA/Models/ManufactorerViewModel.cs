@@ -13,14 +13,14 @@ namespace CarRental.Models
 
         public string manufacturerName { get; set; }
 
-        public ICollection<Model> Models { get; set; }
+    
 
 
         public ManufactorerViewModel(Manufacturers domainManuf) {
 
             this.ID = domainManuf.ID;
             this.manufacturerName = domainManuf.Manufacturer;
-            //this.Models = domainManuf.Models;
+            
 
         }
 
@@ -30,7 +30,7 @@ namespace CarRental.Models
             {
                 ID = ID,
                 Manufacturer = manufacturerName,
-                //Models = Models
+               
             };
         }
 

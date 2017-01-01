@@ -74,13 +74,6 @@ namespace CarRental.MVC.Models
 
 
 
-        //public static IEnumerable<SelectListItem> _listofModels;
-
-        //public static IEnumerable<SelectListItem> listofModels
-        //{
-        //    get {return new SelectListItem }
-
-        //}
 
     }
 }

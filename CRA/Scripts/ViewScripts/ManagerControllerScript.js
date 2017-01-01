@@ -1,9 +1,12 @@
-﻿$(function () {
+﻿
 
 
+$(function () {
+
+    let result;
   
     $.getJSON('/Manager/HelpAjax', function (data) {
-        let result = data;
+         result = data;
 
         console.log(result);
     });
