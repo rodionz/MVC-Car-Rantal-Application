@@ -50,17 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarRental.cs" />
-    <Compile Include="Migrations\201610211931437_InitialCreate.cs" />
-    <Compile Include="Migrations\201610211931437_InitialCreate.Designer.cs">
-      <DependentUpon>201610211931437_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610212213256_nullableints.cs" />
-    <Compile Include="Migrations\201610212213256_nullableints.Designer.cs">
-      <DependentUpon>201610212213256_nullableints.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611092131560_Roles.cs" />
-    <Compile Include="Migrations\201611092131560_Roles.Designer.cs">
-      <DependentUpon>201611092131560_Roles.cs</DependentUpon>
+    <Compile Include="Migrations\201701011719295_Initial.cs" />
+    <Compile Include="Migrations\201701011719295_Initial.Designer.cs">
+      <DependentUpon>201701011719295_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,14 +67,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610211931437_InitialCreate.resx">
-      <DependentUpon>201610211931437_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610212213256_nullableints.resx">
-      <DependentUpon>201610212213256_nullableints.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611092131560_Roles.resx">
-      <DependentUpon>201611092131560_Roles.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701011719295_Initial.resx">
+      <DependentUpon>201701011719295_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,7 +11,7 @@ namespace CarRental.MVC.Models
     public class CustomerViewModel
     {
        
-        public int ClientID { get; set; }
+        public int ID { get; set; }
         
         public string FirstName { get; set; }
       
@@ -52,7 +52,7 @@ namespace CarRental.MVC.Models
         {
             return new User
             {
-                ClientID = ClientID,
+                UserID = ID,
                 FirstName = FirstName,
                 LastName = LastName,
                 BirthData = BirthData,
@@ -69,7 +69,7 @@ namespace CarRental.MVC.Models
         public CustomerViewModel(User domainClieentDetails)
         {
 
-            this.ClientID = domainClieentDetails.ClientID;
+            this.ID = domainClieentDetails.UserID;
 
             this.FirstName = domainClieentDetails.FirstName;
 

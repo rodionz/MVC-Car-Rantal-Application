@@ -18,9 +18,7 @@ namespace CarRental.Data
 
         public DateTime? RealReturn { get; set; }
 
-        public int? ClientID {get;set;}
-
-        public virtual User Client { get; set; }
+      
 
         public int? CarID { get; set; }
 

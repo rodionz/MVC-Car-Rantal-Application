@@ -1,5 +1,14 @@
 ﻿$(function () {
 
+
+  
+    $.getJSON('/Manager/HelpAjax')
+    .done(function (respone) {
+        console.log(respone);
+
+    })
+
+
     $('#addnewModel').on('click', function () {
         $.ajax({
             type: "GET",

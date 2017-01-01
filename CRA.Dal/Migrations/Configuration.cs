@@ -1,4 +1,4 @@
-namespace CarRent.Dal.Migrations
+namespace CarRental.Dal.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -10,8 +10,7 @@ namespace CarRent.Dal.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "CarRental.Dal.CarRentalContext";
+            AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(CarRental.Dal.CarRentalContext context)

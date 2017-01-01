@@ -15,7 +15,8 @@ namespace CarRental.Data
    public class User
     {
         [Key]
-        public int ClientID { get; set; }
+        public int UserID
+        { get; set; }
 
        
 

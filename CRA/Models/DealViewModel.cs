@@ -33,7 +33,7 @@ namespace CarRental.MVC.Models
                 Start = Start,
                 SupposedReturn = SupposedReturn,
                 RealReturn = RealReturn,
-                ClientID = ClientID,
+                //UserId = ClientID,
                 CarID = CarID
 
             };
@@ -55,7 +55,7 @@ namespace CarRental.MVC.Models
 
             this.RealReturn = domainDealDetails.RealReturn;
 
-            this.ClientID = domainDealDetails.ClientID;
+            //this.ClientID = domainDealDetails.UserId;
 
             this.CarID = domainDealDetails.CarID;
 
