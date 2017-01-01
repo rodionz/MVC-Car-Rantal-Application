@@ -17,10 +17,6 @@ namespace CarRental.MVC.Models
 
         public double? Mileage { get; set; }
 
-
-        public Model Model { get; set; }
-
-
         public string CarNumber { get; set; }
 
         public int? BranchID { get; set; }
@@ -39,7 +35,7 @@ namespace CarRental.MVC.Models
                 CarNumber = CarNumber,
                 BranchID = BranchID,
                 ModelID = ModelID,
-                Model = Model
+             
              
 
 
@@ -51,10 +47,7 @@ namespace CarRental.MVC.Models
             this.CarID = domainCarDetails.CarID;
 
             this.Mileage = domainCarDetails.Mileage;
-
-            this.Model = domainCarDetails.Model;
-            
-
+                     
             this.CarNumber = domainCarDetails.CarNumber;
 
             this.BranchID = domainCarDetails.BranchID;

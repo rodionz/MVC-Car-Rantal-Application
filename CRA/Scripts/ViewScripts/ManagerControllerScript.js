@@ -4,7 +4,10 @@
 $(function () {
 
     let result;
+
+ 
   
+
     $.getJSON('/Manager/HelpAjax', function (data) {
          result = data;
 
@@ -91,12 +94,12 @@ $(function () {
 
 
 
+  
+    });
 
 
 
+  
 
 
 
-
-
-});
