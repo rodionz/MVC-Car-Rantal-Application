@@ -50,9 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarRental.cs" />
-    <Compile Include="Migrations\201701011719295_Initial.cs" />
-    <Compile Include="Migrations\201701011719295_Initial.Designer.cs">
-      <DependentUpon>201701011719295_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201701011739526_Initiall.cs" />
+    <Compile Include="Migrations\201701011739526_Initiall.Designer.cs">
+      <DependentUpon>201701011739526_Initiall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701011743372_Users.cs" />
+    <Compile Include="Migrations\201701011743372_Users.Designer.cs">
+      <DependentUpon>201701011743372_Users.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,8 +71,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701011719295_Initial.resx">
-      <DependentUpon>201701011719295_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701011739526_Initiall.resx">
+      <DependentUpon>201701011739526_Initiall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701011743372_Users.resx">
+      <DependentUpon>201701011743372_Users.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

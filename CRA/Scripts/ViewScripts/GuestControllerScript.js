@@ -8,8 +8,7 @@ $(function () {
 
     $.getJSON(helperUrl, function (data) {
         async: true;
-        result = data;
-        console.log(helperUrl);
+        result = data;    
         console.log(result);
     });
 

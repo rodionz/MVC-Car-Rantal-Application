@@ -2,11 +2,12 @@
 
 
   
-    $.getJSON('/Manager/HelpAjax')
-    .done(function (respone) {
-        console.log(respone);
+    $.getJSON('/Manager/HelpAjax', function (data) {
+        let result = data;
 
-    })
+        console.log(result);
+    });
+   
 
 
     $('#addnewModel').on('click', function () {
