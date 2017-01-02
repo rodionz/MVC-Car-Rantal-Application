@@ -207,7 +207,8 @@
     <Content Include="Views\Manager\Partials\AddNewModel.cshtml" />
     <Content Include="Views\Manager\Partials\AddNewCar.cshtml" />
     <Content Include="Views\Manager\Partials\AddNewCustomer.cshtml" />
-    <Content Include="Views\Manager\Partials\EditModel.cshtml" />
+    <Content Include="Views\Manager\Partials\AddManufacturer.cshtml" />
+    <Content Include="Views\Manager\Partials\ModelEditor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

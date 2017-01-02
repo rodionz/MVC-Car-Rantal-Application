@@ -56,8 +56,14 @@ namespace CarRental.Controllers
                 case "AddCar":
                     return PartialView("~/Views/Manager/Partials/AddNewCar.cshtml");
 
-                default:
+                case "AddCustomer":               
                     return PartialView("~/Views/Manager/Partials/AddNewCustomer.cshtml");
+
+                case "AddManufacturer":
+                    return PartialView("~/Views/Manager/Partials/AddManufacturer.cshtml");
+
+                default:
+                    return PartialView("~/Views/Manager/Partials/ModelEditor.cshtml",allmodels);
 
                 }
 
