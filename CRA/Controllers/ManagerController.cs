@@ -62,10 +62,23 @@ namespace CarRental.Controllers
                 case "AddManufacturer":
                     return PartialView("~/Views/Manager/Partials/AddManufacturer.cshtml");
 
-                default:
+                case "EditModel":
                     return PartialView("~/Views/Manager/Partials/ModelEditor.cshtml",allmodels);
 
-                }
+                case "EditCar":
+                    return PartialView("~/Views/Manager/Partials/CarEditor.cshtml",allCars);
+
+                case "EditCustomer":
+                    return PartialView("~/Views/Manager/Partials/CustomerEditor.cshtml", allCustomers);
+
+                case "EditManufacturer":
+                    return PartialView("~/Views/Manager/Partials/ManufactorerEditor.cshtml", allManufacturers);
+
+                default:
+                    return null;
+
+
+            }
 
 
         }
@@ -160,10 +173,7 @@ namespace CarRental.Controllers
         }
 
 
-        public ActionResult Users()
-        {
-            return View("UsersEdit");
-        }
+        
 
   
 
@@ -190,11 +200,7 @@ namespace CarRental.Controllers
         }
 
 
-        public ActionResult DealIndex()
-        {
-
-            return View("DealsEdit");
-        }
+    
 
         public ActionResult AddDeal(DealViewModel dvm)
         {
