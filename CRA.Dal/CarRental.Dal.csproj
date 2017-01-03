@@ -62,6 +62,10 @@
     <Compile Include="Migrations\201701031725553_updatingModel.Designer.cs">
       <DependentUpon>201701031725553_updatingModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701031735168_nullableKey.cs" />
+    <Compile Include="Migrations\201701031735168_nullableKey.Designer.cs">
+      <DependentUpon>201701031735168_nullableKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701031725553_updatingModel.resx">
       <DependentUpon>201701031725553_updatingModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701031735168_nullableKey.resx">
+      <DependentUpon>201701031735168_nullableKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
