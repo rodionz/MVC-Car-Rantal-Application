@@ -3,7 +3,7 @@
 
 $(function () {
 
-    var result;
+    var result = {};
 
     var arrayofModels = [];
 
@@ -129,6 +129,8 @@ $(function () {
 
     $('#editModel').on('click', function () {
 
+        $('.column-one').empty();
+
         var table = document.createElement('table');
 
         table.className = "table table-bordered table-hover";
@@ -169,6 +171,8 @@ $(function () {
 
     $('#editClient').on('click', function () {
 
+        $('.column-one').empty();
+
         var table = document.createElement('table');
 
         table.className = "table table-bordered table-hover";
@@ -208,13 +212,15 @@ $(function () {
 
     $('#editCar').on('click', function () {
 
+        $('.column-one').empty();
+
         var table = document.createElement('table');
 
         table.className = "table table-bordered table-hover";
 
         var row = table.insertRow(0);
 
-        row.innerHTML = "<th>ID of Car</th><th>Mileage</th><th>CarNumber</th><th>BranchID</th><th>ModelID</th>";
+        row.innerHTML = "<th>ID of Car</th><th>Mileage</th><th>CarNumber</th><th>Branch ID</th><th>Model ID</th>";
 
         for (var model of  arrayofCars)
         {
@@ -232,32 +238,64 @@ $(function () {
 
 
 
+    //$('#editDeal').on('click', function () {
+    //    $.ajax({
+    //        type: "GET",
+    //        data: { ManagerAction: 'EditDeal' },
+    //        url: '/Manager/ManagerActions',
+    //        success: function (data, textStatus, jqXHR) {
+    //            $('.column-one').html(data);
+
+    //            console.log("Success");
+    //        }
+    //    });
+    //})
+
+
+
+
     $('#editDeal').on('click', function () {
-        $.ajax({
-            type: "GET",
-            data: { ManagerAction: 'EditDeal' },
-            url: '/Manager/ManagerActions',
-            success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
 
-                console.log("Success");
-            }
-        });
-    })
+        $('.column-one').empty();
+
+        var table = document.createElement('table');
+
+        table.className = "table table-bordered table-hover";
+
+        var row = table.insertRow(0);
+
+        row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID/th>";
+
+        for (var model of  arrayofDeals)
+        {
+            row = table.insertRow(-1);
+            row.innerHTML = "<td>" + model.ID + "</td><td>" + model.SupposedReturn + "</td><td>" + model.RealReturn + "</td><td>" + model.ClientID + "</td><td>" + model.CarID + "</td><td></td>"
+        }
+
+        $('.column-one').append(table);
 
 
-    $('#editManufactorer').on('click', function () {
-        $.ajax({
-            type: "GET",
-            data: { ManagerAction: 'EditManufacturer' },
-            url: '/Manager/ManagerActions',
-            success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
+    });
 
-                console.log("Success");
-            }
-        });
-    })
+
+
+
+
+
+
+
+    //$('#editManufactorer').on('click', function () {
+    //    $.ajax({
+    //        type: "GET",
+    //        data: { ManagerAction: 'EditManufacturer' },
+    //        url: '/Manager/ManagerActions',
+    //        success: function (data, textStatus, jqXHR) {
+    //            $('.column-one').html(data);
+
+    //            console.log("Success");
+    //        }
+    //    });
+    //})
 
 
 
