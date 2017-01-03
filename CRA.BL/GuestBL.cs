@@ -12,21 +12,21 @@ namespace CRA.BL
   public class GuestBL
     {
 
-        public IEnumerable<Car> GetAllCars()
-        {
-            IEnumerable<Car> allCars;
+        //public IEnumerable<Car> GetAllCars()
+        //{
+        //    IEnumerable<Car> allCars;
 
-            using (var context = new CarRentalContext())
-            {
-                allCars = (from car in context.Cars
-                           .Include(c => c.Model.Manufacturer)
-                           where car.ProperState == true                          
-                           orderby car.Model.NameofModel descending
-                           select car).ToArray();
-            }
+        //    using (var context = new CarRentalContext())
+        //    {
+        //        allCars = (from car in context.Cars
+        //                   .Include(c => c.Model.Manufacturer)
+        //                   where car.ProperState == true                          
+        //                   orderby car.Model.NameofModel descending
+        //                   select car).ToArray();
+        //    }
 
-            return allCars;
-        }
+        //    return allCars;
+        //}
 
 
 

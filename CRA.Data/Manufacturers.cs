@@ -12,6 +12,6 @@ namespace CarRental.Data
 
         public string Manufacturer { get; set; }
 
-        public ICollection<Model> Models { get; set; }
+        //public ICollection<Model> Models { get; set; }
     }
 }

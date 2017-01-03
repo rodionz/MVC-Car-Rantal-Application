@@ -18,7 +18,7 @@ namespace CarRental.Data
 
       
 
-        public Manufacturers Manufacturer { get; set; }
+        
 
 
         [StringLength(30)]
