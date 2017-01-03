@@ -108,11 +108,6 @@ $(function () {
 
 
 
-    $('.test').click(function () {
-
-        console.log("It Works!!!")
-    });
-
 
 
 

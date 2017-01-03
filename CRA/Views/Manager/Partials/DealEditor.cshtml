@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CarRental.MVC.Models.DealViewModel>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table table-bordered table-hover ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupposedReturn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealReturn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupposedReturn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RealReturn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
