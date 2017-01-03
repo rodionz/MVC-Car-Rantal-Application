@@ -175,12 +175,12 @@ $(function () {
 
         var row = table.insertRow(0);
 
-        row.innerHTML = "<th>ID of Model</th><th>Name of Model</th><th>Dailt Price</th><th>Late Return Fine</th>";
+        row.innerHTML = "<th>Full Name</th><th>Birth Data</th><th>Email</th><th>Password</th>";
 
-        for (var model of arrayofModels)
+        for (var model of  arrayofCustomers)
         {
             row = table.insertRow(-1);
-            row.innerHTML = "<td>" + model.ModelID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine + "</td><td></td>"
+            row.innerHTML = "<td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password + "</td><td></td>"
         }
 
         $('.column-one').append(table);
@@ -191,18 +191,45 @@ $(function () {
 
 
 
-    $('#editCar').on('click', function () {
-        $.ajax({
-            type: "GET",
-            data: { ManagerAction: 'EditCar' },
-            url: '/Manager/ManagerActions',
-            success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
+    //$('#editCar').on('click', function () {
+    //    $.ajax({
+    //        type: "GET",
+    //        data: { ManagerAction: 'EditCar' },
+    //        url: '/Manager/ManagerActions',
+    //        success: function (data, textStatus, jqXHR) {
+    //            $('.column-one').html(data);
 
-                console.log("Success");
-            }
-        });
+    //            console.log("Success");
+    //        }
+    //    });
+    //});
+
+
+
+    $('#editCar').on('click', function () {
+
+        var table = document.createElement('table');
+
+        table.className = "table table-bordered table-hover";
+
+        var row = table.insertRow(0);
+
+        row.innerHTML = "<th>ID of Car</th><th>Mileage</th><th>CarNumber</th><th>BranchID</th><th>ModelID</th>";
+
+        for (var model of  arrayofCars)
+        {
+            row = table.insertRow(-1);
+            row.innerHTML = "<td>" + model.CarID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID + "</td><td></td>"
+        }
+
+        $('.column-one').append(table);
+
+
     });
+
+
+
+
 
 
     $('#editDeal').on('click', function () {

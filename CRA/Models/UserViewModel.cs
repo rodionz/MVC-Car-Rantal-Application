@@ -13,9 +13,9 @@ namespace CarRental.MVC.Models
        
         public int ID { get; set; }
         
-        public string FirstName { get; set; }
+        private string FirstName { get; set; }
       
-        public string LastName { get; set; }
+        private string LastName { get; set; }
 
 
         [Display (Name = "Full Name")]
