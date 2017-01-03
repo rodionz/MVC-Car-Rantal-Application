@@ -136,30 +136,58 @@ $(function () {
         var row = table.insertRow(0);
 
         row.innerHTML = "<th>ID of Model</th><th>Name of Model</th><th>Dailt Price</th><th>Late Return Fine</th>";
+     
+        for (var model of arrayofModels)
+        {
+            row = table.insertRow(-1);
+            row.innerHTML = "<td>" + model.ModelID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine+"</td><td></td>"
+        }
+
+        $('.column-one').append(table);
+    });
+
+
+
+
+
+
+
+    //$('#editClient').on('click', function () {
+    //    $.ajax({
+    //        type: "GET",
+    //        data: { ManagerAction: 'EditCustomer' },
+    //        url: '/Manager/ManagerActions',
+    //        success: function (data, textStatus, jqXHR) {
+    //            $('.column-one').html(data);
+
+    //            console.log("Success");
+    //        }
+    //    });
+    //});
+
+
+
+    $('#editClient').on('click', function () {
+
+        var table = document.createElement('table');
+
+        table.className = "table table-bordered table-hover";
+
+        var row = table.insertRow(0);
+
+        row.innerHTML = "<th>ID of Model</th><th>Name of Model</th><th>Dailt Price</th><th>Late Return Fine</th>";
+
+        for (var model of arrayofModels)
+        {
+            row = table.insertRow(-1);
+            row.innerHTML = "<td>" + model.ModelID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine + "</td><td></td>"
+        }
 
         $('.column-one').append(table);
 
 
     });
 
-
-
-
-
-
-
-    $('#editClient').on('click', function () {
-        $.ajax({
-            type: "GET",
-            data: { ManagerAction: 'EditCustomer' },
-            url: '/Manager/ManagerActions',
-            success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
-
-                console.log("Success");
-            }
-        });
-    });
 
 
 
