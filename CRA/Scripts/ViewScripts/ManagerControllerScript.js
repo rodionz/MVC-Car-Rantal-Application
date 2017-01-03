@@ -63,6 +63,19 @@ $(function () {
     });
 
 
+    $('#addDeal').on('click', function () {
+        $.ajax({
+            type: "GET",
+            data: { ManagerAction: 'AddDeal' },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-one').html(data);
+
+                console.log("Success");
+            }
+        });
+    });
+
 
     $('#editModel').on('click', function () {
         $.ajax({
@@ -107,7 +120,18 @@ $(function () {
     });
 
 
+    $('#editDeal').on('click', function () {
+        $.ajax({
+            type: "GET",
+            data: { ManagerAction: 'EditDeal' },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-one').html(data);
 
+                console.log("Success");
+            }
+        });
+    })
 
 
 

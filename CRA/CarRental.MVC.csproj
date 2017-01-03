@@ -201,9 +201,6 @@
     <Content Include="Views\Manager\ManagersLayout.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
     <Content Include="Views\Guest\Index.cshtml" />
-    <Content Include="Views\Manager\DealsEdit.cshtml" />
-    <Content Include="Views\Manager\VehiclesEdit.cshtml" />
-    <Content Include="Views\Manager\UsersEdit.cshtml" />
     <Content Include="Views\Manager\Partials\AddNewModel.cshtml" />
     <Content Include="Views\Manager\Partials\AddNewCar.cshtml" />
     <Content Include="Views\Manager\Partials\AddNewCustomer.cshtml" />

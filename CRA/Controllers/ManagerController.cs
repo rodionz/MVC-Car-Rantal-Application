@@ -62,6 +62,9 @@ namespace CarRental.Controllers
                 case "AddManufacturer":
                     return PartialView("~/Views/Manager/Partials/AddManufacturer.cshtml");
 
+                case "AddDeal":
+                    return PartialView("~/Views/Manager/Partials/AddDeal.cshtml");
+
                 case "EditModel":
                     return PartialView("~/Views/Manager/Partials/ModelEditor.cshtml",allmodels);
 
@@ -73,6 +76,9 @@ namespace CarRental.Controllers
 
                 case "EditManufacturer":
                     return PartialView("~/Views/Manager/Partials/ManufactorerEditor.cshtml", allManufacturers);
+
+                case "EditDeal":
+                    return PartialView("~/Views/Manager/Partials/DealEditor.cshtml", allDeals);
 
                 default:
                     return null;
