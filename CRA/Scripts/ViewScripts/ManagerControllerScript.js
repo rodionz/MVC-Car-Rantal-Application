@@ -77,6 +77,23 @@ $(function () {
     });
 
 
+    $('#addManufatorer').on('click', function () {
+        $.ajax({
+            type: "GET",
+            data: { ManagerAction: 'AddManufacturer' },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-one').html(data);
+
+                console.log("Success");
+            }
+        });
+    });
+
+
+
+
+
     $('#editModel').on('click', function () {
         $.ajax({
             type: "GET",
@@ -134,7 +151,18 @@ $(function () {
     })
 
 
+    $('#editManufactorer').on('click', function () {
+        $.ajax({
+            type: "GET",
+            data: { ManagerAction: 'EditManufacturer' },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-one').html(data);
 
+                console.log("Success");
+            }
+        });
+    })
 
 
 
