@@ -23,7 +23,7 @@ namespace CarRental.MVC.Models
     
         public int? ModelID { get; set; }
 
-        public virtual Model Model { get; set; }
+    
 
 
         public  Car toBaseCarDetails ()
@@ -35,7 +35,7 @@ namespace CarRental.MVC.Models
                 CarNumber = CarNumber,
                 BranchID = BranchID,
                 ModelID = ModelID,
-                 Model = Model
+                 //Model = Model
              
 
 
@@ -54,7 +54,7 @@ namespace CarRental.MVC.Models
 
             this.ModelID = domainCarDetails.ModelID;
 
-            this.Model = domainCarDetails.Model;
+            //this.Model = domainCarDetails.Model;
 
         }
 

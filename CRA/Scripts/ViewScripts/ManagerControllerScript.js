@@ -3,13 +3,31 @@
 
 $(function () {
 
-    let result;
+    var result;
 
+    var arrayofModels = [];
+
+    var arrayofCars = [];
+
+    var arrayofManufactorers = [];
  
-  
+    var arrayofCustomers = [];
+
+    var arrayofDeals = [];
+
 
     $.getJSON('/Manager/HelpAjax', function (data) {
          result = data;
+
+         arrayofModels = result.AllCarModels;
+
+         arrayofCars = result.AllCars;
+
+         arrayofManufactorers = result.AllManufacturers;
+
+         arrayofCustomers = result.AllCustomers;
+
+         arrayofDeals = result.AllDeals;
 
         console.log(result);
     });
@@ -94,18 +112,40 @@ $(function () {
 
 
 
-    $('#editModel').on('click', function () {
-        $.ajax({
-            type: "GET",
-            data: { ManagerAction: 'EditModel' },
-            url: '/Manager/ManagerActions',
-            success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
+    //$('#editModel').on('click', function () {
+    //    $.ajax({
+    //        type: "GET",
+    //        data: { ManagerAction: 'EditModel' },
+    //        url: '/Manager/ManagerActions',
+    //        success: function (data, textStatus, jqXHR) {
+    //            $('.column-one').html(data);
 
-                console.log("Success");
-            }
-        });
+    //            console.log("Success");
+    //        }
+    //    });
+    //});
+
+
+
+    $('#editModel').on('click', function () {
+
+        var table = document.createElement('table');
+
+        table.className = "table table-bordered table-hover";
+
+        var row = table.insertRow(0);
+
+        row.innerHTML = "<th>ID of Model</th><th>Name of Model</th><th>Dailt Price</th><th>Late Return Fine</th>";
+
+        $('.column-one').append(table);
+
+
     });
+
+
+
+
+
 
 
     $('#editClient').on('click', function () {
