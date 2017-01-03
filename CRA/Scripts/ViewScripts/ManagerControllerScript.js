@@ -78,10 +78,10 @@ $(function () {
     });
 
 
-    $('#editModel').on('click', function () {
+    $('#editClient').on('click', function () {
         $.ajax({
             type: "GET",
-            data: { ManagerAction: 'EditModel' },
+            data: { ManagerAction: 'EditCustomer' },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-one').html(data);
@@ -93,6 +93,18 @@ $(function () {
 
 
 
+    $('#editCar').on('click', function () {
+        $.ajax({
+            type: "GET",
+            data: { ManagerAction: 'EditCar' },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-one').html(data);
+
+                console.log("Success");
+            }
+        });
+    });
 
 
 
