@@ -142,7 +142,7 @@ $(function () {
         for (var model of arrayofModels)
         {
             row = table.insertRow(-1);
-            row.innerHTML = "<td>" + model.ModelID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine+"</td><td></td>"
+            row.innerHTML = "<td>" + model.ModelID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine+"</td>"
         }
 
         $('.column-one').append(table);
@@ -184,7 +184,7 @@ $(function () {
         for (var model of  arrayofCustomers)
         {
             row = table.insertRow(-1);
-            row.innerHTML = "<td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password + "</td><td></td>"
+            row.innerHTML = "<td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password + "</td>"
         }
 
         $('.column-one').append(table);
@@ -225,7 +225,7 @@ $(function () {
         for (var model of  arrayofCars)
         {
             row = table.insertRow(-1);
-            row.innerHTML = "<td>" + model.CarID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID + "</td><td></td>"
+            row.innerHTML = "<td>" + model.CarID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID + "</td>";
         }
 
         $('.column-one').append(table);
@@ -264,12 +264,12 @@ $(function () {
 
         var row = table.insertRow(0);
 
-        row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID/th>";
+        row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID</th>";
 
         for (var model of  arrayofDeals)
         {
             row = table.insertRow(-1);
-            row.innerHTML = "<td>" + model.ID + "</td><td>" + model.SupposedReturn + "</td><td>" + model.RealReturn + "</td><td>" + model.ClientID + "</td><td>" + model.CarID + "</td><td></td>"
+            row.innerHTML = "<td>" + model.ID + "</td><td>" + model.SupposedReturn + "</td><td>" + model.RealReturn + "</td><td>" + model.ClientID + "</td><td>" + model.CarID + "</td>"
         }
 
         $('.column-one').append(table);
