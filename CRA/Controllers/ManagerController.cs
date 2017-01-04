@@ -43,51 +43,7 @@ namespace CarRental.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult ManagerActions(HelpViewModel hvm)
-        {
-
-            switch (hvm.ManagerAction)
-                {
-
-                case "AddModel":
-                return PartialView("~/Views/Manager/Partials/AddNewModel.cshtml");
-
-                case "AddCar":
-                    return PartialView("~/Views/Manager/Partials/AddNewCar.cshtml");
-
-                case "AddCustomer":               
-                    return PartialView("~/Views/Manager/Partials/AddNewCustomer.cshtml");
-
-                case "AddManufacturer":
-                    return PartialView("~/Views/Manager/Partials/AddManufacturer.cshtml");
-
-                case "AddDeal":
-                    return PartialView("~/Views/Manager/Partials/AddDeal.cshtml");
-
-                case "EditModel":
-                    return PartialView("~/Views/Manager/Partials/ModelEditor.cshtml",allmodels);
-
-                case "EditCar":
-                    return PartialView("~/Views/Manager/Partials/CarEditor.cshtml",allCars);
-
-                case "EditCustomer":
-                    return PartialView("~/Views/Manager/Partials/CustomerEditor.cshtml", allCustomers);
-
-                case "EditManufacturer":
-                    return PartialView("~/Views/Manager/Partials/ManufactorerEditor.cshtml", allManufacturers);
-
-                case "EditDeal":
-                    return PartialView("~/Views/Manager/Partials/DealEditor.cshtml", allDeals);
-
-                default:
-                    return null;
-
-
-            }
-
-
-        }
+      
 
 
 
@@ -148,11 +104,7 @@ namespace CarRental.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult AddCar()
-        {
-            return PartialView();
-        }
+      
 
 
         public ActionResult AddCar(CarViewModel cvm)
