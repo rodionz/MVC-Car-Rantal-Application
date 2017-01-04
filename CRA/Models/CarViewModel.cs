@@ -35,7 +35,7 @@ namespace CarRental.MVC.Models
                 CarNumber = CarNumber,
                 BranchID = BranchID,
                 ModelID = ModelID,
-                 //Model = Model
+              
              
 
 
@@ -54,7 +54,7 @@ namespace CarRental.MVC.Models
 
             this.ModelID = domainCarDetails.ModelID;
 
-            //this.Model = domainCarDetails.Model;
+            
 
         }
 

@@ -298,7 +298,28 @@ $(function () {
     //})
 
 
+    $('#editManufactorer').on('click', function () {
 
+        $('.column-one').empty();
+
+        var table = document.createElement('table');
+
+        table.className = "table table-bordered table-hover";
+
+        var row = table.insertRow(0);
+
+        row.innerHTML = "<th>ID of Manufactorer</th><th>Name of Manufactorer</th>";
+
+        for (var model of  arrayofManufactorers)
+        {
+            row = table.insertRow(-1);
+            row.innerHTML = "<td>" + model.ID + "</td><td>" + model.manufacturerName + "</td>";
+        }
+
+        $('.column-one').append(table);
+
+
+    });
 
 
 
