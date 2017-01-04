@@ -47,6 +47,6 @@ footer{
 
 }
 
-tbody tr:hover td[rowspan] { 
-          background-color: #03D9FA;   /* or whatever color you want */
-} 
+.editdelete button {
+    margin-left: 25px;
+}
