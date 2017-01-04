@@ -156,12 +156,12 @@ $(function () {
 
         var row = table.insertRow(0);
 
-        row.innerHTML = "<th>Full Name</th><th>Birth Data</th><th>Email</th><th>Password</th>";
+        row.innerHTML = "<th>ID of Customer</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Password</th>";
 
         for (var model of  arrayofCustomers)
         {
            
-            $(table).append("<tr><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password +
+            $(table).append("<tr><td>"+model.ID+"</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password +
                 "</td><td><span class='editdelete'><button class='btn btn-xs btn-primary'>Edit Customer</button><button class='btn btn-xs btn-danger'>Delete Customer</button></span></td></tr>")
         }
 
@@ -192,7 +192,7 @@ $(function () {
         for (var model of  arrayofCars)
         {
             
-            $(table).append("<tr><td>" + model.CarID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID +
+            $(table).append("<tr><td>" + model.ID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID +
                 "</td><td><span  class='editdelete'><button class='btn btn-xs btn-primary'>Edit Vehicle</button><button class='btn btn-xs btn-danger'>Delete Vehicle</button></span></td></tr>");
         }
 

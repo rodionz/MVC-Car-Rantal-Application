@@ -13,7 +13,7 @@ namespace CarRental.MVC.Models
     public class CarViewModel
     {
        
-        public int CarID { get; set; }
+        public int ID { get; set; }
 
         public double? Mileage { get; set; }
 
@@ -30,7 +30,7 @@ namespace CarRental.MVC.Models
         {
             return new Car
             {
-                CarID = CarID,
+                CarID = ID,
                 Mileage = Mileage,                             
                 CarNumber = CarNumber,
                 BranchID = BranchID,
@@ -44,7 +44,7 @@ namespace CarRental.MVC.Models
 
         public CarViewModel(Car domainCarDetails)
         {
-            this.CarID = domainCarDetails.CarID;
+            this.ID = domainCarDetails.CarID;
 
             this.Mileage = domainCarDetails.Mileage;
                      

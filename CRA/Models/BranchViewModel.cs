@@ -12,7 +12,7 @@ namespace CarRental.MVC.Models
     {
 
       
-        public int BranchID { get; set; }
+        public int ID { get; set; }
 
       
         public string BranchName { get; set; }
@@ -32,7 +32,7 @@ namespace CarRental.MVC.Models
         {
             return new Branch
             {
-                BranchID = BranchID,
+                BranchID = ID,
                 BranchName = BranchName,
                 City = City,
                 District = District
@@ -44,7 +44,7 @@ namespace CarRental.MVC.Models
 
         public BranchViewModel(Branch domainBranch)
         {
-            this.BranchID = domainBranch.BranchID;
+            this.ID = domainBranch.BranchID;
 
             this.BranchName = domainBranch.BranchName;
 

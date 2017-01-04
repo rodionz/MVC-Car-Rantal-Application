@@ -205,13 +205,7 @@
     <Content Include="Views\Manager\Partials\AddNewCar.cshtml" />
     <Content Include="Views\Manager\Partials\AddNewCustomer.cshtml" />
     <Content Include="Views\Manager\Partials\AddManufacturer.cshtml" />
-    <Content Include="Views\Manager\Partials\ModelEditor.cshtml" />
-    <Content Include="Views\Manager\Partials\CarEditor.cshtml" />
-    <Content Include="Views\Manager\Partials\CustomerEditor.cshtml" />
-    <Content Include="Views\Manager\Partials\ManufactorerEditor.cshtml" />
     <Content Include="Views\Manager\Partials\AddDeal.cshtml" />
-    <Content Include="Views\Manager\Partials\DealEditor.cshtml" />
-    <Content Include="Views\Manager\Partials\examplEditor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

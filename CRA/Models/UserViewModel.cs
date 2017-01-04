@@ -29,7 +29,7 @@ namespace CarRental.MVC.Models
 
 
 
-        public DateTime? BirthData { get; set; }
+        public string BirthData { get; set; }
 
         public Gender gender { get; set; }
 
@@ -55,7 +55,7 @@ namespace CarRental.MVC.Models
                 UserID = ID,
                 FirstName = FirstName,
                 LastName = LastName,
-                BirthData = BirthData,
+                BirthData = new DateTime(long.Parse(BirthData)),
                 gender = gender,
                 Email = Email,
                 Password = Password,
@@ -75,7 +75,7 @@ namespace CarRental.MVC.Models
 
             this.LastName = domainClieentDetails.LastName;
 
-            this.BirthData = domainClieentDetails.BirthData;
+            this.BirthData = domainClieentDetails.BirthData.Value.ToShortDateString();
 
             this.gender = domainClieentDetails.gender;
 

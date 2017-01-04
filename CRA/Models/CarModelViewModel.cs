@@ -17,7 +17,7 @@ namespace CarRental.MVC.Models
     {
 
         
-        public int ModelID { get; set; }
+        public int ID { get; set; }
 
 
         public int ManufacturerId { get; set; }
@@ -39,7 +39,7 @@ namespace CarRental.MVC.Models
         {
             return new Model
             {
-                ModelID = ModelID,
+                ModelID = ID,
               
                 NameofModel = NameofModel,
                 DailyPrice = DailyPrice,
@@ -56,7 +56,7 @@ namespace CarRental.MVC.Models
         public CarModelViewModel(Model domainModelDetails)
 
         {
-            this.ModelID = domainModelDetails.ModelID;
+            this.ID = domainModelDetails.ModelID;
 
 
 

@@ -49,7 +49,7 @@ namespace CarRental.Controllers
 
             foreach (var model in allmodels)
             {
-                modelsItems.Add(new SelectListItem { Text = model.NameofModel, Value = model.ModelID.ToString() });
+                modelsItems.Add(new SelectListItem { Text = model.NameofModel, Value = model.ID.ToString() });
             }
 
             foreach (var man in allManufacturers)
