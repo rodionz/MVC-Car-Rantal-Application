@@ -35,9 +35,9 @@ namespace CarRental.Controllers
 
         public ActionResult Index()
         {
+            var domaninCars = guest.GetAllCars();
 
-
-            allCars = guest.GetAllCars().Select(c => new CarViewModel(c));
+            allCars = domaninCars.Select(c => new CarViewModel(c));
 
             allmodels = guest.GettAllModels().Select(c => new CarModelViewModel(c));
 
@@ -66,7 +66,7 @@ namespace CarRental.Controllers
 
 
 
-            return View(allCars);
+            return View(domaninCars);
         }
 
 

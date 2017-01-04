@@ -141,8 +141,9 @@ $(function () {
      
         for (var model of arrayofModels)
         {
-            row = table.insertRow(-1);
-            row.innerHTML = "<td>" + model.ModelID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine+"</td>"
+           
+            $(table).append("<tr><td>" + model.ModelID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine +
+                "</td><td><span><button class='btn btn-sm btn-primary'>Edit model</button><button class='btn btn-sm btn-danger'>Delete model</button></span></td></tr>");
         }
 
         $('.column-one').append(table);

@@ -46,3 +46,7 @@ footer{
     margin-bottom: 60px;
 
 }
+
+tbody tr:hover td[rowspan] { 
+          background-color: #03D9FA;   /* or whatever color you want */
+} 
