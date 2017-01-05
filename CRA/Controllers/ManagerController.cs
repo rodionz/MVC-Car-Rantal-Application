@@ -99,11 +99,13 @@ namespace CarRental.Controllers
                     return PartialView("~/Views/Manager/Partials/AddDeal.cshtml");
 
                 case "EditDeal":
-                    var deal = (from d in allDeals
-                                where d.ID == hvm.ID
-                                select d).FirstOrDefault();
+                    var deal = (from d in allDeals where d.ID == hvm.ID select d).FirstOrDefault();
+                    return PartialView("~/ Views / Manager / Partials / EditDeal.cshtml", deal);
 
-                    return PartialView("~/ Views / Manager / Partials / AddDeal.cshtml", deal);
+                case "EditManufactorer":
+                    var manuf = (from m in allManufacturers where m.ID == hvm.ID select m).FirstOrDefault();
+
+
 
                 default:
                     return null;
