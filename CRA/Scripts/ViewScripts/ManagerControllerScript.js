@@ -129,8 +129,8 @@ $(function () {
         for (var model of arrayofModels)
         {
            
-            $(table).append("<tr><td>" + model.ModelID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine +
-                "</td><td><span class='editdelete'><button class='btn btn-xs btn-primary'>Edit model</button><button class='btn btn-xs btn-danger'>Delete model</button></span></td></tr>");
+            $(table).append("<tr><td>" + model.ID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine +
+                "</td><td><span class='editdelete' id=" + model.ID + " ><button class='btn btn-xs btn-primary modelEdit' >Edit model</button><button class='btn btn-xs btn-danger modelDelete'>Delete model</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
@@ -162,7 +162,7 @@ $(function () {
         {
            
             $(table).append("<tr><td>"+model.ID+"</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password +
-                "</td><td><span class='editdelete'><button class='btn btn-xs btn-primary'>Edit Customer</button><button class='btn btn-xs btn-danger'>Delete Customer</button></span></td></tr>")
+                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary clientEdit'>Edit Customer</button><button class='btn btn-xs btn-danger clientDelete'>Delete Customer</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
@@ -193,7 +193,7 @@ $(function () {
         {
             
             $(table).append("<tr><td>" + model.ID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID +
-                "</td><td><span  class='editdelete'><button class='btn btn-xs btn-primary'>Edit Vehicle</button><button class='btn btn-xs btn-danger'>Delete Vehicle</button></span></td></tr>");
+                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary carEdit'>Edit Vehicle</button><button class='btn btn-xs btn-danger carDelete'>Delete Vehicle</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
@@ -226,7 +226,7 @@ $(function () {
         {
           
             $(table).append("<tr><td>" + model.ID + "</td><td>" + model.StartDate + "</td><td>" + model.SupposedReturn + "</td><td>" + model.RealReturn + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
-                "</td><td><span  class='editdelete'><button class='btn btn-xs btn-primary'>Edit Deal</button><button class='btn btn-xs btn-danger'>Delete Deal</button></span></td></tr>")
+                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary dealEdit'>Edit Deal</button><button class='btn btn-xs btn-danger dealDelete'>Delete Deal</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
@@ -256,7 +256,8 @@ $(function () {
         for (var model of  arrayofManufactorers)
         {
             
-            $(table).append("<tr><td>" + model.ID + "</td><td>" + model.manufacturerName + "</td><td><span class='editdelete'><button class='btn btn-xs btn-primary'>Edit Manufactorer</button><button class='btn btn-xs btn-danger'>Delete Manufactorer</button></span></td></tr>");
+            $(table).append("<tr><td>" + model.ID + "</td><td>" + model.manufacturerName
+                + "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary manEdit'>Edit Manufactorer</button><button class='btn btn-xs btn-danger manDelete'>Delete Manufactorer</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
