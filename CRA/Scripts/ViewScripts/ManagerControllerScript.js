@@ -137,9 +137,22 @@ $(function () {
     });
 
 
+    $('.column-one').on('click', '.modelEdit', function () {
+
+        var id = $(this).parent().attr('id');
+
+        console.log("ModelEdit");
+        console.log(id);
+    });
 
 
+    $('.column-one').on('click', '.modelDelete', function () {
 
+        var id = $(this).parent().attr('id');
+
+        console.log("modelDelete");
+        console.log(id);
+    });
 
 
    
@@ -173,6 +186,23 @@ $(function () {
 
 
 
+    $('.column-one').on('click', '.clientEdit', function () {
+
+        var id = $(this).parent().attr('id');
+
+        console.log("clientEdit");
+        console.log(id);
+    });
+
+
+    $('.column-one').on('click', '.clientDelete', function () {
+
+        var id = $(this).parent().attr('id');
+
+        console.log("clientDelete");
+        console.log(id);
+    });
+
 
 
 
@@ -204,6 +234,22 @@ $(function () {
 
 
 
+    $('.column-one').on('click', '.carEdit', function () {
+
+        var id = $(this).parent().attr('id');
+
+        console.log("carEdit");
+        console.log(id);
+    });
+
+
+    $('.column-one').on('click', '.carDelete', function () {
+
+        var id = $(this).parent().attr('id');
+
+        console.log("carDelete");
+        console.log(id);
+    });
 
 
    
@@ -230,12 +276,26 @@ $(function () {
         }
 
         $('.column-one').append(table);
-
-
     });
 
 
 
+    $('.column-one').on('click', '.dealEdit', function () {
+
+        var id = $(this).parent().attr('id');
+
+        console.log("dealEdit");
+        console.log(id);
+    });
+
+
+    $('.column-one').on('click', '.dealDelete', function () {
+
+        var id = $(this).parent().attr('id');
+
+        console.log("dealDelete");
+        console.log(id);
+    });
 
 
 
@@ -265,6 +325,22 @@ $(function () {
 
     });
 
+    $('.column-one').on('click', '.manEdit', function () {
+
+        var id = $(this).parent().attr('id');
+
+        console.log("manEdit");
+        console.log(id);
+    });
+
+
+    $('.column-one').on('click', '.manDelete', function () {
+
+        var id = $(this).parent().attr('id');
+
+        console.log("manDelete");
+        console.log(id);
+    });
 
 
 
