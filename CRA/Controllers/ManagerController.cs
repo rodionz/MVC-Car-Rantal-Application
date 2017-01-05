@@ -76,6 +76,43 @@ namespace CarRental.Controllers
         }
 
 
+        [HttpGet]
+        public ActionResult ManagerActions(HelpViewModel hvm)
+        {
+
+            switch (hvm.ManagerAction)
+            {
+
+                case "AddModel":
+                    return PartialView("~/Views/Manager/Partials/AddNewModel.cshtml");
+
+                case "AddCar":
+                    return PartialView("~/Views/Manager/Partials/AddNewCar.cshtml");
+
+                case "AddCustomer":
+                    return PartialView("~/Views/Manager/Partials/AddNewCustomer.cshtml");
+
+                case "AddManufacturer":
+                    return PartialView("~/Views/Manager/Partials/AddManufacturer.cshtml");
+
+                case "AddDeal":
+                    return PartialView("~/Views/Manager/Partials/AddDeal.cshtml");
+
+                case "EditDeal":
+                    var deal = (from d in allDeals
+                                where d.ID == hvm.ID
+                                select d).FirstOrDefault();
+
+                    return PartialView("~/ Views / Manager / Partials / AddDeal.cshtml", deal);
+
+                default:
+                    return null;
+
+
+            }
+
+
+        }
 
 
 

@@ -8,7 +8,7 @@ namespace CarRental.Models
 {
     public class HelpViewModel
     {
-        public int modelId { get; set; }
+        public int ID { get; set; }
 
         public IEnumerable<CarModelViewModel> AllCarModels {get;set;}
 
