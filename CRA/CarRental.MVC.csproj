@@ -154,17 +154,17 @@
     <Content Include="Content\Bootstrap\bootstrap.css.map" />
     <Content Include="Content\Bootstrap\bootstrap-theme.min.css.map" />
     <Content Include="Content\Bootstrap\bootstrap-theme.css.map" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <None Include="Scripts\Validators\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Validators\jquery-1.10.2.js" />
+    <Content Include="Scripts\Validators\jquery-1.10.2.min.js" />
+    <None Include="Scripts\Validators\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Validators\jquery.validate.js" />
+    <Content Include="Scripts\Validators\jquery.validate.min.js" />
+    <Content Include="Scripts\Validators\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\Validators\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jQuery\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jQuery\jquery-ui-1.12.1.min.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\Validators\jquery-1.10.2.min.map" />
     <None Include="Scripts\jQuery\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\Bootstrap\bootstrap.js" />
     <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
@@ -219,6 +219,8 @@
     <Content Include="Views\Manager\Partials\EditCustomer.cshtml" />
     <Content Include="Views\Manager\Partials\AddCar.cshtml" />
     <Content Include="Views\Manager\Partials\AddModel.cshtml" />
+    <Content Include="Views\Manager\Partials\EditCar.cshtml" />
+    <Content Include="Views\Manager\Partials\EditModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

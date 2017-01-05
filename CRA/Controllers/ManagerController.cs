@@ -110,6 +110,14 @@ namespace CarRental.Controllers
                     var customer = (from c in allCustomers where c.ID == hvm.ID select c).FirstOrDefault();
                     return PartialView("~/ Views / Manager / Partials / EditCustomer.cshtml", customer);
 
+                case "EditCar":
+                    var car = (from c in allCars where c.ID == hvm.ID select c).FirstOrDefault();
+                    return PartialView("~/ Views / Manager / Partials / EditCar.cshtml",car);
+
+
+                case "EditModel":
+                    var model = (from m in allmodels where m.ID == hvm.ID select m).FirstOrDefault();
+                    return PartialView("~/ Views / Manager / Partials / EditCar.cshtml",model);
 
                 default:
                     return null;
