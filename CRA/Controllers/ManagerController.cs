@@ -90,7 +90,7 @@ namespace CarRental.Controllers
                     return PartialView("~/Views/Manager/Partials/AddNewCar.cshtml");
 
                 case "AddCustomer":
-                    return PartialView("~/Views/Manager/Partials/AddNewCustomer.cshtml");
+                    return PartialView("~/Views/Manager/Partials/AddNCustomer.cshtml");
 
                 case "AddManufacturer":
                     return PartialView("~/Views/Manager/Partials/AddManufacturer.cshtml");
@@ -104,7 +104,11 @@ namespace CarRental.Controllers
 
                 case "EditManufactorer":
                     var manuf = (from m in allManufacturers where m.ID == hvm.ID select m).FirstOrDefault();
+                    return PartialView("~/ Views / Manager / Partials / EditManufacturer.cshtml", manuf);
 
+                case "EditCustomer":
+                    var customer = (from c in allCustomers where c.ID == hvm.ID select c).FirstOrDefault();
+                    return PartialView("~/ Views / Manager / Partials / EditCustomer.cshtml", customer);
 
 
                 default:

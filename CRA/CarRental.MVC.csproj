@@ -210,13 +210,15 @@
     <Content Include="Views\Manager\ManagersLayout.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
     <Content Include="Views\Guest\Index.cshtml" />
-    <Content Include="Views\Manager\Partials\AddNewModel.cshtml" />
-    <Content Include="Views\Manager\Partials\AddNewCar.cshtml" />
-    <Content Include="Views\Manager\Partials\AddNewCustomer.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Manager\Partials\EditDeal.cshtml" />
     <Content Include="Views\Manager\Partials\AddDeal.cshtml" />
     <Content Include="Views\Manager\Partials\AddManufacturer.cshtml" />
+    <Content Include="Views\Manager\Partials\EditManufacturer.cshtml" />
+    <Content Include="Views\Manager\Partials\AddCustomer.cshtml" />
+    <Content Include="Views\Manager\Partials\EditCustomer.cshtml" />
+    <Content Include="Views\Manager\Partials\AddCar.cshtml" />
+    <Content Include="Views\Manager\Partials\AddModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
