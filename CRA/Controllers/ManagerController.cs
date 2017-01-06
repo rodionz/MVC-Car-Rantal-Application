@@ -100,24 +100,24 @@ namespace CarRental.Controllers
 
                 case "EditDeal":
                     var deal = (from d in allDeals where d.ID == hvm.ID select d).FirstOrDefault();
-                    return PartialView("~/ Views / Manager / Partials / EditDeal.cshtml", deal);
+                    return PartialView("~/Views/Manager/Partials/EditDeal.cshtml", deal);
 
                 case "EditManufactorer":
                     var manuf = (from m in allManufacturers where m.ID == hvm.ID select m).FirstOrDefault();
-                    return PartialView("~/ Views / Manager / Partials / EditManufacturer.cshtml", manuf);
+                    return PartialView("~/Views/Manager/Partials/EditManufacturer.cshtml", manuf);
 
                 case "EditCustomer":
                     var customer = (from c in allCustomers where c.ID == hvm.ID select c).FirstOrDefault();
-                    return PartialView("~/ Views / Manager / Partials / EditCustomer.cshtml", customer);
+                    return PartialView("~/Views/Manager/Partials/EditCustomer.cshtml", customer);
 
                 case "EditCar":
                     var car = (from c in allCars where c.ID == hvm.ID select c).FirstOrDefault();
-                    return PartialView("~/ Views / Manager / Partials / EditCar.cshtml",car);
+                    return PartialView("~/Views/Manager/Partials/EditCar.cshtml",car);
 
 
                 case "EditModel":
                     var model = (from m in allmodels where m.ID == hvm.ID select m).FirstOrDefault();
-                    return PartialView("~/ Views / Manager / Partials / EditCar.cshtml",model);
+                    return PartialView("~/Views/Manager/Partials/EditModel.cshtml",model);
 
                 default:
                     return null;

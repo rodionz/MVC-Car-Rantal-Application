@@ -141,8 +141,19 @@ $(function () {
 
         var id = $(this).parent().attr('id');
 
-        console.log("ModelEdit");
-        console.log(id);
+       
+
+        $.ajax({
+            type: 'GET',
+            data: { ManagerAction: 'EditModel', ID: id },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-two').html(data);
+                console.log("ModelEdit");
+                console.log(id);
+            }
+
+        });
     });
 
 
