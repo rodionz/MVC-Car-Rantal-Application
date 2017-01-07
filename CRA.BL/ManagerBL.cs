@@ -35,10 +35,14 @@ namespace CarRental.BL
             }
         }
 
-        public void DeleteModel(Model model)
+        public void DeleteModel(int modelID)
         {
             using (var context = new CarRentalContext())
             {
+                var model = (from m in context.Models
+                             where m.ModelID == modelID
+                             select m).FirstOrDefault();
+
                 context.Models.Attach(model);
                 context.Entry(model).State = EntityState.Deleted;
                 context.SaveChanges();

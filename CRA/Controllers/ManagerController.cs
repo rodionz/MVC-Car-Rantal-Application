@@ -119,6 +119,22 @@ namespace CarRental.Controllers
                     var model = (from m in allmodels where m.ID == hvm.ID select m).FirstOrDefault();
                     return PartialView("~/Views/Manager/Partials/EditModel.cshtml",model);
 
+                case "DeleteDeal":
+                    _manager.DeleteModel(hvm.ID);
+                    return null;
+
+                case "DeleteManufactorer":
+                    return null;
+
+                case "DeleteCustomer":
+                    return null;
+
+                case "DeleteCar":
+                    return null;
+
+                case "DeleteModel":
+                    return null;
+
                 default:
                     return null;
 

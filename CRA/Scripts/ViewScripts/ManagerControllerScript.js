@@ -161,8 +161,22 @@ $(function () {
 
         var id = $(this).parent().attr('id');
 
-        console.log("modelDelete");
-        console.log(id);
+     
+        var del = confirm("Are you sure that you want to delete a model");
+
+        if (del) {
+            $.ajax({
+                type: 'GET',
+                data: { ManagerAction: 'DeleteModel', ID: id },
+                url: '/Manager/ManagerActions',
+                success: function (data, textStatus, jqXHR) {
+                   
+                    console.log("Model Deleted");
+                }
+
+            });
+        }
+
     });
 
 
