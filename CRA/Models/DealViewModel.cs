@@ -33,7 +33,7 @@ namespace CarRental.MVC.Models
                 Start = new DateTime(long.Parse(StartDate)),
                 SupposedReturn = new DateTime(long.Parse(SupposedReturn)),
                 RealReturn = new DateTime(long.Parse(RealReturn)),
-                //UserId = ClientID,
+                UserId = ClientID,
                 CarID = CarID
 
             };
@@ -55,7 +55,7 @@ namespace CarRental.MVC.Models
 
             this.RealReturn = domainDealDetails.RealReturn.Value.ToShortDateString();
 
-            //this.ClientID = domainDealDetails.UserId;
+            this.ClientID = domainDealDetails.UserId;
 
             this.CarID = domainDealDetails.CarID;
 
