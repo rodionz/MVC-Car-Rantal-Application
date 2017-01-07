@@ -34,6 +34,9 @@ $(function () {
    
 
 
+    ////////////CAR  MODELS//////////////////
+
+
     $('#addnewModel').on('click', function () {
         $.ajax({
             type: "GET",
@@ -50,71 +53,7 @@ $(function () {
 
 
 
-
-
-    $('#addnewClient').on('click', function () {
-        $.ajax({
-            type: "GET",
-            data: {ManagerAction : 'AddCustomer'},
-            url: '/Manager/ManagerActions',
-            success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
-
-                console.log("Success");
-            }
-        });
-    });
-
-
-
-    $('#addnewcar').on('click', function () {
-        $.ajax({
-            type: "GET",
-            data: { ManagerAction: 'AddCar' },
-            url: '/Manager/ManagerActions',
-            success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
-
-                console.log("Success");
-            }
-        });
-    });
-
-
-    $('#addDeal').on('click', function () {
-        $.ajax({
-            type: "GET",
-            data: { ManagerAction: 'AddDeal' },
-            url: '/Manager/ManagerActions',
-            success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
-
-                console.log("Success");
-            }
-        });
-    });
-
-
-    $('#addManufatorer').on('click', function () {
-        $.ajax({
-            type: "GET",
-            data: { ManagerAction: 'AddManufacturer' },
-            url: '/Manager/ManagerActions',
-            success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
-
-                console.log("Success");
-            }
-        });
-    });
-
-
-
-
-
-
-
-    $('#editModel').on('click', function () {
+    $('#modelList').on('click', function () {
 
         $('.column-one').empty();
 
@@ -125,10 +64,10 @@ $(function () {
         var row = table.insertRow(0);
 
         row.innerHTML = "<th>ID of Model</th><th>Name of Model</th><th>Dailt Price</th><th>Late Return Fine</th>";
-     
+
         for (var model of arrayofModels)
         {
-           
+
             $(table).append("<tr><td>" + model.ID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine +
                 "</td><td><span class='editdelete' id=" + model.ID + " ><button class='btn btn-xs btn-primary modelEdit' >Edit model</button><button class='btn btn-xs btn-danger modelDelete'>Delete model</button></span></td></tr>");
         }
@@ -137,11 +76,13 @@ $(function () {
     });
 
 
+
+
     $('.column-one').on('click', '.modelEdit', function () {
 
         var id = $(this).parent().attr('id');
 
-       
+
 
         $.ajax({
             type: 'GET',
@@ -161,8 +102,8 @@ $(function () {
 
         var id = $(this).parent().attr('id');
 
-     
-        var del = confirm("Are you sure that you want to delete a model");
+
+        var del = confirm("Are you sure that you want to delete this model");
 
         if (del) {
             $.ajax({
@@ -170,7 +111,7 @@ $(function () {
                 data: { ManagerAction: 'DeleteModel', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
-                   
+                    ////  TODO //////
                     console.log("Model Deleted");
                 }
 
@@ -180,11 +121,28 @@ $(function () {
     });
 
 
-   
+
+    ////////// CUSTOMERS ////////////////
+
+
+    $('#addnewClient').on('click', function () {
+        $.ajax({
+            type: "GET",
+            data: {ManagerAction : 'AddCustomer'},
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-one').html(data);
+
+             
+                console.log("Success");
+            }
+        });
+    });
 
 
 
-    $('#editClient').on('click', function () {
+
+    $('#clientList').on('click', function () {
 
         $('.column-one').empty();
 
@@ -198,8 +156,8 @@ $(function () {
 
         for (var model of  arrayofCustomers)
         {
-           
-            $(table).append("<tr><td>"+model.ID+"</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password +
+
+            $(table).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password +
                 "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary clientEdit'>Edit Customer</button><button class='btn btn-xs btn-danger clientDelete'>Delete Customer</button></span></td></tr>")
         }
 
@@ -215,8 +173,20 @@ $(function () {
 
         var id = $(this).parent().attr('id');
 
-        console.log("clientEdit");
-        console.log(id);
+        $.ajax({
+            type: 'GET',
+            data: { ManagerAction: 'EditCustomer', ID: id },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-two').html(data);
+                console.log("Customer Edit");
+                console.log(id);
+            }
+
+        });
+
+
+    
     });
 
 
@@ -224,15 +194,48 @@ $(function () {
 
         var id = $(this).parent().attr('id');
 
-        console.log("clientDelete");
-        console.log(id);
+
+        var del = confirm("Are you sure that you want to delete this customer?");
+
+        if (del) {
+            $.ajax({
+                type: 'GET',
+                data: { ManagerAction: 'DeleteCustomer', ID: id },
+                url: '/Manager/ManagerActions',
+                success: function (data, textStatus, jqXHR) {
+                    ////  TODO //////
+                    console.log("Customer Deleted");
+                }
+
+            });
+        }
+
+    });
+
+
+
+
+////////////////////////// CARS /////////////////////////
+
+
+    $('#addnewcar').on('click', function () {
+        $.ajax({
+            type: "GET",
+            data: { ManagerAction: 'AddCar' },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-one').html(data);
+
+                console.log("Success");
+            }
+        });
     });
 
 
 
 
 
-    $('#editCar').on('click', function () {
+    $('#carList').on('click', function () {
 
         $('.column-one').empty();
 
@@ -246,7 +249,7 @@ $(function () {
 
         for (var model of  arrayofCars)
         {
-            
+
             $(table).append("<tr><td>" + model.ID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID +
                 "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary carEdit'>Edit Vehicle</button><button class='btn btn-xs btn-danger carDelete'>Delete Vehicle</button></span></td></tr>");
         }
@@ -259,12 +262,24 @@ $(function () {
 
 
 
+
     $('.column-one').on('click', '.carEdit', function () {
 
         var id = $(this).parent().attr('id');
 
-        console.log("carEdit");
-        console.log(id);
+        $.ajax({
+            type: 'GET',
+            data: { ManagerAction: 'EditCar', ID: id },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-two').html(data);
+                console.log("Client Edit");
+                console.log(id);
+            }
+
+        });
+
+
     });
 
 
@@ -272,16 +287,51 @@ $(function () {
 
         var id = $(this).parent().attr('id');
 
-        console.log("carDelete");
-        console.log(id);
+        var del = confirm("Are you sure that you want to delete this car?");
+
+        if (del) {
+            $.ajax({
+                type: 'GET',
+                data: { ManagerAction: 'DeleteCar', ID: id },
+                url: '/Manager/ManagerActions',
+                success: function (data, textStatus, jqXHR) {
+                    ////  TODO //////
+                    console.log("Car Deleted");
+                }
+
+            });
+        }
+
+
+
     });
 
 
-   
 
 
 
-    $('#editDeal').on('click', function () {
+/////////////////// DEALS ////////////////////////////
+
+
+
+
+    $('#addDeal').on('click', function () {
+        $.ajax({
+            type: "GET",
+            data: { ManagerAction: 'AddDeal' },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-one').html(data);
+
+                console.log("Success");
+            }
+        });
+    });
+
+
+
+
+    $('#dealList').on('click', function () {
 
         $('.column-one').empty();
 
@@ -295,7 +345,7 @@ $(function () {
 
         for (var model of  arrayofDeals)
         {
-          
+
             $(table).append("<tr><td>" + model.ID + "</td><td>" + model.StartDate + "</td><td>" + model.SupposedReturn + "</td><td>" + model.RealReturn + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
                 "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary dealEdit'>Edit Deal</button><button class='btn btn-xs btn-danger dealDelete'>Delete Deal</button></span></td></tr>")
         }
@@ -309,8 +359,17 @@ $(function () {
 
         var id = $(this).parent().attr('id');
 
-        console.log("dealEdit");
-        console.log(id);
+        $.ajax({
+            type: 'GET',
+            data: { ManagerAction: 'EditDeal', ID: id },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-two').html(data);
+                console.log("Deal Edit");
+                console.log(id);
+            }
+
+        });
     });
 
 
@@ -318,15 +377,48 @@ $(function () {
 
         var id = $(this).parent().attr('id');
 
-        console.log("dealDelete");
-        console.log(id);
+        var del = confirm("Are you sure that you want to delete this deal?");
+
+        if (del) {
+            $.ajax({
+                type: 'GET',
+                data: { ManagerAction: 'DeleteDeal', ID: id },
+                url: '/Manager/ManagerActions',
+                success: function (data, textStatus, jqXHR) {
+                    ////  TODO //////
+                    console.log("Deal Deleted");
+                }
+
+            });
+        }
+       
     });
 
 
 
 
+    //////////////////// MANUFACTORERS ///////////////////
 
-    $('#editManufactorer').on('click', function () {
+
+
+
+    $('#addManufatorer').on('click', function () {
+        $.ajax({
+            type: "GET",
+            data: { ManagerAction: 'AddManufacturer' },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-one').html(data);
+
+                console.log("Success");
+            }
+        });
+    });
+
+
+
+
+    $('#manufactorerList').on('click', function () {
 
         $('.column-one').empty();
 
@@ -350,22 +442,51 @@ $(function () {
 
     });
 
+
+
+
     $('.column-one').on('click', '.manEdit', function () {
 
         var id = $(this).parent().attr('id');
 
-        console.log("manEdit");
-        console.log(id);
+        $.ajax({
+            type: 'GET',
+            data: { ManagerAction: 'EditManufactorer', ID: id },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-two').html(data);
+                console.log("Manufactorer Edit");
+                console.log(id);
+            }
+
+        });
     });
+
+
+
 
 
     $('.column-one').on('click', '.manDelete', function () {
 
         var id = $(this).parent().attr('id');
 
-        console.log("manDelete");
-        console.log(id);
+        var del = confirm("Are you sure that you want to delete this manufactorer?");
+
+        if (del) {
+            $.ajax({
+                type: 'GET',
+                data: { ManagerAction: 'DeleteManufactorer', ID: id },
+                url: '/Manager/ManagerActions',
+                success: function (data, textStatus, jqXHR) {
+                    ////  TODO //////
+                    console.log("Manufactorer Deleted");
+                }
+
+            });
+        }
     });
+
+
 
 
 
