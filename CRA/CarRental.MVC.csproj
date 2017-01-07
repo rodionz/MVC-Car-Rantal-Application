@@ -233,7 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\Validators and Moments\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CRA.BL\CarRental.BL.csproj">
