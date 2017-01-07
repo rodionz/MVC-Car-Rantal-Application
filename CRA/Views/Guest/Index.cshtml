@@ -9,7 +9,6 @@
 }
 
 <script src="~/Scripts/ViewScripts/GuestControllerScript.js"></script>
-<script src="~/Scripts/jQuery,Validators,Moments/jquery-3.1.1.min.js"></script>
 <script src="~/Scripts/jQuery,Validators,Moments/jquery.validate.min.js"></script>
 <script src="~/Scripts/jQuery,Validators,Moments/jquery.validate.unobtrusive.min.js"></script>
 <script src="~/Scripts/jQuery,Validators,Moments/moment.js"></script>
@@ -33,49 +32,77 @@
 <main>
 
     <div class="container carsearch col-lg-12">
-    <div class="input-group col-md-3">
+
+
+
+
         <label>Search by gear</label>
+    <div class="input-group col-md-3">     
         <select name="transmission" class="dropdown form-control" id="gear">
             <option value="#" selected>--Select Gear--</option>
             <option value="0">Manual</option>
             <option value="1">Automatic</option>
             <option value="2">Robotic</option>
         </select>
-        <div><button class="btn btn-default" id="searchbyTransmission">Search</button></div>
+        <span class="input-group-btn">
+            <button class="btn btn-default" id="searchbyTransmission">Search</button>
+        </span>
+      
     </div>
+
+
+
         <br />
         <br />
-    <div class="input-group col-md-3">
+
+
+
+
         <label>Search by model</label>
-        <br />
+    <div class="input-group col-md-3">            
         @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, "-- Please Select --", new {  @class = "dropdown form-control" })
-        <div><button class="btn btn-default" id="searchbyModel">Search</button></div>
+        <span class="input-group-btn">
+            <button class="btn btn-default" id="searchbyModel">Search</button>
+        </span>     
     </div>
         <br />
         <br />
-    <div class="input-group col-md-3">
+
+
         <label>Search by manufacturer</label>
-        <br />
+        <div class="input-group col-md-3">              
         @Html.DropDownList("manufa", (IEnumerable<SelectListItem>)ViewBag.manufac, "-- Please Select --", new { @class = "dropdown form-control" })
-        <div><button class="btn btn btn-default" id="searchbyManufacturer">Search</button></div>
+        <span class="input-group-btn">
+            <button class="btn btn btn-default" id="searchbyManufacturer">Search</button>
+        </span>      
     </div>
         <br />
         <br />
-    <div class="input-group col-md-3">
+
+
+
         <label>Please Select Date</label>
-        <br />
+    <div class="input-group col-md-3">
         <input type="text" id="datepicker1" class="form-control" placeholder="From..." />
         <input type="text" id="datepicker2" class="form-control" placeholder="To..." />
-        <div> <button class="btn btn-default" id="searchbyDate">Search</button></div>
+        <span class="input-group-btn">
+            <button class="btn btn-default" id="searchbyDate">Search</button>
+        </span>        
     </div>
         <br />
         <br />
-    <div class="input-group col-md-3">
+
+
+
         <label>Free Search</label>
-        <br />
-        <input type="text" id="freeText" class="form-control" placeholder="Search for...">
-        <br />
-        <div><button class="btn btn-default" id="freeSearch">Search</button></div>
+    <div class="input-group col-md-3">
+             
+        <input type="text" id="freeText" class="form-control" placeholder="Search for..."> 
+        <span class="input-group-btn">
+            <button class="btn btn-default" id="freeSearch">Search</button>
+        </span> 
+              
+        
     </div>
         <br />
         <br />
