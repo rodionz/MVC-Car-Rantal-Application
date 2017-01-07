@@ -14,7 +14,7 @@ namespace CarRental.Controllers
 {
     public class GuestController : Controller
     {
-        private readonly CustomerBL manager;
+        private readonly ManagerBL manager;
 
         private readonly GuestBL guest;
 
@@ -24,10 +24,16 @@ namespace CarRental.Controllers
 
         private static IEnumerable<CarViewModel> allCars;
 
+        private static IEnumerable<DealViewModel> allDeals;
+
+
+
+
         public GuestController()
         {
 
-            manager = new CustomerBL();
+            manager = new ManagerBL();
+
             guest = new GuestBL();
         }
 
@@ -42,6 +48,8 @@ namespace CarRental.Controllers
             allmodels = guest.GettAllModels().Select(c => new CarModelViewModel(c));
 
             allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
+
+            allDeals = manager.GetAllDeals().Select(d => new DealViewModel(d));
 
             List<SelectListItem> modelsItems = new List<SelectListItem>();
 
@@ -61,11 +69,6 @@ namespace CarRental.Controllers
 
             ViewBag.manufac = manufacturersItems;
 
-
-
-
-
-
             return View(domaninCars);
         }
 
@@ -78,37 +81,21 @@ namespace CarRental.Controllers
 
             helper.AllCarModels = allmodels;
 
-           
+            helper.AllDeals = allDeals;
 
             return Json(helper, JsonRequestBehavior.AllowGet);
         }
 
-        //public ActionResult SearchbyGear(Gear gear)
+    
+
+        //public ActionResult FreeTextSearch (string text)
         //{
-        //    var allCars = manager.SearchByGear(gear);
-
-        //    return View();
-        //}
-
-
-        //public ActionResult ManufacturerSearch(int manuf)
-        //{
-        //    var allCars = manager.SearchByManufacrurer(manuf);
+        //    var allCars = manager.SearchbyFreeText(text);
 
         //    var modelCars = allCars.Select(c => new CarViewModel(c));
 
         //    return View();
-
         //}
-
-        public ActionResult FreeTextSearch (string text)
-        {
-            var allCars = manager.SearchbyFreeText(text);
-
-            var modelCars = allCars.Select(c => new CarViewModel(c));
-
-            return View();
-        }
 
 
        
