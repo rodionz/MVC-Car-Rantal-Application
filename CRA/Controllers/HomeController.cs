@@ -15,7 +15,7 @@ namespace CarRental.Controllers
 
         private readonly GuestBL guest;
 
-       
+        private static IEnumerable<DealViewModel> allDeals;
 
 
         public HomeController()

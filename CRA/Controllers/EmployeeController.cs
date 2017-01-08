@@ -1,5 +1,6 @@
 ﻿using CarRental.BL;
 using CarRental.Data;
+using CarRental.Models;
 using CarRental.MVC.Models;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,10 @@ namespace CarRental.Controllers
     public class EmployeeController : Controller
     {
         public readonly EmployeeBL _employee;
+
+        private static IEnumerable<DealViewModel> allDeals;
+
+
 
         public EmployeeController()
         {
@@ -26,6 +31,32 @@ namespace CarRental.Controllers
         {
             return View();
         }
+
+
+
+        public JsonResult HelpAjax()
+        {
+            var helper = new HelpViewModel();
+
+            allDeals =_employee.GetAllDeals().Select(d => new DealViewModel(d));
+              
+            helper.AllDeals = allDeals;
+          
+           return Json(helper, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         public ActionResult ReservationSearch(string carNumber)
