@@ -31,7 +31,16 @@ $(function () {
 
         console.log(result);
     });
+
+
+    $('.column-two').on('click', '.cancel', function () {
+
+        $('.column-two').empty();
+    });
    
+
+
+
     $('footer').addClass('bottomfooter');
 
     ////////////CAR  MODELS//////////////////
