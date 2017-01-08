@@ -19,8 +19,10 @@ namespace CarRental.MVC.Models
 
         public string RealReturn { get; set; }
 
+        [Display(Name = "Id of Client")]
         public int? ClientID { get; set; }
         
+        [Display(Name = "Id of Car")]
         public int? CarID { get; set; }
 
 

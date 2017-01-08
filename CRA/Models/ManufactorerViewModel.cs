@@ -1,6 +1,7 @@
 ﻿using CarRental.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -11,6 +12,8 @@ namespace CarRental.Models
 
         public int ID { get; set; }
 
+
+        [Display (Name ="Manufactorer Name")]
         public string manufacturerName { get; set; }
 
     

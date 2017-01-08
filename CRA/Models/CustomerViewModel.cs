@@ -28,7 +28,7 @@ namespace CarRental.MVC.Models
         }
 
 
-
+        [Display(Name = "Birth Data")]
         public string BirthData { get; set; }
 
         public Gender gender { get; set; }

@@ -17,10 +17,14 @@ namespace CarRental.MVC.Models
 
         public double? Mileage { get; set; }
 
+        [Display(Name = "Car Number")]
         public string CarNumber { get; set; }
 
+        [Display(Name = "Id of Branch")]
         public int? BranchID { get; set; }
     
+
+        [Display (Name = "Id of Model")]
         public int? ModelID { get; set; }
 
     
