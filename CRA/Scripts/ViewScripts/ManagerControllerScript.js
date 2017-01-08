@@ -32,7 +32,7 @@ $(function () {
         console.log(result);
     });
    
-    $('footer').removeClass('bottomfooter');
+    $('footer').addClass('bottomfooter');
 
     ////////////CAR  MODELS//////////////////
 
@@ -54,6 +54,8 @@ $(function () {
 
 
     $('#modelList').on('click', function () {
+
+        $('footer').removeClass('bottomfooter');
 
         $('.column-one').empty();
 
@@ -160,6 +162,8 @@ $(function () {
 
         $('.column-two').empty();
 
+        $('footer').addClass('bottomfooter');
+
         var table = document.createElement('table');
 
         table.className = "table table-bordered";
@@ -260,6 +264,8 @@ $(function () {
 
 
     $('#carList').on('click', function () {
+
+        $('footer').removeClass('bottomfooter');
 
         $('.column-one').empty();
 
@@ -373,6 +379,8 @@ $(function () {
 
         $('.column-two').empty();
 
+        $('footer').addClass('bottomfooter');
+
         var table = document.createElement('table');
 
         table.className = "table table-bordered table-hover";
@@ -471,6 +479,8 @@ $(function () {
         $('.column-one').empty();
 
         $('.column-two').empty();
+
+        $('footer').addClass('bottomfooter');
 
         var table = document.createElement('table');
 
