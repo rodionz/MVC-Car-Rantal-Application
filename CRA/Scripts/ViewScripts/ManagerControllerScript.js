@@ -57,6 +57,8 @@ $(function () {
 
         $('.column-one').empty();
 
+        $('.column-two').empty();
+
         var table = document.createElement('table');
 
         table.className = "table table-bordered";
@@ -155,6 +157,8 @@ $(function () {
     $('#clientList').on('click', function () {
 
         $('.column-one').empty();
+
+        $('.column-two').empty();
 
         var table = document.createElement('table');
 
@@ -258,6 +262,8 @@ $(function () {
     $('#carList').on('click', function () {
 
         $('.column-one').empty();
+
+        $('.column-two').empty();
 
         var table = document.createElement('table');
 
@@ -365,6 +371,8 @@ $(function () {
 
         $('.column-one').empty();
 
+        $('.column-two').empty();
+
         var table = document.createElement('table');
 
         table.className = "table table-bordered table-hover";
@@ -461,6 +469,8 @@ $(function () {
     $('#manufactorerList').on('click', function () {
 
         $('.column-one').empty();
+
+        $('.column-two').empty();
 
         var table = document.createElement('table');
 

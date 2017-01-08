@@ -86,7 +86,7 @@ namespace CarRental.Controllers
                    ///////// MODELS ///////////
 
                 case "AddModel":
-                    return PartialView("~/Views/Manager/Partials/AddNewModel.cshtml");
+                    return PartialView("~/Views/Manager/Partials/AddModel.cshtml");
 
 
                 case "EditModel":
@@ -101,7 +101,7 @@ namespace CarRental.Controllers
                 /////////////  CARS /////////////
 
                 case "AddCar":
-                    return PartialView("~/Views/Manager/Partials/AddNewCar.cshtml");
+                    return PartialView("~/Views/Manager/Partials/AddCar.cshtml");
 
 
                 case "EditCar":
@@ -116,7 +116,7 @@ namespace CarRental.Controllers
              /////////////// CUSTOMERS ////////////////////
 
                 case "AddCustomer":
-                    return PartialView("~/Views/Manager/Partials/AddNCustomer.cshtml");
+                    return PartialView("~/Views/Manager/Partials/AddCustomer.cshtml");
 
 
 
