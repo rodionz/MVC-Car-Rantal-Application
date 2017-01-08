@@ -37,13 +37,13 @@ $(function () {
     ////////////CAR  MODELS//////////////////
 
 
-    $('#addnewModel').on('click', function () {
+    $('.column-one').on('click', '.addnewModel', function () {
         $.ajax({
             type: "GET",
             data: {ManagerAction : 'AddModel'},
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
+                $('.column-two').html(data);
 
                 console.log("Success");
             }
@@ -60,6 +60,16 @@ $(function () {
         var table = document.createElement('table');
 
         table.className = "table table-bordered";
+
+
+        var addButton = document.createElement('button');
+
+        addButton.className = "addnewModel btn btn-success";
+
+        addButton.textContent = "Add New Model";
+
+        $('.column-one').prepend(addButton);
+
 
         var row = table.insertRow(0);
 
@@ -125,13 +135,13 @@ $(function () {
     ////////// CUSTOMERS ////////////////
 
 
-    $('#addnewClient').on('click', function () {
+    $('.column-one').on('click', '.addnewClient', function () {
         $.ajax({
             type: "GET",
             data: {ManagerAction : 'AddCustomer'},
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
+                $('.column-two').html(data);
 
              
                 console.log("Success");
@@ -149,6 +159,16 @@ $(function () {
         var table = document.createElement('table');
 
         table.className = "table table-bordered";
+
+
+        var addButton = document.createElement('button');
+
+        addButton.className = "addnewClient btn btn-success";
+
+        addButton.textContent = "Add New Customer";
+
+        $('.column-one').prepend(addButton);
+
 
         var row = table.insertRow(0);
 
@@ -218,13 +238,13 @@ $(function () {
 ////////////////////////// CARS /////////////////////////
 
 
-    $('#addnewcar').on('click', function () {
+    $('.column-one').on('click', '.addnewcar', function () {
         $.ajax({
             type: "GET",
             data: { ManagerAction: 'AddCar' },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
+                $('.column-two').html(data);
 
                 console.log("Success");
             }
@@ -242,6 +262,16 @@ $(function () {
         var table = document.createElement('table');
 
         table.className = "table table-bordered table-hover";
+
+
+        var addButton = document.createElement('button');
+
+        addButton.className = "addnewcar btn btn-success";
+
+        addButton.textContent = "Add New Car";
+
+        $('.column-one').prepend(addButton);
+
 
         var row = table.insertRow(0);
 
@@ -315,13 +345,13 @@ $(function () {
 
 
 
-    $('#addDeal').on('click', function () {
+    $('.column-one').on('click', '.addDeal', function () {
         $.ajax({
             type: "GET",
             data: { ManagerAction: 'AddDeal' },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
+                $('.column-two').html(data);
 
                 console.log("Success");
             }
@@ -338,6 +368,16 @@ $(function () {
         var table = document.createElement('table');
 
         table.className = "table table-bordered table-hover";
+
+
+        var addButton = document.createElement('button');
+
+        addButton.className = "addDeal btn btn-success";
+
+        addButton.textContent = "Add New Deal";
+
+        $('.column-one').prepend(addButton);
+
 
         var row = table.insertRow(0);
 
@@ -402,13 +442,13 @@ $(function () {
 
 
 
-    $('#addManufatorer').on('click', function () {
+    $('.column-one').on('click', '.addManufatorer', function () {
         $.ajax({
             type: "GET",
             data: { ManagerAction: 'AddManufacturer' },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-one').html(data);
+                $('.column-two').html(data);
 
                 console.log("Success");
             }
@@ -423,6 +463,14 @@ $(function () {
         $('.column-one').empty();
 
         var table = document.createElement('table');
+
+        var addButton = document.createElement('button');
+
+        addButton.className = "addManufatorer btn btn-success";
+
+        addButton.textContent = "Add New Manufactorer";
+
+        $('.column-one').prepend(addButton);
 
         table.className = "table table-bordered table-hover";
 
