@@ -71,17 +71,6 @@ $(function () {
 
 
 
-
-        //$('#searchbyDate').click(function () {
-        //    {
-        //        let selected = $('#datepicker').val();
-        //        if( selected != "")
-        //        {
-        //            console.log('searchbyDate')
-        //            carSelection(selected);
-        //        }
-        //    }           
-        //});
     
 
 
