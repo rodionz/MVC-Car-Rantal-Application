@@ -143,7 +143,17 @@ $(function () {
 
     });
 
+    $('.column-two').on('click', '#submitNewModel', function () {
 
+        console.log("New Model Submitted");
+       
+    });
+
+    $('.column-two').on('click', '#submitEditModel', function () {
+
+        console.log("Edit Submitted");
+
+    });
 
     ////////// CUSTOMERS ////////////////
 
@@ -250,7 +260,16 @@ $(function () {
     });
 
 
+    $('.column-two').on('click', '#submitNewCustomer', function () {
 
+        console.log("New Customer");
+
+    });
+
+    $('.column-two').on('click', '#submitEditCustomer', function () {
+
+        console.log("Edit Customer");
+    });
 
 ////////////////////////// CARS /////////////////////////
 
@@ -358,7 +377,15 @@ $(function () {
     });
 
 
+    $('.column-two').on('click', '#submitNewCar', function () {
 
+
+    });
+
+    $('.column-two').on('click', '#submitEditCar', function () {
+
+
+    });
 
 
 /////////////////// DEALS ////////////////////////////
@@ -459,7 +486,15 @@ $(function () {
        
     });
 
+    $('.column-two').on('click', '#submitNewDeal', function () {
 
+
+    });
+
+    $('.column-two').on('click', '#submitEditDeal', function () {
+
+
+    });
 
 
     //////////////////// MANUFACTORERS ///////////////////
@@ -564,7 +599,15 @@ $(function () {
     });
 
 
+    $('.column-two').on('click', '#submitNewManuf', function () {
 
+
+    });
+
+    $('.column-two').on('click', '#submitEditManuf', function () {
+
+
+    });
 
 
   
