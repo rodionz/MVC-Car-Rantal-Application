@@ -13,6 +13,19 @@ namespace CarRental.BL
     {
 
        
+        public IEnumerable<Deal> GetAllDeals()
+        {
+            IEnumerable<Deal> alldeals;
+
+            using (var context = new CarRentalContext())
+            {
+                alldeals = (from d in context.Deals
+                            select d).ToArray();
+
+            }
+
+            return alldeals;
+        }
 
 
 

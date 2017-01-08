@@ -60,19 +60,19 @@ namespace CarRental.Controllers
 
             allCustomers = _manager.GetAllUsers().Select(u => new CustomerViewModel(u));
 
-            var helper = new HelpViewModel();
+            var managerHelper = new HelpViewModel();
 
-            helper.AllManufacturers = allManufacturers;
+            managerHelper.AllManufacturers = allManufacturers;
 
-            helper.AllCarModels = allmodels;
+            managerHelper.AllCarModels = allmodels;
 
-            helper.AllDeals = allDeals;
+            managerHelper.AllDeals = allDeals;
 
-            helper.AllCustomers = allCustomers;
+            managerHelper.AllCustomers = allCustomers;
 
-            helper.AllCars = allCars;
+            managerHelper.AllCars = allCars;
 
-            return Json(helper, JsonRequestBehavior.AllowGet);
+            return Json(managerHelper, JsonRequestBehavior.AllowGet);
         }
 
 
