@@ -1,0 +1,7 @@
+﻿$(function () {
+
+
+    $('footer').addClass('bottomfooter');
+
+});
+

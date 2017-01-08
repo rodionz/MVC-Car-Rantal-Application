@@ -178,7 +178,9 @@
     <Content Include="Scripts\jQuery,Validators,Moments\jquery-1.10.2.min.map" />
     <Content Include="Scripts\Bootstrap\bootstrap.js" />
     <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\ViewScripts\EmployeeScript.js" />
     <Content Include="Scripts\ViewScripts\GuestControllerScript.js" />
+    <Content Include="Scripts\ViewScripts\HomeControllerScript.js" />
     <Content Include="Scripts\ViewScripts\ManagerControllerScript.js" />
     <Content Include="Web.config" />
   </ItemGroup>

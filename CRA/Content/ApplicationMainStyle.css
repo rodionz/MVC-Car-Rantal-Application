@@ -50,3 +50,11 @@ footer{
 .editdelete button {
     margin-left: 25px;
 }
+
+.bottomfooter {
+      position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}

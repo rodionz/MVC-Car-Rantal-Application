@@ -32,7 +32,7 @@ $(function () {
         console.log(result);
     });
    
-
+    $('footer').addClass('bottomfooter');
 
     ////////////CAR  MODELS//////////////////
 
