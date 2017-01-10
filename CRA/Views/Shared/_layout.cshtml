@@ -26,7 +26,7 @@
 
            
 
-                <ul class="nav nav-tabs navbar-left">
+                <ul class="nav nav-tabs navbar-left" role="navigation">
 
                     <li><a href="@Url.Action("Index","Guest")" >Search a Car</a></li>
                     @*<li><a href="@Url.Action("Index","Reservation")">Your Reservation</a></li>*@
@@ -36,21 +36,12 @@
 
                 </ul>
 
-                <div style="float:right">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <span>Hello @User.Identity.Name</span>
-                        <br />
-                        @Html.ActionLink("Sign out", "LogOff")
-                    }
-                    else
-                    {
-                        <span>Hello guest! @Html.ActionLink("Please Login", "Login", "Home")</span>
-                        <span>@Html.ActionLink("or Sign Upn", "SignUp", "Home")</span>
-                    }
-
-                  
-                </div>
+                <ul class="nav nav-tabs navbar-right" role="navigation">
+                                   
+                        <li><a href="@Url.Action("Login", "Home")">Please Log In  <span class="glyphicon glyphicon-log-in"></span></a></li>
+                        <li><a href="@Url.Action("SignUp", "Home")">Sign Up  <span class="glyphicon glyphicon-pencil"></span></a></li>
+                                 
+                </ul>
             </div>
         </div>
     
