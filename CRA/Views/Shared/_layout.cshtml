@@ -18,7 +18,7 @@
     <title>Zodiac Car Rental</title>
 </head>
 <body>
-    <header>
+  
         <div class="navbar navbar-default navbar-static-top">
             <div class="container-fluid">
                 <a href="/" class="navbar-brand" id="brand">Zodiac Car Rental</a>
@@ -38,7 +38,7 @@
 
                 <div style="float:right">
                     @if (User.Identity.IsAuthenticated)
-            {
+                    {
                         <span>Hello @User.Identity.Name</span>
                         <br />
                         @Html.ActionLink("Sign out", "LogOff")
@@ -49,14 +49,11 @@
                         <span>@Html.ActionLink("or Sign Upn", "SignUp", "Home")</span>
                     }
 
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
-            {
-                        @Html.ActionLink("Managers only", "Index")
-                    }
+                  
                 </div>
             </div>
         </div>
-    </header>
+    
     @RenderBody();
 
 
