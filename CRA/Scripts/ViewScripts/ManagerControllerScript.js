@@ -145,7 +145,21 @@ $(function () {
 
     $('.column-two').on('click', '#submitNewModel', function () {
 
-        console.log("New Model Submitted");
+        var manID = $('.ManufacturerId').val(); 
+
+        $.ajax({
+            type: 'GET',
+            data: { ManufacturerId: manID },
+            url: '/Manager/SubmitNewModel',
+            success: function () {
+                console.log("Model Added")
+            }
+
+
+        })
+
+
+      
        
     });
 

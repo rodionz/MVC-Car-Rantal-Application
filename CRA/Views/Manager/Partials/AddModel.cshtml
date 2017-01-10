@@ -1,4 +1,4 @@
-﻿@model CarRental.MVC.Models.CarModelViewModel
+﻿@model CarRental.MVC.Models.ModelView
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +12,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ManufacturerId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @Html.EditorFor(model => model.ManufacturerId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.ManufacturerId, new { htmlAttributes = new { @class = "form-control ManufacturerId" } })
                 @Html.ValidationMessageFor(model => model.ManufacturerId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -20,7 +20,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NameofModel, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @Html.EditorFor(model => model.NameofModel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.NameofModel, new { htmlAttributes = new { @class = "form-control NameofModel" } })
                 @Html.ValidationMessageFor(model => model.NameofModel, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DailyPrice, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @Html.EditorFor(model => model.DailyPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DailyPrice, new { htmlAttributes = new { @class = "form-control DailyPrice" } })
                 @Html.ValidationMessageFor(model => model.DailyPrice, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.LateReturnFine, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @Html.EditorFor(model => model.LateReturnFine, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.LateReturnFine, new { htmlAttributes = new { @class = "form-control LateReturnFine" } })
                 @Html.ValidationMessageFor(model => model.LateReturnFine, "", new { @class = "text-danger" })
             </div>
         </div>

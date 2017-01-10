@@ -18,7 +18,7 @@ namespace CarRental.Controllers
 
         private readonly GuestBL guest;
 
-        private static IEnumerable<CarModelViewModel> allmodels;
+        private static IEnumerable<ModelView> allmodels;
 
         private static IEnumerable<ManufactorerViewModel> allManufacturers;
 
@@ -52,7 +52,7 @@ namespace CarRental.Controllers
 
             allCars = guest.GetAllCars().Select(c => new CarViewModel(c));
 
-            allmodels = guest.GettAllModels().Select(c => new CarModelViewModel(c));
+            allmodels = guest.GettAllModels().Select(c => new ModelView(c));
 
             allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
 
@@ -174,7 +174,11 @@ namespace CarRental.Controllers
         }
 
 
+        public ActionResult SubmitNewModel (ModelView cmv)
+        {
 
+            return View();
+        }
 
 
 
@@ -200,7 +204,7 @@ namespace CarRental.Controllers
         //    return View();
         //}
 
-      
+
 
 
         //public ActionResult AddCar(CarViewModel cvm)
@@ -227,9 +231,9 @@ namespace CarRental.Controllers
         //}
 
 
-        
 
-  
+
+
 
 
         //public ActionResult AddClient(CustomerViewModel client)
@@ -254,7 +258,7 @@ namespace CarRental.Controllers
         //}
 
 
-    
+
 
         //public ActionResult AddDeal(DealViewModel dvm)
         //{

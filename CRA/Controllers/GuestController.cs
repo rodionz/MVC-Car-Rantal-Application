@@ -18,7 +18,7 @@ namespace CarRental.Controllers
 
         private readonly GuestBL guest;
 
-       private static IEnumerable<CarModelViewModel> allmodels;
+       private static IEnumerable<ModelView> allmodels;
 
         private static IEnumerable<ManufactorerViewModel> allManufacturers;
 
@@ -45,7 +45,7 @@ namespace CarRental.Controllers
 
             allCars = domaninCars.Select(c => new CarViewModel(c));
 
-            allmodels = guest.GettAllModels().Select(c => new CarModelViewModel(c));
+            allmodels = guest.GettAllModels().Select(c => new ModelView(c));
 
             allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
 

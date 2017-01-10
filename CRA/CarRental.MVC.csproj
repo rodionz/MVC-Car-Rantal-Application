@@ -198,7 +198,7 @@
     <Compile Include="Models\ManufactorerViewModel.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\DealViewModel.cs" />
-    <Compile Include="Models\CarModelViewModel.cs" />
+    <Compile Include="Models\ModelView.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

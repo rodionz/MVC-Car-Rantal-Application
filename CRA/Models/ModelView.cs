@@ -13,10 +13,10 @@ namespace CarRental.MVC.Models
     public enum ModelGear { Automatic, Manual, Robotic };
 
 
-    public class CarModelViewModel
+    public class ModelView
     {
 
-        
+        [Required]
         public int ID { get; set; }
 
         [Display(Name ="Id of Manufacturer")]
@@ -50,10 +50,10 @@ namespace CarRental.MVC.Models
             };
         }
 
+        public ModelView() { }
 
 
-
-        public CarModelViewModel(Model domainModelDetails)
+        public ModelView(Model domainModelDetails)
 
         {
             this.ID = domainModelDetails.ModelID;
