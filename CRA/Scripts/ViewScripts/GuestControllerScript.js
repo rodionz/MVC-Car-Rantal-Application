@@ -19,6 +19,23 @@ $(function () {
         $("#datepicker2").datepicker();
 
 
+        $("#dialog").dialog({
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            }
+        });
+
+        $(".carlist").on("click", ".orderCar", function () {
+            $("#dialog").dialog("open");
+        });
+
+
 
         var carSelection = function (atr,selected) {       
             $('.carlist li').each(function () {
