@@ -101,7 +101,8 @@
         <ul class="list-inline carlist">
             @foreach (var car in Model)
             {
-                <li class="list-group-item model" data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer" data-gear="@car.Model.gear" id="@car.CarID">
+                <li class="list-group-item model" data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer"
+                     data-gear="@car.Model.gear" data-startDate="@car." id="@car.CarID">
 
                     @Html.Partial("SingleCarPartialView", car);
                     <img src="@Url.Action("GetImage", new {  id = car.ModelID })" />

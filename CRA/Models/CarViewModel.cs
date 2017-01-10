@@ -13,6 +13,7 @@ namespace CarRental.MVC.Models
     public class CarViewModel
     {
        
+        [Required]
         public int ID { get; set; }
 
         public double? Mileage { get; set; }
@@ -24,6 +25,7 @@ namespace CarRental.MVC.Models
         public int? BranchID { get; set; }
     
 
+        [Required]
         [Display (Name = "Id of Model")]
         public int? ModelID { get; set; }
 

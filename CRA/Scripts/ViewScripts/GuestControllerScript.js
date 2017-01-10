@@ -93,6 +93,7 @@ $(function () {
 
             var date1 = Date.parse($('#datepicker1').val());
 
+            var date2 = Date.parse($('#datepicker2').val());
             console.log(date1);
 
         });
