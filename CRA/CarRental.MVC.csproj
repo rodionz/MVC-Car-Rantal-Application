@@ -214,7 +214,6 @@
     <Content Include="Views\Manager\ManagersLayout.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
     <Content Include="Views\Guest\Index.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Manager\Partials\EditDeal.cshtml" />
     <Content Include="Views\Manager\Partials\AddDeal.cshtml" />
     <Content Include="Views\Manager\Partials\AddManufacturer.cshtml" />
