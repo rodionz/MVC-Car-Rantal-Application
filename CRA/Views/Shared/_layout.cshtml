@@ -24,7 +24,19 @@
                 <a href="/" class="navbar-brand" id="brand">Zodiac Car Rental</a>
 
 
-                <div style="float:left">
+           
+
+                <ul class="nav nav-tabs navbar-left">
+
+                    <li><a href="@Url.Action("Index","Guest")" >Search a Car</a></li>
+                    @*<li><a href="@Url.Action("Index","Reservation")">Your Reservation</a></li>*@
+                    <li><a href="@Url.Action("Index","Employee")">Car return</a></li>
+                    <li><a href="@Url.Action("Index","Manager")">Manager</a></li>
+
+
+                </ul>
+
+                <div style="float:right">
                     @if (User.Identity.IsAuthenticated)
             {
                         <span>Hello @User.Identity.Name</span>
@@ -42,16 +54,6 @@
                         @Html.ActionLink("Managers only", "Index")
                     }
                 </div>
-
-                <ul class="nav nav-pills navbar-right">
-
-                    <li><a href="@Url.Action("Index","Guest")" >Search a Car</a></li>
-                    @*<li><a href="@Url.Action("Index","Reservation")">Your Reservation</a></li>*@
-                    <li><a href="@Url.Action("Index","Employee")">Car return</a></li>
-                    <li><a href="@Url.Action("Index","Manager")">Manager</a></li>
-
-
-                </ul>
             </div>
         </div>
     </header>
