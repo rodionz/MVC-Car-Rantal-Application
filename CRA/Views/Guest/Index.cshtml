@@ -9,9 +9,9 @@
 }
 
 <script src="~/Scripts/ViewScripts/GuestControllerScript.js"></script>
-<script src="~/Scripts/jQuery,Validators,Moments/jquery.validate.min.js"></script>
-<script src="~/Scripts/jQuery,Validators,Moments/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/Scripts/jQuery,Validators,Moments/moment.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/moment.js"></script>
 <script>
 
     $(function () {
@@ -114,12 +114,12 @@
         <ul class="list-inline carlist">
             @foreach (var car in Model)
             {
-                <li class="list-group-item" data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer" data-gear="@car.Model.gear" id="@car.CarID">
+                <li class="list-group-item model" data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer" data-gear="@car.Model.gear" id="@car.CarID">
 
                     @Html.Partial("SingleCarPartialView", car);
                     <img src="@Url.Action("GetImage", new {  id = car.ModelID })" />
                     <br />
-                    <button class="btn btn-default">Order</button>
+                    <button class="orderCar btn btn-default">Order</button>
 
 
                 </li>

@@ -50,3 +50,13 @@ footer{
   left: 0;
   padding: 1rem;
 }
+
+/*.model {
+    text-align: center;
+}*/
+.orderCar{
+    margin: 0 auto;
+    display:block;
+    margin-top:10px;
+    margin-bottom:5px;
+}
