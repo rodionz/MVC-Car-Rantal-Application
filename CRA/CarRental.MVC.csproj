@@ -166,10 +166,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
-    <Content Include="Scripts\Libraries\moment-with-locales.js" />
-    <Content Include="Scripts\Libraries\moment-with-locales.min.js" />
-    <Content Include="Scripts\Libraries\moment.js" />
-    <Content Include="Scripts\Libraries\moment.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />

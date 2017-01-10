@@ -88,7 +88,14 @@ $(function () {
 
 
 
-    
+
+        $('#searchbyDate').click(function () {
+
+            var date1 = Date.parse($('#datepicker1').val());
+
+            console.log(date1);
+
+        });
 
 
         $('#freeSearch').click(function () {
