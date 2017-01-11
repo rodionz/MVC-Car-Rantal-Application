@@ -186,6 +186,23 @@ namespace CarRental.Controllers
             return View();
         }
 
+
+
+        public ActionResult SubmitNewCustomer(CustomerViewModel cmv)
+        {
+
+            return View();
+        }
+
+        public ActionResult SubmitEditCustomer(CustomerViewModel cmv)
+        {
+
+            return View();
+        }
+
+
+
+
         //public ActionResult AddNewModel(CarModelViewModel cmvm)
         //{
         //    var originalModel = cmvm.toBaseModelDetail();

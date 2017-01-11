@@ -151,13 +151,13 @@ $(function () {
 
         let dailyPrice = $('.DailyPrice').val();
 
-        // Gear is disapeared!!!
+        let _gear = $('').val('.Gear');
 
         let lateReturnFine = $('.LateReturnFine').val();
 
         $.ajax({
             type: 'GET',
-            data: { ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine },
+            data: { ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine, gear: _gear },
             url: '/Manager/SubmitNewModel',
             success: function () {
                 console.log("Model Added")
@@ -180,13 +180,13 @@ $(function () {
 
         let dailyPrice = $('.DailyPrice').val();
 
-        // Gear is disapeared!!!
+        let gear = $('').val('.Gear');
 
         let lateReturnFine = $('.LateReturnFine').val();
 
         $.ajax({
             type: 'GET',
-            data: { ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine },
+            data: { ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine, gear: _gear },
             url: '/Manager/SubmitEditModel',
             success: function () {
                 console.log("Edit Submitted");
@@ -304,20 +304,24 @@ $(function () {
 
     $('.column-two').on('click', '#submitNewCustomer', function () {
 
-        let manID = $('.ManufacturerId').val();
+        let customerID = $('customerID').val();
 
-        let modelName = $('.NameofModel').val();
+        let firstName = $('.FirstName').val();
 
-        let dailyPrice = $('.DailyPrice').val();
+        let gender = $('.Gender').val();
 
-        // Gear is disapeared!!!
+        let lastName = $('LastName').val();
 
-        let lateReturnFine = $('.LateReturnFine').val();
+        let birthDay = $('BirthData').val();
+
+        let email = $('.Email').val();
+
+        let pass = $('.Password').val();
 
         $.ajax({
             type: 'GET',
-            data: { ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine },
-            url: '/Manager/SubmitNewModel',
+            data: { ID: customerID, FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password : pass},
+            url: '/Manager/SubmitNewCustomer',
             success: function () {
                 console.log("New Customer Added")
             }
@@ -330,7 +334,35 @@ $(function () {
 
     $('.column-two').on('click', '#submitEditCustomer', function () {
 
-        console.log("Edit Customer");
+        let customerID = $('customerID').val();
+
+        let firstName = $('.FirstName').val();
+
+        let gender = $('.Gender').val();
+
+        let lastName = $('LastName').val();
+
+        let birthDay = $('BirthData').val();
+
+        let email = $('.Email').val();
+
+        let pass = $('.Password').val();
+
+        $.ajax({
+            type: 'GET',
+            data: { ID: customerID, FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password: pass },
+            url: '/Manager/SubmitEditCustomer',
+            success: function () {
+                console.log("New Customer Added")
+            }
+
+
+        })
+
+
+
+
+
     });
 
 ////////////////////////// CARS /////////////////////////
