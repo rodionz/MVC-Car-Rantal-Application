@@ -173,20 +173,21 @@ $(function () {
 
     $('.column-two').on('click', '#submitEditModel', function () {
 
+        let modelID = $('.modelID').val();
 
         let manID = $('.ManufacturerId').val();
 
         let modelName = $('.NameofModel').val();
+       
+        let gear = $('').val('.Gear');
 
         let dailyPrice = $('.DailyPrice').val();
-
-        let gear = $('').val('.Gear');
 
         let lateReturnFine = $('.LateReturnFine').val();
 
         $.ajax({
             type: 'GET',
-            data: { ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine, gear: _gear },
+            data: {ID: modelID, ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine, gear: _gear },
             url: '/Manager/SubmitEditModel',
             success: function () {
                 console.log("Edit Submitted");
