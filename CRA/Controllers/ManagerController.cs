@@ -180,7 +180,11 @@ namespace CarRental.Controllers
             return View();
         }
 
+        public ActionResult SubmitEditModel(ModelView cmv)
+        {
 
+            return View();
+        }
 
         //public ActionResult AddNewModel(CarModelViewModel cmvm)
         //{

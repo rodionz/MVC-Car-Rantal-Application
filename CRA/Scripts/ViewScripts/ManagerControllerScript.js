@@ -145,11 +145,19 @@ $(function () {
 
     $('.column-two').on('click', '#submitNewModel', function () {
 
-        var manID = $('.ManufacturerId').val(); 
+        let manID = $('.ManufacturerId').val();
+
+        let modelName = $('.NameofModel').val();
+
+        let dailyPrice = $('.DailyPrice').val();
+
+        // Gear is disapeared!!!
+
+        let lateReturnFine = $('.LateReturnFine').val();
 
         $.ajax({
             type: 'GET',
-            data: { ManufacturerId: manID },
+            data: { ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine },
             url: '/Manager/SubmitNewModel',
             success: function () {
                 console.log("Model Added")
@@ -165,7 +173,27 @@ $(function () {
 
     $('.column-two').on('click', '#submitEditModel', function () {
 
-        console.log("Edit Submitted");
+
+        let manID = $('.ManufacturerId').val();
+
+        let modelName = $('.NameofModel').val();
+
+        let dailyPrice = $('.DailyPrice').val();
+
+        // Gear is disapeared!!!
+
+        let lateReturnFine = $('.LateReturnFine').val();
+
+        $.ajax({
+            type: 'GET',
+            data: { ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine },
+            url: '/Manager/SubmitEditModel',
+            success: function () {
+                console.log("Edit Submitted");
+            }
+
+
+        })
 
     });
 
@@ -276,7 +304,27 @@ $(function () {
 
     $('.column-two').on('click', '#submitNewCustomer', function () {
 
-        console.log("New Customer");
+        let manID = $('.ManufacturerId').val();
+
+        let modelName = $('.NameofModel').val();
+
+        let dailyPrice = $('.DailyPrice').val();
+
+        // Gear is disapeared!!!
+
+        let lateReturnFine = $('.LateReturnFine').val();
+
+        $.ajax({
+            type: 'GET',
+            data: { ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine },
+            url: '/Manager/SubmitNewModel',
+            success: function () {
+                console.log("New Customer Added")
+            }
+
+
+        })
+
 
     });
 
