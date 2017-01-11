@@ -46,6 +46,8 @@ $(function () {
     ////////////CAR  MODELS//////////////////
 
 
+    // Requesting form for adding new model
+
     $('.column-one').on('click', '.addnewModel', function () {
         $.ajax({
             type: "GET",
@@ -61,7 +63,7 @@ $(function () {
 
 
 
-
+    // Creating list of models
     $('#modelList').on('click', function () {
 
         $('footer').removeClass('bottomfooter');
@@ -100,7 +102,7 @@ $(function () {
 
 
 
-
+    // Requesting form for model editing
     $('.column-one').on('click', '.modelEdit', function () {
 
         var id = $(this).parent().attr('id');
@@ -116,11 +118,11 @@ $(function () {
                 console.log("ModelEdit");
                 console.log(id);
             }
-
         });
     });
 
 
+    // Deleting model
     $('.column-one').on('click', '.modelDelete', function () {
 
         var id = $(this).parent().attr('id');
@@ -137,12 +139,13 @@ $(function () {
                     ////  TODO //////
                     console.log("Model Deleted");
                 }
-
             });
         }
-
     });
 
+
+
+    // New model submission
     $('.column-two').on('click', '#submitNewModel', function () {
 
         let manID = $('.ManufacturerId').val();
@@ -162,15 +165,12 @@ $(function () {
             success: function () {
                 console.log("Model Added")
             }
-
-
-        })
-
-
-      
-       
+        })            
     });
 
+
+
+    // Model editing submission
     $('.column-two').on('click', '#submitEditModel', function () {
 
         let modelID = $('.modelID').val();
@@ -192,15 +192,14 @@ $(function () {
             success: function () {
                 console.log("Edit Submitted");
             }
-
-
         })
-
     });
+
+
 
     ////////// CUSTOMERS ////////////////
 
-
+    // Requesting form for adding new customer
     $('.column-one').on('click', '.addnewClient', function () {
         $.ajax({
             type: "GET",
@@ -217,7 +216,7 @@ $(function () {
 
 
 
-
+    // Creating list of customers
     $('#clientList').on('click', function () {
 
         $('.column-one').empty();
@@ -258,7 +257,7 @@ $(function () {
 
 
 
-
+    // Requesting form for customer editing
     $('.column-one').on('click', '.clientEdit', function () {
 
         var id = $(this).parent().attr('id');
@@ -279,7 +278,7 @@ $(function () {
     
     });
 
-
+    // Deleting customer
     $('.column-one').on('click', '.clientDelete', function () {
 
         var id = $(this).parent().attr('id');
@@ -302,11 +301,9 @@ $(function () {
 
     });
 
-
+    // New customer submission
     $('.column-two').on('click', '#submitNewCustomer', function () {
-
-       
-
+      
         let firstName = $('.FirstName').val();
 
         let gender = $('.Gender').val();
@@ -326,13 +323,11 @@ $(function () {
             success: function () {
                 console.log("New Customer Added")
             }
-
-
         })
-
-
     });
 
+
+    // Customer editing submission
     $('.column-two').on('click', '#submitEditCustomer', function () {
 
         let customerID = $('customerID').val();
@@ -368,7 +363,7 @@ $(function () {
 
 ////////////////////////// CARS /////////////////////////
 
-
+    // Requesting form for adding new car
     $('.column-one').on('click', '.addnewcar', function () {
         $.ajax({
             type: "GET",
@@ -385,7 +380,7 @@ $(function () {
 
 
 
-
+    // Creating list of cars
     $('#carList').on('click', function () {
 
         $('footer').removeClass('bottomfooter');
@@ -398,7 +393,6 @@ $(function () {
 
         table.className = "table table-bordered table-hover";
 
-
         var addButton = document.createElement('button');
 
         addButton.className = "addnewcar btn btn-success";
@@ -406,7 +400,6 @@ $(function () {
         addButton.textContent = "Add New Car";
 
         $('.column-one').prepend(addButton);
-
 
         var row = table.insertRow(0);
 
@@ -420,14 +413,14 @@ $(function () {
         }
 
         $('.column-one').append(table);
-
-
     });
 
 
 
 
 
+
+    // Requesting form for car editing
     $('.column-one').on('click', '.carEdit', function () {
 
         var id = $(this).parent().attr('id');
@@ -441,13 +434,12 @@ $(function () {
                 console.log("Client Edit");
                 console.log(id);
             }
-
         });
-
-
     });
 
 
+
+    // Deleting car
     $('.column-one').on('click', '.carDelete', function () {
 
         var id = $(this).parent().attr('id');
@@ -463,15 +455,13 @@ $(function () {
                     ////  TODO //////
                     console.log("Car Deleted");
                 }
-
             });
         }
-
-
-
     });
 
 
+
+    // New car submission
     $('.column-two').on('click', '#submitNewCar', function () {
 
         let miles = $('.Mileage').val();
@@ -490,12 +480,11 @@ $(function () {
             success: function () {
                 console.log("New Car Added")
             }
-
-
         })
-
     });
 
+
+    // Car edit submission
     $('.column-two').on('click', '#submitEditCar', function () {
 
         let carID = $('.carID').val();
@@ -515,8 +504,6 @@ $(function () {
             success: function () {
                 console.log("Edit Car Added")
             }
-
-
         })
     });
 
@@ -613,11 +600,11 @@ $(function () {
                     ////  TODO //////
                     console.log("Deal Deleted");
                 }
-
             });
-        }
-       
+        }       
     });
+
+
 
     $('.column-two').on('click', '#submitNewDeal', function () {
 
@@ -639,8 +626,9 @@ $(function () {
                 console.log("New Ddeal Added")
             }
         })
-
     });
+
+
 
     $('.column-two').on('click', '#submitEditDeal', function () {
 
@@ -782,8 +770,10 @@ $(function () {
                 console.log("New Manufactorer Added")
             }
         })
-
     });
+
+
+
 
     $('.column-two').on('click', '#submitEditManuf', function () {
 
