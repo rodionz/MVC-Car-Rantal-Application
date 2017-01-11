@@ -179,7 +179,7 @@ $(function () {
 
         let modelName = $('.NameofModel').val();
        
-        let gear = $('').val('.Gear');
+        let gear = $('.Gear').val();
 
         let dailyPrice = $('.DailyPrice').val();
 
@@ -305,7 +305,7 @@ $(function () {
 
     $('.column-two').on('click', '#submitNewCustomer', function () {
 
-        let customerID = $('customerID').val();
+       
 
         let firstName = $('.FirstName').val();
 
@@ -321,7 +321,7 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            data: { ID: customerID, FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password : pass},
+            data: {  FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password : pass},
             url: '/Manager/SubmitNewCustomer',
             success: function () {
                 console.log("New Customer Added")
@@ -474,12 +474,50 @@ $(function () {
 
     $('.column-two').on('click', '#submitNewCar', function () {
 
+        let miles = $('.Mileage').val();
+
+        let carNumber = $('.CarNumber').val();
+
+        let branchID = $('.Branch').val()
+
+        let modelID = $('.Model').val();
+
+
+        $.ajax({
+            type: 'GET',
+            data: { Mileage: miles, CarNumber: carNumber, BranchID: branchID, ModelID : modelID },
+            url: '/Manager/SubmitNewCar',
+            success: function () {
+                console.log("New Car Added")
+            }
+
+
+        })
 
     });
 
     $('.column-two').on('click', '#submitEditCar', function () {
 
+        let carID = $('.carID').val();
 
+        let miles = $('.Mileage').val();
+
+        let carNumber = $('.CarNumber').val();
+
+        let branchID = $('.Branch').val()
+
+        let modelID = $('.Model').val();
+
+        $.ajax({
+            type: 'GET',
+            data: {  ID : carID, Mileage: miles, CarNumber: carNumber, BranchID: branchID, ModelID: modelID },
+            url: '/Manager/SubmitEditCar',
+            success: function () {
+                console.log("Edit Car Added")
+            }
+
+
+        })
     });
 
 

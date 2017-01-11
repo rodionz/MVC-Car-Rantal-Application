@@ -202,6 +202,17 @@ namespace CarRental.Controllers
 
 
 
+        public ActionResult SubmitNewCar(CarViewModel cmv)
+        {
+
+            return View();
+        }
+
+        public ActionResult SubmitEditCar(CarViewModel cmv)
+        {
+
+            return View();
+        }
 
         //public ActionResult AddNewModel(CarModelViewModel cmvm)
         //{
