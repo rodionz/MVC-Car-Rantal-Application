@@ -772,12 +772,33 @@ $(function () {
 
     $('.column-two').on('click', '#submitNewManuf', function () {
 
+        let manufacName = $('.manname').val();
+
+        $.ajax({
+            type: 'GET',
+            data: { manufacturerName: manufacName },
+            url: '/Manager/SubmitNewManufacturer',
+            success: function () {
+                console.log("New Manufactorer Added")
+            }
+        })
 
     });
 
     $('.column-two').on('click', '#submitEditManuf', function () {
 
+        let manID = $('.manID').val();
 
+        let manufacName = $('.manname').val();
+
+        $.ajax({
+            type: 'GET',
+            data: {ID: manID, manufacturerName: manufacName },
+            url: '/Manager/SubmitEditManufactorer',
+            success: function () {
+                console.log("Manufactorer Edit Added")
+            }
+        })
     });
 
 
