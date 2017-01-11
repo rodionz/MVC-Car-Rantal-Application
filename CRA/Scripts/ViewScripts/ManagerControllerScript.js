@@ -621,11 +621,49 @@ $(function () {
 
     $('.column-two').on('click', '#submitNewDeal', function () {
 
+        let startDate = $('.StartDate').val();
+
+        let returnDate = $('.sreturn ').val();
+
+        let realReturn = $('.rreturn').val();
+
+        let clientID = $('.Client').val();
+
+        let carID = $('.Car').val();
+
+        $.ajax({
+            type: 'GET',
+            data: { StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: clientID, CarID : carID},
+            url: '/Manager/SubmitNewDeal',
+            success: function () {
+                console.log("New Ddeal Added")
+            }
+        })
 
     });
 
     $('.column-two').on('click', '#submitEditDeal', function () {
 
+        let dealID = $('.dealID').val();
+
+        let startDate = $('.StartDate').val();
+
+        let returnDate = $('.sreturn ').val();
+
+        let realReturn = $('.rreturn').val();
+
+        let clientID = $('.Client').val();
+
+        let carID = $('.Car').val();
+
+        $.ajax({
+            type: 'GET',
+            data: {ID: dealID, StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: clientID, CarID: carID },
+            url: '/Manager/SubmitEditDeal',
+            success: function () {
+                console.log("Edi Ddeal Success")
+            }
+        })
 
     });
 
