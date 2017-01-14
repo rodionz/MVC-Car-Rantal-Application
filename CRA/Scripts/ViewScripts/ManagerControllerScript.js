@@ -411,7 +411,7 @@ $(function () {
 
         var table = document.createElement('table');
 
-        table.className = "table table-bordered table-hover";
+        table.className = "table table-striped table-bordered table-hover";
 
         var addButton = document.createElement('button');
 
@@ -421,18 +421,29 @@ $(function () {
 
         $('.column-one').prepend(addButton);
 
-        var row = table.insertRow(0);
+        table.setAttribute("id", "mytable");
+
+        var header = table.createTHead();
+
+        var row = header.insertRow(0);
+     
 
         row.innerHTML = "<th>ID of Car</th><th>Mileage</th><th>CarNumber</th><th>Branch ID</th><th>Model ID</th>";
+
+        var body = table.createTBody();
 
         for (var model of  arrayofCars)
         {
 
-            $(table).append("<tr><td>" + model.ID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID +
                 "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary carEdit'>Edit Vehicle</button><button class='btn btn-xs btn-danger carDelete'>Delete Vehicle</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
+
+        $('#mytable').DataTable(
+
+      );
     });
 
 
@@ -559,7 +570,7 @@ $(function () {
 
         var table = document.createElement('table');
 
-        table.className = "table table-bordered table-hover";
+        table.className = "table table-striped table-bordered table-hover";
 
 
         var addButton = document.createElement('button');
@@ -571,18 +582,28 @@ $(function () {
         $('.column-one').prepend(addButton);
 
 
-        var row = table.insertRow(0);
+        table.setAttribute("id", "mytable");
 
-        row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID</th>";
+        var header = table.createTHead();
+
+        var row = header.insertRow(0);
+
+       
+
+        row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID</th><th>Car Editing</th>";
+
+        var body = table.createTBody();
 
         for (var model of  arrayofDeals)
         {
 
-            $(table).append("<tr><td>" + model.ID + "</td><td>" + model.StartDate + "</td><td>" + model.SupposedReturn + "</td><td>" + model.RealReturn + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + moment(model.StartDate).format('MM/DD/YYYY') + "</td><td>" + moment(model.SupposedReturn).format('MM/DD/YYYY') + "</td><td>" + moment(model.RealReturn).format('MM/DD/YYYY') + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
                 "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary dealEdit'>Edit Deal</button><button class='btn btn-xs btn-danger dealDelete'>Delete Deal</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
+
+        $('#mytable').DataTable();
     });
 
 
@@ -696,8 +717,11 @@ $(function () {
 
 
 
+  
 
     $('#manufactorerList').on('click', function () {
+
+      
 
         $('.column-one').empty();
 
@@ -715,11 +739,17 @@ $(function () {
 
         $('.column-one').prepend(addButton);
 
-        table.className = "table table-bordered table-hover";
+        table.className = "table table-striped table-bordered table-hover";
 
-        var row = table.insertRow(0);
+        table.setAttribute("id", "mytable");
 
-        row.innerHTML = "<th>ID of Manufactorer</th><th>Name of Manufactorer</th>";
+        var header = table.createTHead();
+
+        var row = header.insertRow(0);
+
+        row.innerHTML = "<th>ID of Manufactorer</th><th>Name of Manufactorer</th><th>Edit Manufactorers</th>";
+
+        var body = table.createTBody();
 
         for (var model of  arrayofManufactorers)
         {
@@ -730,6 +760,9 @@ $(function () {
 
         $('.column-one').append(table);
 
+        $('#mytable').DataTable(
+
+        );
 
     });
 
