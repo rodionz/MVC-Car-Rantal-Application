@@ -238,7 +238,7 @@ $(function () {
 
         var table = document.createElement('table');
 
-        table.className = "table table-bordered";
+        table.className = "table table-striped table-bordered table-hover";
 
 
         var addButton = document.createElement('button');
@@ -249,20 +249,29 @@ $(function () {
 
         $('.column-one').prepend(addButton);
 
+        table.setAttribute("id", "mytable");
 
-        var row = table.insertRow(0);
+        var header = table.createTHead();
 
-        row.innerHTML = "<th>ID of Customer</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Password</th>";
+        var row = header.insertRow(0);
+       
+
+        row.innerHTML = "<th>ID of Customer</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Password</th><th>Customers Editing</th>";
+
+        var body = table.createTBody();
 
         for (var model of  arrayofCustomers)
         {
 
-            $(table).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password +
                 "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary clientEdit'>Edit Customer</button><button class='btn btn-xs btn-danger clientDelete'>Delete Customer</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
 
+        $('#mytable').DataTable(
+
+     );
 
     });
 
