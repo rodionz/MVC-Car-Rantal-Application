@@ -18,8 +18,10 @@
         $('.column-one').empty();
 
         var table = document.createElement('table');
+        
+        table.className = "table table-striped table-bordered table-hover";
 
-        table.className = "table";
+        table.setAttribute("id", "mytable");
 
         var header = table.createTHead();
 
@@ -47,8 +49,14 @@
                 }
 
         }
-        $(table).DataTable();
+     
         $('.column-one').append(table);
+
+        $('#mytable').DataTable(
+        
+        );
+
+
 
         console.log(result);
     });

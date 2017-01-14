@@ -74,8 +74,9 @@ $(function () {
 
         var table = document.createElement('table');
 
-        table.className = "table table-bordered";
+        table.setAttribute("id", "mytable");
 
+        table.className = "table table-striped table-bordered table-hover";
 
         var addButton = document.createElement('button');
 
@@ -86,18 +87,28 @@ $(function () {
         $('.column-one').prepend(addButton);
 
 
-        var row = table.insertRow(0);
+        var header = table.createTHead();
 
-        row.innerHTML = "<th>ID of Model</th><th>Name of Model</th><th>Dailt Price</th><th>Late Return Fine</th>";
+        var row = header.insertRow(0);
+
+        row.innerHTML = "<th>ID of Model</th><th>Name of Model</th><th>Dailt Price</th><th>Late Return Fine</th><th></th>";
+
+        var body = table.createTBody();
 
         for (var model of arrayofModels)
         {
 
-            $(table).append("<tr><td>" + model.ID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine +
                 "</td><td><span class='editdelete' id=" + model.ID + " ><button class='btn btn-xs btn-primary modelEdit' >Edit model</button><button class='btn btn-xs btn-danger modelDelete'>Delete model</button></span></td></tr>");
         }
-
+ 
         $('.column-one').append(table);
+
+
+        $('#mytable').DataTable(
+        
+       );
+
     });
 
 
