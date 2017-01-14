@@ -428,7 +428,7 @@ $(function () {
         var row = header.insertRow(0);
      
 
-        row.innerHTML = "<th>ID of Car</th><th>Mileage</th><th>CarNumber</th><th>Branch ID</th><th>Model ID</th>";
+        row.innerHTML = "<th>ID of Car</th><th>Mileage</th><th>CarNumber</th><th>Branch ID</th><th>Model ID</th><th>Edit Car</th>";
 
         var body = table.createTBody();
 
@@ -441,9 +441,7 @@ $(function () {
 
         $('.column-one').append(table);
 
-        $('#mytable').DataTable(
-
-      );
+        $('#mytable').DataTable();
     });
 
 
@@ -590,7 +588,7 @@ $(function () {
 
        
 
-        row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID</th><th>Car Editing</th>";
+        row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID</th><th>Edit Deal</th>";
 
         var body = table.createTBody();
 
