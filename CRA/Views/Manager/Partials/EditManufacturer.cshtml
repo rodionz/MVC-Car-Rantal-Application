@@ -4,13 +4,12 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>ManufactorerViewModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID, new {@class = "manID" })
-
+        @Html.HiddenFor(model => model.ID, new { @class = "manID" })
         <div class="form-group">
             @Html.LabelFor(model => model.manufacturerName, htmlAttributes: new { @class = "manname control-label col-md-2" })
             <div class="col-md-5">
@@ -18,14 +17,15 @@
                 @Html.ValidationMessageFor(model => model.manufacturerName, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-5">
-                <input type="button"" value="Save" class="btn btn-default" id="submitEditManuf" />  <input type="button" value="Cancel" class="btn btn-default cancel" />
+                <input type="button"  value="Save" class="btn btn-default" id="submitEditManuf" />  <input type="button" value="Cancel" class="btn btn-default cancel" />
             </div>
         </div>
     </div>
+
 }
+   
 
 
 
