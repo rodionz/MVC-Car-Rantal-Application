@@ -38,7 +38,11 @@ namespace CarRental.MVC.Models
        [RegularExpression(@"/[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}/", ErrorMessage ="Email is invalid")]
         public string Email { get; set; }
 
-      [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Minimum 8 characters at least 1 Alphabet and 1 Number")]
+        [Required]
+        public string UserName { get; set; }
+
+        [Required]
+        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Minimum 8 characters at least 1 Alphabet and 1 Number")]
         public string Password { get; set; }
 
 

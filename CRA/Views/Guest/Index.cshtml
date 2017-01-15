@@ -117,13 +117,15 @@
 
 
     <div id="dialog" title="Price Calculation">
-    
-        @*<div class="input-group">
-                <input type="text" class="form-control" aria-label="...">
-                <input type="number" class="form-control"/>
-                <input  type="submit"/> <input type="reset" />
-            </div>
-            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>*@
+        <input type="text" id="datepicker3" class="form-control" placeholder="From..." />
+        <br />
+        <br />
+        <input type="text" id="datepicker4" class="form-control" placeholder="To..." />
+        <br />
+        <br />      
+        <input type="button" value="-" id="moins" onclick="minus()">
+        <input type="text" size="25" value="1" id="count">
+        <input type="button" value="+" id="plus" onclick="plus()">
     </div>
 
 

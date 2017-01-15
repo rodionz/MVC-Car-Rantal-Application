@@ -19,6 +19,12 @@ $(function () {
         $("#datepicker2").datepicker();
 
 
+        $("#datepicker3").datepicker();
+
+        $("#datepicker4").datepicker();
+
+
+
         $("#dialog").dialog({
             autoOpen: false,
             show: {
@@ -117,6 +123,84 @@ $(function () {
                 $(this).show();
             })
         });
+
+
+        $('.orderCar').click(function () {
+          
+            var carid = $(this).attr('id');
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $('.btn-number').click(function (e) {
+            e.preventDefault();
+
+            var fieldName = $(this).attr('data-field');
+            var type = $(this).attr('data-type');
+            var input = $("input[name='" + fieldName + "']");
+            var currentVal = parseInt(input.val());
+            if (!isNaN(currentVal)) {
+                if (type == 'minus') {
+                    var minValue = parseInt(input.attr('min'));
+                    if (!minValue) minValue = 1;
+                    if (currentVal > minValue) {
+                        input.val(currentVal - 1).change();
+                    }
+                    if (parseInt(input.val()) == minValue) {
+                        $(this).attr('disabled', true);
+                    }
+
+                } else if (type == 'plus') {
+                    var maxValue = parseInt(input.attr('max'));
+                    if (!maxValue) maxValue = 9999999999999;
+                    if (currentVal < maxValue) {
+                        input.val(currentVal + 1).change();
+                    }
+                    if (parseInt(input.val()) == maxValue) {
+                        $(this).attr('disabled', true);
+                    }
+
+                }
+            } else {
+                input.val(0);
+            }
+        });
+
+
+
+
+        var count = 1;
+        var countEl = document.getElementById("count");
+        function plus() {
+            count++;
+            countEl.value = count;
+        }
+        function minus() {
+            if (count > 1) {
+                count--;
+                countEl.value = count;
+            }
+        }
+
     });
 
 
