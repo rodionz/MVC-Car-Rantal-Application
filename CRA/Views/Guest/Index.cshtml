@@ -105,21 +105,26 @@
                      data-gear="@car.Model.gear" data-startDate="@car." id="@car.CarID">
 
                     @Html.Partial("SingleCarPartialView", car);
-                    <img src="@Url.Action("GetImage", new {  id = car.ModelID })" />
-                    <br />
-                    <button class="orderCar btn btn-default">Order</button>
+                    
+
+                    @{ 
+                        var linktoPicture = "/Guest/GetImage/" + car.ModelID.ToString();
+                    }
+
+                    <img src="@linktoPicture" /> <br />
+                    <a href="" class="orderCar btn btn-default" id="@car.ModelID">Order</a>
 
 
                 </li>
 
-           
-            }
+
+                        }
 
         </ul>
 
 
     <div id="dialog" title="Price Calculation">
-        @Html.Partial("PriceCalculation", Model.FirstOrDefault()  );
+    
         @*<div class="input-group">
                 <input type="text" class="form-control" aria-label="...">
                 <input type="number" class="form-control"/>

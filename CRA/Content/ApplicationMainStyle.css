@@ -53,10 +53,8 @@ footer{
 
 
 .orderCar{
-    margin: 0 auto;
-    display:block;
-    margin-top:10px;
-    margin-bottom:5px;
+    margin: 10px auto 5px;
+    
 }
 
 #dialog {
