@@ -97,7 +97,7 @@ namespace CarRental.Controllers
                 case "DeleteModel":
                     _manager.DeleteModel(hvm.ID);
                     var result = new HelpViewModel();
-                    result.ActionResult = "Model Added";
+                    result.ActionResult = "Model Deleted";
                     return Json(result, JsonRequestBehavior.AllowGet);
 
                 /////////////  CARS /////////////
@@ -189,7 +189,12 @@ namespace CarRental.Controllers
         public ActionResult SubmitEditModel(ModelView cmv)
         {
 
-            return View();
+            var originalModel = cmv.toBaseModelDetail();
+            _manager.UpdateModel(originalModel);
+            var result = new HelpViewModel();
+            result.ActionResult = "Model Added";
+            return Json(result, JsonRequestBehavior.AllowGet);
+
         }
 
 
@@ -245,20 +250,7 @@ namespace CarRental.Controllers
 
             return View();
         }
-        //public ActionResult AddNewModel(CarModelViewModel cmvm)
-        //{
-        //    var originalModel = cmvm.toBaseModelDetail();
-        //    _manager.AddModel(originalModel);
-
-        //    return View();
-        //}
-
-        //public ActionResult UpdateModel(CarModelViewModel cmvm)
-        //{
-        //    var originalModel = cmvm.toBaseModelDetail();
-        //    _manager.UpdateModel(originalModel);
-        //    return View();
-        //}
+     
 
         //public ActionResult DeleteModel(CarModelViewModel cmvm)
         //{
