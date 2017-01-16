@@ -25,21 +25,21 @@ $(function () {
 
 
 
-        $("#dialog").dialog({
-            autoOpen: false,
-            show: {
-                effect: "blind",
-                duration: 1000
-            },
-            hide: {
-                effect: "explode",
-                duration: 1000
-            }
-        });
+        //$("#dialog").dialog({
+        //    autoOpen: false,
+        //    show: {
+        //        effect: "blind",
+        //        duration: 1000
+        //    },
+        //    hide: {
+        //        effect: "explode",
+        //        duration: 1000
+        //    }
+        //});
 
-        $(".carlist").on("click", ".orderCar", function () {
-            $("#dialog").dialog("open");
-        });
+        //$(".carlist").on("click", ".orderCar", function () {
+        //    $("#dialog").dialog("open");
+        //});
 
 
 
