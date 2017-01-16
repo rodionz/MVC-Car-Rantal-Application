@@ -21,5 +21,7 @@ namespace CarRental.Models
         public IEnumerable<DealViewModel> AllDeals { get; set; }
 
         public string ManagerAction { get; set; }
+
+        public string ActionResult { get; set; }
     }
 }

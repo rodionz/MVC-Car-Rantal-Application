@@ -176,8 +176,12 @@ namespace CarRental.Controllers
 
         public ActionResult SubmitNewModel (ModelView cmv)
         {
+            var originalModel = cmv.toBaseModelDetail();
+            _manager.AddModel(originalModel);
+            var result = new HelpViewModel();
+            result.ActionResult = "Model Added";
 
-            return View();
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult SubmitEditModel(ModelView cmv)

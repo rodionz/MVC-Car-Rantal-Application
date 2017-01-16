@@ -165,7 +165,7 @@ $(function () {
 
         let dailyPrice = $('.DailyPrice').val();
 
-        let _gear = $('').val('.Gear');
+        let _gear = $('.Gear').val();
 
         let lateReturnFine = $('.LateReturnFine').val();
 
