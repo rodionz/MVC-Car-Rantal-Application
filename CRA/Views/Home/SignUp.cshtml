@@ -6,13 +6,19 @@
 }
 
 <h2>SignUp</h2>
+<script>
+    $(function () {
 
+        $('footer').addClass('bottomfooter');
+    })
+        
+</script>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
+    <div class="form-horizontal col-md-4">
         <h4>CustomerViewModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
