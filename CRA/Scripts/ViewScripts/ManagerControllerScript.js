@@ -16,21 +16,25 @@ $(function () {
     var arrayofDeals = [];
 
 
-    $.getJSON('/Manager/HelpAjax', function (data) {
-         result = data;
+    var dataRequest = function () {
+        $.getJSON('/Manager/HelpAjax', function (data) {
+            result = data;
 
-         arrayofModels = result.AllCarModels;
+            arrayofModels = result.AllCarModels;
 
-         arrayofCars = result.AllCars;
+            arrayofCars = result.AllCars;
 
-         arrayofManufactorers = result.AllManufacturers;
+            arrayofManufactorers = result.AllManufacturers;
 
-         arrayofCustomers = result.AllCustomers;
+            arrayofCustomers = result.AllCustomers;
 
-         arrayofDeals = result.AllDeals;
+            arrayofDeals = result.AllDeals;
 
-        console.log(result);
-    });
+            console.log(result);
+        });
+    }
+
+    dataRequest();
 
 
     $('.column-two').on('click', '.cancel', function () {
@@ -65,6 +69,12 @@ $(function () {
 
     // Creating list of models
     $('#modelList').on('click', function () {
+
+        listofModels();
+
+    });
+
+    var listofModels = function () {
 
         $('footer').removeClass('bottomfooter');
 
@@ -101,16 +111,15 @@ $(function () {
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine +
                 "</td><td><span class='editdelete' id=" + model.ID + " ><button class='btn btn-xs btn-primary modelEdit' >Edit model</button><button class='btn btn-xs btn-danger modelDelete'>Delete model</button></span></td></tr>");
         }
- 
+
         $('.column-one').append(table);
 
 
         $('#mytable').DataTable(
-        
+
        );
 
-    });
-
+    }
 
 
     // Requesting form for model editing
@@ -175,6 +184,14 @@ $(function () {
             url: '/Manager/SubmitNewModel',
             success: function () {
                 console.log("Model Added")
+
+                dataRequest();
+                listofModels();
+
+                $("actionSuccses").text("Model Added Succesfully");
+            },
+            error: {
+
             }
         })            
     });

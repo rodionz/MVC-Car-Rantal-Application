@@ -60,3 +60,14 @@ footer{
     background-color:dodgerblue;
     color: white;
 }
+
+#actionSuccses {
+    background-color:greenyellow;
+    padding: 40px 90px;
+}
+
+#actionFailure {
+
+    background-color:orangered;
+    padding: 40px 90px;
+}
