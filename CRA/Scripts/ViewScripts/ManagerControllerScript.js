@@ -17,21 +17,41 @@ $(function () {
 
 
     var dataRequest = function () {
-        $.getJSON('/Manager/HelpAjax', function (data) {
-            result = data;
+        //$.getJSON('/Manager/HelpAjax', function (data) {
+            //result = data;
 
-            arrayofModels = result.AllCarModels;
+            //arrayofModels = result.AllCarModels;
 
-            arrayofCars = result.AllCars;
+            //arrayofCars = result.AllCars;
 
-            arrayofManufactorers = result.AllManufacturers;
+            //arrayofManufactorers = result.AllManufacturers;
 
-            arrayofCustomers = result.AllCustomers;
+            //arrayofCustomers = result.AllCustomers;
 
-            arrayofDeals = result.AllDeals;
+            //arrayofDeals = result.AllDeals;
 
-            console.log(result);
-        });
+        //console.log(result);
+
+             $.ajax({
+            type: 'GET',
+            url: '/Manager/HelpAjax',
+            async: false,
+            success: function (data) {
+                result = data;
+
+                arrayofModels = result.AllCarModels;
+
+                arrayofCars = result.AllCars;
+
+                arrayofManufactorers = result.AllManufacturers;
+
+                arrayofCustomers = result.AllCustomers;
+
+                arrayofDeals = result.AllDeals;
+
+                console.log(result);
+            }
+        })         
     }
 
     dataRequest();
@@ -57,6 +77,7 @@ $(function () {
             type: "GET",
             data: {ManagerAction : 'AddModel'},
             url: '/Manager/ManagerActions',
+            
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);
 
@@ -115,9 +136,7 @@ $(function () {
         $('.column-one').append(table);
 
 
-        $('#mytable').DataTable(
-
-       );
+        $('#mytable').DataTable();
 
     }
 
@@ -159,7 +178,7 @@ $(function () {
                     ////  TODO //////
                     dataRequest();
                     listofModels();
-                    $("actionSuccses").text("Model Deleted Succesfully");
+                    $(".actionSuccses").text("Model Deleted Succesfully");
                 }
             });
         }
@@ -187,10 +206,11 @@ $(function () {
             success: function () {
                 console.log("Model Added")
 
+                alert("Model Added Succesfully");
                 dataRequest();
                 listofModels();
 
-                $("actionSuccses").text("Model Added Succesfully");
+                //$(".actionSuccses").text("Model Added Succesfully");
             },
             error: {
 
