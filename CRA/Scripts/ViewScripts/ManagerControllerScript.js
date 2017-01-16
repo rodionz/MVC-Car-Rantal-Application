@@ -157,7 +157,9 @@ $(function () {
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
                     ////  TODO //////
-                    console.log("Model Deleted");
+                    dataRequest();
+                    listofModels();
+                    $("actionSuccses").text("Model Deleted Succesfully");
                 }
             });
         }

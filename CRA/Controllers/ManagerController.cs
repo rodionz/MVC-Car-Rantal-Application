@@ -96,7 +96,9 @@ namespace CarRental.Controllers
 
                 case "DeleteModel":
                     _manager.DeleteModel(hvm.ID);
-                    return null;
+                    var result = new HelpViewModel();
+                    result.ActionResult = "Model Added";
+                    return Json(result, JsonRequestBehavior.AllowGet);
 
                 /////////////  CARS /////////////
 
