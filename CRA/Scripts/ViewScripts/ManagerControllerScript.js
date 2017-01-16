@@ -16,40 +16,19 @@ $(function () {
     var arrayofDeals = [];
 
 
-    var dataRequest = function () {
-        //$.getJSON('/Manager/HelpAjax', function (data) {
-            //result = data;
-
-            //arrayofModels = result.AllCarModels;
-
-            //arrayofCars = result.AllCars;
-
-            //arrayofManufactorers = result.AllManufacturers;
-
-            //arrayofCustomers = result.AllCustomers;
-
-            //arrayofDeals = result.AllDeals;
-
-        //console.log(result);
-
-             $.ajax({
+    var dataRequest = function () {      
+        $.ajax({
             type: 'GET',
             url: '/Manager/HelpAjax',
             async: false,
             success: function (data) {
-                result = data;
-
-                arrayofModels = result.AllCarModels;
-
-                arrayofCars = result.AllCars;
-
-                arrayofManufactorers = result.AllManufacturers;
-
-                arrayofCustomers = result.AllCustomers;
-
-                arrayofDeals = result.AllDeals;
-
-                console.log(result);
+             result = data;
+             arrayofModels = result.AllCarModels;
+             arrayofCars = result.AllCars;
+             arrayofManufactorers = result.AllManufacturers;
+             arrayofCustomers = result.AllCustomers;
+             arrayofDeals = result.AllDeals;
+             console.log(result);
             }
         })         
     }
@@ -98,32 +77,18 @@ $(function () {
     var listofModels = function () {
 
         $('footer').removeClass('bottomfooter');
-
         $('.column-one').empty();
-
         $('.column-two').empty();
-
         var table = document.createElement('table');
-
         table.setAttribute("id", "mytable");
-
         table.className = "table table-striped table-bordered table-hover";
-
         var addButton = document.createElement('button');
-
         addButton.className = "addnewModel btn btn-success";
-
         addButton.textContent = "Add New Model";
-
         $('.column-one').prepend(addButton);
-
-
         var header = table.createTHead();
-
         var row = header.insertRow(0);
-
         row.innerHTML = "<th>ID of Model</th><th>Name of Model</th><th>Dailt Price</th><th>Late Return Fine</th><th></th>";
-
         var body = table.createTBody();
 
         for (var model of arrayofModels)
@@ -134,8 +99,6 @@ $(function () {
         }
 
         $('.column-one').append(table);
-
-
         $('#mytable').DataTable();
 
     }
@@ -190,13 +153,9 @@ $(function () {
     $('.column-two').on('click', '#submitNewModel', function () {
 
         let manID = $('.ManufacturerId').val();
-
         let modelName = $('.NameofModel').val();
-
         let dailyPrice = $('.DailyPrice').val();
-
         let _gear = $('.Gear').val();
-
         let lateReturnFine = $('.LateReturnFine').val();
 
         $.ajax({
@@ -205,7 +164,6 @@ $(function () {
             url: '/Manager/SubmitNewModel',
             success: function () {
                 console.log("Model Added")
-
                 alert("Model Added Succesfully");
                 dataRequest();
                 listofModels();
@@ -224,15 +182,10 @@ $(function () {
     $('.column-two').on('click', '#submitEditModel', function () {
 
         let modelID = $('.modelID').val();
-
         let manID = $('.ManufacturerId').val();
-
-        let modelName = $('.NameofModel').val();
-       
+        let modelName = $('.NameofModel').val();      
         let gear = $('.Gear').val();
-
         let dailyPrice = $('.DailyPrice').val();
-
         let lateReturnFine = $('.LateReturnFine').val();
 
         $.ajax({
@@ -247,7 +200,10 @@ $(function () {
 
 
 
+
     ////////// CUSTOMERS ////////////////
+
+
 
     // Requesting form for adding new customer
     $('.column-one').on('click', '.addnewClient', function () {
@@ -267,52 +223,43 @@ $(function () {
 
 
     // Creating list of customers
-    $('#clientList').on('click', function () {
+    var listofCustomers = function () {
 
         $('.column-one').empty();
-
         $('.column-two').empty();
-
         $('footer').addClass('bottomfooter');
-
         var table = document.createElement('table');
-
         table.className = "table table-striped table-bordered table-hover";
-
-
         var addButton = document.createElement('button');
-
         addButton.className = "addnewClient btn btn-success";
-
         addButton.textContent = "Add New Customer";
-
         $('.column-one').prepend(addButton);
-
         table.setAttribute("id", "mytable");
-
         var header = table.createTHead();
-
         var row = header.insertRow(0);
-       
-
         row.innerHTML = "<th>ID of Customer</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Password</th><th>Customers Editing</th>";
-
         var body = table.createTBody();
 
         for (var model of  arrayofCustomers)
         {
-
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password +
                 "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary clientEdit'>Edit Customer</button><button class='btn btn-xs btn-danger clientDelete'>Delete Customer</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
-
         $('#mytable').DataTable(
-
      );
+    }
 
+
+
+
+
+    $('#clientList').on('click', function () {
+
+        listofCustomers();
     });
+
 
 
 
@@ -364,15 +311,10 @@ $(function () {
     $('.column-two').on('click', '#submitNewCustomer', function () {
       
         let firstName = $('.FirstName').val();
-
         let gender = $('.Gender').val();
-
         let lastName = $('LastName').val();
-
         let birthDay = $('BirthData').val();
-
         let email = $('.Email').val();
-
         let pass = $('.Password').val();
 
         $.ajax({
@@ -390,17 +332,11 @@ $(function () {
     $('.column-two').on('click', '#submitEditCustomer', function () {
 
         let customerID = $('customerID').val();
-
         let firstName = $('.FirstName').val();
-
         let gender = $('.Gender').val();
-
         let lastName = $('LastName').val();
-
         let birthDay = $('BirthData').val();
-
         let email = $('.Email').val();
-
         let pass = $('.Password').val();
 
         $.ajax({
@@ -410,17 +346,14 @@ $(function () {
             success: function () {
                 console.log("New Customer Added")
             }
-
-
         })
-
-
-
-
-
     });
+    
+
 
 ////////////////////////// CARS /////////////////////////
+
+
 
     // Requesting form for adding new car
     $('.column-one').on('click', '.addnewcar', function () {
@@ -443,43 +376,27 @@ $(function () {
     $('#carList').on('click', function () {
 
         $('footer').removeClass('bottomfooter');
-
         $('.column-one').empty();
-
         $('.column-two').empty();
-
         var table = document.createElement('table');
-
         table.className = "table table-striped table-bordered table-hover";
-
         var addButton = document.createElement('button');
-
         addButton.className = "addnewcar btn btn-success";
-
         addButton.textContent = "Add New Car";
-
         $('.column-one').prepend(addButton);
-
         table.setAttribute("id", "mytable");
-
         var header = table.createTHead();
-
-        var row = header.insertRow(0);
-     
-
+        var row = header.insertRow(0);   
         row.innerHTML = "<th>ID of Car</th><th>Mileage</th><th>CarNumber</th><th>Branch ID</th><th>Model ID</th><th>Edit Car</th>";
-
         var body = table.createTBody();
 
         for (var model of  arrayofCars)
         {
-
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID +
                 "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary carEdit'>Edit Vehicle</button><button class='btn btn-xs btn-danger carDelete'>Delete Vehicle</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
-
         $('#mytable').DataTable();
     });
 
@@ -511,7 +428,6 @@ $(function () {
     $('.column-one').on('click', '.carDelete', function () {
 
         var id = $(this).parent().attr('id');
-
         var del = confirm("Are you sure that you want to delete this car?");
 
         if (del) {
@@ -533,11 +449,8 @@ $(function () {
     $('.column-two').on('click', '#submitNewCar', function () {
 
         let miles = $('.Mileage').val();
-
         let carNumber = $('.CarNumber').val();
-
         let branchID = $('.Branch').val()
-
         let modelID = $('.Model').val();
 
 
@@ -556,13 +469,9 @@ $(function () {
     $('.column-two').on('click', '#submitEditCar', function () {
 
         let carID = $('.carID').val();
-
         let miles = $('.Mileage').val();
-
         let carNumber = $('.CarNumber').val();
-
         let branchID = $('.Branch').val()
-
         let modelID = $('.Model').val();
 
         $.ajax({
@@ -600,35 +509,18 @@ $(function () {
     $('#dealList').on('click', function () {
 
         $('.column-one').empty();
-
         $('.column-two').empty();
-
         $('footer').addClass('bottomfooter');
-
         var table = document.createElement('table');
-
         table.className = "table table-striped table-bordered table-hover";
-
-
         var addButton = document.createElement('button');
-
         addButton.className = "addDeal btn btn-success";
-
         addButton.textContent = "Add New Deal";
-
         $('.column-one').prepend(addButton);
-
-
         table.setAttribute("id", "mytable");
-
         var header = table.createTHead();
-
-        var row = header.insertRow(0);
-
-       
-
+        var row = header.insertRow(0);      
         row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID</th><th>Edit Deal</th>";
-
         var body = table.createTBody();
 
         for (var model of  arrayofDeals)
@@ -639,7 +531,6 @@ $(function () {
         }
 
         $('.column-one').append(table);
-
         $('#mytable').DataTable();
     });
 
@@ -666,7 +557,6 @@ $(function () {
     $('.column-one').on('click', '.dealDelete', function () {
 
         var id = $(this).parent().attr('id');
-
         var del = confirm("Are you sure that you want to delete this deal?");
 
         if (del) {
@@ -687,13 +577,9 @@ $(function () {
     $('.column-two').on('click', '#submitNewDeal', function () {
 
         let startDate = $('.StartDate').val();
-
         let returnDate = $('.sreturn ').val();
-
         let realReturn = $('.rreturn').val();
-
         let clientID = $('.Client').val();
-
         let carID = $('.Car').val();
 
         $.ajax({
@@ -711,15 +597,10 @@ $(function () {
     $('.column-two').on('click', '#submitEditDeal', function () {
 
         let dealID = $('.dealID').val();
-
         let startDate = $('.StartDate').val();
-
         let returnDate = $('.sreturn ').val();
-
         let realReturn = $('.rreturn').val();
-
         let clientID = $('.Client').val();
-
         let carID = $('.Car').val();
 
         $.ajax({
@@ -761,31 +642,18 @@ $(function () {
       
 
         $('.column-one').empty();
-
         $('.column-two').empty();
-
         $('footer').addClass('bottomfooter');
-
         var table = document.createElement('table');
-
         var addButton = document.createElement('button');
-
         addButton.className = "addManufatorer btn btn-success";
-
         addButton.textContent = "Add New Manufactorer";
-
         $('.column-one').prepend(addButton);
-
         table.className = "table table-striped table-bordered table-hover";
-
         table.setAttribute("id", "mytable");
-
         var header = table.createTHead();
-
         var row = header.insertRow(0);
-
         row.innerHTML = "<th>ID of Manufactorer</th><th>Name of Manufactorer</th><th>Edit Manufactorers</th>";
-
         var body = table.createTBody();
 
         for (var model of  arrayofManufactorers)
@@ -796,10 +664,7 @@ $(function () {
         }
 
         $('.column-one').append(table);
-
-        $('#mytable').DataTable(
-
-        );
+        $('#mytable').DataTable();
 
     });
 
@@ -830,7 +695,6 @@ $(function () {
     $('.column-one').on('click', '.manDelete', function () {
 
         var id = $(this).parent().attr('id');
-
         var del = confirm("Are you sure that you want to delete this manufactorer?");
 
         if (del) {
@@ -842,7 +706,6 @@ $(function () {
                     ////  TODO //////
                     console.log("Manufactorer Deleted");
                 }
-
             });
         }
     });
@@ -868,7 +731,6 @@ $(function () {
     $('.column-two').on('click', '#submitEditManuf', function () {
 
         let manID = $('.manID').val();
-
         let manufacName = $('.manname').val();
 
         $.ajax({
