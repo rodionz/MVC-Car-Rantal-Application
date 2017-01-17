@@ -59,17 +59,17 @@ namespace CarRental.Controllers
 
 
 
-        public ActionResult ReservationSearch(string carNumber)
+        //public ActionResult ReservationSearch(string carNumber)
 
-        {
+        //{
 
-            var domainModel = _employee.ReservationSearch(carNumber);
+        //    var domainModel = _employee.ReservationSearch(carNumber);
 
-            DealViewModel dvm = new DealViewModel(domainModel);
+        //    DealViewModel dvm = new DealViewModel(domainModel);
 
-            return View(dvm);
+        //    return View(dvm);
 
-        }
+        //}
 
 
         public ActionResult CloseTheDeal(DealViewModel dvm)

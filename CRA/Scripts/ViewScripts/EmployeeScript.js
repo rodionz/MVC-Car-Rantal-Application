@@ -54,14 +54,36 @@
 
         $('#mytable').DataTable();
 
+
+
+
+        //Closing existing Deal
+
         $('.column-one').on('click', '.dealclose', function () {
 
             let clickeddID= $(this).attr('id');
           
             let dealtoClose = arrayofDeals.find(function (x) { return x.ID == clickeddID })
 
-            let dealClosingForm = 
-            //TODO
+            let dealClosingForm = document.createElement("form");
+         
+            let dateinput = document.createElement("input");
+            
+            dateinput.type = "text";
+
+            dateinput.class = "form-control col-md-3";
+
+            dateinput.id = "datepickerClosing";
+
+            
+
+           
+
+            dealClosingForm.appendChild(dateinput);
+
+            $('.column-two').append(dealClosingForm);
+
+            $('#datepickerClosing').datepicker();
 
         });
 
