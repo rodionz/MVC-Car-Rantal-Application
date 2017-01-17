@@ -18,15 +18,15 @@ namespace CarRental.Controllers
 
         private readonly GuestBL guest;
 
-       private  IEnumerable<ModelView> allmodels;
+       private static IEnumerable<ModelView> allmodels;
 
-        private  IEnumerable<ManufactorerViewModel> allManufacturers;
+        private static IEnumerable<ManufactorerViewModel> allManufacturers;
 
-        private IEnumerable<Car> domaninCars;
+        private static IEnumerable<Car> domaninCars;
 
-        private  IEnumerable<CarViewModel> allCars;
+        private static IEnumerable<CarViewModel> allCars;
 
-        private  IEnumerable<DealViewModel> allDeals;
+        private static IEnumerable<DealViewModel> allDeals;
 
 
 
@@ -107,10 +107,10 @@ namespace CarRental.Controllers
                 return File(image, "image/jpeg");                  
         }
 
-        public ActionResult PriceCalculation(int? id)
+        public ActionResult PriceCalculation(int? carid)
         {
             var car = (from c in domaninCars
-                       where c.CarID == id.Value
+                       where c.CarID == carid.Value
                        select c).FirstOrDefault();
 
             return View(car);
