@@ -37,7 +37,7 @@
 
                 $(body).append("<tr><td>" + model.ID + "</td><td>" + moment(model.StartDate).format('MM/DD/YYYY') + "</td><td>" + moment(model.SupposedReturn).format('MM/DD/YYYY') +
                     "</td><td>" + "Car is not returned" + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
-                "</td><td><button class ='btn btn-xs btn-warning dealclose'>Close the Deal</button></td></tr>")
+                "</td><td><button class ='btn btn-xs btn-warning dealclose' id='"+model.ID+"'>Close the Deal</button></td></tr>")
             
             }
 
@@ -52,11 +52,17 @@
      
         $('.column-one').append(table);
 
-        $('#mytable').DataTable(
-        
-        );
+        $('#mytable').DataTable();
 
+        $('.column-one').on('click', '.dealclose', function () {
 
+            let clickeddID= $(this).attr('id');
+          
+            let dealtoClose = arrayofDeals.find(function (x) { return x.ID == clickeddID })
+
+            //TODO
+
+        });
 
         console.log(result);
     });
