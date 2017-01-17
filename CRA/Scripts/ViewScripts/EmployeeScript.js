@@ -65,29 +65,59 @@
           
             let dealtoClose = arrayofDeals.find(function (x) { return x.ID == clickeddID })
 
+            let header = "<h2>Editing deal #" + dealtoClose.ID + "</h2><br /><br />";
+
             let dealClosingForm = document.createElement("form");
          
             let dateinput = document.createElement("input");
             
             dateinput.type = "text";
 
-            dateinput.class = "form-control col-md-3";
+            $(dateinput).addClass("form-control col-md-2");
 
             dateinput.id = "datepickerClosing";
 
-            
+            //dateinput.placeholder = "Please enter today's date";
 
+            let datelabel = document.createElement("Label");
+
+            datelabel.setAttribute('for', 'datepickerClosing')
+
+            datelabel.innerHTML = 'Plese select date of return';
            
 
-            dealClosingForm.appendChild(dateinput);
+
+
+            $(dealClosingForm).append(datelabel);
+
+            $(dealClosingForm).append(dateinput);
+
+            $(dealClosingForm).append("<br/> <br/> <button class='btn btn-default' id='submitClosing'>Confirm</button>    ")
+
+            $(dealClosingForm).append("<button class='btn btn-default id='cancelClosing'>Cancell</button>")
+
+            $('.column-two').append(header);
 
             $('.column-two').append(dealClosingForm);
 
             $('#datepickerClosing').datepicker();
 
+
+
+
+
+            $("#datepickerClosing").change(function () {
+
+                console.log("Date changed");
+            })
+
         });
 
-        console.log(result);
+        
+
+        $("#submitClosing")
+
+
     });
 
 
