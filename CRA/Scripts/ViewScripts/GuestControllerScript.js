@@ -125,11 +125,11 @@ $(function () {
         });
 
 
-        $('.orderCar').click(function (e) {
-            e.preventDefault();
-            var carid = $(this).attr('id');
+        //$('.orderCar').click(function (e) {
+        //    e.preventDefault();
+        //    var carid = $(this).attr('id');
 
-        })
+        //})
 
 
     });

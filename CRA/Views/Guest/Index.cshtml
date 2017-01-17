@@ -112,13 +112,13 @@
                     }
 
                     <img src="@linktoPicture" /> <br />
-                    <a href="" class="orderCar btn btn-default" id="@car.ModelID">Order</a>
+                    <a href="@Url.Action("PriceCalculation",car.CarID)" class="orderCar btn btn-default" id="@car.ModelID">Order</a>
                 </li>
             }
         </ul>
 
 
-    <div id="dialog" title="Price Calculation">
+    @*<div id="dialog" title="Price Calculation">
        
                 <input type="text" id="datepicker3" class="form-control" placeholder="From..." />
                 <br />
@@ -132,7 +132,7 @@
                     <input type="text" class="form-control" placeholder="Search for...">
                     <span>-</span>                                         
                 </div>        
-        </div>
+        </div>*@
   
 
 

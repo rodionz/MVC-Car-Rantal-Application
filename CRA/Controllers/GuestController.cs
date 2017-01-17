@@ -18,13 +18,15 @@ namespace CarRental.Controllers
 
         private readonly GuestBL guest;
 
-       private static IEnumerable<ModelView> allmodels;
+       private  IEnumerable<ModelView> allmodels;
 
-        private static IEnumerable<ManufactorerViewModel> allManufacturers;
+        private  IEnumerable<ManufactorerViewModel> allManufacturers;
 
-        private static IEnumerable<CarViewModel> allCars;
+        private IEnumerable<Car> domaninCars;
 
-        private static IEnumerable<DealViewModel> allDeals;
+        private  IEnumerable<CarViewModel> allCars;
+
+        private  IEnumerable<DealViewModel> allDeals;
 
 
 
@@ -41,7 +43,7 @@ namespace CarRental.Controllers
 
         public ActionResult Index()
         {
-            var domaninCars = guest.GetAllCars();
+           domaninCars = guest.GetAllCars();
 
             allCars = domaninCars.Select(c => new CarViewModel(c));
 
@@ -100,13 +102,18 @@ namespace CarRental.Controllers
 
        
         public ActionResult GetImage(int id)
-        {
-            
+        {           
                 var image = guest.GetImage(id);
+                return File(image, "image/jpeg");                  
+        }
 
-                return File(image, "image/jpeg");
-           
-          
+        public ActionResult PriceCalculation(int? id)
+        {
+            var car = (from c in domaninCars
+                       where c.CarID == id.Value
+                       select c).FirstOrDefault();
+
+            return View(car);
         }
     }
 }

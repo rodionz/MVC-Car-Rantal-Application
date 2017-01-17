@@ -1,5 +1,11 @@
-﻿@using CarRental.Data
-@model Car
+﻿@model CarRental.Data.Car
+
+@{
+    ViewBag.Title = "PriceCalculation";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2>PriceCalculation</h2>
 
 
 @using (Html.BeginForm())
@@ -7,16 +13,26 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>CarViewModel</h4>
+        <h4>Car</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.CarID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Mileage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Mileage, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Mileage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProperState, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ProperState)
+                    @Html.ValidationMessageFor(model => model.ProperState, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
