@@ -60,6 +60,7 @@
           
             let dealtoClose = arrayofDeals.find(function (x) { return x.ID == clickeddID })
 
+            let dealClosingForm = 
             //TODO
 
         });
