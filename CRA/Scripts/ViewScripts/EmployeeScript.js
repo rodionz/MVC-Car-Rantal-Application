@@ -8,6 +8,10 @@
 
     var arrayofDeals = [];
 
+    var supposedReturn;
+
+    var realReturn;
+
 
     $.getJSON('/Employee/HelpAjax', function (data) {
         
@@ -65,6 +69,9 @@
           
             let dealtoClose = arrayofDeals.find(function (x) { return x.ID == clickeddID })
 
+            supposedReturn = dealtoClose.SupposedReturn;
+          
+
             let header = "<h2>Editing deal #" + dealtoClose.ID + "</h2><br /><br />";
 
             let dealClosingForm = document.createElement("form");
@@ -108,14 +115,22 @@
 
             $("#datepickerClosing").change(function () {
 
-                console.log("Date changed");
+                let sResturn = moment(supposedReturn).format('YYYY-MM-DD');
+
+                let closingDate = moment($("#datepickerClosing").val()).format('YYYY-MM-DD');
+
+                //closingDate = moment(closingDate).format("D");
+
+                console.log(closingDate);
+
+                console.log(sResturn);
             })
 
         });
 
         
 
-        $("#submitClosing")
+      
 
 
     });
