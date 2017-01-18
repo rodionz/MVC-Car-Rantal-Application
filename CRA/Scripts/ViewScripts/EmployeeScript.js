@@ -3,6 +3,30 @@
     //$('table').DataTable();
     $('footer').addClass('bottomfooter');
 
+    $("#dialog").dialog({
+        autoOpen: false,
+        show: {
+            effect: "blind",
+            duration: 1000
+        },
+        hide: {
+            effect: "clip",
+            duration: 1000
+        }
+    });
+
+    $(".column-two").on("click", "#submitClosing", function () {
+        $("#dialog").dialog("open");
+        return false;
+    });
+
+
+
+
+
+
+
+
 
     var result = {};
 
