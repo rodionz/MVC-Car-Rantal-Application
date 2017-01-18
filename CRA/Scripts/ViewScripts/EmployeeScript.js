@@ -115,9 +115,9 @@
 
             $("#datepickerClosing").change(function () {
 
-                let sResturn = moment(supposedReturn).format('YYYY-MM-DD');
+                let sResturn = Date.parse(moment(supposedReturn).format('YYYY-MM-DD'));
 
-                let closingDate = moment($("#datepickerClosing").val()).format('YYYY-MM-DD');
+                let closingDate = Date.parse(moment($("#datepickerClosing").val()).format('YYYY-MM-DD'));
 
                 //closingDate = moment(closingDate).format("D");
 
