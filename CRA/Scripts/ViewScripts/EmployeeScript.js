@@ -119,7 +119,18 @@
 
                 let closingDate = Date.parse(moment($("#datepickerClosing").val()).format('YYYY-MM-DD'));
 
-                //closingDate = moment(closingDate).format("D");
+                if (closingDate = sResturn)
+                {
+
+                }
+
+                else if (closingDate > sResturn) {
+                    //late return
+                }
+
+                else {
+                    // early return
+                }
 
                 console.log(closingDate);
 
