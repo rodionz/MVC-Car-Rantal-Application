@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201701212005525_keys.Designer.cs">
       <DependentUpon>201701212005525_keys.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701212128432_ufo.cs" />
+    <Compile Include="Migrations\201701212128432_ufo.Designer.cs">
+      <DependentUpon>201701212128432_ufo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701212005525_keys.resx">
       <DependentUpon>201701212005525_keys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701212128432_ufo.resx">
+      <DependentUpon>201701212128432_ufo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
