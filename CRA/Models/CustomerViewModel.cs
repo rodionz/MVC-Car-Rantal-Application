@@ -73,6 +73,7 @@ namespace CarRental.MVC.Models
                 BirthData = BirthData,
                 gender = gender,
                 Email = Email,
+                UserName = UserName,
                 Password = Password,
                 Picture = Picture
 
@@ -95,8 +96,7 @@ namespace CarRental.MVC.Models
 
             this.BirthData = domainClieentDetails.BirthData;
 
-
-
+            this.UserName = domainClieentDetails.UserName;
 
             this.gender = domainClieentDetails.gender;
 

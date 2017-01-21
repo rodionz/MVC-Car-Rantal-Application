@@ -31,7 +31,7 @@ namespace CarRental.Data
         [StringLength(15)]      
         public string LastName { get; set; }
 
-
+        [Required]
         [StringLength(15)]
         public string UserName { get; set; }
 

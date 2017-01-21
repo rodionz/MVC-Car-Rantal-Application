@@ -107,7 +107,8 @@ namespace CarRental.Controllers
                 _manager.AddClient(CVM.toBaseClient_Details());
 
                 TempData["Success"] = "You were Signed Up Successfully!";
-
+                ModelState.Clear();
+                var  model = new CustomerViewModel();
                 return View();
             }
 
