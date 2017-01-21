@@ -174,7 +174,7 @@ namespace CarRental.BL
             {
 
                 var user = (from m in context.Users
-                                    where m.ID == clientID
+                                    where m.UserID == clientID
                                     select m).FirstOrDefault();
 
 

@@ -58,7 +58,7 @@ namespace CarRental.MVC.Models
         {
             return new User
             {
-                ID = ID,
+                UserID = ID,
                 FirstName = FirstName,
                 LastName = LastName,
                 BirthData = new DateTime(long.Parse(BirthData)),
@@ -77,7 +77,7 @@ namespace CarRental.MVC.Models
         public CustomerViewModel(User domainClieentDetails)
         {
 
-            this.ID = domainClieentDetails.ID;
+            this.ID = domainClieentDetails.UserID;
 
             this.FirstName = domainClieentDetails.FirstName;
 
