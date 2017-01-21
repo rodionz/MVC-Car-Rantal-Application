@@ -71,6 +71,8 @@ namespace CarRental.MVC.Models
         }
 
 
+        public CustomerViewModel() { }
+
 
         public CustomerViewModel(User domainClieentDetails)
         {

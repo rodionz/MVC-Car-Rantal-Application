@@ -68,7 +68,12 @@ namespace CarRental.Controllers
         }
 
 
+        [HttpPost]
+        public ActionResult SignUp(CustomerViewModel CVM)
+        {
 
+            return View();
+        }
 
 
 

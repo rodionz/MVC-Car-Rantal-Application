@@ -59,7 +59,7 @@
     <Compile Include="Manufacturers.cs" />
     <Compile Include="Models.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CompanyRoles.cs" />
+    <Compile Include="Roles.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Users.cs" />
   </ItemGroup>

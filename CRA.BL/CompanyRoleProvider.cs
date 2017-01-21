@@ -102,7 +102,25 @@ namespace CarRent.BL
 
         public override string[] GetRolesForUser(string username)
         {
-            throw new NotImplementedException();
+            
+           
+            using (var context = new CarRentalContext())
+            {
+               var _roles = (from r in context.Users
+                            where r.UserName == username
+                            select r.Roles).ToArray();
+
+                string[] UserRoles = new string[_roles.Length];
+
+                for( int i = 0; i < _roles.Length; i++)
+                {
+                    UserRoles[i] = _roles[i].Select(r => r.RoleName).FirstOrDefault();
+
+                }
+         
+                return UserRoles;
+              
+            }
         }
 
         public override string[] GetUsersInRole(string roleName)
