@@ -15,6 +15,7 @@ namespace CarRental.Data
    public class User
     {
         [Key]
+        [ForeignKey("Roles")]
         [Display(Name = "User's ID")]
         public int ID
         { get; set; }
