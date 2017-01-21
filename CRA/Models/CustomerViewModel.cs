@@ -8,13 +8,18 @@ using CarRental.Data;
 
 namespace CarRental.MVC.Models
 {
+
+  
+
     public class CustomerViewModel
     {
        
         public int ID { get; set; }
-        
+
+        [Required]
         public string FirstName { get; set; }
-      
+
+        [Required]
         public string LastName { get; set; }
 
 
@@ -31,11 +36,15 @@ namespace CarRental.MVC.Models
 
 
         [Display(Name = "Birth Data")]
-        public string BirthData { get; set; }
+        public DateTime? BirthData { get; set; }
 
+        [Required]
+        [RegularExpression("/^ Male$|^ Female$/", ErrorMessage = "Gender Invalid")]
         public Gender gender { get; set; }
 
-       [RegularExpression(@"/[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}/", ErrorMessage ="Email is invalid")]
+
+        //TODO
+       //[RegularExpression(@"/[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}/", ErrorMessage ="Email is invalid")]
         public string Email { get; set; }
 
         [Required]
@@ -61,7 +70,7 @@ namespace CarRental.MVC.Models
                 ID = ID,
                 FirstName = FirstName,
                 LastName = LastName,
-                BirthData = new DateTime(long.Parse(BirthData)),
+                BirthData = BirthData,
                 gender = gender,
                 Email = Email,
                 Password = Password,
@@ -76,6 +85,7 @@ namespace CarRental.MVC.Models
 
         public CustomerViewModel(User domainClieentDetails)
         {
+            
 
             this.ID = domainClieentDetails.ID;
 
@@ -83,7 +93,10 @@ namespace CarRental.MVC.Models
 
             this.LastName = domainClieentDetails.LastName;
 
-            this.BirthData = domainClieentDetails.BirthData.Value.ToShortDateString();
+            this.BirthData = domainClieentDetails.BirthData;
+
+
+
 
             this.gender = domainClieentDetails.gender;
 

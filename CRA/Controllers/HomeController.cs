@@ -1,4 +1,5 @@
 ﻿using CarRent.BL;
+using CarRental.BL;
 using CarRental.Models;
 using CarRental.MVC.Models;
 using CRA.BL;
@@ -16,6 +17,21 @@ namespace CarRental.Controllers
 
         private readonly GuestBL guest;
 
+        private readonly ManagerBL _manager;
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
         private static IEnumerable<DealViewModel> allDeals;
 
         private CompanyRoleProvider _roleprovider;
@@ -24,7 +40,7 @@ namespace CarRental.Controllers
         {
             guest = new GuestBL();
 
-           
+            _manager = new ManagerBL();
 
         }
             
@@ -69,7 +85,7 @@ namespace CarRental.Controllers
             return View();
         }
 
-
+        /////////Bug whith Gender
         [HttpPost]
         public ActionResult SignUp(CustomerViewModel CVM)
         {
@@ -77,7 +93,25 @@ namespace CarRental.Controllers
 
             var userrole = _roleprovider.GetRolesForUser(CVM.UserName);
 
-            return View();
+            if(userrole.Length != 0)
+            {
+                ModelState.AddModelError(string.Empty, "User Already Exists");
+
+                return View(CVM);
+            }
+
+            else
+            {
+                
+
+                _manager.AddClient(CVM.toBaseClient_Details());
+
+                TempData["Success"] = "You were Signed Up Successfully!";
+
+                return View();
+            }
+
+           
         }
 
 
