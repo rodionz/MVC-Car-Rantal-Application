@@ -15,7 +15,8 @@ namespace CarRental.Data
    public class User
     {
         [Key]
-        public int UserID
+        [Display(Name = "User's ID")]
+        public int ID
         { get; set; }
 
        

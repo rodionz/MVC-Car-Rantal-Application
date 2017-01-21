@@ -1,4 +1,5 @@
-﻿using CarRental.Models;
+﻿using CarRent.BL;
+using CarRental.Models;
 using CarRental.MVC.Models;
 using CRA.BL;
 using System;
@@ -17,6 +18,7 @@ namespace CarRental.Controllers
 
         private static IEnumerable<DealViewModel> allDeals;
 
+        private CompanyRoleProvider _roleprovider;
 
         public HomeController()
         {
@@ -71,6 +73,9 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult SignUp(CustomerViewModel CVM)
         {
+            _roleprovider = new CompanyRoleProvider();
+
+            var userrole = _roleprovider.GetRolesForUser(CVM.UserName);
 
             return View();
         }
