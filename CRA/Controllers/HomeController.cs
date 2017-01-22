@@ -65,14 +65,16 @@ namespace CarRental.Controllers
         public ActionResult Login(LoginViewModel login)
         {
 
-            if (Validate(login).isValid)
+            var validation = Validate(login);
+
+            if (validation.isValid)
             {
                 FormsAuthentication.SetAuthCookie(login.Username, false);
                 return Redirect(FormsAuthentication.DefaultUrl);
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Login failed.");
+                ModelState.AddModelError(string.Empty,validation.errorMessage);
                 return View(login);
             }
         }
