@@ -15,7 +15,7 @@ namespace CarRental.Controllers
     public class HomeController : Controller
     {
 
-        private readonly GuestBL guest;
+        private readonly GuestBL _guest;
 
         private readonly ManagerBL _manager;
 
@@ -38,7 +38,7 @@ namespace CarRental.Controllers
 
         public HomeController()
         {
-            guest = new GuestBL();
+            _guest = new GuestBL();
 
             _manager = new ManagerBL();
 
@@ -85,9 +85,33 @@ namespace CarRental.Controllers
 
             ValidationViewModel lvm = new ValidationViewModel();
 
-            lvm.isValid = true;
+            bool userExists = _guest.ClientExist(login.converttoUser(login));
 
-            return lvm;
+
+            if (!userExists)
+            {
+                lvm.isValid = false;
+
+                lvm.errorMessage = "User does not exist";
+
+                return lvm;
+            }
+
+            else if (!_guest.PasswordMatches(login.converttoUser(login)))
+            {
+                lvm.isValid = false;
+
+                lvm.errorMessage = "Password does not match";
+
+                return lvm;
+            }
+
+            else
+            {
+                lvm.isValid = true;
+
+                return lvm;
+            }          
         }
 
 

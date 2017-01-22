@@ -67,5 +67,52 @@ namespace CRA.BL
 
             }
         }
+
+
+        public bool ClientExist(User user)
+        {
+            using (var context = new CarRentalContext())
+            {
+
+                var result = context.Users.FirstOrDefault(u => u.UserName == user.UserName);
+
+                if (result == null)
+                {
+                    return false;
+                }
+
+                else
+                {
+                    return true;
+                }
+
+            }
+        }
+
+
+
+
+        public bool PasswordMatches(User user)
+        {
+            using (var context = new CarRentalContext())
+            {
+
+                var usertoTest = context.Users.FirstOrDefault(u => u.UserName == user.UserName);
+
+                if (usertoTest.Password != user.Password)
+                {
+                    return false;
+                }
+
+                else
+                {
+                    return true;
+                }
+
+            }
+        }
+
+
+
     }
 }
