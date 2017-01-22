@@ -65,7 +65,7 @@ namespace CarRental.Controllers
         public ActionResult Login(LoginViewModel login)
         {
 
-            if (Validate(login))
+            if (Validate(login).isValid)
             {
                 FormsAuthentication.SetAuthCookie(login.Username, false);
                 return Redirect(FormsAuthentication.DefaultUrl);
@@ -76,6 +76,28 @@ namespace CarRental.Controllers
                 return View(login);
             }
         }
+
+
+
+
+        private ValidationViewModel Validate(LoginViewModel login)
+        {
+
+            ValidationViewModel lvm = new ValidationViewModel();
+
+            lvm.isValid = true;
+
+            return lvm;
+        }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -118,9 +140,6 @@ namespace CarRental.Controllers
 
 
 
-        private bool Validate(LoginViewModel login)
-        {
-            return true;
-        }
+        
     }
 }

@@ -432,6 +432,7 @@
     <Compile Include="Models\DealViewModel.cs" />
     <Compile Include="Models\ModelView.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\ValidationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
