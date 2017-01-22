@@ -44,7 +44,7 @@ $(function () {
 
 
 
-    $('footer').addClass('bottomfooter');
+
 
     ////////////CAR  MODELS//////////////////
 
@@ -227,7 +227,7 @@ $(function () {
 
         $('.column-one').empty();
         $('.column-two').empty();
-        $('footer').addClass('bottomfooter');
+        
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
@@ -509,8 +509,7 @@ $(function () {
     $('#dealList').on('click', function () {
 
         $('.column-one').empty();
-        $('.column-two').empty();
-        $('footer').addClass('bottomfooter');
+        $('.column-two').empty();    
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
@@ -642,8 +641,7 @@ $(function () {
       
 
         $('.column-one').empty();
-        $('.column-two').empty();
-        $('footer').addClass('bottomfooter');
+        $('.column-two').empty();        
         var table = document.createElement('table');
         var addButton = document.createElement('button');
         addButton.className = "addManufatorer btn btn-success";

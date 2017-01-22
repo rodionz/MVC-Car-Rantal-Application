@@ -1,7 +1,7 @@
 ﻿$(function () {
     
-    //$('table').DataTable();
-    $('footer').addClass('bottomfooter');
+   
+    
 
     $("#dialog").dialog({
         autoOpen: false,
