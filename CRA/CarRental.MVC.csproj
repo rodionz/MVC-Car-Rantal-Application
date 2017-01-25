@@ -426,6 +426,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -469,6 +470,7 @@
     <Content Include="Scripts\ScriptLibriaries\jquery-3.1.1.min.map" />
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\Guest\PriceCalculation.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
