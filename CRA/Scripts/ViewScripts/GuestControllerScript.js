@@ -12,8 +12,7 @@ $(function () {
         console.log(result);
     });
 
-    $('footer').removeClass('bottomfooter');
-
+  
         $("#datepicker1").datepicker();
 
         $("#datepicker2").datepicker();
