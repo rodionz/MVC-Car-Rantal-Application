@@ -131,6 +131,21 @@ $(function () {
         //})
 
 
+
+$( "#slider" ).slider({
+      value:0,
+      min: 0,
+      max: 21,
+      // Here goes dayly price
+      step: 50,
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.value );
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
+ 
+
+
     });
 
 
