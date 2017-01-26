@@ -6,6 +6,9 @@ $(function () {
 
     var helperUrl = '/Guest/HelpAjax';
 
+    var cartoCalculate = {};
+
+
     $.getJSON(helperUrl, function (data) {
         async: true;
         result = data;    
@@ -36,8 +39,15 @@ $(function () {
            }
         });
 
-        $(".carlist").on("click", ".orderCar", function () {
-           $("#dialog").dialog("open");
+        $(".carlist").on("click", ".calculate", function () {
+            $("#dialog").dialog("open");
+           
+            let carid = $(this).parent().attr('id');
+
+            cartoCalculate = result.AllCarModels.find(function (x) { return x.ID == carid })
+
+            $('#modelName').text(cartoCalculate.NameofModel);
+            
         });
 
 
@@ -132,21 +142,89 @@ $(function () {
 
 
 
-$( "#slider" ).slider({
-      value:0,
-      min: 0,
-      max: 21,
-      // Here goes dayly price
-      step: 50,
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.value );
-      }
-    });
-    $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
+//$( "#slider" ).slider({
+//      value:0,
+//      min: 0,
+//      max: 21,
+//      // Here goes dayly price
+//      step: 50,
+//      slide: function( event, ui ) {
+//        $( "#amount" ).val( "$" + ui.value );
+//      }
+//    });
+//    $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
  
 
 
-    });
+        var select = function () {
+            priceCal();
+        };
+
+        $("#datepickerStart").datepicker(
+            {
+                onSelect: select,
+                onUpdate: select}
+        );
+
+        //$('#datepickerStart').datepicker({
+        //    'format': 'm/d/yyyy',
+        //    'autoclose': true
+        //});
+   
+        $("#datepickerEnd").datepicker(
+            {
+                onSelect: select,
+                onUpdate: select
+            }
+        );
+
+        //$(function () {
+        //    $('#datepickerEnd').datepicker({
+        //        'format': 'm/d/yyyy',
+        //        'autoclose': true
+        //    });
+        //});
+
+   
+
+        function priceCal() {
+            //declares
+           
+            var dayRate = cartoCalculate.DailyPrice;
+        
+
+            var dateStart = $('#datepickerStart').datepicker('getDate');
+    
+            var dateEnd = $('#datepickerEnd').datepicker('getDate');
+        
+
+            var totalDays = (dateEnd - dateStart) / 24 / 60 / 60 / 1000; //we get total days
+        
+            $('#price').text(totalDays * dayRate)
+            //more than one day
+            console.log("Parked for " + totalDays + " day/s it cost " + (totalDays * dayRate));
+       
+         
+        }
+
+
+
+
+
+
+
+
+
+
+      
+});
+        
+  
+     
+
+
+
+ 
 
 
   

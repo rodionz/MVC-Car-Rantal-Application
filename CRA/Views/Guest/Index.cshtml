@@ -11,7 +11,7 @@
 
 
 
-
+<script src="~/Scripts/ViewScripts/GuestControllerScript.js"></script>
 <h2>Car Search</h2>
 <main>
 
@@ -100,7 +100,7 @@
             @foreach (var car in Model)
             {
                 <li class="list-group-item model" data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer"
-                     data-gear="@car.Model.gear" data-startDate="@car." id="@car.CarID">
+                     data-gear="@car.Model.gear" data-startDate="@car." id="@car.Model.ModelID">
 
                     @Html.Partial("SingleCarPartialView", car);    
                     
@@ -110,7 +110,7 @@
                     }
 
                     <img src="@linktoPicture" /> <br />
-                    <button class="btn btn-default">Price Calculation</button>
+                    <button class="btn btn-default calculate">Price Calculation</button>
                 </li>
             }
         </ul>
@@ -118,12 +118,23 @@
 
     <div id="dialog" title="Price Calculation">
        
-<p>
+@*<p>
   <label for="amount">Amount of days:</label>
   <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
 </p>
  
-<div id="slider"></div>
+<div id="slider"></div>*@
+
+
+        <h3 id="modelName"></h3>
+        From<br />
+        <input type="text" id="datepickerStart" class="form-control">
+         <br />
+        To<br />
+        <input type="text" id="datepickerEnd" class="form-control">
+         <br />
+       <br />
+        <p id="price"></p>
         </div>
   
 
