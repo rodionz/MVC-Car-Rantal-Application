@@ -190,17 +190,21 @@ $(function () {
         function priceCal() {
             //declares
            
-            var dayRate = cartoCalculate.DailyPrice;
+            let dayRate = cartoCalculate.DailyPrice;
         
 
-            var dateStart = $('#datepickerStart').datepicker('getDate');
+            let dateStart = $('#datepickerStart').datepicker('getDate');
     
-            var dateEnd = $('#datepickerEnd').datepicker('getDate');
+            let dateEnd = $('#datepickerEnd').datepicker('getDate');
         
 
-            var totalDays = (dateEnd - dateStart) / 24 / 60 / 60 / 1000; //we get total days
-        
-            $('#price').text(totalDays * dayRate)
+            let totalDays = (dateEnd - dateStart) / 24 / 60 / 60 / 1000; //we get total days
+            
+            let price = totalDays * dayRate;
+
+            if (price > 0) {
+                $('#price').text("Totall price: " + price + "$");
+            }
             //more than one day
             console.log("Parked for " + totalDays + " day/s it cost " + (totalDays * dayRate));
        

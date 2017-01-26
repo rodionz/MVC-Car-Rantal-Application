@@ -135,8 +135,17 @@
          <br />
        <br />
         <p id="price"></p>
+        <br />
+        @if (User.Identity.IsAuthenticated)
+        {
+            <button>Order</button>
+        }
+        else
+        {
+            <a href="@Url.Action("Login","Home")">Please Log in</a>   <a href="@Url.Action("SignUp","Home")">or sign up</a><span>before making reservation</span>
+        }
         </div>
-  
+
 
 
 </main>
