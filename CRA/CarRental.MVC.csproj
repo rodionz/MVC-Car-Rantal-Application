@@ -471,6 +471,7 @@
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\Guest\PriceCalculation.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\MyBusket.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

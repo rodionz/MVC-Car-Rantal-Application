@@ -138,7 +138,7 @@
         <br />
         @if (User.Identity.IsAuthenticated)
         {
-            <button>Order</button>
+            <a href="@Url.Action("Index","Customer")">Make Order</a>
         }
         else
         {
