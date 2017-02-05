@@ -230,25 +230,27 @@ namespace CarRental.Controllers
         }
 
 
-
+        [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewDeal(DealViewModel dvm)
         {
 
             return View();
         }
 
+        [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditDeal(DealViewModel dvm)
         {
 
             return View();
         }
-
+        [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewManufacturer(ManufactorerViewModel dvm)
         {
 
             return View();
         }
 
+        [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditManufactorer(ManufactorerViewModel dvm)
         {
 

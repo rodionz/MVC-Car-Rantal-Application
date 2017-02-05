@@ -72,7 +72,7 @@ namespace CarRental.Controllers
 
         //}
 
-        [Authorize(Roles = "Employee")]
+        [Authorize(Roles = "Employee, Manager")]
         public ActionResult CloseTheDeal(DealViewModel dvm)
         {
 

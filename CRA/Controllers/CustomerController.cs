@@ -9,11 +9,13 @@ namespace CarRental.Controllers
     public class CustomerController : Controller
     {
         // GET: Customer
+        [Authorize(Roles = "Employee, Manager, Customer")]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize(Roles = "Employee, Manager, Customer")]
         public ActionResult MyBusket()
         {
 
