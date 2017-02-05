@@ -27,13 +27,14 @@ namespace CarRental.Controllers
 
 
         // GET: CarReturn
+        [Authorize(Roles = "Employee, Manager")]
         public ActionResult Index()
         {
             return View();
         }
 
 
-
+        [Authorize(Roles = "Employee, Manager")]
         public JsonResult HelpAjax()
         {
             var helper = new HelpViewModel();
@@ -71,7 +72,7 @@ namespace CarRental.Controllers
 
         //}
 
-
+        [Authorize(Roles = "Employee")]
         public ActionResult CloseTheDeal(DealViewModel dvm)
         {
 

@@ -19,31 +19,19 @@ namespace CarRental.Controllers
 
         private readonly ManagerBL _manager;
 
-
-
-
-
-
-
-
-
-
-
-
-         
+        private readonly CompanyRoleProvider _roleprovider;
 
         private static IEnumerable<DealViewModel> allDeals;
 
-        private CompanyRoleProvider _roleprovider;
+
 
         public HomeController()
         {
             _guest = new GuestBL();
-
             _manager = new ManagerBL();
-
+            _roleprovider = new CompanyRoleProvider();
         }
-            
+
 
 
 
@@ -69,12 +57,19 @@ namespace CarRental.Controllers
 
             if (Validate(login))
             {
+                var roles = _roleprovider.GetRolesForUser(login.Username);
+
+                foreach (var role in roles)
+                {
+                    User.IsInRole(role);
+                }
+
                 FormsAuthentication.SetAuthCookie(login.Username, false);
                 return Redirect(FormsAuthentication.DefaultUrl);
             }
             else
             {
-                //ModelState.AddModelError(string.Empty,ModelState.);
+
                 return View(login);
             }
         }
@@ -85,7 +80,7 @@ namespace CarRental.Controllers
         private bool Validate(LoginViewModel login)
         {
 
-           
+
 
             bool userExists = _guest.ClientExist(login.converttoUser(login));
 
@@ -98,26 +93,19 @@ namespace CarRental.Controllers
 
             else if (!_guest.PasswordMatches(login.converttoUser(login)))
             {
-               
+
                 ModelState.AddModelError(string.Empty, "Password does not match");
                 return false;
             }
 
             else
             {
-                
-               
+
+
                 return true;
-               
-            }          
+
+            }
         }
-
-
-
-
-
-
-
 
 
 
@@ -133,11 +121,11 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult SignUp(CustomerViewModel CVM)
         {
-            _roleprovider = new CompanyRoleProvider();
 
-            var userrole = _roleprovider.GetRolesForUser(CVM.UserName);
 
-            if(userrole.Length != 0)
+           
+
+            if (_roleprovider.UserExists(CVM.UserName))
             {
                 ModelState.AddModelError(string.Empty, "User Already Exists");
 
@@ -146,22 +134,23 @@ namespace CarRental.Controllers
 
             else
             {
-                
+
 
                 _manager.AddClient(CVM.toBaseClient_Details());
 
                 TempData["Success"] = "You were Signed Up Successfully!";
                 ModelState.Clear();
-                var  model = new CustomerViewModel();
-                return View();
+                var model = new CustomerViewModel();
+                return View(model);
             }
 
-           
+
         }
 
 
 
 
-        
+
+
     }
 }

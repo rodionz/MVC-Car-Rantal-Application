@@ -100,26 +100,26 @@ namespace CarRent.BL
             }
         }
 
+     
+
         public override string[] GetRolesForUser(string username)
         {
+
             
-           
+
             using (var context = new CarRentalContext())
             {
-               var _roles = (from r in context.Users
-                            where r.UserName == username
-                            select r.Roles).ToArray();
+                var roles = (from r in context.Users
+                             where r.UserName == username
+                             select r.Roles.Select(u => u.RoleName)).FirstOrDefault();
 
-                string[] UserRoles = new string[_roles.Length];
 
-                for( int i = 0; i < _roles.Length; i++)
-                {
-                    UserRoles[i] = _roles[i].Select(r => r.RoleName).FirstOrDefault();
+                string[] result = roles.ToArray();
 
-                }
-         
-                return UserRoles;
               
+
+                return result;
+
             }
         }
 
@@ -153,6 +153,26 @@ namespace CarRent.BL
                     return true;
 
             }
+        }
+
+        public  bool UserExists (string username)
+        {
+            using (var context = new CarRentalContext())
+            {
+                var user = (from u in context.Users
+                            where u.UserName == username
+                            select u).FirstOrDefault();
+
+                if (user == null)
+                {
+                    return false;
+                }
+
+                else
+                    return true;
+
+            }
+
         }
     }
 }

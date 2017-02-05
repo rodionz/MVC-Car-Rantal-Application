@@ -36,17 +36,17 @@ namespace CarRental.Controllers
         }
 
 
-       
+       [Authorize(Roles ="Manager")]
         public ActionResult Index()
         
         {       
             return View();
         }
 
-      
 
 
 
+        [Authorize(Roles = "Manager")]
         public JsonResult HelpAjax()
         {
 
@@ -77,6 +77,7 @@ namespace CarRental.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public ActionResult ManagerActions(HelpViewModel hvm)
         {
 
@@ -175,7 +176,7 @@ namespace CarRental.Controllers
             }
         }
 
-
+        [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewModel (ModelView cmv)
         {
             var originalModel = cmv.toBaseModelDetail();
@@ -186,6 +187,7 @@ namespace CarRental.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditModel(ModelView cmv)
         {
 
@@ -198,13 +200,14 @@ namespace CarRental.Controllers
         }
 
 
-
+        [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewCustomer(CustomerViewModel cmv)
         {
 
             return View();
         }
 
+        [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditCustomer(CustomerViewModel cmv)
         {
 
@@ -212,13 +215,14 @@ namespace CarRental.Controllers
         }
 
 
-
+        [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewCar(CarViewModel cmv)
         {
 
             return View();
         }
 
+        [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditCar(CarViewModel cmv)
         {
 
