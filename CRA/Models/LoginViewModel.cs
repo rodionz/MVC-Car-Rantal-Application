@@ -15,7 +15,7 @@ namespace CarRental.Models
 
         [Required]
         [StringLength(12)]
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Password must have 8-12 characters at least 1 Alphabet and 1 Number")]
+        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$", ErrorMessage = "Password must have 6-12 characters at least 1 Alphabet and 1 Number")]
         public string Password { get; set; }
 
 

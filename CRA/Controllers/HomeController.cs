@@ -65,16 +65,16 @@ namespace CarRental.Controllers
         public ActionResult Login(LoginViewModel login)
         {
 
-            var validation = Validate(login);
+            //var validation = Validate(login);
 
-            if (validation.isValid)
+            if (Validate(login))
             {
                 FormsAuthentication.SetAuthCookie(login.Username, false);
                 return Redirect(FormsAuthentication.DefaultUrl);
             }
             else
             {
-                ModelState.AddModelError(string.Empty,validation.errorMessage);
+                //ModelState.AddModelError(string.Empty,ModelState.);
                 return View(login);
             }
         }
@@ -82,37 +82,33 @@ namespace CarRental.Controllers
 
 
 
-        private ValidationViewModel Validate(LoginViewModel login)
+        private bool Validate(LoginViewModel login)
         {
 
-            ValidationViewModel lvm = new ValidationViewModel();
+           
 
             bool userExists = _guest.ClientExist(login.converttoUser(login));
 
 
             if (!userExists)
             {
-                lvm.isValid = false;
-
-                lvm.errorMessage = "User does not exist";
-
-                return lvm;
+                ModelState.AddModelError(string.Empty, "User does not exist");
+                return false;
             }
 
             else if (!_guest.PasswordMatches(login.converttoUser(login)))
             {
-                lvm.isValid = false;
-
-                lvm.errorMessage = "Password does not match";
-
-                return lvm;
+               
+                ModelState.AddModelError(string.Empty, "Password does not match");
+                return false;
             }
 
             else
             {
-                lvm.isValid = true;
-
-                return lvm;
+                
+               
+                return true;
+               
             }          
         }
 
