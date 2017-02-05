@@ -27,7 +27,7 @@ $(function () {
 
 
 
-        $("#dialog").dialog({
+        $(".dialog").dialog({
            autoOpen: false,
            show: {
                effect: "blind",
@@ -47,6 +47,8 @@ $(function () {
             cartoCalculate = result.AllCarModels.find(function (x) { return x.ID == carid })
 
             $('#modelName').text(cartoCalculate.NameofModel);
+
+            $('#modelId').text(cartoCalculate.ID);
             
         });
 

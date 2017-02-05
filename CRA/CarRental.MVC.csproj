@@ -416,6 +416,7 @@
     <Content Include="Scripts\ScriptLibriaries\moment-with-locales.min.js" />
     <Content Include="Scripts\ScriptLibriaries\moment.js" />
     <Content Include="Scripts\ScriptLibriaries\moment.min.js" />
+    <Content Include="Scripts\ViewScripts\CustomerScript.js" />
     <Content Include="Scripts\ViewScripts\EmployeeScript.js" />
     <Content Include="Scripts\ViewScripts\GuestControllerScript.js" />
     <Content Include="Scripts\ViewScripts\HomeControllers\HomeControllerScript.js" />
