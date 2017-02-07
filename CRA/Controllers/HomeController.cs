@@ -76,6 +76,12 @@ namespace CarRental.Controllers
 
 
 
+        public ActionResult LogOut()
+        {
+            return View();
+        }
+
+
 
         private bool Validate(LoginViewModel login)
         {

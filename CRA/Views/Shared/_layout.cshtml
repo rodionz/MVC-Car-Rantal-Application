@@ -36,21 +36,83 @@
                 <a class="navbar-brand" href="#">Brand</a>
             </div>
             
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">                                 
-                    <li ><a href="@Url.Action("Index","Guest")">Search a Car<span class="sr-only">(current)</span></a></li>
-                    <li><a href="@Url.Action("Index","Reservation")">Your Reservation</a></li>
-                    <li><a href="@Url.Action("Index","Employee")">Car return</a></li>
-                    <li><a href="@Url.Action("Index","Manager")">Manager</a></li>           
-                </ul>
-                
-                <ul class="nav navbar-nav navbar-right">                  
-                    <li><a href="@Url.Action("Login", "Home")">Please Log In<span class="glyphicon glyphicon-log-in"></span></a></li>
-                    <li><a href="@Url.Action("SignUp", "Home")">Sign Up  <span class="glyphicon glyphicon-pencil"></span></a></li>
-                    <li><a href="@Url.Action("MyBusket","Customer")">My Busket<i class="fa fa-shopping-basket" aria-hidden="true"></i></a></li>  
+            @if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Manager"))
+                {
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="@Url.Action("Index","Guest")">Search a Car<span class="sr-only">(current)</span></a></li>
+                            <li><a href="@Url.Action("Index","Reservation")">Your Reservation</a></li>
+                            <li><a href="@Url.Action("Index","Employee")">Car return</a></li>
+                            <li><a href="@Url.Action("Index","Manager")">Manager</a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="@Url.Action("LogOut", "Home")">Please Log In<span class="glyphicon glyphicon-log-out"></span></a></li>
+                            
+                        </ul>
+                    </div>
+                }
+
+                if (User.IsInRole("Employee"))
+                {
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="@Url.Action("Index","Guest")">Search a Car<span class="sr-only">(current)</span></a></li>
+                            <li><a href="@Url.Action("Index","Reservation")">Your Reservation</a></li>
+                            <li><a href="@Url.Action("Index","Employee")">Car return</a></li>
+                         
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="@Url.Action("Login", "Home")">Please Log In<span class="glyphicon glyphicon-log-in"></span></a></li>
+                            <li><a href="@Url.Action("SignUp", "Home")">Sign Up  <span class="glyphicon glyphicon-pencil"></span></a></li>
+                            <li><a href="@Url.Action("MyBusket","Customer")">My Busket<i class="fa fa-shopping-basket" aria-hidden="true"></i></a></li>
+
+                        </ul>
+                    </div>
+                }
+
+                if (User.IsInRole("Customer"))
+                {
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="@Url.Action("Index","Guest")">Search a Car<span class="sr-only">(current)</span></a></li>
+                            <li><a href="@Url.Action("Index","Reservation")">Your Reservation</a></li>
+                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="@Url.Action("Login", "Home")">Please Log In<span class="glyphicon glyphicon-log-in"></span></a></li>
+                            <li><a href="@Url.Action("SignUp", "Home")">Sign Up  <span class="glyphicon glyphicon-pencil"></span></a></li>
+                            <li><a href="@Url.Action("MyBusket","Customer")">My Busket<i class="fa fa-shopping-basket" aria-hidden="true"></i></a></li>
+
+                        </ul>
+                    </div>
+                }
+            }
+
+
+
+            else
+            {
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="@Url.Action("Index","Guest")">Search a Car<span class="sr-only">(current)</span></a></li>
                    
-                </ul>
-            </div>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Login", "Home")">Please Log In<span class="glyphicon glyphicon-log-in"></span></a></li>
+                        <li><a href="@Url.Action("SignUp", "Home")">Sign Up  <span class="glyphicon glyphicon-pencil"></span></a></li>
+                       
+
+                    </ul>
+                </div>
+            }
+
+         
         </div>
     </nav>
 
