@@ -23,5 +23,13 @@ namespace CarRental.Models
         public string ManagerAction { get; set; }
 
         public string ActionResult { get; set; }
+
+        public int carID { get; set; }
+
+        public int modelID { get; set; }
+
+        public int totallPrice { get; set; }
+
+        public string modelName { get; set; }
     }
 }

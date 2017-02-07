@@ -138,26 +138,23 @@ $(function () {
         });
 
 
-        //$('.orderCar').click(function (e) {
-        //    e.preventDefault();
-        //    var carid = $(this).attr('id');
-
-        //})
-
-
-
-//$( "#slider" ).slider({
-//      value:0,
-//      min: 0,
-//      max: 21,
-//      // Here goes dayly price
-//      step: 50,
-//      slide: function( event, ui ) {
-//        $( "#amount" ).val( "$" + ui.value );
-//      }
-//    });
-//    $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
  
+        $('#dialog').on('click', '.makeorder', function (event) {
+
+            event.preventDefault();
+            //console.log(cartoCalculate)
+            $.ajax({
+                type: 'POST',
+                data: { modelName: cartoCalculate.NameofModel},
+                url: '/Customer/Index',
+                success: function () {
+                    console.log("Success");
+                }
+            });
+
+        });
+
+
 
 
         var select = function () {
@@ -170,10 +167,7 @@ $(function () {
                 onUpdate: select}
         );
 
-        //$('#datepickerStart').datepicker({
-        //    'format': 'm/d/yyyy',
-        //    'autoclose': true
-        //});
+      
    
         $("#datepickerEnd").datepicker(
             {
@@ -182,12 +176,7 @@ $(function () {
             }
         );
 
-        //$(function () {
-        //    $('#datepickerEnd').datepicker({
-        //        'format': 'm/d/yyyy',
-        //        'autoclose': true
-        //    });
-        //});
+   
 
    
 

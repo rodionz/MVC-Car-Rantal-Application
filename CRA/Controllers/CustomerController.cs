@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRental.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,8 @@ namespace CarRental.Controllers
     {
         // GET: Customer
         [Authorize(Roles = "Employee, Manager, Customer")]
-        public ActionResult Index()
+        [HttpPost]
+        public ActionResult Index(HelpViewModel hvm)
         {
             return View();
         }

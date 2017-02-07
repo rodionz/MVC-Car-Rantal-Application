@@ -11,7 +11,7 @@
 
 
 
-<script src="~/Scripts/ViewScripts/GuestControllerScript.js"></script>
+
 <h2>Car Search</h2>
 <main>
 
@@ -132,7 +132,7 @@
         @if (User.Identity.IsAuthenticated)
         {
 
-            <a href="@Url.Action("Index", "Customer")">Make Order</a>
+            <button class="makeorder btn btn-default">Make Order</button>
         }
         else
         {
