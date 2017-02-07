@@ -1,12 +1,14 @@
 ﻿
 
+var cartoCalculate = {};
+
 $(function () {
 
     var result;
 
     var helperUrl = '/Guest/HelpAjax';
 
-    var cartoCalculate = {};
+    
 
 
     $.getJSON(helperUrl, function (data) {
@@ -27,7 +29,7 @@ $(function () {
 
 
 
-        $(".dialog").dialog({
+        $("#dialog").dialog({
            autoOpen: false,
            show: {
                effect: "blind",
@@ -48,7 +50,7 @@ $(function () {
 
             $('#modelName').text(cartoCalculate.NameofModel);
 
-            $('#modelId').text(cartoCalculate.ID);
+            $('#modelId').val(cartoCalculate.ID);
             
         });
 

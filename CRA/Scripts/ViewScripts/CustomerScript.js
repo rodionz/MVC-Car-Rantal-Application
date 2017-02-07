@@ -1,11 +1,10 @@
 ﻿
 
-var modelID;
+$(function () {
 
-var carprice;
+    console.log(cartoCalculate);
 
-$('#dialog').on('click', '.makeOrder', function () {
 
-    console.log("Click Works");
+
 
 })

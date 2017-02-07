@@ -117,20 +117,13 @@
 
 
     <div id="dialog" title="Price Calculation">
-       
-@*<p>
-  <label for="amount">Amount of days:</label>
-  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-</p>
- 
-<div id="slider"></div>*@
-
-
+     
         <h3 id="modelName"></h3>
-        From<br />
+        <input id="modelId" type="hidden" />
+        <span>From</span><br />
         <input type="text" id="datepickerStart" class="form-control">
          <br />
-        To<br />
+         <span>To</span>      <br />
         <input type="text" id="datepickerEnd" class="form-control">
          <br />
        <br />
@@ -138,12 +131,15 @@
         <br />
         @if (User.Identity.IsAuthenticated)
         {
-            <a href="@Url.Action("Index","Customer")">Make Order</a>
+
+            <a href="@Url.Action("Index", "Customer")">Make Order</a>
         }
         else
         {
-            <a href="@Url.Action("Login","Home")">Please Log in</a>   <a href="@Url.Action("SignUp","Home")">or sign up</a><span>before making reservation</span>
+            <a href="@Url.Action("Login", "Home")">Please Log in</a>   <a href="@Url.Action("SignUp", "Home")">or sign up</a><span>before making reservation</span>
         }
+
+      
         </div>
 
 
