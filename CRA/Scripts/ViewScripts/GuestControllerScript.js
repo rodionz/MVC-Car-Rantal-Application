@@ -146,8 +146,9 @@ $(function () {
             $.ajax({
                 type: 'POST',
                 data: { modelName: cartoCalculate.NameofModel},
-                url: '/Customer/Index',
+                url: '/Customer/GetInfo',
                 success: function () {
+                    window.location.replace('/Customer/Index');
                     console.log("Success");
                 }
             });

@@ -12,7 +12,16 @@ namespace CarRental.Controllers
         // GET: Customer
         [Authorize(Roles = "Employee, Manager, Customer")]
         [HttpPost]
-        public ActionResult Index(HelpViewModel hvm)
+        public ActionResult GetInfo(HelpViewModel hvm)
+        {
+            return Json(JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
+        [Authorize(Roles = "Employee, Manager, Customer")]
+        public ActionResult Index()
         {
             return View();
         }
