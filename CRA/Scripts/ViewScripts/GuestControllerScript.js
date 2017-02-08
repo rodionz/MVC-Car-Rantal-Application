@@ -1,6 +1,6 @@
 ﻿
 
-var cartoCalculate = {};
+var modeltoCalculate = {};
 
 $(function () {
 
@@ -46,11 +46,11 @@ $(function () {
            
             let carid = $(this).parent().attr('id');
 
-            cartoCalculate = result.AllCarModels.find(function (x) { return x.ID == carid })
+            modeltoCalculate = result.AllCarModels.find(function (x) { return x.ID == carid })
 
-            $('#modelName').text(cartoCalculate.NameofModel);
+            $('#modelName').text(modeltoCalculate.NameofModel);
 
-            $('#modelId').val(cartoCalculate.ID);
+            $('#modelId').val(modeltoCalculate.ID);
             
         });
 
@@ -142,10 +142,10 @@ $(function () {
         $('#dialog').on('click', '.makeorder', function (event) {
 
             event.preventDefault();
-            //console.log(cartoCalculate)
+            //console.log(modeltoCalculate)
             $.ajax({
                 type: 'POST',
-                data: { modelName: cartoCalculate.NameofModel},
+                data: { modelName: modeltoCalculate.NameofModel},
                 url: '/Customer/GetInfo',
                 success: function () {
                     window.location.replace('/Customer/Index');
@@ -184,7 +184,7 @@ $(function () {
         function priceCal() {
             //declares
            
-            let dayRate = cartoCalculate.DailyPrice;
+            let dayRate = modeltoCalculate.DailyPrice;
         
 
             let dateStart = $('#datepickerStart').datepicker('getDate');
