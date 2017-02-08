@@ -8,6 +8,9 @@ $(function () {
 
     var helperUrl = '/Guest/HelpAjax';
 
+    var selectedCar = {};
+
+    var finalPrice = 0;
     
 
 
@@ -44,9 +47,13 @@ $(function () {
         $(".carlist").on("click", ".calculate", function () {
             $("#dialog").dialog("open");
            
-            let carid = $(this).parent().attr('id');
+            let modelID = $(this).parent().attr('id');
 
-            modeltoCalculate = result.AllCarModels.find(function (x) { return x.ID == carid })
+            let carID = $(this).parent().data('carid');
+
+            selectedCar = result.AllCars.find(x)(function (x) { return x.ID == carID });
+
+            modeltoCalculate = result.AllCarModels.find(function (x) { return x.ID == modelID })
 
             $('#modelName').text(modeltoCalculate.NameofModel);
 
@@ -145,7 +152,7 @@ $(function () {
             //console.log(modeltoCalculate)
             $.ajax({
                 type: 'POST',
-                data: { modelName: modeltoCalculate.NameofModel},
+                data: { carID: selectedCar.ID, modelID: modeltoCalculate.ID, totallPrice: finalPrice },
                 url: '/Customer/GetInfo',
                 success: function () {
                     window.location.replace('/Customer/Index');
@@ -200,8 +207,8 @@ $(function () {
                 $('#price').text("Totall price: " + price + "$");
             }
             //more than one day
-            console.log("Parked for " + totalDays + " day/s it cost " + (totalDays * dayRate));
-       
+            //console.log("Parked for " + totalDays + " day/s it cost " + (totalDays * dayRate));
+            finalPrice = totalDays * dayRate;
          
         }
 

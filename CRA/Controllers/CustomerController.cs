@@ -9,11 +9,14 @@ namespace CarRental.Controllers
 {
     public class CustomerController : Controller
     {
+        private HelpViewModel customerHelper;
+
         // GET: Customer
         [Authorize(Roles = "Employee, Manager, Customer")]
         [HttpPost]
         public ActionResult GetInfo(HelpViewModel hvm)
         {
+            customerHelper = hvm;
             return Json(JsonRequestBehavior.AllowGet);
         }
 

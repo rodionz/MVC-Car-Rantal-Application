@@ -85,6 +85,8 @@ namespace CarRental.Controllers
 
             helper.AllDeals = allDeals;
 
+            helper.AllCars = allCars;
+
             return Json(helper, JsonRequestBehavior.AllowGet);
         }
 
