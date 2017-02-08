@@ -51,7 +51,7 @@ $(function () {
 
             let carID = $(this).parent().data('carid');
 
-            selectedCar = result.AllCars.find(x)(function (x) { return x.ID == carID });
+            selectedCar = result.AllCars.find(function (x) { return x.ID == carID });
 
             modeltoCalculate = result.AllCarModels.find(function (x) { return x.ID == modelID })
 
@@ -149,7 +149,7 @@ $(function () {
         $('#dialog').on('click', '.makeorder', function (event) {
 
             event.preventDefault();
-            //console.log(modeltoCalculate)
+            console.log(selectedCar, modeltoCalculate, finalPrice);
             $.ajax({
                 type: 'POST',
                 data: { carID: selectedCar.ID, modelID: modeltoCalculate.ID, totallPrice: finalPrice },
