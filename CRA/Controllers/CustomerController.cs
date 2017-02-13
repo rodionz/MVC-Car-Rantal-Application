@@ -11,13 +11,15 @@ namespace CarRental.Controllers
 {
     public class CustomerController : Controller
     {
+
+
         private readonly CustomerBL _customer;
+     
+        private static ModelView customerModel;
 
-        private HelpViewModel customerHelper;
+        private static CarViewModel customerCar;
 
-        private ModelView customerModel;
-
-        private CarViewModel customerCar;
+        private  static double totallPrice;
 
         public CustomerController() {
 
@@ -30,7 +32,12 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult GetInfo(HelpViewModel hvm)
         {
-           
+            customerCar = new CarViewModel(_customer.GetCar(hvm.carID));
+
+            customerModel = new ModelView(_customer.GetModel(hvm.modelID));
+
+            totallPrice = hvm.totallPrice;
+
             return Json(JsonRequestBehavior.AllowGet);
         }
 
@@ -40,7 +47,9 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Employee, Manager, Customer")]
         public ActionResult Index()
         {
-            return View();
+            ViewBag.thisCarModel = customerModel;
+
+            return View(customerCar);
         }
 
         [Authorize(Roles = "Employee, Manager, Customer")]

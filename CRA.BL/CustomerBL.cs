@@ -122,12 +122,26 @@ namespace CarRental.BL
 
         public Car GetCar(int carID)
         {
+            using (var context = new CarRentalContext())
+            {
+                var car = (from c in context.Cars
+                           where c.CarID == carID
+                           select c).FirstOrDefault();
 
+                return car;
+            }
         }
 
         public Model GetModel(int modelID)
         {
+            using (var context = new CarRentalContext())
+            {
+                var model = (from m in context.Models
+                             where m.ModelID == modelID
+                             select m).FirstOrDefault();
+                return model;
 
+            }
         }
 
     }

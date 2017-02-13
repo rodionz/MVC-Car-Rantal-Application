@@ -1,9 +1,29 @@
-﻿
+﻿@using CarRental.MVC.Models
+@model CarViewModel
+
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_layout.cshtml";
+
+    var linktopicture = "/Guest/GetImage/" + Model.ModelID.ToString();
+
+    ModelView thisModel = ViewBag.thisCarModel;
+
 }
 
-<h2>Index</h2>
+<h2>@thisModel.NameofModel</h2>
+<br />
+<br />
+
+
+
+<img src="@linktopicture" />
+
+
+
+
+
+
 
 <script src="~/Scripts/ViewScripts/CustomerScript.js"></script>
