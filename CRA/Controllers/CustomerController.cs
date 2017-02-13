@@ -60,5 +60,11 @@ namespace CarRental.Controllers
 
             return View();
         }
+
+        public ActionResult PreviousReservations()
+        {
+
+            return View();
+        }
     }
 }
