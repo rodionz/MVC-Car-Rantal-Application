@@ -49,6 +49,8 @@ namespace CarRental.Controllers
         {
             ViewBag.thisCarModel = customerModel;
 
+            ViewBag.price = totallPrice;
+
             return View(customerCar);
         }
 
