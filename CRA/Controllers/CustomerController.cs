@@ -1,4 +1,6 @@
-﻿using CarRental.Models;
+﻿using CarRental.BL;
+using CarRental.Models;
+using CarRental.MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +11,26 @@ namespace CarRental.Controllers
 {
     public class CustomerController : Controller
     {
+        private readonly CustomerBL _customer;
+
         private HelpViewModel customerHelper;
+
+        private ModelView customerModel;
+
+        private CarViewModel customerCar;
+
+        public CustomerController() {
+
+            _customer = new CustomerBL();
+        }
+
 
         // GET: Customer
         [Authorize(Roles = "Employee, Manager, Customer")]
         [HttpPost]
         public ActionResult GetInfo(HelpViewModel hvm)
         {
-            customerHelper = hvm;
+           
             return Json(JsonRequestBehavior.AllowGet);
         }
 
