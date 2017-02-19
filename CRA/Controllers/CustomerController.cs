@@ -47,7 +47,9 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Employee, Manager, Customer")]
         public ActionResult Index()
         {
-            ViewBag.thisCarModel = customerModel;
+            ViewBag.thisModel = customerModel;
+
+            ViewBag.thisCar = customerCar;
 
             ViewBag.price = totallPrice;
 
@@ -55,6 +57,7 @@ namespace CarRental.Controllers
         }
 
         [Authorize(Roles = "Employee, Manager, Customer")]
+        [HttpPost]
         public ActionResult Confirmation()
         {
 

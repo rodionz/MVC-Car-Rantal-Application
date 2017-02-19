@@ -1,12 +1,12 @@
 ﻿@using CarRental.MVC.Models
-@model CarViewModel
+@model DealViewModel
 
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_layout.cshtml";
 
-    var linktopicture = "/Guest/GetImage/" + Model.ModelID.ToString();
+    var linktopicture = "/Guest/GetImage/" + @ViewBag.thisCarModel.ModelID.ToString();
 
     ModelView thisModel = ViewBag.thisCarModel;
 
@@ -15,18 +15,21 @@
 <h3>Your Slection</h3>
 
 <div class="reservation">
-    <h2>@thisModel.NameofModel</h2>
+    @using (Html.BeginForm("Confirmation", "Customer", FormMethod.Post))
+    {
+    <h2>@ViewBag.thisCarModel.</h2>
     <br />
     <br />
     <img src="@linktopicture" />
     <br />
-    <p>Miliage:@Model.Mileage </p>
+    <p>Miliage:@ViewBag.thisCarModel </p>
     <br />
-    <p>Car Number:@Model.CarNumber</p>
+    <p>Car Number:@ViewBag.thisCarModelr</p>
     <br />
     <p>Price: @ViewBag.price</p>
     <br />
-    <a class="btn btn-success" href="@Url.Action("Confirmation","Customer")"></a> <a class="btn btn-danger" href="@Url.Action("Index","Guest")">Cancell</a>  
+    <a class="btn btn-success" href="@Url.Action("Confirmation", "Customer")"></a> <a class="btn btn-danger" href="@Url.Action("Index", "Guest")">Cancell</a>  
+    }
     <br />
     <br />
 </div>
