@@ -55,11 +55,19 @@ namespace CarRental.Controllers
         }
 
         [Authorize(Roles = "Employee, Manager, Customer")]
+        public ActionResult Confirmation()
+        {
+
+            return View();
+        }
+
+        [Authorize(Roles = "Employee, Manager, Customer")]
         public ActionResult MyBusket()
         {
 
             return View();
         }
+
 
         public ActionResult PreviousReservations()
         {
