@@ -42,7 +42,7 @@ namespace CarRental.MVC.Models
         }
 
 
-
+        public DealViewModel() { }
 
 
         public DealViewModel(Deal domainDealDetails)

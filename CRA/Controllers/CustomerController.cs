@@ -71,7 +71,9 @@ namespace CarRental.Controllers
 
             ViewBag.supposedReturn = supposedReturn;
 
-            return View();
+            var model = new DealViewModel();
+
+            return View(model);
         }
 
         [Authorize(Roles = "Employee, Manager, Customer")]

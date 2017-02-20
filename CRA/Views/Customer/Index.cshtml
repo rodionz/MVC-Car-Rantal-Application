@@ -8,32 +8,43 @@
 
     var linktopicture = "/Guest/GetImage/" + @ViewBag._Model.ID.ToString();
 
+    
+
     Model.CarID = ViewBag._car.ID;
 
     Model.ClientID = ViewBag.userId;
 
-    //Model.StartDate = ViewBag.
+    Model.StartDate = ViewBag.startDate;
+
+    Model.SupposedReturn = ViewBag.supposedReturn;
 
 }
 
 <h3>Your Slection</h3>
 
 <div class="reservation">
-    @using (Html.BeginForm("Confirmation", "Customer", FormMethod.Post))
-    {
+
     <h2>@ViewBag._Model.NameofModel</h2>
     <br />
     <br />
     <img src="@linktopicture" />
     <br />
     <br />
-    <p>Miliage:@ViewBag._Car.Mileage </p>
-    <br />
-    <p>Car Number:@ViewBag._Car.CarNumber</p>
-    <br />
     <p>Price: @ViewBag.price</p>
     <br />
-    <a class="btn btn-success" href="@Url.Action("Confirmation", "Customer")">Confirm</a> <a class="btn btn-danger" href="@Url.Action("Index", "Guest")">Cancell</a>  
+    <br />
+    @using (Html.BeginForm("Confirmation", "Customer", FormMethod.Post))
+    {
+    <br />
+    <br />
+    @Html.DisplayForModel();
+    <br />
+    @Html.HiddenFor(x => x.CarID);
+        @Html.HiddenFor(x => x.ClientID);
+        @Html.HiddenFor(x => x.StartDate);
+        @Html.HiddenFor(x => x.SupposedReturn);
+    <br />
+    <input type="submit"  value="Confirm" class="btn btn-success" /> <a class="btn btn-danger" href="@Url.Action("Index", "Guest")">Cancell</a>  
     }
     <br />
     <br />
