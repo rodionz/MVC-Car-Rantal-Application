@@ -53,12 +53,14 @@ namespace CarRental.Controllers
 
             ViewBag.price = totallPrice;
 
+            ViewBag.userId = User.Identity.
+
             return View();
         }
 
         [Authorize(Roles = "Employee, Manager, Customer")]
         [HttpPost]
-        public ActionResult Confirmation()
+        public ActionResult Confirmation(DealViewModel deal)
         {
 
             return View();

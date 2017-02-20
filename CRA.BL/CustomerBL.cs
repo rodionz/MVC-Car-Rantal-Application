@@ -144,5 +144,17 @@ namespace CarRental.BL
             }
         }
 
+        public int GetUserId (string name)
+        {
+            using (var context = new CarRentalContext())
+            {
+                var id = (from i in context.Users
+                          where i.UserName == name
+                          select i).FirstOrDefault().ID;
+
+                return id;
+            }
+        }
+
     }
 }
