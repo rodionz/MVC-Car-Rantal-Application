@@ -31,13 +31,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.StartDate.Value.ToShortDateString())
+            @Html.DisplayFor(modelItem => item.StartDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SupposedReturn.Value.ToShortDateString())
+            @Html.DisplayFor(modelItem => item.SupposedReturn)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RealReturn.Value.ToShortDateString())
+            @Html.DisplayFor(modelItem => item.RealReturn)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ClientID)

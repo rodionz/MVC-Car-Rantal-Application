@@ -85,7 +85,8 @@ namespace CarRental.Controllers
         public ActionResult Confirmation(DealViewModel deal)
         {
             _customer.ConfirmDeal(deal.toBaseDateDetails());
-            return View();
+
+           return  RedirectToAction("PreviousReservations");
         }
 
         [Authorize(Roles = "Employee, Manager, Customer")]
