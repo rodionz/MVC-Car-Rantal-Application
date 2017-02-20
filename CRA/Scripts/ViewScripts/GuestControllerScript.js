@@ -153,10 +153,14 @@ $(function () {
         $('#dialog').on('click', '.makeorder', function (event) {
 
             event.preventDefault();
-            console.log(selectedCar, modeltoCalculate, finalPrice);
+            
+            let convertedStartDate = moment(dateStart).format("YYYY-MM-DD").toString();
+
+            let convertedReturnDate = moment(dateEnd).format("YYYY-MM-DD").toString();
+
             $.ajax({
                 type: 'POST',
-                data: { carID: selectedCar.ID, modelID: modeltoCalculate.ID, StartDate : dateStart, SupposedReturn: dateEnd, totallPrice: finalPrice },
+                data: { carID: selectedCar.ID, modelID: modeltoCalculate.ID, StartDate: convertedStartDate, SupposedReturn: convertedReturnDate, totallPrice: finalPrice },
                 url: '/Customer/GetInfo',
                 success: function () {
                     window.location.replace('/Customer/Index');

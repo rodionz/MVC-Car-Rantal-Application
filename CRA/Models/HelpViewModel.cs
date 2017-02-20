@@ -34,9 +34,9 @@ namespace CarRental.Models
 
         public string modelName { get; set; }
 
-        public DateTime? StartDate { get; set; }
+        public string StartDate { get; set; }
 
-        public DateTime? SupposedReturn { get; set; }
+        public string SupposedReturn { get; set; }
 
         public DateTime? RealReturn { get; set; }
     }
