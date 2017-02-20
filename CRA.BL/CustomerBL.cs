@@ -156,5 +156,22 @@ namespace CarRental.BL
             }
         }
 
+        public void ConfirmDeal(Deal deal)
+        {
+            using (var context = new CarRentalContext())
+            {
+                context.Deals.Attach(deal);
+                context.Entry(deal).State = EntityState.Added;
+                context.SaveChanges();
+            }
+
+        } 
+
+        public IEnumerable<Deal> GetPreviousDeals(int userId)
+        {
+
+
+        }
+
     }
 }

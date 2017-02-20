@@ -25,6 +25,8 @@ namespace CarRental.Controllers
 
         private static DateTime supposedReturn;
 
+      
+
         public CustomerController() {
 
             _customer = new CustomerBL();
@@ -59,13 +61,15 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Employee, Manager, Customer")]
         public ActionResult Index()
         {
+            var UserID = _customer.GetUserId(User.Identity.Name);
+
             ViewBag._Model = customerModel;
 
             ViewBag._Car = customerCar;
 
             ViewBag.price = totallPrice;
 
-            ViewBag.userId = _customer.GetUserId(User.Identity.Name);
+            ViewBag.userId = UserID; 
 
             ViewBag.startDate = startDate;
 
@@ -80,7 +84,7 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult Confirmation(DealViewModel deal)
         {
-
+            _customer.ConfirmDeal(deal.toBaseDateDetails());
             return View();
         }
 
@@ -94,8 +98,11 @@ namespace CarRental.Controllers
 
         public ActionResult PreviousReservations()
         {
+            var UserID = _customer.GetUserId(User.Identity.Name);
 
-            return View();
+            var myDeals = _customer.GetPreviousDeals(UserID).Select(d => new DealViewModel(d));
+
+            return View(myDeals);
         }
     }
 }
