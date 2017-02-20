@@ -86,7 +86,9 @@ namespace CarRental.Controllers
         {
             _customer.ConfirmDeal(deal.toBaseDateDetails());
 
-           return  RedirectToAction("PreviousReservations");
+            TempData["Success"] = "Reservation Succeded!";
+
+            return  RedirectToAction("PreviousReservations");
         }
 
         [Authorize(Roles = "Employee, Manager, Customer")]

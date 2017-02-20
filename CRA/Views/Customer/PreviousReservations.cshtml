@@ -4,8 +4,11 @@
     ViewBag.Title = "PreviousReservations";
     Layout = "~/Views/Shared/_layout.cshtml";
 }
-
-<h2>Your Previous Reservations</h2>
+@if (TempData["Success"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+}
+<h2>Your Reservations</h2>
 
 
 <table class="table">
