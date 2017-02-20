@@ -6,9 +6,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_layout.cshtml";
 
-    var linktopicture = "/Guest/GetImage/" + @ViewBag.thisCarModel.ModelID.ToString();
+    var linktopicture = "/Guest/GetImage/" + @ViewBag._Model.ID.ToString();
 
-    ModelView thisModel = ViewBag.thisCarModel;
+    
 
 }
 
@@ -17,14 +17,14 @@
 <div class="reservation">
     @using (Html.BeginForm("Confirmation", "Customer", FormMethod.Post))
     {
-    <h2>@ViewBag.thisCarModel.</h2>
+    <h2>@ViewBag._Model.NameofModel</h2>
     <br />
     <br />
     <img src="@linktopicture" />
     <br />
-    <p>Miliage:@ViewBag.thisCarModel </p>
+    <p>Miliage:@ViewBag._Car.Mileage </p>
     <br />
-    <p>Car Number:@ViewBag.thisCarModelr</p>
+    <p>Car Number:@ViewBag._Car.CarNumber</p>
     <br />
     <p>Price: @ViewBag.price</p>
     <br />

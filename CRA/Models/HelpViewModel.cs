@@ -24,6 +24,8 @@ namespace CarRental.Models
 
         public string ActionResult { get; set; }
 
+        public int? ClientID { get; set; }
+
         public int carID { get; set; }
 
         public int modelID { get; set; }
@@ -31,5 +33,11 @@ namespace CarRental.Models
         public int totallPrice { get; set; }
 
         public string modelName { get; set; }
+
+        public DateTime? StartDate { get; set; }
+
+        public DateTime? SupposedReturn { get; set; }
+
+        public DateTime? RealReturn { get; set; }
     }
 }

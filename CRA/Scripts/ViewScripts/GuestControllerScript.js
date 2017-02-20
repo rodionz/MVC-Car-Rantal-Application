@@ -11,6 +11,10 @@ $(function () {
     var selectedCar = {};
 
     var finalPrice = 0;
+
+    var dateStart;
+
+    var dateEnd;
     
 
 
@@ -152,7 +156,7 @@ $(function () {
             console.log(selectedCar, modeltoCalculate, finalPrice);
             $.ajax({
                 type: 'POST',
-                data: { carID: selectedCar.ID, modelID: modeltoCalculate.ID, totallPrice: finalPrice },
+                data: { carID: selectedCar.ID, modelID: modeltoCalculate.ID, StartDate : dateStart, SupposedReturn: dateEnd, totallPrice: finalPrice },
                 url: '/Customer/GetInfo',
                 success: function () {
                     window.location.replace('/Customer/Index');
@@ -194,9 +198,9 @@ $(function () {
             let dayRate = modeltoCalculate.DailyPrice;
         
 
-            let dateStart = $('#datepickerStart').datepicker('getDate');
+             dateStart = $('#datepickerStart').datepicker('getDate');
     
-            let dateEnd = $('#datepickerEnd').datepicker('getDate');
+             dateEnd = $('#datepickerEnd').datepicker('getDate');
         
 
             let totalDays = (dateEnd - dateStart) / 24 / 60 / 60 / 1000; //we get total days

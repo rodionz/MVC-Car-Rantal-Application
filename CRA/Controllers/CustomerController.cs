@@ -47,13 +47,13 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Employee, Manager, Customer")]
         public ActionResult Index()
         {
-            ViewBag.thisModel = customerModel;
+            ViewBag._Model = customerModel;
 
-            ViewBag.thisCar = customerCar;
+            ViewBag._Car = customerCar;
 
             ViewBag.price = totallPrice;
 
-            return View(customerCar);
+            return View();
         }
 
         [Authorize(Roles = "Employee, Manager, Customer")]
