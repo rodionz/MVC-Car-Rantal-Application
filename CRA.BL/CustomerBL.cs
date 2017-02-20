@@ -169,7 +169,14 @@ namespace CarRental.BL
 
         public IEnumerable<Deal> GetPreviousDeals(int userId)
         {
+            using (var context = new CarRentalContext())
+            {
+                var deals = (from d in context.Deals
+                             where d.UserId == userId
+                             select d).ToArray();
 
+                return deals;
+            }
 
         }
 

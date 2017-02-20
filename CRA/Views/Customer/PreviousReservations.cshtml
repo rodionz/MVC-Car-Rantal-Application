@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_layout.cshtml";
 }
 
-<h2>PreviousReservations</h2>
+<h2>Your Previous Reservations</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -33,13 +31,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
+            @Html.DisplayFor(modelItem => item.StartDate.Value.ToShortDateString())
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SupposedReturn)
+            @Html.DisplayFor(modelItem => item.SupposedReturn.Value.ToShortDateString())
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RealReturn)
+            @Html.DisplayFor(modelItem => item.RealReturn.Value.ToShortDateString())
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ClientID)
@@ -47,12 +45,30 @@
         <td>
             @Html.DisplayFor(modelItem => item.CarID)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
+      
     </tr>
 }
 
 </table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
