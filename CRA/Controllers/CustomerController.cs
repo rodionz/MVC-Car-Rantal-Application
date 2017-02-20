@@ -21,6 +21,10 @@ namespace CarRental.Controllers
 
         private  static double totallPrice;
 
+        private static DateTime startDate;
+
+        private static DateTime supposedReturn;
+
         public CustomerController() {
 
             _customer = new CustomerBL();
@@ -32,6 +36,14 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult GetInfo(HelpViewModel hvm)
         {
+            var date1 = hvm.StartDate.Split('-');
+
+            var date2 = hvm.SupposedReturn.Split('-');
+
+            startDate = new DateTime(int.Parse(date1[0]), int.Parse(date1[1]), int.Parse(date1[2]));
+
+            supposedReturn = new DateTime(int.Parse(date2[0]), int.Parse(date2[1]), int.Parse(date2[2]));
+
             customerCar = new CarViewModel(_customer.GetCar(hvm.carID));
 
             customerModel = new ModelView(_customer.GetModel(hvm.modelID));
@@ -53,7 +65,11 @@ namespace CarRental.Controllers
 
             ViewBag.price = totallPrice;
 
-            ViewBag.userId = User.Identity.
+            ViewBag.userId = _customer.GetUserId(User.Identity.Name);
+
+            ViewBag.startDate = startDate;
+
+            ViewBag.supposedReturn = supposedReturn;
 
             return View();
         }

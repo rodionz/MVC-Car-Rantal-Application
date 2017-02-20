@@ -154,9 +154,9 @@ $(function () {
 
             event.preventDefault();
             
-            let convertedStartDate = moment(dateStart).format("YYYY-MM-DD").toString();
+            let convertedStartDate = moment(dateStart).format("YYYY-M-D").toString();
 
-            let convertedReturnDate = moment(dateEnd).format("YYYY-MM-DD").toString();
+            let convertedReturnDate = moment(dateEnd).format("YYYY-M-D").toString();
 
             $.ajax({
                 type: 'POST',
