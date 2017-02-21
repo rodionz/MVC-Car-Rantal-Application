@@ -2,6 +2,39 @@
 
 var modeltoCalculate = {};
 
+//Generic function for car filtering
+var carSelection = function (atr, selected) {
+    $('.carlist li').each(function () {
+        if ($(this).attr(atr) == selected) {
+            $(this).show();
+        }
+        else {
+            $(this).hide();
+        }
+    })
+}
+
+
+// Price calculation according to dates
+function priceCal() {
+
+    let dayRate = modeltoCalculate.DailyPrice;
+    dateStart = $('#datepickerStart').datepicker('getDate');
+    dateEnd = $('#datepickerEnd').datepicker('getDate');
+    let totalDays = (dateEnd - dateStart) / 24 / 60 / 60 / 1000; //we get total days          
+    let price = totalDays * dayRate;
+    if (price > 0) {
+        $('#price').text("Totall price: " + price + "$");
+    }
+    finalPrice = totalDays * dayRate;
+}
+
+
+var select = function () {
+    priceCal();
+};
+
+
 $(function () {
 
     var result;
@@ -25,15 +58,31 @@ $(function () {
     });
 
   
+// Using of Datepicker Feature : 
         $("#datepicker1").datepicker();
 
         $("#datepicker2").datepicker();
-
 
         $("#datepicker3").datepicker();
 
         $("#datepicker4").datepicker();
 
+
+        $("#datepickerStart").datepicker(
+           {
+               onSelect: select,
+               onUpdate: select
+           }
+       );
+
+
+
+        $("#datepickerEnd").datepicker(
+            {
+                onSelect: select,
+                onUpdate: select
+            }
+        );
 
 
         $("#dialog").dialog({
@@ -48,6 +97,8 @@ $(function () {
            }
         });
 
+
+    //Price calculation dialog
         $(".carlist").on("click", ".calculate", function () {
             $("#dialog").dialog("open");
            
@@ -67,18 +118,7 @@ $(function () {
 
 
 
-        var carSelection = function (atr,selected) {       
-            $('.carlist li').each(function () {
-                if ($(this).attr(atr) == selected) {
-
-                    $(this).show();
-                }
-                else {
-
-                    $(this).hide();
-                }
-            })
-        }
+   
 
 
 
@@ -87,7 +127,6 @@ $(function () {
             if (selectedGear) {
                 console.log("Select Gear");
                 carSelection("data-gear", selectedGear);
-
             }
         });
 
@@ -112,8 +151,7 @@ $(function () {
             {
                 console.log('searchbyManufacturer')
                 carSelection("data-manufacturer", selectedManufacturer);
-            }
-            
+            }            
         });
 
 
@@ -122,16 +160,13 @@ $(function () {
         $('#searchbyDate').click(function () {
 
             var date1 = Date.parse($('#datepicker1').val());
-
             var date2 = Date.parse($('#datepicker2').val());
             console.log(date1);
-
         });
 
 
         $('#freeSearch').click(function () {
             let selected = $('#freeText').val();
-
             if( selected != "")
             {
                 console.log("FreeTextSeach")
@@ -152,10 +187,8 @@ $(function () {
  
         $('#dialog').on('click', '.makeorder', function (event) {
 
-            event.preventDefault();
-            
+            event.preventDefault();            
             let convertedStartDate = moment(dateStart).format("YYYY-M-D").toString();
-
             let convertedReturnDate = moment(dateEnd).format("YYYY-M-D").toString();
 
             $.ajax({
@@ -173,52 +206,15 @@ $(function () {
 
 
 
-        var select = function () {
-            priceCal();
-        };
-
-        $("#datepickerStart").datepicker(
-            {
-                onSelect: select,
-                onUpdate: select}
-        );
-
-      
-   
-        $("#datepickerEnd").datepicker(
-            {
-                onSelect: select,
-                onUpdate: select
-            }
-        );
+     
 
    
 
    
 
-        function priceCal() {
-            //declares
-           
-            let dayRate = modeltoCalculate.DailyPrice;
-        
+   
 
-             dateStart = $('#datepickerStart').datepicker('getDate');
-    
-             dateEnd = $('#datepickerEnd').datepicker('getDate');
-        
-
-            let totalDays = (dateEnd - dateStart) / 24 / 60 / 60 / 1000; //we get total days
-            
-            let price = totalDays * dayRate;
-
-            if (price > 0) {
-                $('#price').text("Totall price: " + price + "$");
-            }
-            //more than one day
-            //console.log("Parked for " + totalDays + " day/s it cost " + (totalDays * dayRate));
-            finalPrice = totalDays * dayRate;
-         
-        }
+   
 
 
 
