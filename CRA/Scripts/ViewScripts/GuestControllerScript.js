@@ -172,7 +172,10 @@ $(function () {
         });
 
 
-
+        var dateConvertor = function(cSharpDate)
+        {
+            return Date.parse(moment(cSharpDate).format('MM/DD/YYYY'));
+        }
 
         $('#searchbyDate').click(function () {
 
@@ -189,6 +192,16 @@ $(function () {
 
                 for (let deal of deals) {
 
+                    if (deal.RealReturn == null) {
+
+                        if(date1 == dateConvertor(deal.StartDate) || date2 == dateConvertor(deal.SupposedReturn))
+                        {
+                           
+                            carSelection()
+
+                        }
+
+                    }
 
                 }
 
