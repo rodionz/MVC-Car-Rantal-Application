@@ -3,6 +3,7 @@
 var modeltoCalculate = {};
 
 //Generic function for car filtering
+
 var carSelection = function (atr, selected) {
     $('.carlist li').each(function () {
         if ($(this).attr(atr) == selected) {
@@ -182,7 +183,14 @@ $(function () {
             console.log(date1);
             console.log(date2);
 
+            let deals = result.AllDeals;
+
             if (date1 || date2) {
+
+                for (let deal of deals) {
+
+
+                }
 
             }
 
@@ -204,6 +212,7 @@ $(function () {
 
 
         $('#reset').click(function () {
+            $('.alert').remove();
             console.log("Reset Clicked")
             $('.carlist li').each(function () {
                 $(this).show();
