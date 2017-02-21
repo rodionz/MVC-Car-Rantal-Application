@@ -58,7 +58,7 @@ $(function () {
     });
 
   
-// Using of Datepicker Feature : 
+    // Using of Datepicker Feature : https://jqueryui.com/datepicker/
         $("#datepicker1").datepicker();
 
         $("#datepicker2").datepicker();
@@ -116,8 +116,24 @@ $(function () {
             
         });
 
+    // Price confirmation
+        $('#dialog').on('click', '.makeorder', function (event) {
 
+            event.preventDefault();
+            let convertedStartDate = moment(dateStart).format("YYYY-M-D").toString();
+            let convertedReturnDate = moment(dateEnd).format("YYYY-M-D").toString();
 
+            $.ajax({
+                type: 'POST',
+                data: { carID: selectedCar.ID, modelID: modeltoCalculate.ID, StartDate: convertedStartDate, SupposedReturn: convertedReturnDate, totallPrice: finalPrice },
+                url: '/Customer/GetInfo',
+                success: function () {
+                    window.location.replace('/Customer/Index');
+                    console.log("Success");
+                }
+            });
+
+        });
    
 
 
@@ -159,9 +175,20 @@ $(function () {
 
         $('#searchbyDate').click(function () {
 
-            var date1 = Date.parse($('#datepicker1').val());
-            var date2 = Date.parse($('#datepicker2').val());
+            $('.alert').remove();
+
+            let date1 = Date.parse($('#datepicker1').val());
+            let date2 = Date.parse($('#datepicker2').val());
             console.log(date1);
+            console.log(date2);
+
+            if (date1 || date2) {
+
+            }
+
+            else {
+                $('.datepicking').prepend("<p class='alert alert-danger'>Please select start and return date</p>");
+            }
         });
 
 
@@ -185,47 +212,8 @@ $(function () {
 
 
  
-        $('#dialog').on('click', '.makeorder', function (event) {
-
-            event.preventDefault();            
-            let convertedStartDate = moment(dateStart).format("YYYY-M-D").toString();
-            let convertedReturnDate = moment(dateEnd).format("YYYY-M-D").toString();
-
-            $.ajax({
-                type: 'POST',
-                data: { carID: selectedCar.ID, modelID: modeltoCalculate.ID, StartDate: convertedStartDate, SupposedReturn: convertedReturnDate, totallPrice: finalPrice },
-                url: '/Customer/GetInfo',
-                success: function () {
-                    window.location.replace('/Customer/Index');
-                    console.log("Success");
-                }
-            });
-
-        });
-
-
-
-
-     
-
-   
-
-   
-
-   
-
-   
-
-
-
-
-
-
-
-
-
-
       
+     
 });
         
   
