@@ -195,22 +195,26 @@ $(function () {
             let date2 = Date.parse($('#datepicker2').val());
             console.log(date1);
             console.log(date2);
-            let allCars = result.AllCars;
-            let cartoRemove;
 
-            let deals = result.AllDeals;
+            if (date2 > date1) {
 
-            if (date1 || date2) {
+                let allCars = result.AllCars;
+                let cartoRemove;
 
-                for (let deal of deals) {
+                let deals = result.AllDeals;
 
-                    if (deal.RealReturn == null) {
+                if (date1 || date2) {
 
-                        if (date1 <= dateConvertor(deal.SupposedReturn) || date2 >= dateConvertor(deal.StartDate))
-                        {
-                           
-                            cartoremove = allCars.find(function (x) { x.ID == deal.CarID })
-                            carSelection("id", !cartoremove.ID)
+                    for (let deal of deals) {
+
+                        if (deal.RealReturn !== null) {
+
+                            if (date1 <= dateConvertor(deal.SupposedReturn) || date2 >= dateConvertor(deal.StartDate)) {
+
+                                cartoremove = allCars.find(function (x) { x.ID == deal.CarID })
+                                carSelection("id", !cartoremove.ID)
+
+                            }
 
                         }
 
@@ -218,10 +222,13 @@ $(function () {
 
                 }
 
+                else {
+                    $('.datepicking').prepend("<p class='alert alert-danger'>Please select start and return date</p>");
+                }
             }
-
             else {
-                $('.datepicking').prepend("<p class='alert alert-danger'>Please select start and return date</p>");
+                $('.datepicking').prepend("<p class='alert alert-danger'>Time interval is incorrect</p>");
+
             }
         });
 
