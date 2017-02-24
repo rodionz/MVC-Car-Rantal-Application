@@ -198,8 +198,8 @@ $(function () {
 
             if (date2 > date1) {
 
-                let allCars = result.AllCars;
-                let cartoRemove;
+              
+                let cartoRemove = {};
 
                 let deals = result.AllDeals;
 
@@ -207,12 +207,19 @@ $(function () {
 
                     for (let deal of deals) {
 
-                        if (deal.RealReturn !== null) {
+                        if (deal.RealReturn == null) {
 
-                            if (date1 <= dateConvertor(deal.SupposedReturn) || date2 >= dateConvertor(deal.StartDate)) {
+                            if (date1 <= dateConvertor(deal.SupposedReturn) && date2 >= dateConvertor(deal.StartDate)) {
 
-                                cartoremove = allCars.find(function (x) { x.ID == deal.CarID })
-                                carSelection("id", !cartoremove.ID)
+                                cartoremove = result.AllCars.find(function (x) { return x.ID == deal.CarID })
+
+                                $('.carlist li').each(function () {
+                                    if ($(this).attr("id") !== cartoremove.ID) {
+                                        $(this).show();
+                                    }
+                                    else {
+                                        $(this).hide();
+                                    }
 
                             }
 
