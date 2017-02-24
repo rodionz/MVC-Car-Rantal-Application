@@ -212,21 +212,18 @@ $(function () {
                             if (date1 <= dateConvertor(deal.SupposedReturn) && date2 >= dateConvertor(deal.StartDate)) {
 
                                 cartoremove = result.AllCars.find(function (x) { return x.ID == deal.CarID })
-
+                                
                                 $('.carlist li').each(function () {
-                                    if ($(this).attr("id") !== cartoremove.ID) {
+                                    if ($(this).attr("data-carid") !== cartoremove.ID.toString()) {
                                         $(this).show();
                                     }
                                     else {
                                         $(this).hide();
                                     }
-
+                                })
                             }
-
                         }
-
                     }
-
                 }
 
                 else {
