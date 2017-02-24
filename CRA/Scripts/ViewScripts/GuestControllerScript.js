@@ -27,6 +27,10 @@ function priceCal() {
     if (price > 0) {
         $('#price').text("Totall price: " + price + "$");
     }
+
+    else {
+        $('#price').text("Date in Invalid")
+    }
     finalPrice = totalDays * dayRate;
 }
 
@@ -185,6 +189,8 @@ $(function () {
             let date2 = Date.parse($('#datepicker2').val());
             console.log(date1);
             console.log(date2);
+            let allCars = result.AllCars;
+            let cartoRemove;
 
             let deals = result.AllDeals;
 
@@ -197,7 +203,8 @@ $(function () {
                         if (date1 <= dateConvertor(deal.SupposedReturn) || date2 >= dateConvertor(deal.StartDate))
                         {
                            
-                            carSelection()
+                            cartoremove = allCars.find(function (x) { x.ID == deal.CarID })
+                            carSelection("id", !cartoremove.ID)
 
                         }
 
