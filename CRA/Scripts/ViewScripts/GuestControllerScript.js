@@ -32,11 +32,11 @@ $(function () {
 
     var allValues = [];
 
-    let _gears = ["manual", "automatic", "robotic"];
+    var _gears = ["manual", "automatic", "robotic"];
 
-    let _manufactorers = [];
+    var _manufactorers = [];
 
-    let _models = [];
+    var _models = [];
 
     var dateStart;
 
@@ -300,7 +300,24 @@ $(function () {
 
             if( selected != "")
             {
-                console.log(allValues)              
+                if(_gears.indexOf(selected) > -1)
+                {
+
+                }
+
+                else if (_manufactorers.indexOf(selected) > -1)
+                {
+
+                }
+
+                else if (_models.indexOf(selected) > -1)
+                {
+
+                }
+
+                else {
+
+                }
             }
         });
 
