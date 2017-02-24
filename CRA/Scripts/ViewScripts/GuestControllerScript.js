@@ -148,7 +148,7 @@ $(function () {
    
 
 
-
+//Search by transmission
         $('#searchbyTransmission').click(function () {
             let selectedGear = $('#gear').find(":selected").text();
             if (selectedGear) {
@@ -158,7 +158,7 @@ $(function () {
         });
 
 
-
+    //Search by Model
         $('#searchbyModel').click(function () {
                      
             let selectedModel = $('#model').find(":selected").text();
@@ -187,6 +187,8 @@ $(function () {
             return Date.parse(moment(cSharpDate).format('MM/DD/YYYY'));
         }
 
+
+    //Search by Date
         $('#searchbyDate').click(function () {
 
             $('.alert').remove();
@@ -239,10 +241,29 @@ $(function () {
 
         $('#freeSearch').click(function () {
             let selected = $('#freeText').val();
+
+            let gears = ["manual", "automatic", "robotic"];
+
+            let manufactorers = [];
+
+            let models = [];
+
+            for(let m of result.AllManufacturers)
+            {
+                manufactorers.push(m.manufacturerName)
+            }
+
+            for(let model of result.AllCarModels)
+            {
+                models.push(model.NameofModel)
+            }
+
+            let allValues = gears.concat(manufactorers).concat(models);
+
             if( selected != "")
             {
-                console.log("FreeTextSeach")
-                carSelection(selected);
+                console.log(allValues)
+               
             }
         });
 
