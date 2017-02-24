@@ -194,7 +194,7 @@ $(function () {
 
                     if (deal.RealReturn == null) {
 
-                        if(date1 == dateConvertor(deal.StartDate) || date2 == dateConvertor(deal.SupposedReturn))
+                        if (date1 <= dateConvertor(deal.SupposedReturn) || date2 >= dateConvertor(deal.StartDate))
                         {
                            
                             carSelection()
