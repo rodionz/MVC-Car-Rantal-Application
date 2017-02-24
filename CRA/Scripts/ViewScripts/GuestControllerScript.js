@@ -16,7 +16,7 @@ var carSelection = function (atr, selected) {
 }
 
 
-// Price calculation according to dates
+
 
 
 
@@ -30,10 +30,22 @@ $(function () {
 
     var finalPrice = 0;
 
+    var allValues = [];
+
+    let _gears = ["manual", "automatic", "robotic"];
+
+    let _manufactorers = [];
+
+    let _models = [];
+
     var dateStart;
 
     var dateEnd;
 
+
+
+
+    // Price calculation according to dates
 
     function priceCal() {
 
@@ -62,11 +74,15 @@ $(function () {
     
 
 
-    $.getJSON(helperUrl, function (data) {
-        async: true;
-        result = data;    
-        console.log(result);
-    });
+    //$.getJSON(helperUrl, function (data) {
+    //    async: true;
+    //    result = data;    
+    //    console.log(result);
+    //});
+
+
+   
+
 
   
     // Using of Datepicker Feature : https://jqueryui.com/datepicker/
@@ -94,6 +110,46 @@ $(function () {
                 onUpdate: select
             }
         );
+
+
+
+    // Getting all the data from the server
+        $.ajax({
+            dataType: "json",
+            url: helperUrl,
+            success: function (data) {
+                result = data;
+                console.log(result);
+                autocomplete();
+            }
+
+        })
+
+///////////////////////////////////////////
+
+
+
+    // Autocomplete for freetextsearch - jQuerry UI: https://jqueryui.com/autocomplete/#default
+
+        var autocomplete = function () {
+            for(let m of result.AllManufacturers)
+            {
+                _manufactorers.push(m.manufacturerName)
+            }
+
+            for(let model of result.AllCarModels)
+            {
+                _models.push(model.NameofModel)
+            }
+
+            allValues = _gears.concat(_manufactorers).concat(_models);
+
+            $('#freeText').autocomplete({
+                source: allValues
+            });
+        }
+
+///////////////////////////////////////////////////////////////
 
 
         $("#dialog").dialog({
@@ -238,32 +294,13 @@ $(function () {
             }
         });
 
-
+    // Free text search
         $('#freeSearch').click(function () {
             let selected = $('#freeText').val();
 
-            let gears = ["manual", "automatic", "robotic"];
-
-            let manufactorers = [];
-
-            let models = [];
-
-            for(let m of result.AllManufacturers)
-            {
-                manufactorers.push(m.manufacturerName)
-            }
-
-            for(let model of result.AllCarModels)
-            {
-                models.push(model.NameofModel)
-            }
-
-            let allValues = gears.concat(manufactorers).concat(models);
-
             if( selected != "")
             {
-                console.log(allValues)
-               
+                console.log(allValues)              
             }
         });
 
