@@ -1,10 +1,2 @@
 ﻿
 
-$(function () {
-
-    console.log(cartoCalculate);
-
-
-
-
-})

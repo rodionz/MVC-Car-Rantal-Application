@@ -17,27 +17,7 @@ var carSelection = function (atr, selected) {
 
 
 // Price calculation according to dates
-function priceCal() {
 
-    let dayRate = modeltoCalculate.DailyPrice;
-    dateStart = $('#datepickerStart').datepicker('getDate');
-    dateEnd = $('#datepickerEnd').datepicker('getDate');
-    let totalDays = (dateEnd - dateStart) / 24 / 60 / 60 / 1000; //we get total days          
-    let price = totalDays * dayRate;
-    if (price > 0) {
-        $('#price').text("Totall price: " + price + "$");
-    }
-
-    else {
-        $('#price').text("Date in Invalid")
-    }
-    finalPrice = totalDays * dayRate;
-}
-
-
-var select = function () {
-    priceCal();
-};
 
 
 $(function () {
@@ -53,6 +33,32 @@ $(function () {
     var dateStart;
 
     var dateEnd;
+
+
+    function priceCal() {
+
+        let dayRate = modeltoCalculate.DailyPrice;
+        dateStart = $('#datepickerStart').datepicker('getDate');
+        dateEnd = $('#datepickerEnd').datepicker('getDate');
+        let totalDays = (dateEnd - dateStart) / 24 / 60 / 60 / 1000; //we get total days          
+        let price = totalDays * dayRate;
+        if (price > 0) {
+            $('#price').text("Totall price: " + price + "$");
+        }
+
+        else {
+            $('#price').text("Interval is Invalid")
+        }
+        finalPrice = totalDays * dayRate;
+    }
+
+
+    var select = function () {
+        priceCal();
+    };
+
+
+
     
 
 
