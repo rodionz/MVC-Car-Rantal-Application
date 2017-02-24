@@ -22,7 +22,7 @@ var carSelection = function (atr, selected) {
 
 $(function () {
 
-    var result;
+    var result = {};
 
     var helperUrl = '/Guest/HelpAjax';
 
@@ -68,20 +68,6 @@ $(function () {
     var select = function () {
         priceCal();
     };
-
-
-
-    
-
-
-    //$.getJSON(helperUrl, function (data) {
-    //    async: true;
-    //    result = data;    
-    //    console.log(result);
-    //});
-
-
-   
 
 
   
@@ -208,7 +194,7 @@ $(function () {
         $('#searchbyTransmission').click(function () {
             let selectedGear = $('#gear').find(":selected").text();
             if (selectedGear) {
-                console.log("Select Gear");
+                
                 carSelection("data-gear", selectedGear);
             }
         });
@@ -220,7 +206,7 @@ $(function () {
             let selectedModel = $('#model').find(":selected").text();
             if(selectedModel)
             {
-                console.log('searchbyModel')
+               
                 carSelection("data-carModel", selectedModel);
             }
         });
@@ -302,20 +288,25 @@ $(function () {
             {
                 if(_gears.indexOf(selected) > -1)
                 {
-
+                    carSelection("data-gear", selected);
                 }
 
                 else if (_manufactorers.indexOf(selected) > -1)
                 {
-
+                    carSelection("data-manufacturer", selected);
                 }
 
                 else if (_models.indexOf(selected) > -1)
                 {
-
+                    carSelection("data-carModel", selected);
                 }
 
                 else {
+
+                    $('.carlist li').each(function () {
+                        $(this).hide();
+                        $('.carlist').append("<p class='alert alert-danger'>No results</p>");
+                    })
 
                 }
             }
