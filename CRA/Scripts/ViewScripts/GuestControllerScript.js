@@ -6,7 +6,7 @@ var modeltoCalculate = {};
 
 var carSelection = function (atr, selected) {
     $('.carlist li').each(function () {
-        if ($(this).attr(atr) == selected) {
+        if ($(this).attr(atr).toLowerCase() == selected.toLowerCase()) {
             $(this).show();
         }
         else {
@@ -120,12 +120,12 @@ $(function () {
         var autocomplete = function () {
             for(let m of result.AllManufacturers)
             {
-                _manufactorers.push(m.manufacturerName)
+                _manufactorers.push(m.manufacturerName.toLowerCase())
             }
 
             for(let model of result.AllCarModels)
             {
-                _models.push(model.NameofModel)
+                _models.push(model.NameofModel.toLowerCase())
             }
 
             allValues = _gears.concat(_manufactorers).concat(_models);
