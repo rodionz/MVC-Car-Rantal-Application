@@ -286,17 +286,17 @@ $(function () {
 
             if( selected != "")
             {
-                if(_gears.indexOf(selected) > -1)
+                if (_gears.indexOf(selected.toLowerCase()) > -1)
                 {
                     carSelection("data-gear", selected);
                 }
 
-                else if (_manufactorers.indexOf(selected) > -1)
+                else if (_manufactorers.indexOf(selected.toLowerCase()) > -1)
                 {
                     carSelection("data-manufacturer", selected);
                 }
 
-                else if (_models.indexOf(selected) > -1)
+                else if (_models.indexOf(selected.toLowerCase()) > -1)
                 {
                     carSelection("data-carModel", selected);
                 }
@@ -305,7 +305,7 @@ $(function () {
 
                     $('.carlist li').each(function () {
                         $(this).hide();
-                        $('.carlist').append("<p class='alert alert-danger'>No results</p>");
+                        $('#failure').html("<h3 class='alert alert-dange'>No results !</h3>");
                     })
 
                 }
@@ -315,6 +315,7 @@ $(function () {
 
 
         $('#reset').click(function () {
+            $('#failure').empty();
             $('.alert').remove();
             console.log("Reset Clicked")
             $('.carlist li').each(function () {
