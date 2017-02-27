@@ -10,68 +10,74 @@
 }
 <h2>Your Reservations</h2>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-5">
+            <table class="table table-bordered table-hover table-condensed">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SupposedReturn)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RealReturn)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClientID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CarID)
+                    </th>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SupposedReturn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RealReturn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClientID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarID)
-        </th>
-        <th></th>
-    </tr>
+                </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SupposedReturn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RealReturn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClientID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CarID)
-        </td>
-      
-    </tr>
-}
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SupposedReturn)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RealReturn)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClientID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CarID)
+                        </td>
 
-</table>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+                    </tr>
+                }
+
+            </table>
+            </div>
+        </div>
+    </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
 

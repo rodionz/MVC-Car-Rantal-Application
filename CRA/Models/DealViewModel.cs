@@ -13,11 +13,11 @@ namespace CarRental.MVC.Models
      
         public int ID { get; set; }
 
-        public DateTime? StartDate { get; set; }
+        public string StartDate { get; set; }
 
-        public DateTime? SupposedReturn { get; set; }
+        public string SupposedReturn { get; set; }
 
-        public DateTime? RealReturn { get; set; }
+        public string RealReturn { get; set; }
 
         [Display(Name = "Id of Client")]
         public int? ClientID { get; set; }
@@ -32,9 +32,9 @@ namespace CarRental.MVC.Models
             return new Deal
             {
                 ID = ID,
-                Start = StartDate,
-                SupposedReturn = SupposedReturn,
-                RealReturn = RealReturn,
+                Start = Convert.ToDateTime(StartDate),
+                SupposedReturn = Convert.ToDateTime(SupposedReturn),
+                RealReturn = Convert.ToDateTime(RealReturn),
                 UserId = ClientID,
                 CarID = CarID
 
@@ -51,11 +51,15 @@ namespace CarRental.MVC.Models
         {
             this.ID = domainDealDetails.ID;
 
-            this.StartDate = domainDealDetails.Start;
+            this.StartDate = domainDealDetails.Start.Value.ToShortDateString();
 
-            this.SupposedReturn = domainDealDetails.SupposedReturn;
+            this.SupposedReturn = domainDealDetails.SupposedReturn.Value.ToShortDateString();
 
-            this.RealReturn = domainDealDetails.RealReturn;
+            if(domainDealDetails.RealReturn.HasValue)
+            {
+                this.RealReturn = domainDealDetails.RealReturn.Value.ToShortDateString();
+            }
+            
 
             this.ClientID = domainDealDetails.UserId;
 

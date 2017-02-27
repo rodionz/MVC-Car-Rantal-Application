@@ -105,6 +105,8 @@ namespace CarRental.Controllers
 
             var myDeals = _customer.GetPreviousDeals(UserID).Select(d => new DealViewModel(d));
 
+
+
             return View(myDeals);
         }
     }
