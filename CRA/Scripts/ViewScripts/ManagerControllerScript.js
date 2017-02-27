@@ -504,12 +504,9 @@ $(function () {
     });
 
 
-
-
-    $('#dealList').on('click', function () {
-
+    var creatinglistOfDeals = function () {
         $('.column-one').empty();
-        $('.column-two').empty();    
+        $('.column-two').empty();
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
@@ -518,7 +515,7 @@ $(function () {
         $('.column-one').prepend(addButton);
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
-        var row = header.insertRow(0);      
+        var row = header.insertRow(0);
         row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID</th><th>Edit Deal</th>";
         var body = table.createTBody();
 
@@ -531,6 +528,14 @@ $(function () {
 
         $('.column-one').append(table);
         $('#mytable').DataTable();
+    }
+
+    $('#dealList').on('click', function () {
+
+
+        creatinglistOfDeals();
+
+
     });
 
 
@@ -743,6 +748,11 @@ $(function () {
 
 
   
+
+    creatinglistOfDeals();
+
+
+
     });
 
 
