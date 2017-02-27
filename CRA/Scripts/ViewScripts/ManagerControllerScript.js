@@ -242,7 +242,7 @@ $(function () {
 
         for (var model of  arrayofCustomers)
         {
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.Password +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + moment(model.BirthData).format('MM/DD/YYYY') + "</td><td>" + model.Email + "</td><td>" + model.Password +
                 "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary clientEdit'>Edit Customer</button><button class='btn btn-xs btn-danger clientDelete'>Delete Customer</button></span></td></tr>")
         }
 
