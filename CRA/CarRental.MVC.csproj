@@ -252,6 +252,12 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\logos\1_Primary_logo_on_transparent_190x72.png" />
+    <Content Include="Content\logos\2_Flat_logo_on_transparent_190x72.png" />
+    <Content Include="Content\logos\3_White_logo_on_color1_190x72.png" />
+    <Content Include="Content\logos\4_Grayscale_logo_on_transparent_190x72.png" />
+    <Content Include="Content\logos\5_White_logo_on_black_190x72.png" />
+    <Content Include="Content\logos\6_Primary_logo_on_color2_190x72.png" />
     <Content Include="Content\movie.mp4" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
