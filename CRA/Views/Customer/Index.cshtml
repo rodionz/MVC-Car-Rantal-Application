@@ -14,9 +14,9 @@
 
     Model.ClientID = ViewBag.userId;
 
-    Model.StartDate = ViewBag.startDate;
+    Model.StartDate = ViewBag.startDate.ToShortDateString();
 
-    Model.SupposedReturn = ViewBag.supposedReturn;
+    Model.SupposedReturn = ViewBag.supposedReturn.ToShortDateString();
 
 }
 
@@ -76,5 +76,9 @@
 <br />
 <br />
 <br />
-
+<script src="~/Scripts/ScriptLibriaries/jquery-3.1.1.min.js"></script>
+<script src="~/Scripts/ScriptLibriaries/jquery-ui-1.12.1.min.js"></script>
+<script src="~/Scripts/ScriptLibriaries/bootstrap.min.js"></script>
+<script src="~/Scripts/ScriptLibriaries/moment.min.js"> </script>
+<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
 <script src="~/Scripts/ViewScripts/CustomerScript.js"></script>

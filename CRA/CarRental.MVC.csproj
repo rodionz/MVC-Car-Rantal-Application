@@ -258,7 +258,6 @@
     <Content Include="Content\logos\4_Grayscale_logo_on_transparent_190x72.png" />
     <Content Include="Content\logos\5_White_logo_on_black_190x72.png" />
     <Content Include="Content\logos\6_Primary_logo_on_color2_190x72.png" />
-    <Content Include="Content\movie.mp4" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
