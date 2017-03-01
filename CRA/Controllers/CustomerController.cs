@@ -31,6 +31,8 @@ namespace CarRental.Controllers
         public CustomerController() {
 
             _customer = new CustomerBL();
+
+          
         }
 
 
@@ -77,9 +79,7 @@ namespace CarRental.Controllers
             ViewBag.supposedReturn = supposedReturn;
 
             var model = new DealViewModel();
-
-            Session[DEALS_IN_THE_BUSKET] = new List<DealViewModel>();
-
+           
             return View(model);
         }
 
@@ -90,6 +90,11 @@ namespace CarRental.Controllers
             //_customer.ConfirmDeal(deal.toBaseDateDetails());
 
             var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
+
+            if (deals == null) {
+
+                deals = new List<DealViewModel>();
+            }
 
             deals.Add(deal);
 
@@ -109,15 +114,11 @@ namespace CarRental.Controllers
         }
 
 
-
+        [Authorize(Roles = "Employee, Manager, Customer")]
         public ActionResult PreviousReservations()
         {
             var UserID = _customer.GetUserId(User.Identity.Name);
-
             var myDeals = _customer.GetPreviousDeals(UserID).Select(d => new DealViewModel(d));
-
-
-
             return View(myDeals);
         }
     }
