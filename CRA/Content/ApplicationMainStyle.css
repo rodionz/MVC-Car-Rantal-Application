@@ -37,6 +37,7 @@ img{
 footer{
     background-color: #0781C9;
     color:white;
+    padding-right: 40px;
 }
 
 
@@ -58,14 +59,14 @@ footer{
 }
 
 .editdelete button {
-    margin-left: 25px;
+    margin-left:50%;
 }
 
 
 
 
 .calculate{   
-    margin: 15px 38% 5px 38%;
+     margin: 15px 0 5px 30%;
 }
 
 #dialog {

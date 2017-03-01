@@ -192,6 +192,7 @@ $(function () {
 
 //Search by transmission
         $('#searchbyTransmission').click(function () {
+            $('#failure').empty();
             let selectedGear = $('#gear').find(":selected").text();
             if (selectedGear) {
                 
@@ -202,7 +203,7 @@ $(function () {
 
     //Search by Model
         $('#searchbyModel').click(function () {
-                     
+            $('#failure').empty();
             let selectedModel = $('#model').find(":selected").text();
             if(selectedModel)
             {
@@ -215,6 +216,7 @@ $(function () {
 
 
         $('#searchbyManufacturer').click(function () {
+            $('#failure').empty();
             let selectedManufacturer = $('#manufa').find(":selected").text();
             if (selectedManufacturer)
             {
@@ -232,7 +234,7 @@ $(function () {
 
     //Search by Date
         $('#searchbyDate').click(function () {
-
+            $('#failure').empty();
             $('.alert').remove();
 
             let date1 = Date.parse($('#datepicker1').val());
@@ -282,7 +284,10 @@ $(function () {
 
     // Free text search
         $('#freeSearch').click(function () {
+            $('#failure').empty();
             let selected = $('#freeText').val();
+
+            selected = selected.trim();
 
             if( selected != "")
             {

@@ -11,19 +11,14 @@
 
 </script>
 <h2>Login</h2>
-@*@using (Html.BeginForm())
-{
-    @Html.ValidationSummary()
-    @Html.EditorForModel()
-    <button type="submit">Login</button>
-}*@
+
 
 
 @using (Html.BeginForm())
 {
 
 <div class="form-horizontal col-md-3" >
-    <h4>LoginViewModel</h4>
+   
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
