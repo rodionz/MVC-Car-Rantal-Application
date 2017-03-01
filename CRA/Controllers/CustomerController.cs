@@ -139,5 +139,25 @@ namespace CarRental.Controllers
 
             return View();
         }
+
+        public ActionResult QuantityOfItemsInBusket()
+        {
+            int count;
+
+            var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
+
+            if(deals == null)
+            {
+                count = 0;
+            }
+
+            else
+            {
+                count = deals.Count;
+            }
+
+
+            return Json(count,JsonRequestBehavior.AllowGet);
+        }
     }
 }
