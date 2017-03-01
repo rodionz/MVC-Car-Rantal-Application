@@ -25,6 +25,7 @@ namespace CarRental.Controllers
 
         private static DateTime supposedReturn;
 
+        private const string DEALS_IN_THE_BUSKET = "dealsinfo";
       
 
         public CustomerController() {
@@ -77,6 +78,8 @@ namespace CarRental.Controllers
 
             var model = new DealViewModel();
 
+            Session[DEALS_IN_THE_BUSKET] = new List<DealViewModel>();
+
             return View(model);
         }
 
@@ -86,9 +89,13 @@ namespace CarRental.Controllers
         {
             //_customer.ConfirmDeal(deal.toBaseDateDetails());
 
-            
+            var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
 
-            return  RedirectToAction("MyBusket",deal);
+            deals.Add(deal);
+
+            Session[DEALS_IN_THE_BUSKET] = deals;
+
+            return  RedirectToAction("MyBusket");
         }
 
 
@@ -96,8 +103,9 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Employee, Manager, Customer")]
         public ActionResult MyBusket()
         {
+            var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
             TempData["Success"] = "Reservation Succeded!";
-            return View();
+            return View(deals);
         }
 
 
