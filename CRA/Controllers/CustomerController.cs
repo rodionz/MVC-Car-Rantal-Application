@@ -87,7 +87,7 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult AddtoBusket(DealViewModel deal)
         {
-            //_customer.ConfirmDeal(deal.toBaseDateDetails());
+            
 
             var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
 
@@ -109,6 +109,7 @@ namespace CarRental.Controllers
         public ActionResult MyBusket()
         {
             var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
+            //TempDate must be in other place
             TempData["Success"] = "Reservation Succeded!";
             return View(deals);
         }
@@ -122,10 +123,15 @@ namespace CarRental.Controllers
             return View(myDeals);
         }
 
-        public ActionResult Confimation()
+        public ActionResult Confimation(int dealID)
         {
+            var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
 
-            return View();
+            var currenDeal = deals.Where(d => d.ID == dealID).FirstOrDefault();
+
+            _customer.ConfirmDeal(currenDeal.toBaseDateDetails());
+
+            return RedirectToAction("MyBusket");
         }
 
         public ActionResult RemoveItemFromBusket()
@@ -136,8 +142,8 @@ namespace CarRental.Controllers
 
         public ActionResult ClearBusket()
         {
-
-            return View();
+            Session[DEALS_IN_THE_BUSKET] = new List<DealViewModel>();
+            return RedirectToAction("MyBusket");
         }
 
         public ActionResult QuantityOfItemsInBusket()

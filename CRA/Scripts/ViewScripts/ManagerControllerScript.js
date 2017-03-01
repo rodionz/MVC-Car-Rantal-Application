@@ -95,7 +95,7 @@ $(function () {
         {
 
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine +
-                "</td><td><span class='editdelete' id=" + model.ID + " ><button class='btn btn-sm btn-primary modelEdit' >Edit</button>     <button class='btn btn-sm btn-danger modelDelete'>Delete</button></span></td></tr>");
+                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary modelEdit' >Edit</button>     <button class='btn btn-sm btn-danger modelDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
@@ -243,7 +243,7 @@ $(function () {
         for (var model of  arrayofCustomers)
         {
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + moment(model.BirthData).format('MM/DD/YYYY') + "</td><td>" + model.Email + "</td><td>" + model.Password +
-                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary clientEdit'>Edit</button>     <button class='btn btn-sm btn-danger clientDelete'>Delete</button></span></td></tr>")
+                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary clientEdit'>Edit</button>     <button class='btn btn-sm btn-danger clientDelete'>Delete</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
@@ -393,7 +393,7 @@ $(function () {
         for (var model of  arrayofCars)
         {
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID +
-                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary carEdit'>Edit</button>     <button class='btn btn-sm btn-danger carDelete'>Delete</button></span></td></tr>");
+                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary carEdit'>Edit</button>     <button class='btn btn-sm btn-danger carDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
@@ -523,7 +523,7 @@ $(function () {
         {
 
             $(body).append("<tr><td>" + model.ID + "</td><td>" + moment(model.StartDate).format('MM/DD/YYYY') + "</td><td>" + moment(model.SupposedReturn).format('MM/DD/YYYY') + "</td><td>" + moment(model.RealReturn).format('MM/DD/YYYY') + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
-                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary dealEdit'>Edit</button>     <button class='btn btn-sm btn-danger dealDelete'>Delete</button></span></td></tr>")
+                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary dealEdit'>Edit</button>     <button class='btn btn-sm btn-danger dealDelete'>Delete</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
@@ -663,7 +663,7 @@ $(function () {
         {
             
             $(table).append("<tr><td>" + model.ID + "</td><td>" + model.manufacturerName
-                + "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary manEdit'>Edit</button>     <button class='btn btn-sm btn-danger manDelete'>Delete</button></span></td></tr>");
+                + "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary manEdit'>Edit</button>     <button class='btn btn-sm btn-danger manDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);

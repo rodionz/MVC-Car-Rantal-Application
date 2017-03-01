@@ -62,9 +62,15 @@ footer{
 
 .addbutton{
 
+    margin-top:-20px;
     margin-bottom:20px;
 }
 
+
+
+.cellwhithbuttons{
+    text-align:center;
+}
 
 .calculate{   
      margin: 15px 0 5px 30%;
