@@ -84,7 +84,7 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult AddtoBusket(DealViewModel deal)
         {
-            _customer.ConfirmDeal(deal.toBaseDateDetails());
+            //_customer.ConfirmDeal(deal.toBaseDateDetails());
 
             
 

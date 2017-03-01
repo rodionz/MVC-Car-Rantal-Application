@@ -20,7 +20,7 @@
 
 }
 
-<h3>Your Slection</h3>
+<h3>       Your Selection</h3>
 
 <div class="reservation">
 
@@ -30,12 +30,11 @@
     <img src="@linktopicture" />
     <br />
     <br />
-    <p>Price: @ViewBag.price</p>
-    <br />
-    <br />
+    <p>Price: @ViewBag.price $</p>
+    
     @using (Html.BeginForm("AddtoBusket", "Customer", FormMethod.Post))
     {
-    <br />
+    
     <br />
     @Html.LabelFor(d => d.StartDate, "Day of pick up:")
     @Html.DisplayFor(d => d.StartDate)
