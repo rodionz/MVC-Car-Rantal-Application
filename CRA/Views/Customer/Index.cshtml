@@ -33,18 +33,22 @@
     <p>Price: @ViewBag.price</p>
     <br />
     <br />
-    @using (Html.BeginForm("Confirmation", "Customer", FormMethod.Post))
+    @using (Html.BeginForm("AddtoBusket", "Customer", FormMethod.Post))
     {
     <br />
     <br />
-    @Html.DisplayForModel();
+    @Html.LabelFor(d => d.StartDate, "Day of pick up:")
+    @Html.DisplayFor(d => d.StartDate)
     <br />
+    @Html.LabelFor(d => d.SupposedReturn, "Return Date:")
+    @Html.DisplayFor(d => d.SupposedReturn)
+        <br />
     @Html.HiddenFor(x => x.CarID);
-        @Html.HiddenFor(x => x.ClientID);
-        @Html.HiddenFor(x => x.StartDate);
-        @Html.HiddenFor(x => x.SupposedReturn);
+     @Html.HiddenFor(x => x.ClientID);
+     @Html.HiddenFor(x => x.StartDate);
+     @Html.HiddenFor(x => x.SupposedReturn);
     <br />
-    <input type="submit"  value="Confirm" class="btn btn-success" /> <a class="btn btn-danger" href="@Url.Action("Index", "Guest")">Cancell</a>  
+    <input type="submit"  value="Add to Busket" class="btn btn-success" /> <a class="btn btn-danger" href="@Url.Action("Index", "Guest")">Cancell</a>  
     }
     <br />
     <br />

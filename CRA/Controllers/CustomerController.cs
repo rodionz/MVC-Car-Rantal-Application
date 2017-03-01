@@ -82,21 +82,24 @@ namespace CarRental.Controllers
 
         [Authorize(Roles = "Employee, Manager, Customer")]
         [HttpPost]
-        public ActionResult Confirmation(DealViewModel deal)
+        public ActionResult AddtoBusket(DealViewModel deal)
         {
             _customer.ConfirmDeal(deal.toBaseDateDetails());
 
-            TempData["Success"] = "Reservation Succeded!";
+            
 
-            return  RedirectToAction("PreviousReservations");
+            return  RedirectToAction("MyBusket",deal);
         }
+
+
 
         [Authorize(Roles = "Employee, Manager, Customer")]
         public ActionResult MyBusket()
         {
-
+            TempData["Success"] = "Reservation Succeded!";
             return View();
         }
+
 
 
         public ActionResult PreviousReservations()

@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<CarRental.MVC.Models.DealViewModel>
 @{
     ViewBag.Title = "MyBusket";
     Layout = "~/Views/Shared/_layout.cshtml";
@@ -6,3 +6,7 @@
 
 <h2>MyBusket</h2>
 
+@if (TempData["Success"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+}
