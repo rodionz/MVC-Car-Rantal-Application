@@ -121,5 +121,23 @@ namespace CarRental.Controllers
             var myDeals = _customer.GetPreviousDeals(UserID).Select(d => new DealViewModel(d));
             return View(myDeals);
         }
+
+        public ActionResult Confimation()
+        {
+
+            return View();
+        }
+
+        public ActionResult RemoveItemFromBusket()
+        {
+
+            return View();
+        }
+
+        public ActionResult ClearBusket()
+        {
+
+            return View();
+        }
     }
 }

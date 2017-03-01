@@ -427,6 +427,7 @@
     <Content Include="Scripts\ViewScripts\GuestControllerScript.js" />
     <Content Include="Scripts\ViewScripts\HomeControllers\HomeControllerScript.js" />
     <Content Include="Scripts\ViewScripts\HomeControllers\Login.js" />
+    <Content Include="Scripts\ViewScripts\MainScript.js" />
     <Content Include="Scripts\ViewScripts\ManagerControllerScript.js" />
     <Content Include="Scripts\ViewScripts\HomeControllers\SignUp.js" />
     <Content Include="Web.config" />
@@ -489,7 +490,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\ViewScripts\ManagerControllers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CRA.BL\CarRental.BL.csproj">
