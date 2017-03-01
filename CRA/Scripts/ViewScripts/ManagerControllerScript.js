@@ -83,7 +83,7 @@ $(function () {
         table.setAttribute("id", "mytable");
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
-        addButton.className = "addnewModel btn btn-success";
+        addButton.className = "addbutton addnewModel btn btn-success";
         addButton.textContent = "Add New Model";
         $('.column-one').prepend(addButton);
         var header = table.createTHead();
@@ -95,7 +95,7 @@ $(function () {
         {
 
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine +
-                "</td><td><span class='editdelete' id=" + model.ID + " ><button class='btn btn-xs btn-primary modelEdit' >Edit model</button><button class='btn btn-xs btn-danger modelDelete'>Delete model</button></span></td></tr>");
+                "</td><td><span class='editdelete' id=" + model.ID + " ><button class='btn btn-sm btn-primary modelEdit' >Edit</button>     <button class='btn btn-sm btn-danger modelDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
@@ -231,7 +231,7 @@ $(function () {
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
-        addButton.className = "addnewClient btn btn-success";
+        addButton.className = "addbutton addnewClient btn btn-success";
         addButton.textContent = "Add New Customer";
         $('.column-one').prepend(addButton);
         table.setAttribute("id", "mytable");
@@ -243,7 +243,7 @@ $(function () {
         for (var model of  arrayofCustomers)
         {
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + moment(model.BirthData).format('MM/DD/YYYY') + "</td><td>" + model.Email + "</td><td>" + model.Password +
-                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary clientEdit'>Edit Customer</button><button class='btn btn-xs btn-danger clientDelete'>Delete Customer</button></span></td></tr>")
+                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary clientEdit'>Edit</button>     <button class='btn btn-sm btn-danger clientDelete'>Delete</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
@@ -381,7 +381,7 @@ $(function () {
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
-        addButton.className = "addnewcar btn btn-success";
+        addButton.className = "addbutton addnewcar btn btn-success";
         addButton.textContent = "Add New Car";
         $('.column-one').prepend(addButton);
         table.setAttribute("id", "mytable");
@@ -393,7 +393,7 @@ $(function () {
         for (var model of  arrayofCars)
         {
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID +
-                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary carEdit'>Edit Vehicle</button><button class='btn btn-xs btn-danger carDelete'>Delete Vehicle</button></span></td></tr>");
+                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary carEdit'>Edit</button>     <button class='btn btn-sm btn-danger carDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
@@ -510,7 +510,7 @@ $(function () {
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
-        addButton.className = "addDeal btn btn-success";
+        addButton.className = "addbutton addDeal btn btn-success";
         addButton.textContent = "Add New Deal";
         $('.column-one').prepend(addButton);
         table.setAttribute("id", "mytable");
@@ -523,7 +523,7 @@ $(function () {
         {
 
             $(body).append("<tr><td>" + model.ID + "</td><td>" + moment(model.StartDate).format('MM/DD/YYYY') + "</td><td>" + moment(model.SupposedReturn).format('MM/DD/YYYY') + "</td><td>" + moment(model.RealReturn).format('MM/DD/YYYY') + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
-                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary dealEdit'>Edit Deal</button><button class='btn btn-xs btn-danger dealDelete'>Delete Deal</button></span></td></tr>")
+                "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary dealEdit'>Edit</button>     <button class='btn btn-sm btn-danger dealDelete'>Delete</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
@@ -649,7 +649,7 @@ $(function () {
         $('.column-two').empty();        
         var table = document.createElement('table');
         var addButton = document.createElement('button');
-        addButton.className = "addManufatorer btn btn-success";
+        addButton.className = "addbutton addManufatorer btn btn-success";
         addButton.textContent = "Add New Manufactorer";
         $('.column-one').prepend(addButton);
         table.className = "table table-striped table-bordered table-hover";
@@ -663,7 +663,7 @@ $(function () {
         {
             
             $(table).append("<tr><td>" + model.ID + "</td><td>" + model.manufacturerName
-                + "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary manEdit'>Edit Manufactorer</button><button class='btn btn-xs btn-danger manDelete'>Delete Manufactorer</button></span></td></tr>");
+                + "</td><td><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary manEdit'>Edit</button>     <button class='btn btn-sm btn-danger manDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
