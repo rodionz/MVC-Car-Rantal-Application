@@ -92,14 +92,6 @@ namespace CarRental.Controllers
 
     
 
-        //public ActionResult FreeTextSearch (string text)
-        //{
-        //    var allCars = manager.SearchbyFreeText(text);
-
-        //    var modelCars = allCars.Select(c => new CarViewModel(c));
-
-        //    return View();
-        //}
 
 
        
