@@ -51,7 +51,7 @@
                             @Html.DisplayFor(modelItem => item.CarID)
                         </td>
                         <td>
-                            <a class="btn btn-success" href="@Url.Action("Confimation", new { dealID = item.ID })">Confirm</a>  <a class="btn btn-primary" href="@Url.Action("Index","Guest")">Continue Shopping</a>   <a class="btn btn-danger" href="@Url.Action()">Delete</a> 
+                            <a class="btn btn-success" href="@Url.Action("Confimation", new { dealID = item.ID })">Confirm</a>  <a class="btn btn-primary" href="@Url.Action("Index","Guest")">Continue Shopping</a>   <a class="btn btn-danger" href="@Url.Action("RemoveItemFromBusket", new { dealID = item.ID })">Delete</a> 
                         </td>
                         
                     </tr>
