@@ -129,9 +129,15 @@ namespace CarRental.Controllers
 
             var currenDeal = deals.Where(d => d.ID == dealID).FirstOrDefault();
 
+            deals.Remove(currenDeal);
+
+            Session[DEALS_IN_THE_BUSKET] = deals;
+
             _customer.ConfirmDeal(currenDeal.toBaseDateDetails());
 
-            return RedirectToAction("MyBusket");
+            TempData["Success"] = "Reservation Completed!";
+
+            return RedirectToAction("PreviousReservations");
         }
 
         public ActionResult RemoveItemFromBusket(int dealID)
@@ -143,7 +149,9 @@ namespace CarRental.Controllers
 
             Session[DEALS_IN_THE_BUSKET] = deals;
 
-            return View();
+            TempData["Success"] = "Order Removed! ";
+
+            return RedirectToAction("MyBusket");
         }
 
         public ActionResult ClearBusket()

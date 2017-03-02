@@ -5,7 +5,14 @@
     Layout = "~/Views/Shared/_layout.cshtml";
 }
 
-<h2>Your Reservations</h2>
+<h3>Your Previuous Reservations</h3>
+
+
+@if (TempData["Success"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+}
+
 
 <div class="container-fluid">
     <div class="row">
@@ -77,4 +84,5 @@
             <br />
             <br />
             <br />
+<script src="~/Scripts/ScriptLibriaries/jquery-3.1.1.min.js"></script>
 <script src="~/Scripts/ViewScripts/MainScript.js"></script>
