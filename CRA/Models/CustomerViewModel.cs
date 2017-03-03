@@ -14,6 +14,7 @@ namespace CarRental.MVC.Models
     public class CustomerViewModel
     {
        
+
         public int ID { get; set; }
 
         [Required]
@@ -40,7 +41,10 @@ namespace CarRental.MVC.Models
 
         [Required]
         [RegularExpression("/^ Male$|^ Female$/", ErrorMessage = "Gender Invalid")]
-        public Gender gender { get; set; }
+        public Gender? gender { get; set; }
+
+
+
 
 
         //TODO
@@ -71,7 +75,7 @@ namespace CarRental.MVC.Models
                 FirstName = FirstName,
                 LastName = LastName,
                 BirthData = BirthData,
-                gender = gender,
+                gender = gender.Value,
                 Email = Email,
                 UserName = UserName,
                 Password = Password,

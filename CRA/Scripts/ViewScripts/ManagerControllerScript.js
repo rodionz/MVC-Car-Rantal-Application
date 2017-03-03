@@ -526,7 +526,7 @@ $(function () {
         for (var model of  arrayofDeals)
         {
           
-            if (model.RealReturn == null) {
+            if (model.RealReturn === null) {
                 returnDate = "Car is not returned"
             }
 

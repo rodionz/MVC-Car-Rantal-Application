@@ -43,12 +43,7 @@
             @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                
-                <select class="dropdown form-control gender" name="gender">
-                   
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="0" selected >--Select Gender--</option>
-                </select>
+             @Html.EnumDropDownListFor(model => model.gender,"Select Your Gender", new { @class = "form-control" })
 
                 @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
             </div>
