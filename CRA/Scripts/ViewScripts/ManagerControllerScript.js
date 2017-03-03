@@ -521,17 +521,20 @@ $(function () {
 
         let returnDate;
 
+       
+
         for (var model of  arrayofDeals)
         {
-            if (moment(model.RealReturn).format('MM/DD/YYYY') == "Invalid date") {
-                returnDate = "Car was not returned yet"
+          
+            if (model.RealReturn == null) {
+                returnDate = "Car is not returned"
             }
 
             else {
-                returnDate = moment(model.RealReturn).format('MM/DD/YYYY');
+                returnDate = model.RealReturn;
             }
 
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + moment(model.StartDate).format('MM/DD/YYYY') + "</td><td>" + moment(model.SupposedReturn).format('MM/DD/YYYY') + "</td><td>" + returnDate + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.StartDate + "</td><td>" + model.SupposedReturn + "</td><td>" + returnDate + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
                 "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary dealEdit'>Edit</button>     <button class='btn btn-sm btn-danger dealDelete'>Delete</button></span></td></tr>")
         }
 
