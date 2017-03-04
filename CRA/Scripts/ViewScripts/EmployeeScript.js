@@ -123,9 +123,9 @@
 
             $(dealClosingForm).append(dateinput);
 
-            $(dealClosingForm).append("<br/> <br/> <button class='btn btn-default' id='submitClosing'>Confirm</button>    ")
+            $(dealClosingForm).append("<br/> <br/> <br/> <button class='btn btn-primary' id='submitClosing'>Confirm</button>    ")
 
-            $(dealClosingForm).append("<button class='btn btn-default id='cancelClosing'>Cancell</button>")
+            $(dealClosingForm).append("<button class='btn btn-warning' id='cancelClosing'>Cancell</button>")
 
             $('.column-two').append(header);
 

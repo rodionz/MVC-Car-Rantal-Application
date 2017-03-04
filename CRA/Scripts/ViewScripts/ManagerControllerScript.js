@@ -142,6 +142,7 @@ $(function () {
                     dataRequest();
                     listofModels();
                     $(".actionSuccses").text("Model Deleted Succesfully");
+
                 }
             });
         }
@@ -299,7 +300,10 @@ $(function () {
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
                     ////  TODO //////
-                    console.log("Customer Deleted");
+                    
+                    $(".actionSuccses").text("Customer Deleted Succesfully");
+                    dataRequest();
+                    listofModels();
                 }
 
             });
@@ -405,7 +409,7 @@ $(function () {
 
 
 
-    // Requesting form for car editing
+    // Requesting form for car edit
     $('.column-one').on('click', '.carEdit', function () {
 
         var id = $(this).parent().attr('id');
@@ -437,7 +441,9 @@ $(function () {
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
                     ////  TODO //////
-                    console.log("Car Deleted");
+                    $(".actionSuccses").text("Car Deleted Succesfully");
+                    dataRequest();
+                    listofModels();
                 }
             });
         }
@@ -490,6 +496,7 @@ $(function () {
 
 
 
+    // Requesting form for adding new deal
     $('.column-one').on('click', '.addDeal', function () {
         $.ajax({
             type: "GET",
@@ -503,7 +510,7 @@ $(function () {
         });
     });
 
-
+    // Creating list of deals
     var creatinglistOfDeals = function () {
         $('.column-one').empty();
         $('.column-two').empty();
@@ -520,8 +527,6 @@ $(function () {
         var body = table.createTBody();
 
         let returnDate;
-
-       
 
         for (var model of  arrayofDeals)
         {
@@ -544,14 +549,12 @@ $(function () {
 
     $('#dealList').on('click', function () {
 
-
         creatinglistOfDeals();
-
 
     });
 
 
-
+    // Requesting form for deal edit
     $('.column-one').on('click', '.dealEdit', function () {
 
         var id = $(this).parent().attr('id');
@@ -562,14 +565,13 @@ $(function () {
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);
-                console.log("Deal Edit");
-                console.log(id);
+               
             }
 
         });
     });
 
-
+    // Deleting deal
     $('.column-one').on('click', '.dealDelete', function () {
 
         var id = $(this).parent().attr('id');
@@ -582,14 +584,16 @@ $(function () {
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
                     ////  TODO //////
-                    console.log("Deal Deleted");
+                    $(".actionSuccses").text("Deal Deleted Succesfully");
+                    dataRequest();
+                    listofModels();
                 }
             });
         }       
     });
 
 
-
+    // New deal submission
     $('.column-two').on('click', '#submitNewDeal', function () {
 
         let startDate = $('.StartDate').val();
@@ -609,7 +613,7 @@ $(function () {
     });
 
 
-
+    //Deal edit submission
     $('.column-two').on('click', '#submitEditDeal', function () {
 
         let dealID = $('.dealID').val();
@@ -719,7 +723,9 @@ $(function () {
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
                     ////  TODO //////
-                    console.log("Manufactorer Deleted");
+                    $(".actionSuccses").text("Manufactorer Deleted Succesfully");
+                    dataRequest();
+                    listofModels();
                 }
             });
         }
