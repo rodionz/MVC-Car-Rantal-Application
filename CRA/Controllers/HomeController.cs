@@ -21,7 +21,7 @@ namespace CarRental.Controllers
 
         private readonly CompanyRoleProvider _roleprovider;
 
-        private static IEnumerable<DealViewModel> allDeals;
+        
 
 
 
@@ -52,9 +52,7 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel login)
         {
-
-            //var validation = Validate(login);
-
+        
             if (Validate(login))
             {
                 var roles = _roleprovider.GetRolesForUser(login.Username);
@@ -86,10 +84,7 @@ namespace CarRental.Controllers
         private bool Validate(LoginViewModel login)
         {
 
-
-
             bool userExists = _guest.ClientExist(login.converttoUser(login));
-
 
             if (!userExists)
             {
@@ -106,10 +101,7 @@ namespace CarRental.Controllers
 
             else
             {
-
-
                 return true;
-
             }
         }
 
@@ -123,25 +115,19 @@ namespace CarRental.Controllers
             return View();
         }
 
-        /////////Bug whith Gender
+      
         [HttpPost]
         public ActionResult SignUp(CustomerViewModel CVM)
         {
-
-
-           
-
+          
             if (_roleprovider.UserExists(CVM.UserName))
             {
                 ModelState.AddModelError(string.Empty, "User Already Exists");
-
                 return View(CVM);
             }
 
             else
             {
-
-
                 _manager.AddClient(CVM.toBaseClient_Details());
 
                 TempData["Success"] = "You were Signed Up Successfully!";
@@ -150,13 +136,6 @@ namespace CarRental.Controllers
                 return View(model);
             }
 
-
         }
-
-
-
-
-
-
     }
 }
