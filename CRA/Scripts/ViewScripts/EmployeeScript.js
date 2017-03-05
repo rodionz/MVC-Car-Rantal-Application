@@ -32,6 +32,16 @@
 
     var arrayofDeals = [];
 
+    var arrayofCars = [];
+
+    var arrayofModels = [];
+
+    var dealtoClose;
+
+    var cartoReturn;
+
+    var modeltoReturn;
+
     var supposedReturn;
 
     var realReturn;
@@ -42,6 +52,10 @@
         result = data;
 
         arrayofDeals = result.AllDeals;
+
+        arrayofModels = result.AllCarModels;
+
+        arrayofCars = result.AllCars;
 
         $('.column-one').empty();
 
@@ -63,15 +77,15 @@
         {
             if (!isNaN(model.RealReturn)) {
 
-                $(body).append("<tr><td>" + model.ID + "</td><td>" + moment(model.StartDate).format('MM/DD/YYYY') + "</td><td>" + moment(model.SupposedReturn).format('MM/DD/YYYY') +
+                $(body).append("<tr><td>" + model.ID + "</td><td>" + model.StartDate + "</td><td>" + model.SupposedReturn +
                     "</td><td>" + "Car is not returned" + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
                 "</td><td><button class ='btn btn-xs btn-warning dealclose' id='"+model.ID+"'>Close the Deal</button></td></tr>")
             
             }
 
             else {
-                      $(body).append("<tr><td>" + model.ID + "</td><td>" + moment(model.StartDate).format('MM/DD/YYYY') + "</td><td>" + moment(model.SupposedReturn).format('MM/DD/YYYY') +
-                      "</td><td>" + moment(model.RealReturn).format('MM/DD/YYYY') + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
+                      $(body).append("<tr><td>" + model.ID + "</td><td>" + model.StartDate + "</td><td>" + model.SupposedReturn +
+                      "</td><td>" + model.RealReturn + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
                       "</td><td>Deal is closed</td></tr>")
 
                 }
@@ -91,10 +105,15 @@
 
             let clickeddID= $(this).attr('id');
           
-            let dealtoClose = arrayofDeals.find(function (x) { return x.ID == clickeddID })
+            dealtoClose = arrayofDeals.find(function (x) { return x.ID == clickeddID })
 
             supposedReturn = dealtoClose.SupposedReturn;
           
+            cartoReturn = arrayofCars.find(function (x) { return x.ID == dealtoClose.CarID })
+
+            modeltoReturn = arrayofModel.find(function (x) { return x.ID == cartoReturn.ModelID })
+
+           
 
             let header = "<h2>Editing deal #" + dealtoClose.ID + "</h2><br /><br />";
 
@@ -143,6 +162,8 @@
 
                 let closingDate = Date.parse(moment($("#datepickerClosing").val()).format('YYYY-MM-DD'));
 
+                let fine;
+
                 if (closingDate = sResturn)
                 {
 
@@ -150,6 +171,12 @@
 
                 else if (closingDate > sResturn) {
                     //late return
+                    fine = modeltoReturn.LateReturnFine * (sResturn - closingDate);
+                    //$('#lateRetrunFine').text();
+                    console.log(dealtoClose)
+                    console.log(cartoReturn)
+                    console.log(modeltoReturn)
+                    console.log(fine)
                 }
 
                 else {
