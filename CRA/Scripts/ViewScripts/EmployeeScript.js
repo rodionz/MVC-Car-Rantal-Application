@@ -113,7 +113,7 @@
           
             cartoReturn = arrayofCars.find(function (x) { return x.ID == dealtoClose.CarID })
 
-            modeltoReturn = arrayofModel.find(function (x) { return x.ID == cartoReturn.ModelID })
+            modeltoReturn = arrayofModels.find(function (x) { return x.ID == cartoReturn.ModelID })
 
            
 
@@ -160,34 +160,33 @@
 
             $("#datepickerClosing").change(function () {
 
-                let sResturn = Date.parse(moment(supposedReturn).format('YYYY-MM-DD'));
+                $('#lateRetrunFine').text("");
+
+                let date1 = moment(supposedReturn).format('YYYY-DD-MM');
+
+                let sResturn = Date.parse(date1);
 
                 let closingDate = Date.parse(moment($("#datepickerClosing").val()).format('YYYY-MM-DD'));
 
                 let fine;
 
-                if (closingDate = sResturn)
-                {
+               
 
-                }
-
-                else if (closingDate > sResturn) {
-                    //late return
-                    fine = modeltoReturn.LateReturnFine * (sResturn - closingDate);
-                    //$('#lateRetrunFine').text();
-                    console.log(dealtoClose)
-                    console.log(cartoReturn)
-                    console.log(modeltoReturn)
-                    console.log(fine)
+                 if (closingDate > sResturn) {
+                    
+                    let differenceinDays = parseInt(moment(closingDate).format('D')) - parseInt(moment(sResturn).format('D'));
+                    fine = modeltoReturn.LateReturnFine * differenceinDays;
+                    $('#lateRetrunFine').text("Don't forget to charge the customer for the fine of " + fine + "$");
+                  
                 }
 
                 else {
                     // early return
                 }
 
-                console.log(closingDate);
+               
 
-                console.log(sResturn);
+                
             })
 
         });
