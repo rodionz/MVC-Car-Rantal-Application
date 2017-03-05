@@ -138,7 +138,7 @@ $(function () {
                 data: { ManagerAction: 'DeleteModel', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
-                    ////  TODO //////
+               
                     dataRequest();
                     listofModels();
                     $(".actionSuccses").text("Model Deleted Succesfully");
@@ -165,11 +165,11 @@ $(function () {
             url: '/Manager/SubmitNewModel',
             success: function () {
                 
-                alert("Model Added Succesfully");
+                $(".actionSuccses").text("Model Deleted Succesfully");
                 dataRequest();
                 listofModels();
 
-                //$(".actionSuccses").text("Model Added Succesfully");
+           
             },
             error: {
 
@@ -194,7 +194,9 @@ $(function () {
             data: {ID: modelID, ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine, gear: _gear },
             url: '/Manager/SubmitEditModel',
             success: function () {
-                console.log("Edit Submitted");
+                $(".actionSuccses").text("Model Edited Succesfully");
+                dataRequest();
+                listofModels();
             }
         })
     });
@@ -297,9 +299,7 @@ $(function () {
                 type: 'GET',
                 data: { ManagerAction: 'DeleteCustomer', ID: id },
                 url: '/Manager/ManagerActions',
-                success: function (data, textStatus, jqXHR) {
-                    ////  TODO //////
-                    
+                success: function (data, textStatus, jqXHR) {                                    
                     $(".actionSuccses").text("Customer Deleted Succesfully");
                     dataRequest();
                     listofCustomers();
@@ -325,7 +325,9 @@ $(function () {
             data: {  FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password : pass},
             url: '/Manager/SubmitNewCustomer',
             success: function () {
-                console.log("New Customer Added")
+                $(".actionSuccses").text("Customer Added Succesfully");
+                dataRequest();
+                listofCustomers();
             }
         })
     });
@@ -347,7 +349,9 @@ $(function () {
             data: { ID: customerID, FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password: pass },
             url: '/Manager/SubmitEditCustomer',
             success: function () {
-                console.log("New Customer Added")
+                $(".actionSuccses").text("Customer Edited Succesfully");
+                dataRequest();
+                listofCustomers();
             }
         })
     });
@@ -448,7 +452,7 @@ $(function () {
                 data: { ManagerAction: 'DeleteCar', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
-                    ////  TODO //////
+                    
                     $(".actionSuccses").text("Car Deleted Succesfully");
                     dataRequest();
                     listofCars();
@@ -473,7 +477,9 @@ $(function () {
             data: { Mileage: miles, CarNumber: carNumber, BranchID: branchID, ModelID : modelID },
             url: '/Manager/SubmitNewCar',
             success: function () {
-                console.log("New Car Added")
+                $(".actionSuccses").text("Car Submitted Succesfully");
+                dataRequest();
+                listofCars();
             }
         })
     });
@@ -493,7 +499,9 @@ $(function () {
             data: {  ID : carID, Mileage: miles, CarNumber: carNumber, BranchID: branchID, ModelID: modelID },
             url: '/Manager/SubmitEditCar',
             success: function () {
-                console.log("Edit Car Added")
+                $(".actionSuccses").text("Car Edited Succesfully");
+                dataRequest();
+                listofCars();
             }
         })
     });
@@ -615,7 +623,9 @@ $(function () {
             data: { StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: clientID, CarID : carID},
             url: '/Manager/SubmitNewDeal',
             success: function () {
-                console.log("New Ddeal Added")
+                $(".actionSuccses").text("Deal Submitted Succesfully");
+                dataRequest();
+                creatinglistOfDeals();
             }
         })
     });
@@ -636,7 +646,9 @@ $(function () {
             data: {ID: dealID, StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: clientID, CarID: carID },
             url: '/Manager/SubmitEditDeal',
             success: function () {
-                console.log("Edi Ddeal Success")
+                $(".actionSuccses").text("Deal Edited Succesfully");
+                dataRequest();
+                creatinglistOfDeals();
             }
         })
 
@@ -754,7 +766,9 @@ $(function () {
             data: { manufacturerName: manufacName },
             url: '/Manager/SubmitNewManufacturer',
             success: function () {
-                console.log("New Manufactorer Added")
+                $(".actionSuccses").text("Manufactorer Submitted Succesfully");
+                dataRequest();
+                listofManufactorers();
             }
         })
     });
@@ -772,7 +786,9 @@ $(function () {
             data: {ID: manID, manufacturerName: manufacName },
             url: '/Manager/SubmitEditManufactorer',
             success: function () {
-                console.log("Manufactorer Edit Added")
+                $(".actionSuccses").text("Manufactorer Edited Succesfully");
+                dataRequest();
+                listofManufactorers();
             }
         })
     });
