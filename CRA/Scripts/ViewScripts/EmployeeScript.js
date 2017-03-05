@@ -1,18 +1,36 @@
 ﻿
+var dealRquestResult = {};
+
+var arrayofDeals = [];
+
+var arrayofCars = [];
+
+let arrayofModels = [];
+
+let dealtoClose;
+
+let cartoReturn;
+
+let modeltoReturn;
+
+let supposedReturn;
+
+let realReturn;
+
 
 var listofDeals = function () {
 
     $.getJSON('/Employee/HelpAjax', function (data) {
 
-        result = data;
+        dealRquestResult = data;
 
-        console.log(result)
+        console.log(dealRquestResult)
 
-        arrayofDeals = result.AllDeals;
+        arrayofDeals = dealRquestResult.AllDeals;
 
-        arrayofModels = result.AllCarModels;
+        arrayofModels = dealRquestResult.AllCarModels;
 
-        arrayofCars = result.AllCars;
+        arrayofCars = dealRquestResult.AllCars;
 
         $('.column-one').empty();
 
@@ -84,23 +102,7 @@ var listofDeals = function () {
         });
 
 
-        var result = {};
-
-        var arrayofDeals = [];
-
-        var arrayofCars = [];
-
-        var arrayofModels = [];
-
-        var dealtoClose;
-
-        var cartoReturn;
-
-        var modeltoReturn;
-
-        var supposedReturn;
-
-        var realReturn;
+      
 
 
 
@@ -166,10 +168,8 @@ var listofDeals = function () {
             $("#datepickerClosing").change(function () {
 
                 $('#lateRetrunFine').text("");
-
-                let date1 = moment(supposedReturn).format('YYYY-DD-MM');
-
-                let sResturn = Date.parse(date1);
+               
+                let sResturn = Date.parse(supposedReturn);
 
                 let closingDate = Date.parse(moment($("#datepickerClosing").val()).format('YYYY-MM-DD'));
 
@@ -197,7 +197,7 @@ var listofDeals = function () {
 
                 $.ajax({
                     type: "GET",
-                    data: { ManagerAction: 'AddModel' },
+                    data: { dealID: dealtoClose.ID },
                     url: '/Employee/CloseTheDeal',
                     success: function () {
                         listofDeals();
