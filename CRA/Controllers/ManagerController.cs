@@ -203,9 +203,10 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewCustomer(CustomerViewModel cmv)
         {
-            var managerHelper = new HelpViewModel();
+            var managerHelper = new HelpViewModel();          
             _manager.AddClient(cmv.toBaseClient_Details());
-            return View();
+            managerHelper.ActionResult = "New Customer Submitted";
+            return Json(managerHelper,JsonRequestBehavior.AllowGet);
         }
 
         [Authorize(Roles = "Manager")]
@@ -213,7 +214,8 @@ namespace CarRental.Controllers
         {
             var managerHelper = new HelpViewModel();
             _manager.UpdateClient(cmv.toBaseClient_Details());
-            return View();
+            managerHelper.ActionResult = "Customer edit submitted";
+            return Json(managerHelper,JsonRequestBehavior.AllowGet);
         }
 
 
@@ -222,7 +224,8 @@ namespace CarRental.Controllers
         {
             var managerHelper = new HelpViewModel();
             _manager.AddCar(cmv.toBaseCarDetails());
-            return View();
+            managerHelper.ActionResult = "New car submitted";
+            return Json(managerHelper, JsonRequestBehavior.AllowGet);
         }
 
         [Authorize(Roles = "Manager")]
@@ -230,7 +233,8 @@ namespace CarRental.Controllers
         {
             var managerHelper = new HelpViewModel();
             _manager.UpdateCar(cmv.toBaseCarDetails());
-            return View();
+            managerHelper.ActionResult = "Car edit submitted";
+            return Json(managerHelper,JsonRequestBehavior.AllowGet);
         }
 
 
@@ -239,7 +243,8 @@ namespace CarRental.Controllers
         {
             var managerHelper = new HelpViewModel();
             _manager.AddDeal(dvm.toBaseDateDetails());
-            return View();
+            managerHelper.ActionResult = "New deal submitted";
+            return Json(managerHelper,JsonRequestBehavior.AllowGet);
         }
 
         [Authorize(Roles = "Manager")]
@@ -247,14 +252,16 @@ namespace CarRental.Controllers
         {
             var managerHelper = new HelpViewModel();
             _manager.UpdateDeal(dvm.toBaseDateDetails());
-            return View();
+            managerHelper.ActionResult = "Deal edit submitted";
+            return Json(managerHelper,JsonRequestBehavior.AllowGet);
         }
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewManufacturer(ManufactorerViewModel dvm)
         {
             var managerHelper = new HelpViewModel();
             _manager.AddManufactorer(dvm.toBaseManufacturer());
-            return View();
+            managerHelper.ActionResult = "New manufactorer submitted";
+            return Json(managerHelper,JsonRequestBehavior.AllowGet);
         }
 
         [Authorize(Roles = "Manager")]
@@ -262,7 +269,8 @@ namespace CarRental.Controllers
         {
             var managerHelper = new HelpViewModel();
             _manager.UpdateManufactorer(dvm.toBaseManufacturer());
-            return View();
+            managerHelper.ActionResult = "Manufactorer edit submitted";
+            return Json(managerHelper,JsonRequestBehavior.AllowGet);
         }
          
 
