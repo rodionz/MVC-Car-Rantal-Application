@@ -16,7 +16,9 @@ namespace CarRental.Controllers
 
         private static IEnumerable<DealViewModel> allDeals;
 
+        private static IEnumerable<CarViewModel> allCars;
 
+        private static IEnumerable<ModelView> allModels;
 
         public EmployeeController()
         {
@@ -40,8 +42,16 @@ namespace CarRental.Controllers
             var helper = new HelpViewModel();
 
             allDeals =_employee.GetAllDeals().Select(d => new DealViewModel(d));
+
+            allCars = _employee.GettAllCars().Select(c => new CarViewModel(c));
+
+            allModels = _employee.GettAllModels().Select(m => new ModelView(m));
               
             helper.AllDeals = allDeals;
+
+            helper.AllCars = allCars;
+
+            helper.AllCarModels = allModels;
           
            return Json(helper, JsonRequestBehavior.AllowGet);
         }

@@ -51,6 +51,8 @@
         
         result = data;
 
+        console.log(result)
+
         arrayofDeals = result.AllDeals;
 
         arrayofModels = result.AllCarModels;

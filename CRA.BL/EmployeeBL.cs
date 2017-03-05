@@ -27,6 +27,39 @@ namespace CarRental.BL
             return alldeals;
         }
 
+        public IEnumerable<Car> GettAllCars()
+        {
+            IEnumerable<Car> allcars;
+
+            using (var context = new CarRentalContext())
+            {
+                allcars = (from c in context.Cars
+                           select c).ToArray();
+            }
+
+            return allcars;
+        }
+
+
+
+        public IEnumerable<Model> GettAllModels()
+        {
+            IEnumerable<Model> allModels;
+
+            using (var context = new CarRentalContext())
+            {
+                allModels = (from m in context.Models
+                           select m).ToArray();
+            }
+
+            return allModels;
+        }
+
+
+
+
+
+
 
 
         public Deal ReservationSearch(string carNum)
