@@ -169,9 +169,11 @@ var listofDeals = function () {
 
                 $('#lateRetrunFine').text("");
                
-                let sResturn = Date.parse(supposedReturn);
+                let date1 = moment(supposedReturn, 'DD/MM/YYYY', true).format('YYYY-MM-D');
 
-                let closingDate = Date.parse(moment($("#datepickerClosing").val()).format('YYYY-MM-DD'));
+                let sResturn = Date.parse(date1);
+
+                let closingDate = Date.parse(moment($("#datepickerClosing").val()).format('YYYY-MM-D'));
 
                 let fine;
 
