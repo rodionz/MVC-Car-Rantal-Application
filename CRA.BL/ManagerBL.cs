@@ -55,34 +55,34 @@ namespace CarRental.BL
 
 
 
-        public void AddManufactorer(Model model)
+        public void AddManufactorer(Manufacturers man)
 
         {
             using (var context = new CarRentalContext())
             {
-                context.Models.Attach(model);
-                context.Entry(model).State = EntityState.Added;
+                context.Manufacturer.Attach(man);
+                context.Entry(man).State = EntityState.Added;
                 context.SaveChanges();
             }
         }
 
-        public void UpdateManufactorer(Model model)
+        public void UpdateManufactorer(Manufacturers man)
         {
             using (var context = new CarRentalContext())
             {
-                context.Models.Attach(model);
-                context.Entry(model).State = EntityState.Modified;
+                context.Manufacturer.Attach(man);
+                context.Entry(man).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
 
-        public void DeleteManufactorer(int modelID)
+        public void DeleteManufactorer(int manlID)
         {
             using (var context = new CarRentalContext())
             {
                 var manufactorer = (from m in context.Manufacturer
-                             where m.ID == modelID
-                             select m).FirstOrDefault();
+                             where m.ID == manlID
+                                    select m).FirstOrDefault();
 
                 context.Manufacturer.Attach(manufactorer);
                 context.Entry(manufactorer).State = EntityState.Deleted;

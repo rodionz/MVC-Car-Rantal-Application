@@ -203,14 +203,16 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewCustomer(CustomerViewModel cmv)
         {
-
+            var managerHelper = new HelpViewModel();
+            _manager.AddClient(cmv.toBaseClient_Details());
             return View();
         }
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditCustomer(CustomerViewModel cmv)
         {
-
+            var managerHelper = new HelpViewModel();
+            _manager.UpdateClient(cmv.toBaseClient_Details());
             return View();
         }
 
@@ -218,14 +220,16 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewCar(CarViewModel cmv)
         {
-
+            var managerHelper = new HelpViewModel();
+            _manager.AddCar(cmv.toBaseCarDetails());
             return View();
         }
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditCar(CarViewModel cmv)
         {
-
+            var managerHelper = new HelpViewModel();
+            _manager.UpdateCar(cmv.toBaseCarDetails());
             return View();
         }
 
@@ -233,27 +237,31 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewDeal(DealViewModel dvm)
         {
-
+            var managerHelper = new HelpViewModel();
+            _manager.AddDeal(dvm.toBaseDateDetails());
             return View();
         }
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditDeal(DealViewModel dvm)
         {
-
+            var managerHelper = new HelpViewModel();
+            _manager.UpdateDeal(dvm.toBaseDateDetails());
             return View();
         }
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewManufacturer(ManufactorerViewModel dvm)
         {
-
+            var managerHelper = new HelpViewModel();
+            _manager.AddManufactorer(dvm.toBaseManufacturer());
             return View();
         }
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditManufactorer(ManufactorerViewModel dvm)
         {
-
+            var managerHelper = new HelpViewModel();
+            _manager.UpdateManufactorer(dvm.toBaseManufacturer());
             return View();
         }
          
