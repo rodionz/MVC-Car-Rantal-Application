@@ -76,12 +76,23 @@ namespace CarRental.BL
             return dd;
         }
 
-        public void ReservationClosing(Deal dd)
+        public void ReservationClosing(int dealid)
         {
+
+            Deal dealToClose;
+
             using (var context = new CarRentalContext())
             {
-                context.Deals.Attach(dd);
-                context.Entry(dd).State = EntityState.Modified;
+                dealToClose = (from d in context.Deals
+                               where d.ID == dealid
+                               select d).FirstOrDefault();
+                               
+            }
+
+            using (var context = new CarRentalContext())
+            {
+                context.Deals.Attach(dealToClose);
+                context.Entry(dealToClose).State = EntityState.Modified;
                 context.SaveChanges();
 
 

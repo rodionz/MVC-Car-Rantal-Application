@@ -30,6 +30,8 @@ namespace CarRental.Models
 
         public int modelID { get; set; }
 
+        public int dealID { get; set; }
+
         public int totallPrice { get; set; }
 
         public string modelName { get; set; }

@@ -59,13 +59,15 @@ namespace CarRental.Controllers
 
 
         [Authorize(Roles = "Employee, Manager")]
-        public ActionResult CloseTheDeal(DealViewModel dvm)
+        public ActionResult CloseTheDeal(HelpViewModel hvm)
         {
+            var helper = new HelpViewModel();
 
-            Deal dd = dvm.toBaseDateDetails();
+            _employee.ReservationClosing(hvm.dealID);
 
-            _employee.ReservationClosing(dd);
-            return View();
+            helper.ActionResult = "Deal Deleted";
+
+            return Json(helper,JsonRequestBehavior.AllowGet);
         }
     }
 }
