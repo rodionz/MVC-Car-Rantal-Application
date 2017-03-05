@@ -164,7 +164,7 @@ $(function () {
             data: { ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine, gear: _gear },
             url: '/Manager/SubmitNewModel',
             success: function () {
-                console.log("Model Added")
+                
                 alert("Model Added Succesfully");
                 dataRequest();
                 listofModels();
@@ -275,8 +275,7 @@ $(function () {
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);
-                console.log("Customer Edit");
-                console.log(id);
+               
             }
 
         });

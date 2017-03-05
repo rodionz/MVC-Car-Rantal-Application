@@ -7,6 +7,8 @@ var arrayofCars = [];
 
 let arrayofModels = [];
 
+let closingDate;
+
 let dealtoClose;
 
 let cartoReturn;
@@ -163,17 +165,20 @@ var listofDeals = function () {
 
 
 
+            let date2;
 
 
             $("#datepickerClosing").change(function () {
 
                 $('#lateRetrunFine').text("");
                
-                let date1 = moment(supposedReturn, 'DD/MM/YYYY', true).format('YYYY-MM-D');
+                let date1 = supposedReturn.split("/");
 
-                let sResturn = Date.parse(date1);
+                let sResturn = new Date(date1[2],date1[1].replace(0,'') - 1,date1[0]);
 
-                let closingDate = Date.parse(moment($("#datepickerClosing").val()).format('YYYY-MM-D'));
+                 date2 = $("#datepickerClosing").val().split("/");
+
+                closingDate = new Date(date2[2], date2[0].replace(0, '') - 1, date2[1].replace(0, ''));
 
                 let fine;
 
@@ -181,8 +186,8 @@ var listofDeals = function () {
 
                 if (closingDate > sResturn) {
 
-                    let differenceinDays = parseInt(moment(closingDate).format('D')) - parseInt(moment(sResturn).format('D'));
-                    fine = modeltoReturn.LateReturnFine * differenceinDays;
+                    let differenceinDays = closingDate - sResturn;
+                    fine = modeltoReturn.LateReturnFine * (differenceinDays / (1000 * 60 * 60 * 24));
                     $('#lateRetrunFine').text("Don't forget to charge the customer for the fine of " + fine + "$");
 
                 }
@@ -196,12 +201,16 @@ var listofDeals = function () {
 
             $('#dialog').on('click', '#confirm', function () {
 
+                let dateString = moment(realReturn).format("M-D-YYYY");
 
                 $.ajax({
                     type: "GET",
-                    data: { dealID: dealtoClose.ID },
+                    data: { dealID: dealtoClose.ID, RealReturn: dateString },
                     url: '/Employee/CloseTheDeal',
                     success: function () {
+                        $('#lateRetrunFine').text("");
+                        $('.column-two').empty();
+                        $("#dialog").dialog("close");
                         listofDeals();
                     }
                 });

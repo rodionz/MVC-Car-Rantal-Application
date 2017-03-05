@@ -32,14 +32,16 @@ namespace CarRental.Models
 
         public int dealID { get; set; }
 
-        public int totallPrice { get; set; }
-
-        public string modelName { get; set; }
-
         public string StartDate { get; set; }
 
         public string SupposedReturn { get; set; }
 
-        public DateTime? RealReturn { get; set; }
+        public string RealReturn { get; set; }
+
+        public int totallPrice { get; set; }
+
+        public string modelName { get; set; }
+
+       
     }
 }

@@ -76,8 +76,12 @@ namespace CarRental.BL
             return dd;
         }
 
-        public void ReservationClosing(int dealid)
+        public void ReservationClosing(int dealid, string realreturn)
         {
+
+            var arr = realreturn.Split('-');
+
+            var returndate = new DateTime(int.Parse(arr[2]), int.Parse(arr[0]), int.Parse(arr[1]));
 
             Deal dealToClose;
 
@@ -88,6 +92,8 @@ namespace CarRental.BL
                                select d).FirstOrDefault();
                                
             }
+
+            dealToClose.RealReturn = returndate;
 
             using (var context = new CarRentalContext())
             {

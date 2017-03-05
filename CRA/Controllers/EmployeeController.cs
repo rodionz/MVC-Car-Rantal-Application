@@ -63,7 +63,7 @@ namespace CarRental.Controllers
         {
             var helper = new HelpViewModel();
 
-            _employee.ReservationClosing(hvm.dealID);
+            _employee.ReservationClosing(hvm.dealID,hvm.RealReturn);
 
             helper.ActionResult = "Deal Deleted";
 
