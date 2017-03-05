@@ -303,7 +303,7 @@ $(function () {
                     
                     $(".actionSuccses").text("Customer Deleted Succesfully");
                     dataRequest();
-                    listofModels();
+                    listofCustomers();
                 }
 
             });
@@ -410,7 +410,8 @@ $(function () {
 
 
     // Requesting form for car edit
-    $('.column-one').on('click', '.carEdit', function () {
+
+    var listofCars = function () {
 
         var id = $(this).parent().attr('id');
 
@@ -424,6 +425,14 @@ $(function () {
                 console.log(id);
             }
         });
+
+    }
+
+
+
+    $('.column-one').on('click', '.carEdit', function () {
+
+        listofCars();
     });
 
 
@@ -443,7 +452,7 @@ $(function () {
                     ////  TODO //////
                     $(".actionSuccses").text("Car Deleted Succesfully");
                     dataRequest();
-                    listofModels();
+                    listofCars();
                 }
             });
         }
@@ -586,7 +595,7 @@ $(function () {
                     ////  TODO //////
                     $(".actionSuccses").text("Deal Deleted Succesfully");
                     dataRequest();
-                    listofModels();
+                    creatinglistOfDeals();
                 }
             });
         }       
@@ -639,7 +648,7 @@ $(function () {
 
 
 
-
+    // Requesting form for adding new manufactorer
     $('.column-one').on('click', '.addManufatorer', function () {
         $.ajax({
             type: "GET",
@@ -655,14 +664,12 @@ $(function () {
 
 
 
-  
+    // Creating list of manufactorers
 
-    $('#manufactorerList').on('click', function () {
-
-      
+    var listofManufactorers = function () {
 
         $('.column-one').empty();
-        $('.column-two').empty();        
+        $('.column-two').empty();
         var table = document.createElement('table');
         var addButton = document.createElement('button');
         addButton.className = "addbutton addManufatorer btn btn-success";
@@ -677,7 +684,7 @@ $(function () {
 
         for (var model of  arrayofManufactorers)
         {
-            
+
             $(table).append("<tr><td>" + model.ID + "</td><td>" + model.manufacturerName
                 + "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary manEdit'>Edit</button>     <button class='btn btn-sm btn-danger manDelete'>Delete</button></span></td></tr>");
         }
@@ -685,11 +692,18 @@ $(function () {
         $('.column-one').append(table);
         $('#mytable').DataTable();
 
+    }
+
+    $('#manufactorerList').on('click', function () {
+
+        listofManufactorers();
+
+     
     });
 
 
 
-
+    // Requesting form for manufacturer edit
     $('.column-one').on('click', '.manEdit', function () {
 
         var id = $(this).parent().attr('id');
@@ -710,7 +724,7 @@ $(function () {
 
 
 
-
+    // Deleting manufactorer
     $('.column-one').on('click', '.manDelete', function () {
 
         var id = $(this).parent().attr('id');
@@ -725,7 +739,7 @@ $(function () {
                     ////  TODO //////
                     $(".actionSuccses").text("Manufactorer Deleted Succesfully");
                     dataRequest();
-                    listofModels();
+                    listofManufactorers();
                 }
             });
         }
