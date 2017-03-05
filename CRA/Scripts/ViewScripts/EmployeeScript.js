@@ -17,7 +17,7 @@ let modeltoReturn;
 
 let supposedReturn;
 
-let realReturn;
+
 
 
 var listofDeals = function () {
@@ -78,7 +78,11 @@ var listofDeals = function () {
 };
 
 
+function dateisValid(date) {
+    
 
+
+}
 
 
 
@@ -98,9 +102,15 @@ var listofDeals = function () {
             }
         });
 
+
+
         $(".column-two").on("click", "#submitClosing", function () {
-            $("#dialog").dialog("open");
-            return false;
+           
+            if(dateisValid($("#datepickerClosing").val()))
+            {
+                $("#dialog").dialog("open");
+                return false;
+            }
         });
 
 
@@ -119,49 +129,55 @@ var listofDeals = function () {
 
         $('.column-one').on('click', '.dealclose', function () {
 
-            let clickeddID = $(this).attr('id');
+            
 
-            dealtoClose = arrayofDeals.find(function (x) { return x.ID == clickeddID })
+                let clickeddID = $(this).attr('id');
 
-            supposedReturn = dealtoClose.SupposedReturn;
+                dealtoClose = arrayofDeals.find(function (x) { return x.ID == clickeddID })
 
-            cartoReturn = arrayofCars.find(function (x) { return x.ID == dealtoClose.CarID })
+                supposedReturn = dealtoClose.SupposedReturn;
 
-            modeltoReturn = arrayofModels.find(function (x) { return x.ID == cartoReturn.ModelID })
+                cartoReturn = arrayofCars.find(function (x) { return x.ID == dealtoClose.CarID })
 
-            let header = "<h2>Editing deal #" + dealtoClose.ID + "</h2><br /><br />";
+                modeltoReturn = arrayofModels.find(function (x) { return x.ID == cartoReturn.ModelID })
 
-            let dealClosingForm = document.createElement("form");
+                let header = "<h2>Editing deal #" + dealtoClose.ID + "</h2><br /><br />";
 
-            let dateinput = document.createElement("input");
+                let dealClosingForm = document.createElement("form");
 
-            dateinput.type = "text";
+                let dateinput = document.createElement("input");
 
-            $(dateinput).addClass("form-control col-md-2");
+                dateinput.type = "text";
 
-            dateinput.id = "datepickerClosing";
+                $(dateinput).addClass("form-control col-md-2");
 
-            //dateinput.placeholder = "Please enter today's date";
+                dateinput.id = "datepickerClosing";
 
-            let datelabel = document.createElement("Label");
+                //dateinput.placeholder = "Please enter today's date";
 
-            datelabel.setAttribute('for', 'datepickerClosing')
+                let datelabel = document.createElement("Label");
 
-            datelabel.innerHTML = 'Plese select date of return';
+                datelabel.setAttribute('for', 'datepickerClosing')
 
-            $(dealClosingForm).append(datelabel);
+                datelabel.innerHTML = 'Plese select date of return';
+               
+                $(dealClosingForm).append(datelabel);
 
-            $(dealClosingForm).append(dateinput);
+                $(dealClosingForm).append(dateinput);
 
-            $(dealClosingForm).append("<br/> <br/> <br/> <button class='btn btn-primary' id='submitClosing'>Confirm</button>    ")
+                $(dealClosingForm).append("<br/> <br/> <br/> <button class='btn btn-primary' id='submitClosing'>Confirm</button>    ")
 
-            $(dealClosingForm).append("<button class='btn btn-warning' id='cancelClosing'>Cancell</button>")
+                $(dealClosingForm).append("<button class='btn btn-warning' id='cancelClosing'>Cancell</button>")
 
-            $('.column-two').append(header);
+                $('.column-two').append(header);
 
-            $('.column-two').append(dealClosingForm);
+                $('.column-two').append(dealClosingForm);
 
-            $('#datepickerClosing').datepicker();
+                $('#datepickerClosing').datepicker();
+
+            
+        })
+
 
 
 
@@ -174,11 +190,11 @@ var listofDeals = function () {
                
                 let date1 = supposedReturn.split("/");
 
-                let sResturn = new Date(date1[2],date1[1].replace(0,'') - 1,date1[0]);
+                let sResturn = new Date(date1[2],date1[1] - 1,date1[0]);
 
                  date2 = $("#datepickerClosing").val().split("/");
 
-                closingDate = new Date(date2[2], date2[0].replace(0, '') - 1, date2[1].replace(0, ''));
+                closingDate = new Date(date2[2], date2[0] - 1, date2[1]);
 
                 let fine;
 
@@ -200,21 +216,19 @@ var listofDeals = function () {
 
 
             $('#dialog').on('click', '#confirm', function () {
-
-                let dateString = moment(realReturn).format("M-D-YYYY");
-
-                $.ajax({
-                    type: "GET",
-                    data: { dealID: dealtoClose.ID, RealReturn: dateString },
-                    url: '/Employee/CloseTheDeal',
-                    success: function () {
-                        $('#lateRetrunFine').text("");
-                        $('.column-two').empty();
-                        $("#dialog").dialog("close");
-                        listofDeals();
-                    }
-                });
-
+             
+                    let dateString = moment(closingDate).format("M-D-YYYY");
+                    $.ajax({
+                        type: "GET",
+                        data: { dealID: dealtoClose.ID, RealReturn: dateString },
+                        url: '/Employee/CloseTheDeal',
+                        success: function () {
+                            $('#lateRetrunFine').text("");
+                            $('.column-two').empty();
+                            $("#dialog").dialog("close");
+                            listofDeals();
+                        }
+                    });               
             });
 
 
@@ -226,8 +240,15 @@ var listofDeals = function () {
 
             });
 
+            $('main').on('click', '#cancelClosing', function () {
+                $('.column-two').empty();
+            })
+
+
+
+
         });
-    });
+    
 
 
 
