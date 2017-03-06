@@ -158,7 +158,7 @@ $(function () {
             url: '/Manager/SubmitNewModel',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Model Added") {
-                    $(".actionSuccses").text("Model Deleted Succesfully");
+                    $(".actionSuccses").text("Model Added Succesfully");
                     dataRequest();
                     listofModels();
                 }
@@ -187,9 +187,14 @@ $(function () {
             data: {ID: modelID, ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine, gear: _gear },
             url: '/Manager/SubmitEditModel',
             success: function (data, textStatus, jqXHR) {
-                $(".actionSuccses").text("Model Edited Succesfully");
-                dataRequest();
-                listofModels();
+                if (data.ActionResult == "Model Edited") {
+                    $(".actionSuccses").text("Model Edited Succesfully");
+                    dataRequest();
+                    listofModels();
+                }
+                else {
+                    $('.column-two').html(data);
+                }
             }
         })
     });
@@ -309,9 +314,15 @@ $(function () {
             data: {  FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password : pass},
             url: '/Manager/SubmitNewCustomer',
             success: function (data, textStatus, jqXHR) {
-                $(".actionSuccses").text("Customer Added Succesfully");
-                dataRequest();
-                listofCustomers();
+                if (data.ActionResult == "New Customer Submitted") {
+                    $(".actionSuccses").text("Customer Added Succesfully");
+                    dataRequest();
+                    listofCustomers();
+                }
+
+                else {
+
+                }
             }
         })
     });
@@ -333,9 +344,14 @@ $(function () {
             data: { ID: customerID, FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password: pass },
             url: '/Manager/SubmitEditCustomer',
             success: function (data, textStatus, jqXHR) {
-                $(".actionSuccses").text("Customer Edited Succesfully");
-                dataRequest();
-                listofCustomers();
+                if (data.ActionResult == "Customer edit submitted") {
+                    $(".actionSuccses").text("Customer Edited Succesfully");
+                    dataRequest();
+                    listofCustomers();
+                }
+                else {
+
+                }
             }
         })
     });
@@ -457,9 +473,14 @@ $(function () {
             data: { Mileage: miles, CarNumber: carNumber, BranchID: branchID, ModelID : modelID },
             url: '/Manager/SubmitNewCar',
             success: function (data, textStatus, jqXHR) {
-                $(".actionSuccses").text("Car Submitted Succesfully");
-                dataRequest();
-                listofCars();
+                if (data.ActionResult == "New car submitted") {
+                    $(".actionSuccses").text("Car Submitted Succesfully");
+                    dataRequest();
+                    listofCars();
+                }
+                else {
+
+                }
             }
         })
     });
@@ -479,9 +500,15 @@ $(function () {
             data: {  ID : carID, Mileage: miles, CarNumber: carNumber, BranchID: branchID, ModelID: modelID },
             url: '/Manager/SubmitEditCar',
             success: function (data, textStatus, jqXHR) {
-                $(".actionSuccses").text("Car Edited Succesfully");
-                dataRequest();
-                listofCars();
+                if (data.ActionResult == "Car edit submitted") {
+                    $(".actionSuccses").text("Car Edited Succesfully");
+                    dataRequest();
+                    listofCars();
+                }
+
+                else {
+
+                }
             }
         })
     });
@@ -599,9 +626,14 @@ $(function () {
             data: { StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: clientID, CarID : carID},
             url: '/Manager/SubmitNewDeal',
             success: function (data, textStatus, jqXHR) {
-                $(".actionSuccses").text("Deal Submitted Succesfully");
-                dataRequest();
-                creatinglistOfDeals();
+                if (data.ActionResult == "New deal submitted") {
+                    $(".actionSuccses").text("Deal Submitted Succesfully");
+                    dataRequest();
+                    creatinglistOfDeals();
+                }
+                else {
+
+                }
             }
         })
     });
@@ -622,9 +654,15 @@ $(function () {
             data: {ID: dealID, StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: clientID, CarID: carID },
             url: '/Manager/SubmitEditDeal',
             success: function (data, textStatus, jqXHR) {
-                $(".actionSuccses").text("Deal Edited Succesfully");
-                dataRequest();
-                creatinglistOfDeals();
+                if (deal.ActionResult == "Deal edit submitted") {
+                    $(".actionSuccses").text("Deal Edited Succesfully");
+                    dataRequest();
+                    creatinglistOfDeals();
+                }
+
+                else {
+
+                }
             }
         })
 
@@ -735,9 +773,14 @@ $(function () {
             data: { manufacturerName: manufacName },
             url: '/Manager/SubmitNewManufacturer',
             success: function (data, textStatus, jqXHR) {
-                $(".actionSuccses").text("Manufactorer Submitted Succesfully");
-                dataRequest();
-                listofManufactorers();
+                if (data.ActionResult == "New manufactorer submitted") {
+                    $(".actionSuccses").text("Manufactorer Submitted Succesfully");
+                    dataRequest();
+                    listofManufactorers();
+                }
+                else {
+
+                }
             }
         })
     });
@@ -755,9 +798,14 @@ $(function () {
             data: {ID: manID, manufacturerName: manufacName },
             url: '/Manager/SubmitEditManufactorer',
             success: function (data, textStatus, jqXHR) {
-                $(".actionSuccses").text("Manufactorer Edited Succesfully");
-                dataRequest();
-                listofManufactorers();
+                if (data.ActionResult == "Manufactorer edit submitted") {
+                    $(".actionSuccses").text("Manufactorer Edited Succesfully");
+                    dataRequest();
+                    listofManufactorers();
+                }
+                else {
+
+                }
             }
         })
     });

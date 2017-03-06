@@ -217,7 +217,7 @@ namespace CarRental.Controllers
                 var originalModel = cmv.toBaseModelDetail();
                 _manager.UpdateModel(originalModel);
                 var result = new HelpViewModel();
-                result.ActionResult = "Model Added";
+                result.ActionResult = "Model Edited";
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
 
