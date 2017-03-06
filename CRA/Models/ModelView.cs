@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace CarRental.MVC.Models
 {
 
-    public enum ModelGear { Automatic, Manual, Robotic };
+   
 
 
     public class ModelView
@@ -33,7 +33,7 @@ namespace CarRental.MVC.Models
         public decimal LateReturnFine { get; set; }
 
         
-        public ModelGear gear { get; set; }
+        public Gear? gear { get; set; }
 
 
 
@@ -46,7 +46,7 @@ namespace CarRental.MVC.Models
                 NameofModel = NameofModel,
                 DailyPrice = DailyPrice,
                 LateReturnFine = LateReturnFine,
-                gear = (Gear)gear
+                gear = gear.Value
             };
         }
 
@@ -66,7 +66,7 @@ namespace CarRental.MVC.Models
             this.NameofModel = domainModelDetails.NameofModel;              
             this.DailyPrice = domainModelDetails.DailyPrice;
             this.LateReturnFine = domainModelDetails.LateReturnFine;  
-            this.gear = (ModelGear)domainModelDetails.gear;
+            this.gear = domainModelDetails.gear;
     }
 
 

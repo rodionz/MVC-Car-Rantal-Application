@@ -32,8 +32,9 @@ namespace CarRental.MVC.Models
             }          
         }
 
-
+        [Required]
         [Display(Name = "Birth Data")]
+        [RegularExpression(@"/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/",ErrorMessage = "Please enter the date in MM/DD/YYYY")]
         public DateTime? BirthData { get; set; }
 
         [Required]

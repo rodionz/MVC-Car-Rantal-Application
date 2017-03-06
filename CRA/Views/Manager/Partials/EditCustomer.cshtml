@@ -42,7 +42,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.BirthData, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @Html.EditorFor(model => model.BirthData, new { htmlAttributes = new { @class = "BirthData form-control" } })
+                @Html.EditorFor(model => model.BirthData, new { htmlAttributes = new { @class = "BirthData form-control", id = "datepicker1" } })
                 @Html.ValidationMessageFor(model => model.BirthData, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -71,6 +71,13 @@
     </div>
 }
 
+<script>
+    $(function () {
+        $("#datepicker1").datepicker();
+
+    })
+
+</script>
 
 <script src="~/Scripts/ScriptLibriaries/jquery.validate.min.js"></script>
 <script src="~/Scripts/ScriptLibriaries/jquery.validate.unobtrusive.min.js"></script>
