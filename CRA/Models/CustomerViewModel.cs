@@ -23,16 +23,13 @@ namespace CarRental.MVC.Models
         [Required]
         public string LastName { get; set; }
 
-
         [Display (Name = "Full Name")]
         public string FullName
         {
             get
             {
                 return FirstName + " " + LastName;
-            }
-
-          
+            }          
         }
 
 
@@ -40,6 +37,7 @@ namespace CarRental.MVC.Models
         public DateTime? BirthData { get; set; }
 
         [Required]
+        [Display(Name = "Gender")]
         [RegularExpression("/^ Male$|^ Female$/", ErrorMessage = "Gender Invalid")]
         public Gender? gender { get; set; }
 
@@ -47,8 +45,8 @@ namespace CarRental.MVC.Models
 
 
 
-        //TODO
-        [EmailAddress]
+        
+        [EmailAddress]       
         public string Email { get; set; }
 
         [Required]

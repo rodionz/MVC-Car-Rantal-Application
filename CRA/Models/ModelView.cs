@@ -47,10 +47,13 @@ namespace CarRental.MVC.Models
                 DailyPrice = DailyPrice,
                 LateReturnFine = LateReturnFine,
                 gear = (Gear)gear
-
-
             };
         }
+
+
+
+
+
 
         public ModelView() { }
 
@@ -59,18 +62,11 @@ namespace CarRental.MVC.Models
 
         {
             this.ID = domainModelDetails.ModelID;
-
-            this.ManufacturerId = domainModelDetails.ManufacturerId;
-             
-            this.NameofModel = domainModelDetails.NameofModel;
-               
-
+            this.ManufacturerId = domainModelDetails.ManufacturerId;           
+            this.NameofModel = domainModelDetails.NameofModel;              
             this.DailyPrice = domainModelDetails.DailyPrice;
-
-            this.LateReturnFine = domainModelDetails.LateReturnFine;
-
-        //TODO
-              this.gear = (ModelGear)domainModelDetails.gear;
+            this.LateReturnFine = domainModelDetails.LateReturnFine;  
+            this.gear = (ModelGear)domainModelDetails.gear;
     }
 
 

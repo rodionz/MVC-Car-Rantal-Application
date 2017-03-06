@@ -22,18 +22,18 @@ namespace CarRental.Models
         public ManufactorerViewModel(Manufacturers domainManuf) {
 
             this.ID = domainManuf.ID;
-            this.manufacturerName = domainManuf.Manufacturer;
-            
-
+            this.manufacturerName = domainManuf.Manufacturer;           
         }
+
+
+
 
         public Manufacturers toBaseManufacturer() {
 
             return new Manufacturers
             {
                 ID = ID,
-                Manufacturer = manufacturerName,
-               
+                Manufacturer = manufacturerName,               
             };
         }
 

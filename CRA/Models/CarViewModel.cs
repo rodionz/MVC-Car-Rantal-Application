@@ -40,28 +40,20 @@ namespace CarRental.MVC.Models
                 Mileage = Mileage,                             
                 CarNumber = CarNumber,
                 BranchID = BranchID,
-                ModelID = ModelID,
-              
-             
-
-
+                ModelID = ModelID,                       
             };
         }
+
+
+
 
         public CarViewModel(Car domainCarDetails)
         {
             this.ID = domainCarDetails.CarID;
-
-            this.Mileage = domainCarDetails.Mileage;
-                     
+            this.Mileage = domainCarDetails.Mileage;                   
             this.CarNumber = domainCarDetails.CarNumber;
-
             this.BranchID = domainCarDetails.BranchID;
-
-            this.ModelID = domainCarDetails.ModelID;
-
-            
-
+            this.ModelID = domainCarDetails.ModelID;           
         }
 
     }
