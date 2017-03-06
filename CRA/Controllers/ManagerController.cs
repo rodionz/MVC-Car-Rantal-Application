@@ -80,9 +80,12 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Manager")]
         public ActionResult ManagerActions(HelpViewModel hvm)
         {
+            HelpViewModel result = new HelpViewModel();
+
 
             switch (hvm.ManagerAction)
             {
+                
 
                    ///////// MODELS ///////////
 
@@ -97,9 +100,9 @@ namespace CarRental.Controllers
 
                 case "DeleteModel":
                     _manager.DeleteModel(hvm.ID);
-                    var result = new HelpViewModel();
-                    result.ActionResult = "Model Deleted";
-                    return Json(result, JsonRequestBehavior.AllowGet);
+                    HelpViewModel modelresult = new HelpViewModel();
+                    modelresult.ActionResult = "Model Deleted";
+                    return Json(modelresult, JsonRequestBehavior.AllowGet);
 
                 /////////////  CARS /////////////
 
@@ -114,9 +117,12 @@ namespace CarRental.Controllers
 
                 case "DeleteCar":
                     _manager.DeleteCar(hvm.ID);
-                    return null;
+                    HelpViewModel carresult = new HelpViewModel();
+                    carresult.ActionResult = "Model Deleted";
+                    return Json(carresult, JsonRequestBehavior.AllowGet);
 
-             /////////////// CUSTOMERS ////////////////////
+
+                /////////////// CUSTOMERS ////////////////////
 
                 case "AddCustomer":
                     return PartialView("~/Views/Manager/Partials/AddCustomer.cshtml");
@@ -131,7 +137,9 @@ namespace CarRental.Controllers
 
                 case "DeleteCustomer":
                     _manager.DeleteClient(hvm.ID);
-                    return null;
+                    HelpViewModel customerresult = new HelpViewModel();
+                    customerresult.ActionResult = "Model Deleted";
+                    return Json(customerresult, JsonRequestBehavior.AllowGet);
 
 
 
@@ -151,12 +159,14 @@ namespace CarRental.Controllers
 
                 case "DeleteManufactorer":
                     _manager.DeleteManufactorer(hvm.ID);
-                    return null;
+                    HelpViewModel manrresult = new HelpViewModel();
+                    manrresult.ActionResult = "Model Deleted";
+                    return Json(manrresult, JsonRequestBehavior.AllowGet);
 
 
 
 
-             /////////////// DEALS ///////////////////////
+                /////////////// DEALS ///////////////////////
 
 
                 case "AddDeal":
@@ -168,8 +178,10 @@ namespace CarRental.Controllers
 
                 case "DeleteDeal":
                     _manager.DeleteDeal(hvm.ID);
-                    return null;
-     
+                    HelpViewModel dealresult = new HelpViewModel();
+                    dealresult.ActionResult = "Model Deleted";
+                    return Json(dealresult, JsonRequestBehavior.AllowGet);
+
                 default:
                     return null;
 
@@ -179,12 +191,20 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewModel (ModelView cmv)
         {
-            var originalModel = cmv.toBaseModelDetail();
-            _manager.AddModel(originalModel);
-            var result = new HelpViewModel();
-            result.ActionResult = "Model Added";
+            if (ModelState.IsValid)
+            {
+                var originalModel = cmv.toBaseModelDetail();
+                _manager.AddModel(originalModel);
+                var result = new HelpViewModel();
+                result.ActionResult = "Model Added";
 
-            return Json(result, JsonRequestBehavior.AllowGet);
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+
+            else
+            {
+                  return PartialView("~/Views/Manager/Partials/AddModel.cshtml");
+            }
         }
 
         [Authorize(Roles = "Manager")]

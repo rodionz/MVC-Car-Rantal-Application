@@ -23,16 +23,19 @@ namespace CarRental.MVC.Models
         [Display(Name ="Id of Manufacturer")]
         public int? ManufacturerId { get; set; }
 
+        [Required]
         [Display(Name = "Name of Model")]
         public string NameofModel { get; set; }
 
+        [Required]
         [Display(Name = "Daily Price")]
         public decimal DailyPrice { get; set; }
 
+        [Required]
        [Display(Name = "Late Return Fine")]
         public decimal LateReturnFine { get; set; }
 
-        
+        [Required]
         public Gear? gear { get; set; }
 
 

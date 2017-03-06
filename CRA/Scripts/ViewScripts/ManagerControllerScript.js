@@ -156,17 +156,17 @@ $(function () {
             type: 'GET',
             data: { ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine, gear: _gear },
             url: '/Manager/SubmitNewModel',
-            success: function () {
-                
-                $(".actionSuccses").text("Model Deleted Succesfully");
-                dataRequest();
-                listofModels();
+            success: function (data, textStatus, jqXHR) {
+                if (data.ActionResult == "Model Added") {
+                    $(".actionSuccses").text("Model Deleted Succesfully");
+                    dataRequest();
+                    listofModels();
+                }
 
-           
-            },
-            error: {
-
-            }
+                else {
+                    $('.column-two').html(data);
+                }
+            }         
         })            
     });
 
