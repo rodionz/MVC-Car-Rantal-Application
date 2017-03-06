@@ -207,90 +207,179 @@ namespace CarRental.Controllers
             }
         }
 
+
+
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditModel(ModelView cmv)
         {
+            if (ModelState.IsValid)
+            {
+                var originalModel = cmv.toBaseModelDetail();
+                _manager.UpdateModel(originalModel);
+                var result = new HelpViewModel();
+                result.ActionResult = "Model Added";
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
 
-            var originalModel = cmv.toBaseModelDetail();
-            _manager.UpdateModel(originalModel);
-            var result = new HelpViewModel();
-            result.ActionResult = "Model Added";
-            return Json(result, JsonRequestBehavior.AllowGet);
-
+            else
+            {
+                return PartialView("~/Views/Manager/Partials/EditModel.cshtml", cmv);
+            }
         }
+
+
 
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewCustomer(CustomerViewModel cmv)
         {
-            var managerHelper = new HelpViewModel();          
-            _manager.AddClient(cmv.toBaseClient_Details());
-            managerHelper.ActionResult = "New Customer Submitted";
-            return Json(managerHelper,JsonRequestBehavior.AllowGet);
+            if (ModelState.IsValid)
+            {
+                var managerHelper = new HelpViewModel();
+                _manager.AddClient(cmv.toBaseClient_Details());
+                managerHelper.ActionResult = "New Customer Submitted";
+                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            }
+
+            else
+            {
+                return PartialView("~/Views/Manager/Partials/AddCustomer.cshtml");
+            }
         }
+
+
+
+
+
+
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditCustomer(CustomerViewModel cmv)
         {
-            var managerHelper = new HelpViewModel();
-            _manager.UpdateClient(cmv.toBaseClient_Details());
-            managerHelper.ActionResult = "Customer edit submitted";
-            return Json(managerHelper,JsonRequestBehavior.AllowGet);
+            if (ModelState.IsValid)
+            {
+                var managerHelper = new HelpViewModel();
+                _manager.UpdateClient(cmv.toBaseClient_Details());
+                managerHelper.ActionResult = "Customer edit submitted";
+                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return PartialView("~/Views/Manager/Partials/EditCustomer.cshtml",cmv);
+            }
         }
 
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewCar(CarViewModel cmv)
         {
-            var managerHelper = new HelpViewModel();
-            _manager.AddCar(cmv.toBaseCarDetails());
-            managerHelper.ActionResult = "New car submitted";
-            return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            if (ModelState.IsValid)
+            {
+                var managerHelper = new HelpViewModel();
+                _manager.AddCar(cmv.toBaseCarDetails());
+                managerHelper.ActionResult = "New car submitted";
+                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return PartialView("~/Views/Manager/Partials/AddCar.cshtml");
+            }
         }
+
+
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditCar(CarViewModel cmv)
         {
-            var managerHelper = new HelpViewModel();
-            _manager.UpdateCar(cmv.toBaseCarDetails());
-            managerHelper.ActionResult = "Car edit submitted";
-            return Json(managerHelper,JsonRequestBehavior.AllowGet);
+            if (ModelState.IsValid)
+            {
+                var managerHelper = new HelpViewModel();
+                _manager.UpdateCar(cmv.toBaseCarDetails());
+                managerHelper.ActionResult = "Car edit submitted";
+                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            }
+
+            else
+            {
+                return PartialView("~/Views/Manager/Partials/EditCar.cshtml",cmv);
+            }
         }
 
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewDeal(DealViewModel dvm)
         {
-            var managerHelper = new HelpViewModel();
-            _manager.AddDeal(dvm.toBaseDateDetails());
-            managerHelper.ActionResult = "New deal submitted";
-            return Json(managerHelper,JsonRequestBehavior.AllowGet);
+            if (ModelState.IsValid)
+            {
+                var managerHelper = new HelpViewModel();
+                _manager.AddDeal(dvm.toBaseDateDetails());
+                managerHelper.ActionResult = "New deal submitted";
+                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            }
+
+            else
+            {
+                return PartialView("~/Views/Manager/Partials/AddDeal.cshtml");
+            }
         }
+
+
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditDeal(DealViewModel dvm)
         {
-            var managerHelper = new HelpViewModel();
-            _manager.UpdateDeal(dvm.toBaseDateDetails());
-            managerHelper.ActionResult = "Deal edit submitted";
-            return Json(managerHelper,JsonRequestBehavior.AllowGet);
+            if (ModelState.IsValid)
+            {
+                var managerHelper = new HelpViewModel();
+                _manager.UpdateDeal(dvm.toBaseDateDetails());
+                managerHelper.ActionResult = "Deal edit submitted";
+                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            }
+
+            else
+            {
+                return PartialView("~/Views/Manager/Partials/EditDeal.cshtml",dvm);
+            }
         }
+
+
+
+
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewManufacturer(ManufactorerViewModel dvm)
         {
-            var managerHelper = new HelpViewModel();
-            _manager.AddManufactorer(dvm.toBaseManufacturer());
-            managerHelper.ActionResult = "New manufactorer submitted";
-            return Json(managerHelper,JsonRequestBehavior.AllowGet);
+            if (ModelState.IsValid)
+            {
+                var managerHelper = new HelpViewModel();
+                _manager.AddManufactorer(dvm.toBaseManufacturer());
+                managerHelper.ActionResult = "New manufactorer submitted";
+                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            }
+
+            else
+            {
+                return PartialView("~/Views/Manager/Partials/AddManufacturer.cshtml");
+            }
         }
+
+
+
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditManufactorer(ManufactorerViewModel dvm)
         {
-            var managerHelper = new HelpViewModel();
-            _manager.UpdateManufactorer(dvm.toBaseManufacturer());
-            managerHelper.ActionResult = "Manufactorer edit submitted";
-            return Json(managerHelper,JsonRequestBehavior.AllowGet);
+            if (ModelState.IsValid)
+            {
+                var managerHelper = new HelpViewModel();
+                _manager.UpdateManufactorer(dvm.toBaseManufacturer());
+                managerHelper.ActionResult = "Manufactorer edit submitted";
+                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            }
+
+            else
+            {
+                return PartialView("~/Views/Manager/Partials/EditManufacturer.cshtml",dvm);
+            }
         }
          
 
