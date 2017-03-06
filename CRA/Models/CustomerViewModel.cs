@@ -41,7 +41,7 @@ namespace CarRental.MVC.Models
 
         [Required]
         [Display(Name = "Gender")]
-        [RegularExpression("/^ Male$|^ Female$/", ErrorMessage = "Gender Invalid")]
+        [EnumDataType(typeof(Gender), ErrorMessage = "Please select a valid gender")]
         public Gender? gender { get; set; }
 
 

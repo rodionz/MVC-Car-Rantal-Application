@@ -36,6 +36,7 @@ namespace CarRental.MVC.Models
         public decimal LateReturnFine { get; set; }
 
         [Required]
+        [EnumDataType(typeof(Gear), ErrorMessage = "Please enter a valid Gear")]
         public Gear? gear { get; set; }
 
 
