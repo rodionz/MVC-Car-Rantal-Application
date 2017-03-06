@@ -186,7 +186,7 @@ $(function () {
             type: 'GET',
             data: {ID: modelID, ManufacturerId: manID, NameofModel: modelName, DailyPrice: dailyPrice, LateReturnFine: lateReturnFine, gear: _gear },
             url: '/Manager/SubmitEditModel',
-            success: function () {
+            success: function (data, textStatus, jqXHR) {
                 $(".actionSuccses").text("Model Edited Succesfully");
                 dataRequest();
                 listofModels();
@@ -308,7 +308,7 @@ $(function () {
             type: 'GET',
             data: {  FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password : pass},
             url: '/Manager/SubmitNewCustomer',
-            success: function () {
+            success: function (data, textStatus, jqXHR) {
                 $(".actionSuccses").text("Customer Added Succesfully");
                 dataRequest();
                 listofCustomers();
@@ -332,7 +332,7 @@ $(function () {
             type: 'GET',
             data: { ID: customerID, FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password: pass },
             url: '/Manager/SubmitEditCustomer',
-            success: function () {
+            success: function (data, textStatus, jqXHR) {
                 $(".actionSuccses").text("Customer Edited Succesfully");
                 dataRequest();
                 listofCustomers();
@@ -456,7 +456,7 @@ $(function () {
             type: 'GET',
             data: { Mileage: miles, CarNumber: carNumber, BranchID: branchID, ModelID : modelID },
             url: '/Manager/SubmitNewCar',
-            success: function () {
+            success: function (data, textStatus, jqXHR) {
                 $(".actionSuccses").text("Car Submitted Succesfully");
                 dataRequest();
                 listofCars();
@@ -478,7 +478,7 @@ $(function () {
             type: 'GET',
             data: {  ID : carID, Mileage: miles, CarNumber: carNumber, BranchID: branchID, ModelID: modelID },
             url: '/Manager/SubmitEditCar',
-            success: function () {
+            success: function (data, textStatus, jqXHR) {
                 $(".actionSuccses").text("Car Edited Succesfully");
                 dataRequest();
                 listofCars();
@@ -598,7 +598,7 @@ $(function () {
             type: 'GET',
             data: { StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: clientID, CarID : carID},
             url: '/Manager/SubmitNewDeal',
-            success: function () {
+            success: function (data, textStatus, jqXHR) {
                 $(".actionSuccses").text("Deal Submitted Succesfully");
                 dataRequest();
                 creatinglistOfDeals();
@@ -621,7 +621,7 @@ $(function () {
             type: 'GET',
             data: {ID: dealID, StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: clientID, CarID: carID },
             url: '/Manager/SubmitEditDeal',
-            success: function () {
+            success: function (data, textStatus, jqXHR) {
                 $(".actionSuccses").text("Deal Edited Succesfully");
                 dataRequest();
                 creatinglistOfDeals();
@@ -734,7 +734,7 @@ $(function () {
             type: 'GET',
             data: { manufacturerName: manufacName },
             url: '/Manager/SubmitNewManufacturer',
-            success: function () {
+            success: function (data, textStatus, jqXHR) {
                 $(".actionSuccses").text("Manufactorer Submitted Succesfully");
                 dataRequest();
                 listofManufactorers();
@@ -754,7 +754,7 @@ $(function () {
             type: 'GET',
             data: {ID: manID, manufacturerName: manufacName },
             url: '/Manager/SubmitEditManufactorer',
-            success: function () {
+            success: function (data, textStatus, jqXHR) {
                 $(".actionSuccses").text("Manufactorer Edited Succesfully");
                 dataRequest();
                 listofManufactorers();
