@@ -321,7 +321,7 @@ $(function () {
                 }
 
                 else {
-
+                    $('.column-two').html(data);
                 }
             }
         })
@@ -350,7 +350,7 @@ $(function () {
                     listofCustomers();
                 }
                 else {
-
+                    $('.column-two').html(data);
                 }
             }
         })
@@ -479,7 +479,7 @@ $(function () {
                     listofCars();
                 }
                 else {
-
+                    $('.column-two').html(data);
                 }
             }
         })
@@ -507,7 +507,7 @@ $(function () {
                 }
 
                 else {
-
+                    $('.column-two').html(data);
                 }
             }
         })
@@ -632,7 +632,7 @@ $(function () {
                     creatinglistOfDeals();
                 }
                 else {
-
+                    $('.column-two').html(data);
                 }
             }
         })
@@ -661,7 +661,7 @@ $(function () {
                 }
 
                 else {
-
+                    $('.column-two').html(data);
                 }
             }
         })
@@ -779,7 +779,7 @@ $(function () {
                     listofManufactorers();
                 }
                 else {
-
+                    $('.column-two').html(data);
                 }
             }
         })
@@ -804,7 +804,7 @@ $(function () {
                     listofManufactorers();
                 }
                 else {
-
+                    $('.column-two').html(data);
                 }
             }
         })
