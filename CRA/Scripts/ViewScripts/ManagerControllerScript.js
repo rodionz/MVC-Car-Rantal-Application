@@ -37,7 +37,6 @@ $(function () {
 
 
     $('.column-two').on('click', '.cancel', function () {
-
         $('.column-two').empty();
     });
    
@@ -58,9 +57,7 @@ $(function () {
             url: '/Manager/ManagerActions',
             
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);
-
-                console.log("Success");
+                $('.column-two').html(data);                
             }
         });
     });
@@ -106,10 +103,7 @@ $(function () {
 
     // Requesting form for model editing
     $('.column-one').on('click', '.modelEdit', function () {
-
         var id = $(this).parent().attr('id');
-
-
 
         $.ajax({
             type: 'GET',
@@ -117,8 +111,7 @@ $(function () {
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);
-                console.log("ModelEdit");
-                console.log(id);
+               
             }
         });
     });
@@ -215,10 +208,7 @@ $(function () {
             data: {ManagerAction : 'AddCustomer'},
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);
-
-             
-                console.log("Success");
+                $('.column-two').html(data);                       
             }
         });
     });
@@ -259,7 +249,6 @@ $(function () {
 
 
     $('#clientList').on('click', function () {
-
         listofCustomers();
     });
 
@@ -276,10 +265,8 @@ $(function () {
             data: { ManagerAction: 'EditCustomer', ID: id },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);
-               
+                $('.column-two').html(data);               
             }
-
         });
 
 
@@ -290,7 +277,6 @@ $(function () {
     $('.column-one').on('click', '.clientDelete', function () {
 
         var id = $(this).parent().attr('id');
-
 
         var del = confirm("Are you sure that you want to delete this customer?");
 
@@ -304,10 +290,8 @@ $(function () {
                     dataRequest();
                     listofCustomers();
                 }
-
             });
         }
-
     });
 
     // New customer submission
@@ -369,9 +353,7 @@ $(function () {
             data: { ManagerAction: 'AddCar' },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);
-
-                console.log("Success");
+                $('.column-two').html(data);               
             }
         });
     });
@@ -428,7 +410,6 @@ $(function () {
                 console.log(id);
             }
         });
-
     }
 
 
@@ -451,8 +432,7 @@ $(function () {
                 type: 'GET',
                 data: { ManagerAction: 'DeleteCar', ID: id },
                 url: '/Manager/ManagerActions',
-                success: function (data, textStatus, jqXHR) {
-                    
+                success: function (data, textStatus, jqXHR) {                    
                     $(".actionSuccses").text("Car Deleted Succesfully");
                     dataRequest();
                     listofCars();
@@ -519,9 +499,7 @@ $(function () {
             data: { ManagerAction: 'AddDeal' },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);
-
-                console.log("Success");
+                $('.column-two').html(data);          
             }
         });
     });
@@ -563,10 +541,10 @@ $(function () {
         $('#mytable').DataTable();
     }
 
+
+
     $('#dealList').on('click', function () {
-
         creatinglistOfDeals();
-
     });
 
 
@@ -580,10 +558,8 @@ $(function () {
             data: { ManagerAction: 'EditDeal', ID: id },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);
-               
+                $('.column-two').html(data);               
             }
-
         });
     });
 
@@ -599,7 +575,7 @@ $(function () {
                 data: { ManagerAction: 'DeleteDeal', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
-                    ////  TODO //////
+                 
                     $(".actionSuccses").text("Deal Deleted Succesfully");
                     dataRequest();
                     creatinglistOfDeals();
@@ -666,9 +642,7 @@ $(function () {
             data: { ManagerAction: 'AddManufacturer' },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);
-
-                console.log("Success");
+                $('.column-two').html(data);               
             }
         });
     });
@@ -695,21 +669,19 @@ $(function () {
 
         for (var model of  arrayofManufactorers)
         {
-
             $(table).append("<tr><td>" + model.ID + "</td><td>" + model.manufacturerName
                 + "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary manEdit'>Edit</button>     <button class='btn btn-sm btn-danger manDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
         $('#mytable').DataTable();
-
     }
 
+
+
+
     $('#manufactorerList').on('click', function () {
-
-        listofManufactorers();
-
-     
+        listofManufactorers();    
     });
 
 
@@ -724,11 +696,8 @@ $(function () {
             data: { ManagerAction: 'EditManufactorer', ID: id },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);
-                console.log("Manufactorer Edit");
-                console.log(id);
+                $('.column-two').html(data);           
             }
-
         });
     });
 
@@ -747,7 +716,7 @@ $(function () {
                 data: { ManagerAction: 'DeleteManufactorer', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
-                    ////  TODO //////
+                
                     $(".actionSuccses").text("Manufactorer Deleted Succesfully");
                     dataRequest();
                     listofManufactorers();

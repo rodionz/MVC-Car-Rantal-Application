@@ -19,6 +19,7 @@ namespace CarRental.MVC.Models
         [Required]
         public int ID { get; set; }
 
+        [Required]
         [Display(Name ="Id of Manufacturer")]
         public int? ManufacturerId { get; set; }
 
@@ -31,6 +32,7 @@ namespace CarRental.MVC.Models
        [Display(Name = "Late Return Fine")]
         public decimal LateReturnFine { get; set; }
 
+        
         public ModelGear gear { get; set; }
 
 

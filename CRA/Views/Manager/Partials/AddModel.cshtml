@@ -32,14 +32,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.gear, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @*@Html.EditorFor(model => model.gear, new { htmlAttributes = new { @class = "form-control Gear" } })*@
-                <select class="dropdown form-control Gear" name="Gear">
-                    <option value="#" selected>--Select Gear--</option>
-                    <option value="0">Manual</option>
-                    <option value="1">Automatic</option>
-                    <option value="2">Robotic</option>
-                </select>
-
+                @Html.EnumDropDownListFor(model => model.gear, new { htmlAttributes = new { @class = "form-control Gear" } })            
                 @Html.ValidationMessageFor(model => model.gear, "", new { @class = "text-danger" })
             </div>
         </div>
