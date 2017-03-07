@@ -80,7 +80,7 @@ $(function () {
         table.setAttribute("id", "mytable");
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
-        addButton.className = "addbutton addnewModel btn btn-success";
+        addButton.className = "addbutton addnewModel btn btn-success btn-sm";
         addButton.textContent = "Add New Model";
         $('.column-one').prepend(addButton);
         var header = table.createTHead();
@@ -230,7 +230,7 @@ $(function () {
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
-        addButton.className = "addbutton addnewClient btn btn-success";
+        addButton.className = "addbutton addnewClient btn btn-success btn-sm";
         addButton.textContent = "Add New Customer";
         $('.column-one').prepend(addButton);
         table.setAttribute("id", "mytable");
@@ -387,7 +387,7 @@ $(function () {
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
-        addButton.className = "addbutton addnewcar btn btn-success";
+        addButton.className = "addbutton addnewcar btn btn-success btn-sm";
         addButton.textContent = "Add New Car";
         $('.column-one').prepend(addButton);
         table.setAttribute("id", "mytable");
@@ -539,7 +539,7 @@ $(function () {
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
-        addButton.className = "addbutton addDeal btn btn-success";
+        addButton.className = "addbutton addDeal btn btn-success btn-sm";
         addButton.textContent = "Add New Deal";
         $('.column-one').prepend(addButton);
         table.setAttribute("id", "mytable");
@@ -697,7 +697,7 @@ $(function () {
         
         var table = document.createElement('table');
         var addButton = document.createElement('button');
-        addButton.className = "addbutton addManufatorer btn btn-success";
+        addButton.className = "addbutton addManufatorer btn btn-success btn-sm";
         addButton.textContent = "Add New Manufactorer";
         $('.column-one').prepend(addButton);
         table.className = "table table-striped table-bordered table-hover";
