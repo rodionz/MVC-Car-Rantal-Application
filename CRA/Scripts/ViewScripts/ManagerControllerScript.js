@@ -51,6 +51,7 @@ $(function () {
     // Requesting form for adding new model
 
     $('.column-one').on('click', '.addnewModel', function () {
+        $('.column-two').empty();
         $.ajax({
             type: "GET",
             data: {ManagerAction : 'AddModel'},
@@ -145,7 +146,7 @@ $(function () {
 
     // New model submission
     $('.column-two').on('click', '#submitNewModel', function () {
-        $('.column-two').empty();
+       
         let manID = $('.ManufacturerId').val();
         let modelName = $('.NameofModel').val();
         let dailyPrice = $('.DailyPrice').val();
@@ -174,7 +175,7 @@ $(function () {
 
     // Model editing submission
     $('.column-two').on('click', '#submitEditModel', function () {
-        $('.column-two').empty();
+        
         let modelID = $('.modelID').val();
         let manID = $('.ManufacturerId').val();
         let modelName = $('.NameofModel').val();      

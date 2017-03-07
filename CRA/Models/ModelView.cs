@@ -16,11 +16,11 @@ namespace CarRental.MVC.Models
     public class ModelView
     {
 
-        [Required]
+        
         public int ID { get; set; }
 
         [Required]
-        [Display(Name ="Id of Manufacturer")]
+        [Display(Name ="Manufacturer's ID")]
         public int? ManufacturerId { get; set; }
 
         [Required]
@@ -36,6 +36,7 @@ namespace CarRental.MVC.Models
         public decimal LateReturnFine { get; set; }
 
         [Required]
+        [Display(Name = "Transmission")]
         [EnumDataType(typeof(Gear), ErrorMessage = "Please enter a valid Gear")]
         public Gear? gear { get; set; }
 
