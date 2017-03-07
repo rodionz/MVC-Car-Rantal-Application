@@ -18,11 +18,11 @@ namespace CarRental.MVC.Models
         public int ID { get; set; }
 
         [Required]
-        [RegularExpression(@"/^.{2,}$/", ErrorMessage = "Lastname must contain at least 2 chatracters")]
+        [StringLength(30, MinimumLength = 2,ErrorMessage = "Firstname must contain at least 2 chatracters")]
         public string FirstName { get; set; }
 
         [Required]
-        [RegularExpression(@"/^.{2,}$/", ErrorMessage = "Lastname must contain at least 2 chatracters")]
+        [StringLength(30, MinimumLength = 2, ErrorMessage = "Lastname must contain at least 2 chatracters")]
         public string LastName { get; set; }
 
         [Display (Name = "Full Name")]
@@ -53,11 +53,11 @@ namespace CarRental.MVC.Models
         public string Email { get; set; }
 
         [Required]
-        [RegularExpression(@"/^.{6,}$/", ErrorMessage = "Username must contain at least 6 chatracters")]
+        [StringLength(30, MinimumLength = 2,ErrorMessage = "Username must contain at least 6 chatracters")]        
         public string UserName { get; set; }
 
         [Required]
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Minimum 8 characters at least 1 Alphabet and 1 Number")]
+        [StringLength(30, MinimumLength = 6, ErrorMessage = "Password must contain  at least 6 characters")]
         public string Password { get; set; }
 
 
