@@ -41,7 +41,7 @@ $(function () {
     });
    
 
-
+    $('.column-two').empty();
 
 
 
@@ -522,6 +522,7 @@ $(function () {
 
     // Requesting form for adding new deal
     $('.column-one').on('click', '.addDeal', function () {
+        $('.column-two').empty();
         $.ajax({
             type: "GET",
             data: { ManagerAction: 'AddDeal' },
@@ -535,7 +536,7 @@ $(function () {
     // Creating list of deals
     var creatinglistOfDeals = function () {
         $('.column-one').empty();
-        $('.column-two').empty();
+        
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
@@ -578,7 +579,7 @@ $(function () {
 
     // Requesting form for deal edit
     $('.column-one').on('click', '.dealEdit', function () {
-
+        $('.column-two').empty();
         var id = $(this).parent().attr('id');
 
         $.ajax({
@@ -593,7 +594,7 @@ $(function () {
 
     // Deleting deal
     $('.column-one').on('click', '.dealDelete', function () {
-
+        $('.column-two').empty();
         var id = $(this).parent().attr('id');
         var del = confirm("Are you sure that you want to delete this deal?");
 
@@ -604,7 +605,7 @@ $(function () {
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
                  
-                    $(".actionSuccses").text("Deal Deleted Succesfully");
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Deal Deleted Succesfully</h3>")
                     dataRequest();
                     creatinglistOfDeals();
                 }
@@ -615,7 +616,7 @@ $(function () {
 
     // New deal submission
     $('.column-two').on('click', '#submitNewDeal', function () {
-
+     
         let startDate = $('.StartDate').val();
         let returnDate = $('.sreturn ').val();
         let realReturn = $('.rreturn').val();
@@ -624,11 +625,11 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            data: { StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: clientID, CarID : carID},
+            data: { StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: parseInt(clientID), CarID : parseInt(carID)},
             url: '/Manager/SubmitNewDeal',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New deal submitted") {
-                    $(".actionSuccses").text("Deal Submitted Succesfully");
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Deal Added Succesfully</h3>")
                     dataRequest();
                     creatinglistOfDeals();
                 }
@@ -642,7 +643,7 @@ $(function () {
 
     //Deal edit submission
     $('.column-two').on('click', '#submitEditDeal', function () {
-
+        
         let dealID = $('.dealID').val();
         let startDate = $('.StartDate').val();
         let returnDate = $('.sreturn ').val();
@@ -652,11 +653,11 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            data: {ID: dealID, StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: clientID, CarID: carID },
+            data: {ID: dealID, StartDate: startDate, SupposedReturn: returnDate, RealReturn: realReturn, ClientID: parseInt(clientID), CarID: parseInt(carID) },
             url: '/Manager/SubmitEditDeal',
             success: function (data, textStatus, jqXHR) {
-                if (deal.ActionResult == "Deal edit submitted") {
-                    $(".actionSuccses").text("Deal Edited Succesfully");
+                if (data.ActionResult == "Deal edit submitted") {
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Deal Edited Succesfully</h3>")
                     dataRequest();
                     creatinglistOfDeals();
                 }
@@ -746,7 +747,7 @@ $(function () {
 
     // Deleting manufactorer
     $('.column-one').on('click', '.manDelete', function () {
-        
+        $('.column-two').empty();
         var id = $(this).parent().attr('id');
         var del = confirm("Are you sure that you want to delete this manufactorer?");
 
@@ -791,7 +792,7 @@ $(function () {
 
 
     $('.column-two').on('click', '#submitEditManuf', function () {
-
+      
         let manID = $('.manID').val();
         let manufacName = $('.manname').val();
 

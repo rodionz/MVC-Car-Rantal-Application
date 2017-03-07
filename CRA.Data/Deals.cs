@@ -16,7 +16,7 @@ namespace CarRental.Data
 
         public DateTime? SupposedReturn { get; set; }
 
-        public DateTime? RealReturn { get; set; }
+        public DateTime? Realreturn { get; set; }
 
         public int? UserId { get; set; }
 

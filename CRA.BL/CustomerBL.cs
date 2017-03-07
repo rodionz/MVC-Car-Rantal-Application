@@ -55,7 +55,7 @@ namespace CarRental.BL
         {
             using (var context = new CarRentalContext())
             {
-                deal.RealReturn = null;
+                deal.Realreturn = null;
                 context.Deals.Attach(deal);
                 context.Entry(deal).State = EntityState.Added;
                 context.SaveChanges();

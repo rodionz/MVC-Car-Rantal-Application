@@ -93,7 +93,7 @@ namespace CarRental.BL
                                
             }
 
-            dealToClose.RealReturn = returndate;
+            dealToClose.Realreturn = returndate;
 
             using (var context = new CarRentalContext())
             {

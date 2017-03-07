@@ -35,16 +35,34 @@ namespace CarRental.MVC.Models
 
         public  Deal toBaseDateDetails ()
         {
-            return new Deal
-            {
-                ID = ID,
-                Start = Convert.ToDateTime(StartDate),
-                SupposedReturn = Convert.ToDateTime(SupposedReturn),
-                RealReturn = Convert.ToDateTime(RealReturn),
-                UserId = ClientID,
-                CarID = CarID
 
-            };
+            if (RealReturn != null)
+            {
+                return new Deal
+                {
+                    ID = ID,
+                    Start = Convert.ToDateTime(StartDate),
+                    SupposedReturn = Convert.ToDateTime(SupposedReturn),
+                    Realreturn = Convert.ToDateTime(RealReturn),
+                    UserId = ClientID,
+                    CarID = CarID
+
+                };
+            }
+
+            else
+            {
+                return new Deal
+                {
+                    ID = ID,
+                    Start = Convert.ToDateTime(StartDate),
+                    SupposedReturn = Convert.ToDateTime(SupposedReturn),
+                    Realreturn = null,
+                    UserId = ClientID,
+                    CarID = CarID
+
+                };
+            }
         }
 
 
@@ -61,9 +79,9 @@ namespace CarRental.MVC.Models
 
             this.SupposedReturn = domainDealDetails.SupposedReturn.Value.ToShortDateString();
 
-            if(domainDealDetails.RealReturn.HasValue)
+            if(domainDealDetails.Realreturn.HasValue)
             {
-                this.RealReturn = domainDealDetails.RealReturn.Value.ToShortDateString();
+                this.RealReturn = domainDealDetails.Realreturn.Value.ToShortDateString();
             }
             
 
