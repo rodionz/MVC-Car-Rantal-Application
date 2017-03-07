@@ -14,7 +14,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "StartDate form-control" } })
+                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "StartDate form-control", id = "datepicker" } })
                 @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SupposedReturn, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @Html.EditorFor(model => model.SupposedReturn, new { htmlAttributes = new { @class = "sreturn form-control" } })
+                @Html.EditorFor(model => model.SupposedReturn, new { htmlAttributes = new { @class = "sreturn form-control", id = "datepicker1" } })
                 @Html.ValidationMessageFor(model => model.SupposedReturn, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.RealReturn, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @Html.EditorFor(model => model.RealReturn, new { htmlAttributes = new { @class = "rreturn form-control" } })
+                @Html.EditorFor(model => model.RealReturn, new { htmlAttributes = new { @class = "rreturn form-control", id = "datepicker2" } })
                 @Html.ValidationMessageFor(model => model.RealReturn, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -59,7 +59,17 @@
     </div>
 }
 
+<script>
+    $(function () {
 
+        $('#datepicker').datepicker();
+
+        $('#datepicker1').datepicker();
+
+        $('#datepicker2').datepicker();
+    });
+
+</script>
 
 <script src="~/Scripts/ScriptLibriaries/jquery.validate.min.js"></script>
 <script src="~/Scripts/ScriptLibriaries/jquery.validate.unobtrusive.min.js"></script>

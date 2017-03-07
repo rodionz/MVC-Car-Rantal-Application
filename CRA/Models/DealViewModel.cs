@@ -13,15 +13,21 @@ namespace CarRental.MVC.Models
      
         public int ID { get; set; }
 
+        [Required]
         public string StartDate { get; set; }
 
+
+        [Required]
         public string SupposedReturn { get; set; }
 
+       
         public string RealReturn { get; set; }
 
+        [Required]
         [Display(Name = "Id of Client")]
         public int? ClientID { get; set; }
         
+        [Required]
         [Display(Name = "Id of Car")]
         public int? CarID { get; set; }
 
