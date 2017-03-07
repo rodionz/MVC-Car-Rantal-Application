@@ -73,9 +73,9 @@ $(function () {
 
     var listofModels = function () {
 
-        $('footer').removeClass('bottomfooter');
+        
         $('.column-one').empty();
-        $('.column-two').empty();
+        
         var table = document.createElement('table');
         table.setAttribute("id", "mytable");
         table.className = "table table-striped table-bordered table-hover";
@@ -104,7 +104,7 @@ $(function () {
     // Requesting form for model editing
     $('.column-one').on('click', '.modelEdit', function () {
         var id = $(this).parent().attr('id');
-
+        $('.column-two').empty();
         $.ajax({
             type: 'GET',
             data: { ManagerAction: 'EditModel', ID: id },
@@ -119,7 +119,7 @@ $(function () {
 
     // Deleting model
     $('.column-one').on('click', '.modelDelete', function () {
-
+        $('.column-two').empty();
         var id = $(this).parent().attr('id');
 
 
@@ -145,7 +145,7 @@ $(function () {
 
     // New model submission
     $('.column-two').on('click', '#submitNewModel', function () {
-
+        $('.column-two').empty();
         let manID = $('.ManufacturerId').val();
         let modelName = $('.NameofModel').val();
         let dailyPrice = $('.DailyPrice').val();
@@ -174,7 +174,7 @@ $(function () {
 
     // Model editing submission
     $('.column-two').on('click', '#submitEditModel', function () {
-
+        $('.column-two').empty();
         let modelID = $('.modelID').val();
         let manID = $('.ManufacturerId').val();
         let modelName = $('.NameofModel').val();      
@@ -188,7 +188,8 @@ $(function () {
             url: '/Manager/SubmitEditModel',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Model Edited") {
-                    $(".actionSuccses").text("Model Edited Succesfully");
+                    $('.column-two').append("<p> class='actionSuccses'>Model Edited Succesfully</p>")
+                   
                     dataRequest();
                     listofModels();
                 }
@@ -675,6 +676,7 @@ $(function () {
 
     // Requesting form for adding new manufactorer
     $('.column-one').on('click', '.addManufatorer', function () {
+        $('.column-two').empty();
         $.ajax({
             type: "GET",
             data: { ManagerAction: 'AddManufacturer' },
@@ -692,7 +694,7 @@ $(function () {
     var listofManufactorers = function () {
 
         $('.column-one').empty();
-        $('.column-two').empty();
+        
         var table = document.createElement('table');
         var addButton = document.createElement('button');
         addButton.className = "addbutton addManufatorer btn btn-success";
@@ -726,7 +728,7 @@ $(function () {
 
     // Requesting form for manufacturer edit
     $('.column-one').on('click', '.manEdit', function () {
-
+        $('.column-two').empty();
         var id = $(this).parent().attr('id');
 
         $.ajax({
@@ -744,7 +746,7 @@ $(function () {
 
     // Deleting manufactorer
     $('.column-one').on('click', '.manDelete', function () {
-
+        
         var id = $(this).parent().attr('id');
         var del = confirm("Are you sure that you want to delete this manufactorer?");
 
@@ -755,7 +757,7 @@ $(function () {
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
                 
-                    $(".actionSuccses").text("Manufactorer Deleted Succesfully");
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Manufactorer Deleted Succesfully</h3>")
                     dataRequest();
                     listofManufactorers();
                 }
@@ -765,7 +767,7 @@ $(function () {
 
 
     $('.column-two').on('click', '#submitNewManuf', function () {
-
+       
         let manufacName = $('.manname').val();
 
         $.ajax({
@@ -774,7 +776,7 @@ $(function () {
             url: '/Manager/SubmitNewManufacturer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New manufactorer submitted") {
-                    $(".actionSuccses").text("Manufactorer Submitted Succesfully");
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Manufactorer Added Succesfully</h3>")
                     dataRequest();
                     listofManufactorers();
                 }
@@ -799,7 +801,8 @@ $(function () {
             url: '/Manager/SubmitEditManufactorer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Manufactorer edit submitted") {
-                    $(".actionSuccses").text("Manufactorer Edited Succesfully");
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Manufactorer Edited Succesfully</h3>")
+                   
                     dataRequest();
                     listofManufactorers();
                 }
