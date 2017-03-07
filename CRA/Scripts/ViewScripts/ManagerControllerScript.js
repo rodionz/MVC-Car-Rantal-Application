@@ -305,8 +305,8 @@ $(function () {
       
         let firstName = $('.FirstName').val();
         let gender = $('.Gender').val();
-        let lastName = $('LastName').val();
-        let birthDay = $('BirthData').val();
+        let lastName = $('.LastName').val();
+        let birthDay = $('.BirthData').val();
         let email = $('.Email').val();
         let pass = $('.Password').val();
 
@@ -335,8 +335,8 @@ $(function () {
         let customerID = $('customerID').val();
         let firstName = $('.FirstName').val();
         let gender = $('.Gender').val();
-        let lastName = $('LastName').val();
-        let birthDay = $('BirthData').val();
+        let lastName = $('.LastName').val();
+        let birthDay = $('.BirthData').val();
         let email = $('.Email').val();
         let pass = $('.Password').val();
 

@@ -34,7 +34,7 @@
             <div class="col-md-5">
                 
                 @Html.EnumDropDownListFor(model => model.gender, "Select Gender", new { @class = "Gender form-control" })
-                @*@Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })*@
+                @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
             </div>
         </div>
 
