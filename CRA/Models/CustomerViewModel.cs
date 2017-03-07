@@ -36,7 +36,7 @@ namespace CarRental.MVC.Models
 
         [Required]
         [Display(Name = "Birth Data")]
-        [RegularExpression(@"/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/",ErrorMessage = "Please enter the date in MM/DD/YYYY")]
+        [RegularExpression(@"^(([0-2]\d|[3][0-1])\/([0]\d|[1][0-2])\/[2][0]\d{2})$|^(([0-2]\d|[3][0-1])\/([0]\d|[1][0-2])\/[2][0]\d{2}\s([0-1]\d|[2][0-3])\:[0-5]\d\:[0-5]\d)$", ErrorMessage = "Not A DateTime")]
         public DateTime? BirthData { get; set; }
 
         [Required]
@@ -48,7 +48,7 @@ namespace CarRental.MVC.Models
 
 
 
-        
+        [Required]
         [EmailAddress]       
         public string Email { get; set; }
 

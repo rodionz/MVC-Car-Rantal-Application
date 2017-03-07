@@ -209,6 +209,7 @@ $(function () {
 
     // Requesting form for adding new customer
     $('.column-one').on('click', '.addnewClient', function () {
+        $('.column-two').empty();
         $.ajax({
             type: "GET",
             data: {ManagerAction : 'AddCustomer'},
@@ -225,7 +226,7 @@ $(function () {
     var listofCustomers = function () {
 
         $('.column-one').empty();
-        $('.column-two').empty();
+       
         
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
@@ -236,12 +237,12 @@ $(function () {
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);
-        row.innerHTML = "<th>ID of Customer</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Password</th><th>Customers Editing</th>";
+        row.innerHTML = "<th>ID of Customer</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Username</th><th>Password</th><th>Customers Editing</th>";
         var body = table.createTBody();
 
         for (var model of  arrayofCustomers)
         {
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + moment(model.BirthData).format('MM/DD/YYYY') + "</td><td>" + model.Email + "</td><td>" + model.Password +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + moment(model.BirthData).format('MM/DD/YYYY') + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
                 "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary clientEdit'>Edit</button>     <button class='btn btn-sm btn-danger clientDelete'>Delete</button></span></td></tr>")
         }
 
@@ -263,7 +264,7 @@ $(function () {
 
     // Requesting form for customer editing
     $('.column-one').on('click', '.clientEdit', function () {
-
+        $('.column-two').empty();
         var id = $(this).parent().attr('id');
 
         $.ajax({
@@ -281,7 +282,7 @@ $(function () {
 
     // Deleting customer
     $('.column-one').on('click', '.clientDelete', function () {
-
+        $('.column-two').empty();
         var id = $(this).parent().attr('id');
 
         var del = confirm("Are you sure that you want to delete this customer?");
@@ -292,7 +293,7 @@ $(function () {
                 data: { ManagerAction: 'DeleteCustomer', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {                                    
-                    $(".actionSuccses").text("Customer Deleted Succesfully");
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Customer Deleted Succsesfully</h3>")
                     dataRequest();
                     listofCustomers();
                 }
@@ -309,14 +310,15 @@ $(function () {
         let birthDay = $('.BirthData').val();
         let email = $('.Email').val();
         let pass = $('.Password').val();
+        let username = $('.Username').val();
 
         $.ajax({
             type: 'GET',
-            data: {  FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password : pass},
+            data: {  FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, UserName : username, Password : pass},
             url: '/Manager/SubmitNewCustomer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New Customer Submitted") {
-                    $(".actionSuccses").text("Customer Added Succesfully");
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Customer Added Succesfully</h3>")
                     dataRequest();
                     listofCustomers();
                 }
@@ -339,14 +341,15 @@ $(function () {
         let birthDay = $('.BirthData').val();
         let email = $('.Email').val();
         let pass = $('.Password').val();
+        let username = $('.Username').val();
 
         $.ajax({
             type: 'GET',
-            data: { ID: customerID, FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, Password: pass },
+            data: { ID: customerID, FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
             url: '/Manager/SubmitEditCustomer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Customer edit submitted") {
-                    $(".actionSuccses").text("Customer Edited Succesfully");
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Customer Edited Succesfully</h3>")
                     dataRequest();
                     listofCustomers();
                 }
