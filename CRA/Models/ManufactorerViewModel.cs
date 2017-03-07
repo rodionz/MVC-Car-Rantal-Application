@@ -12,7 +12,7 @@ namespace CarRental.Models
 
         public int ID { get; set; }
 
-
+        [Required]
         [Display (Name ="Manufactorer Name")]
         public string manufacturerName { get; set; }
 
@@ -36,6 +36,9 @@ namespace CarRental.Models
                 Manufacturer = manufacturerName,               
             };
         }
+
+
+        public ManufactorerViewModel() { }
 
     }
 }

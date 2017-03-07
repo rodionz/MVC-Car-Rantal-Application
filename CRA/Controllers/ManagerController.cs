@@ -358,6 +358,7 @@ namespace CarRental.Controllers
 
             else
             {
+                IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
                 return PartialView("~/Views/Manager/Partials/AddManufacturer.cshtml");
             }
         }
