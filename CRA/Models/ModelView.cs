@@ -23,7 +23,7 @@ namespace CarRental.MVC.Models
         [Required]
         [Display(Name ="Manufacturer's ID")]
         [ManufactorerIdValidation]
-        public int? ManufacturerId { get; set; }
+        public int ManufacturerId { get; set; }
 
         [Required]
         [Display(Name = "Name of Model")]
