@@ -333,10 +333,11 @@ $(function () {
         let email = $('.Email').val();
         let pass = $('.Password').val();
         let username = $('.Username').val();
+        let userRole = $('.Role').val();
 
         $.ajax({
             type: 'GET',
-            data: {  FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, UserName : username, Password : pass},
+            data: {  FirstName: firstName, LastName: lastName, role : userRole, gender: gender, BirthData: birthDay, Email: email, UserName : username, Password : pass},
             url: '/Manager/SubmitNewCustomer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New Customer Submitted") {
@@ -365,10 +366,11 @@ $(function () {
         let email = $('.Email').val();
         let pass = $('.Password').val();
         let username = $('.Username').val();
+        let userRole = $('.Role').val();
 
         $.ajax({
             type: 'GET',
-            data: { ID: customerID, FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
+            data: { ID: customerID, FirstName: firstName, LastName: lastName, role: userRole, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
             url: '/Manager/SubmitEditCustomer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Customer edit submitted") {

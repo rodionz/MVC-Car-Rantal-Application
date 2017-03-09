@@ -9,6 +9,8 @@ using CarRental.Data;
 namespace CarRental.MVC.Models
 {
 
+
+    public enum Roles { Manager, Employee, Customer };
   
 
     public class CustomerViewModel
@@ -24,6 +26,12 @@ namespace CarRental.MVC.Models
         [Required]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "Lastname must contain at least 2 chatracters")]
         public string LastName { get; set; }
+
+
+        [Required]
+        [Display(Name = "User's Role")]
+        [EnumDataType(typeof(Roles), ErrorMessage = "Please enter a valid Role of the user")]
+        public Roles role { get; set; }
 
         [Display (Name = "Full Name")]
         public string FullName
