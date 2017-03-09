@@ -28,6 +28,8 @@ namespace CarRental.MVC.Models
 
 
 
+        public BranchViewModel() { }
+
 
         public  Branch toBaseBranchDetails ()
         {

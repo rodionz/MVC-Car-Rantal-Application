@@ -35,7 +35,9 @@ namespace CarRental.MVC.Models
         [ModelIDValidation]
         public int? ModelID { get; set; }
 
-    
+
+
+        public CarViewModel() { }
 
 
         public  Car toBaseCarDetails ()
