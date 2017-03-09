@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using CarRental.Data;
 using System.ComponentModel.DataAnnotations;
+using CarRental.Models;
 
 namespace CarRental.MVC.Models
 {
@@ -28,6 +29,7 @@ namespace CarRental.MVC.Models
         public int? ClientID { get; set; }
         
         [Required]
+        [CarIDValidation]
         [Display(Name = "Id of Car")]
         public int? CarID { get; set; }
 
