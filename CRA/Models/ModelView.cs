@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using CarRental.Data;
 using System.Web.Mvc;
+using CarRental.Models;
 
 namespace CarRental.MVC.Models
 {
@@ -21,6 +22,7 @@ namespace CarRental.MVC.Models
 
         [Required]
         [Display(Name ="Manufacturer's ID")]
+        [ModelValidation]
         public int? ManufacturerId { get; set; }
 
         [Required]

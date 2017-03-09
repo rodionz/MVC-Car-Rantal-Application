@@ -432,9 +432,7 @@ $(function () {
             data: { ManagerAction: 'EditCar', ID: id },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);
-                console.log("Client Edit");
-                console.log(id);
+                $('.column-two').html(data);              
             }
         });
     }
@@ -461,7 +459,7 @@ $(function () {
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
                     $('.column-two').empty();
-                    $(".actionSuccses").text("Car Deleted Succesfully");
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Car Deleted Succesfully</h3>");
                     dataRequest();
                     listofCars();
                 }
@@ -487,7 +485,7 @@ $(function () {
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New car submitted") {
                     $('.column-two').empty();
-                    $(".actionSuccses").text("Car Submitted Succesfully");
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Car Added Succesfully</h3>");
                     dataRequest();
                     listofCars();
                 }
@@ -515,7 +513,7 @@ $(function () {
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Car edit submitted") {
                     $('.column-two').empty();
-                    $(".actionSuccses").text("Car Edited Succesfully");
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Car Edited Succesfully</h3>");
                     dataRequest();
                     listofCars();
                 }
