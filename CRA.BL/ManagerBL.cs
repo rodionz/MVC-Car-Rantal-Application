@@ -146,8 +146,32 @@ namespace CarRental.BL
 
         }
 
-     
 
+        public IEnumerable<User> GetAllCustomers()
+        {
+            using (var context = new CarRentalContext())
+            {
+                var allusers = (from u in context.Users
+                                where u.Roles.FirstOrDefault().RoleName == "Customer"
+                                select u).ToArray();
+
+                return allusers;
+            }
+
+        }
+
+        public IEnumerable<User> GetAllEmployees()
+        {
+            using (var context = new CarRentalContext())
+            {
+                var allusers = (from u in context.Users
+                                where u.Roles.FirstOrDefault().RoleName == "Employee"
+                                select u).ToArray();
+
+                return allusers;
+            }
+
+        }
 
         public void AddClient(User client)
         {

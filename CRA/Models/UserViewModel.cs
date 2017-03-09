@@ -13,7 +13,7 @@ namespace CarRental.MVC.Models
     public enum Roles { Manager, Employee, Customer };
   
 
-    public class CustomerViewModel
+    public class UserViewModel
     {
        
 
@@ -61,7 +61,7 @@ namespace CarRental.MVC.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(30, MinimumLength = 2,ErrorMessage = "Username must contain at least 6 chatracters")]        
+        [StringLength(30, MinimumLength = 6,ErrorMessage = "Username must contain at least 6 chatracters")]        
         public string UserName { get; set; }
 
         [Required]
@@ -73,8 +73,8 @@ namespace CarRental.MVC.Models
 
 
 
+        
 
-       
 
 
         public   User toBaseClient_Details()
@@ -89,16 +89,18 @@ namespace CarRental.MVC.Models
                 Email = Email,
                 UserName = UserName,
                 Password = Password,
-                Picture = Picture
+                Picture = Picture,
+                
+
 
             };
         }
 
 
-        public CustomerViewModel() { }
+        public UserViewModel() { }
 
 
-        public CustomerViewModel(User domainClieentDetails)
+        public UserViewModel(User domainClieentDetails)
         {
             
 

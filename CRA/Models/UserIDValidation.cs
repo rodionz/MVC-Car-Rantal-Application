@@ -9,16 +9,16 @@ using System.Web;
 
 namespace CarRental.Models
 {
-    public class CustomersIDValidation : ValidationAttribute
+    public class UserIDValidation : ValidationAttribute
     {
         private readonly ManagerBL _manager;
 
-        private static IEnumerable<CustomerViewModel> allCustomers;
+        private static IEnumerable<UserViewModel> allCustomers;
 
         public override bool IsValid(object value)
         {
 
-            allCustomers = _manager.GetAllUsers().Select(u => new CustomerViewModel(u));
+            allCustomers = _manager.GetAllUsers().Select(u => new UserViewModel(u));
 
             if (value != null)
             {
@@ -48,7 +48,7 @@ namespace CarRental.Models
 
 
 
-        public CustomersIDValidation()
+        public UserIDValidation()
         {
             _manager = new ManagerBL();
             ErrorMessage = "Customer Does Not Exist";

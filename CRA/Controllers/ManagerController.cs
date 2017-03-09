@@ -26,7 +26,9 @@ namespace CarRental.Controllers
 
         private static IEnumerable<DealViewModel> allDeals;
 
-        private static IEnumerable<CustomerViewModel> allCustomers;
+        private static IEnumerable<UserViewModel> allCustomers;
+
+        private static IEnumerable<UserViewModel> allEmployees;
 
 
         public ManagerController()
@@ -58,7 +60,9 @@ namespace CarRental.Controllers
 
             allDeals = _manager.GetAllDeals().Select(d => new DealViewModel(d));
 
-            allCustomers = _manager.GetAllUsers().Select(u => new CustomerViewModel(u));
+            allCustomers = _manager.GetAllCustomers().Select(u => new UserViewModel(u));
+
+            allEmployees = _manager.GetAllEmployees().Select(u => new UserViewModel(u));
 
             var managerHelper = new HelpViewModel();
 
@@ -231,7 +235,7 @@ namespace CarRental.Controllers
 
 
         [Authorize(Roles = "Manager")]
-        public ActionResult SubmitNewCustomer(CustomerViewModel cmv)
+        public ActionResult SubmitNewCustomer(UserViewModel cmv)
         {
             if (ModelState.IsValid)
             {
@@ -254,7 +258,7 @@ namespace CarRental.Controllers
 
 
         [Authorize(Roles = "Manager")]
-        public ActionResult SubmitEditCustomer(CustomerViewModel cmv)
+        public ActionResult SubmitEditCustomer(UserViewModel cmv)
         {
             if (ModelState.IsValid)
             {

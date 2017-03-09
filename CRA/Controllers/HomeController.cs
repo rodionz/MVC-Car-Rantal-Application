@@ -117,7 +117,7 @@ namespace CarRental.Controllers
 
       
         [HttpPost]
-        public ActionResult SignUp(CustomerViewModel CVM)
+        public ActionResult SignUp(UserViewModel CVM)
         {
           
             if (_roleprovider.UserExists(CVM.UserName))
@@ -132,7 +132,7 @@ namespace CarRental.Controllers
 
                 TempData["Success"] = "You were Signed Up Successfully!";
                 ModelState.Clear();
-                var model = new CustomerViewModel();
+                var model = new UserViewModel();
                 return View(model);
             }
 

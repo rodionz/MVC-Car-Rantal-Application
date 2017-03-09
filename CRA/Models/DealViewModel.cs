@@ -25,7 +25,7 @@ namespace CarRental.MVC.Models
         public string RealReturn { get; set; }
 
         [Required]
-        [CustomersIDValidation]
+        [UserIDValidation]
         [Display(Name = "Id of Client")]
         public int? ClientID { get; set; }
         

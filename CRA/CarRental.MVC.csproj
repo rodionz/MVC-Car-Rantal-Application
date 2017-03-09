@@ -446,16 +446,16 @@
     <Compile Include="Models\BranchViewModel.cs" />
     <Compile Include="Models\CarIDValidation.cs" />
     <Compile Include="Models\CarViewModel.cs" />
-    <Compile Include="Models\CustomersIDValidation.cs" />
+    <Compile Include="Models\UserIDValidation.cs" />
     <Compile Include="Models\HelpViewModel.cs" />
     <Compile Include="Models\ManufactorerViewModel.cs" />
-    <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\DealViewModel.cs" />
     <Compile Include="Models\ManufactorerIdValidation.cs" />
     <Compile Include="Models\ModelIDValidation.cs" />
     <Compile Include="Models\ModelView.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
-    <Compile Include="Models\ValidationViewModel.cs" />
+    <Compile Include="Models\ModelViewValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
