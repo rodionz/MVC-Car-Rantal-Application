@@ -28,7 +28,7 @@ $(function () {
              arrayofManufactorers = result.AllManufacturers;
              arrayofCustomers = result.AllCustomers;
              arrayofDeals = result.AllDeals;
-             console.log(result);
+            
             }
         })         
     }
@@ -159,7 +159,7 @@ $(function () {
             url: '/Manager/SubmitNewModel',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Model Added") {
-                    $(".actionSuccses").text("Model Added Succesfully");
+                    $('.column-two').append("<p> class='actionSuccses'>Model Added Succesfully</p>")
                     dataRequest();
                     listofModels();
                 }
