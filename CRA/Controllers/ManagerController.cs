@@ -74,6 +74,8 @@ namespace CarRental.Controllers
 
             managerHelper.AllCustomers = allCustomers;
 
+            managerHelper.AllEmployees = allEmployees;
+
             managerHelper.AllCars = allCars;
 
             return Json(managerHelper, JsonRequestBehavior.AllowGet);
