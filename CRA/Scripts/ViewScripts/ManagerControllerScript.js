@@ -124,7 +124,7 @@ $(function () {
         var id = $(this).parent().attr('id');
 
 
-        var del = confirm("Are you sure that you want to delete this model");
+        var del = confirm("Are you sure that you want to delete this model?");
 
         if (del) {
             $.ajax({
@@ -135,7 +135,8 @@ $(function () {
                
                     dataRequest();
                     listofModels();
-                    $(".actionSuccses").text("Model Deleted Succesfully");
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Model Deleted Succesfully</h3>")
 
                 }
             });
@@ -159,7 +160,8 @@ $(function () {
             url: '/Manager/SubmitNewModel',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Model Added") {
-                    $('.column-two').append("<p> class='actionSuccses'>Model Added Succesfully</p>")
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Model Added Succesfully</h3>")
                     dataRequest();
                     listofModels();
                 }
@@ -179,7 +181,7 @@ $(function () {
         let modelID = $('.modelID').val();
         let manID = $('.ManufacturerId').val();
         let modelName = $('.NameofModel').val();      
-        let gear = $('.Gear').val();
+        let _gear = $('.Gear').val();
         let dailyPrice = $('.DailyPrice').val();
         let lateReturnFine = $('.LateReturnFine').val();
 
@@ -189,7 +191,8 @@ $(function () {
             url: '/Manager/SubmitEditModel',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Model Edited") {
-                    $('.column-two').append("<p> class='actionSuccses'>Model Edited Succesfully</p>")
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Model Edited Succesfully</h3>")
                    
                     dataRequest();
                     listofModels();
@@ -293,7 +296,8 @@ $(function () {
                 type: 'GET',
                 data: { ManagerAction: 'DeleteCustomer', ID: id },
                 url: '/Manager/ManagerActions',
-                success: function (data, textStatus, jqXHR) {                                    
+                success: function (data, textStatus, jqXHR) {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Customer Deleted Succsesfully</h3>")
                     dataRequest();
                     listofCustomers();
@@ -319,6 +323,7 @@ $(function () {
             url: '/Manager/SubmitNewCustomer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New Customer Submitted") {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Customer Added Succesfully</h3>")
                     dataRequest();
                     listofCustomers();
@@ -350,6 +355,7 @@ $(function () {
             url: '/Manager/SubmitEditCustomer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Customer edit submitted") {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Customer Edited Succesfully</h3>")
                     dataRequest();
                     listofCustomers();
@@ -453,7 +459,8 @@ $(function () {
                 type: 'GET',
                 data: { ManagerAction: 'DeleteCar', ID: id },
                 url: '/Manager/ManagerActions',
-                success: function (data, textStatus, jqXHR) {                    
+                success: function (data, textStatus, jqXHR) {
+                    $('.column-two').empty();
                     $(".actionSuccses").text("Car Deleted Succesfully");
                     dataRequest();
                     listofCars();
@@ -479,6 +486,7 @@ $(function () {
             url: '/Manager/SubmitNewCar',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New car submitted") {
+                    $('.column-two').empty();
                     $(".actionSuccses").text("Car Submitted Succesfully");
                     dataRequest();
                     listofCars();
@@ -506,6 +514,7 @@ $(function () {
             url: '/Manager/SubmitEditCar',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Car edit submitted") {
+                    $('.column-two').empty();
                     $(".actionSuccses").text("Car Edited Succesfully");
                     dataRequest();
                     listofCars();
@@ -608,7 +617,7 @@ $(function () {
                 data: { ManagerAction: 'DeleteDeal', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
-                 
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Deal Deleted Succesfully</h3>")
                     dataRequest();
                     creatinglistOfDeals();
@@ -633,6 +642,7 @@ $(function () {
             url: '/Manager/SubmitNewDeal',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New deal submitted") {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Deal Added Succesfully</h3>")
                     dataRequest();
                     creatinglistOfDeals();
@@ -661,6 +671,7 @@ $(function () {
             url: '/Manager/SubmitEditDeal',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Deal edit submitted") {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Deal Edited Succesfully</h3>")
                     dataRequest();
                     creatinglistOfDeals();
@@ -761,7 +772,7 @@ $(function () {
                 data: { ManagerAction: 'DeleteManufactorer', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
-                
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Manufactorer Deleted Succesfully</h3>")
                     dataRequest();
                     listofManufactorers();
@@ -781,6 +792,7 @@ $(function () {
             url: '/Manager/SubmitNewManufacturer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New manufactorer submitted") {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Manufactorer Added Succesfully</h3>")
                     dataRequest();
                     listofManufactorers();
