@@ -12,47 +12,47 @@
         @Html.HiddenFor(model => model.ID, new {@class = "dealID" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "StartDate form-control", id = "datepicker" } })
                 @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SupposedReturn, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.SupposedReturn, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.SupposedReturn, new { htmlAttributes = new { @class = "sreturn form-control", id = "datepicker1" } })
                 @Html.ValidationMessageFor(model => model.SupposedReturn, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RealReturn, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.RealReturn, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.RealReturn, new { htmlAttributes = new { @class = "rreturn form-control", id = "datepicker2" } })
                 @Html.ValidationMessageFor(model => model.RealReturn, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ClientID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.ClientID, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.ClientID, new { htmlAttributes = new { @class = "Client form-control" } })
                 @Html.ValidationMessageFor(model => model.ClientID, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CarID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.CarID, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.CarID, new { htmlAttributes = new { @class = "Car form-control" } })
                 @Html.ValidationMessageFor(model => model.CarID, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-5">
+            <div class="col-sm-offset-2 col-sm-5">
                 <input type="button" value="Save" class="btn btn-default" id="submitEditDeal"/>  <input type="button" value="Cancel" class="btn btn-default cancel" />
             </div>
         </div>

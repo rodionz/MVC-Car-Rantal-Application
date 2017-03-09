@@ -11,40 +11,45 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID, new {@class = "carID" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Mileage, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
-                @Html.EditorFor(model => model.Mileage, new { htmlAttributes = new { @class = "Mileage form-control" } })
-                @Html.ValidationMessageFor(model => model.Mileage, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CarNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
-                @Html.EditorFor(model => model.CarNumber, new { htmlAttributes = new { @class = "CarNumber form-control" } })
-                @Html.ValidationMessageFor(model => model.CarNumber, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BranchID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
-                @Html.EditorFor(model => model.BranchID, new { htmlAttributes = new { @class = "Branch form-control" } })
-                @Html.ValidationMessageFor(model => model.BranchID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ModelID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.ModelID, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.ModelID, new { htmlAttributes = new { @class = "Model form-control" } })
                 @Html.ValidationMessageFor(model => model.ModelID, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-5">
+            @Html.LabelFor(model => model.BranchID, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
+                @Html.EditorFor(model => model.BranchID, new { htmlAttributes = new { @class = "Branch form-control" } })
+                @Html.ValidationMessageFor(model => model.BranchID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarNumber, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
+                @Html.EditorFor(model => model.CarNumber, new { htmlAttributes = new { @class = "CarNumber form-control" } })
+                @Html.ValidationMessageFor(model => model.CarNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+      
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mileage, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
+                @Html.EditorFor(model => model.Mileage, new { htmlAttributes = new { @class = "Mileage form-control" } })
+                @Html.ValidationMessageFor(model => model.Mileage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+      
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
                 <input type="button" value="Save" class="btn btn-default" id="submitEditCar" />  <input type="button" value="Cancel" class="btn btn-default cancel" />
             </div>
         </div>

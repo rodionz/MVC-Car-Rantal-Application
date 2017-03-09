@@ -406,11 +406,14 @@ $(function () {
 
 
     // Creating list of cars
-    $('#carList').on('click', function () {
+
+  
+
+        var listofCars = function () {
 
         $('footer').removeClass('bottomfooter');
         $('.column-one').empty();
-        $('.column-two').empty();
+        
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
@@ -420,28 +423,49 @@ $(function () {
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);   
-        row.innerHTML = "<th>ID of Car</th><th>Mileage</th><th>CarNumber</th><th>Branch ID</th><th>Model ID</th><th>Edit Car</th>";
+        row.innerHTML = "<th>ID of Car</th><th>Model ID</th><th>Branch ID</th><th>Mileage</th><th>CarNumber</th><th>Edit Car</th>";
         var body = table.createTBody();
+
+        function branch(num) {
+            if (num == 1) {
+                return "King David";
+            }
+
+            else if (num == 2) {
+                return "Ramat Aviv";
+            }
+
+            else if (num == 3)
+            {
+                return "Hof ha Carmel";
+            }
+
+        }
+
 
         for (var model of  arrayofCars)
         {
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID +
-                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary carEdit'>Edit</button>     <button class='btn btn-xs btn-danger carDelete'>Delete</button></span></td></tr>");
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.ModelID + "</td><td>" + branch(model.BranchID) + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary carEdit'>Edit</button>     <button class='btn btn-xs btn-danger carDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
         $('#mytable').DataTable();
-    });
+    };
 
 
+        $('#carList').on('click', function () {
+            $('.column-two').empty();
+            listofCars();
+        });
 
 
 
 
     // Requesting form for car edit
 
-    var listofCars = function () {
-
+   
+    $('.column-one').on('click', '.carEdit', function () {
+        $('.column-two').empty();
         var id = $(this).parent().attr('id');
 
         $.ajax({
@@ -452,13 +476,7 @@ $(function () {
                 $('.column-two').html(data);              
             }
         });
-    }
-
-
-
-    $('.column-one').on('click', '.carEdit', function () {
-        $('.column-two').empty();
-        listofCars();
+       
     });
 
 
@@ -658,10 +676,10 @@ $(function () {
             url: '/Manager/SubmitNewDeal',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New deal submitted") {
-                    $('.column-two').empty();
-                    $('.column-two').prepend("<h3 class='actionSuccses'> Deal Added Succesfully</h3>")
+                    $('.column-two').empty();                   
                     dataRequest();
                     creatinglistOfDeals();
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Deal Added Succesfully</h3>")
                 }
                 else {
                     $('.column-two').html(data);
