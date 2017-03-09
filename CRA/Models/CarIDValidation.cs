@@ -17,7 +17,7 @@ namespace CarRental.Models
         public override bool IsValid(object value)
         {
 
-            allCars = guest.GetAllCars().Select(c => new CarViewModel(c));
+            allCars = guest.GetAllCarsinProperState().Select(c => new CarViewModel(c));
 
             if (value != null)
             {

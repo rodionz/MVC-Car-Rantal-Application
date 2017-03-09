@@ -52,7 +52,7 @@ namespace CarRental.Controllers
         public JsonResult HelpAjax()
         {
 
-            allCars = guest.GetAllCars().Select(c => new CarViewModel(c));
+            allCars = _manager.GetAllCars().Select(c => new CarViewModel(c));
 
             allmodels = guest.GettAllModels().Select(c => new ModelView(c));
 

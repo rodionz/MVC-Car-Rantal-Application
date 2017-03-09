@@ -12,7 +12,7 @@ namespace CRA.BL
   public class GuestBL
     {
 
-        public IEnumerable<Car> GetAllCars()
+        public IEnumerable<Car> GetAllCarsinProperState()
         {
             IEnumerable<Car> allCars;
 

@@ -92,7 +92,20 @@ namespace CarRental.BL
         }
 
 
+        public IEnumerable<Car> GetAllCars()
+        {
+            IEnumerable<Car> allCars;
 
+            using (var context = new CarRentalContext())
+            {
+                allCars = (from car in context.Cars
+                           .Include(c => c.Model.Manufacturer)                          
+                           orderby car.Model.NameofModel descending
+                           select car).ToArray();
+            }
+
+            return allCars;
+        }
 
 
         public void AddCar(Car car)
