@@ -1,4 +1,5 @@
-﻿using CarRental.BL;
+﻿using CarRent.Data;
+using CarRental.BL;
 using CarRental.Data;
 using CarRental.Models;
 using CarRental.MVC.Models;
@@ -300,8 +301,8 @@ namespace CarRental.Controllers
 
                 var domainclient = cmv.toBaseClient_Details();
 
-                //TODO
-                domainclient.Roles.Add();
+                //Need testing
+                domainclient.Roles.Add(new CarRent.Data.Roles { RoleName = "Employee", RoleId = (domainclient.Roles.Count + 1) });
 
                 _manager.AddClient(domainclient);
                 managerHelper.ActionResult = "New Employee Submitted";
