@@ -420,7 +420,7 @@ $(function () {
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
-        addButton.className = "addbutton addnewClient btn btn-success btn-sm";
+        addButton.className = "addbutton addnewEmployee btn btn-success btn-sm";
         addButton.textContent = "Add New Employee";
         $('.column-one').prepend(addButton);
         table.setAttribute("id", "mytable");
@@ -429,9 +429,9 @@ $(function () {
         row.innerHTML = "<th>ID of Customer</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Username</th><th>Password</th><th>Customers Editing</th>";
         var body = table.createTBody();
 
-        for (var model of arrayofCustomers) {
+        for (var model of arrayofEmployees) {
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + moment(model.BirthData).format('MM/DD/YYYY') + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
-                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary clientEdit'>Edit</button>     <button class='btn btn-xs btn-danger clientDelete'>Delete</button></span></td></tr>")
+                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary employeeEdit'>Edit</button>     <button class='btn btn-xs btn-danger employeeDelete'>Delete</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
@@ -451,8 +451,8 @@ $(function () {
 
 
 
-    // Requesting form for customer editing
-    $('.column-one').on('click', '.clientEdit', function () {
+    // Requesting form for employee editing
+    $('.column-one').on('click', '.employeeEdit', function () {
         $('.column-two').empty();
         var id = $(this).parent().attr('id');
 
