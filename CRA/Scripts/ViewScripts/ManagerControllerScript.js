@@ -426,7 +426,7 @@ $(function () {
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);
-        row.innerHTML = "<th>ID of Customer</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Username</th><th>Password</th><th>Customers Editing</th>";
+        row.innerHTML = "<th>ID of Employee</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Username</th><th>Password</th><th>Customers Editing</th>";
         var body = table.createTBody();
 
         for (var model of arrayofEmployees) {

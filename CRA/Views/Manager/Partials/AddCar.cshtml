@@ -55,9 +55,9 @@
      
         
         <div class="form-group">
-            @Html.LabelFor(model => model.ProperState, htmlAttributes: new { @class = "control-label col-sm-offset-2 col-sm-2" })
+            @Html.LabelFor(model => model.ProperState, htmlAttributes: new { @class = "control-label col-sm-2 col-sm-offset-2" })
             <div class="col-sm-5">
-                <div class="checkbox">
+                <div class="checkbox-inline">
                     @Html.EditorFor(model => model.ProperState)
                     @Html.ValidationMessageFor(model => model.ProperState, "", new { @class = "text-danger" })
                 </div>
@@ -67,7 +67,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-5">
-                <input type="button" value="Create" class="btn btn-default" id="submitNewCar"/>  <input type="button" value="Cancel" class="btn btn-default cancel" />
+                <input type="button" value="Create" class="btn btn-primary" id="submitNewCar"/>  <input type="button" value="Cancel" class="btn btn-danger cancel" />
             </div>
         </div>
     </div>
