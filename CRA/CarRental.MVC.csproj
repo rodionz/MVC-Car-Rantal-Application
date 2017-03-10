@@ -396,8 +396,15 @@
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\ScriptLibriaries\bootstrap.js" />
     <Content Include="Scripts\ScriptLibriaries\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\ScriptLibriaries\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ScriptLibriaries\jquery-1.10.2.js" />
     <Content Include="Scripts\ScriptLibriaries\jquery-1.10.2.min.js" />
@@ -442,15 +449,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BranchIDValidation.cs" />
     <Compile Include="Models\BranchViewModel.cs" />
+    <Compile Include="Models\CarIDValidation.cs" />
     <Compile Include="Models\CarViewModel.cs" />
+    <Compile Include="Models\UserIDValidation.cs" />
     <Compile Include="Models\HelpViewModel.cs" />
     <Compile Include="Models\ManufactorerViewModel.cs" />
-    <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\DealViewModel.cs" />
+    <Compile Include="Models\ManufactorerIdValidation.cs" />
+    <Compile Include="Models\ModelIDValidation.cs" />
     <Compile Include="Models\ModelView.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
-    <Compile Include="Models\ValidationViewModel.cs" />
+    <Compile Include="Models\ModelViewValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -28,7 +28,7 @@ $(function () {
              arrayofManufactorers = result.AllManufacturers;
              arrayofCustomers = result.AllCustomers;
              arrayofDeals = result.AllDeals;
-             console.log(result);
+            
             }
         })         
     }
@@ -67,10 +67,26 @@ $(function () {
 
     // Creating list of models
     $('#modelList').on('click', function () {
-
+        $('.column-two').empty();
         listofModels();
 
     });
+
+    function transmission(num) {
+
+        if (num == 0) {
+            return "Automatic";
+        }
+
+        else if (num == 1) {
+            return "Manual";
+        }
+
+        else if (num == 2) {
+            return "Robotic";
+        }
+
+    }
 
     var listofModels = function () {
 
@@ -86,14 +102,14 @@ $(function () {
         $('.column-one').prepend(addButton);
         var header = table.createTHead();
         var row = header.insertRow(0);
-        row.innerHTML = "<th>ID of Model</th><th>Name of Model</th><th>Dailt Price</th><th>Late Return Fine</th><th></th>";
+        row.innerHTML = "<th>ID of Model</th><th>Manufactorer</th><th>Name of Model</th><th>Transmission</th><th>Daily Price</th><th>Late Return Fine</th><th></th>";
         var body = table.createTBody();
 
         for (var model of arrayofModels)
         {
 
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.NameofModel + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine +
-                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary modelEdit' >Edit</button>     <button class='btn btn-sm btn-danger modelDelete'>Delete</button></span></td></tr>");
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.ManufacturerId + "</td><td>" + model.NameofModel + "</td><td>" + transmission(model.gear) + "</td><td>" + model.DailyPrice + "</td><td>" + model.LateReturnFine +
+                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary modelEdit' >Edit</button>     <button class='btn btn-xs btn-danger modelDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
@@ -124,7 +140,7 @@ $(function () {
         var id = $(this).parent().attr('id');
 
 
-        var del = confirm("Are you sure that you want to delete this model");
+        var del = confirm("Are you sure that you want to delete this model?");
 
         if (del) {
             $.ajax({
@@ -135,7 +151,8 @@ $(function () {
                
                     dataRequest();
                     listofModels();
-                    $(".actionSuccses").text("Model Deleted Succesfully");
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Model Deleted Succesfully</h3>")
 
                 }
             });
@@ -159,7 +176,8 @@ $(function () {
             url: '/Manager/SubmitNewModel',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Model Added") {
-                    $(".actionSuccses").text("Model Added Succesfully");
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Model Added Succesfully</h3>")
                     dataRequest();
                     listofModels();
                 }
@@ -179,7 +197,7 @@ $(function () {
         let modelID = $('.modelID').val();
         let manID = $('.ManufacturerId').val();
         let modelName = $('.NameofModel').val();      
-        let gear = $('.Gear').val();
+        let _gear = $('.Gear').val();
         let dailyPrice = $('.DailyPrice').val();
         let lateReturnFine = $('.LateReturnFine').val();
 
@@ -189,7 +207,8 @@ $(function () {
             url: '/Manager/SubmitEditModel',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Model Edited") {
-                    $('.column-two').append("<p> class='actionSuccses'>Model Edited Succesfully</p>")
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Model Edited Succesfully</h3>")
                    
                     dataRequest();
                     listofModels();
@@ -244,7 +263,7 @@ $(function () {
         for (var model of  arrayofCustomers)
         {
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + moment(model.BirthData).format('MM/DD/YYYY') + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
-                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary clientEdit'>Edit</button>     <button class='btn btn-sm btn-danger clientDelete'>Delete</button></span></td></tr>")
+                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary clientEdit'>Edit</button>     <button class='btn btn-xs btn-danger clientDelete'>Delete</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
@@ -257,6 +276,7 @@ $(function () {
 
 
     $('#clientList').on('click', function () {
+        $('.column-two').empty();
         listofCustomers();
     });
 
@@ -293,7 +313,8 @@ $(function () {
                 type: 'GET',
                 data: { ManagerAction: 'DeleteCustomer', ID: id },
                 url: '/Manager/ManagerActions',
-                success: function (data, textStatus, jqXHR) {                                    
+                success: function (data, textStatus, jqXHR) {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Customer Deleted Succsesfully</h3>")
                     dataRequest();
                     listofCustomers();
@@ -312,13 +333,15 @@ $(function () {
         let email = $('.Email').val();
         let pass = $('.Password').val();
         let username = $('.Username').val();
+        let userRole = $('.Role').val();
 
         $.ajax({
             type: 'GET',
-            data: {  FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, UserName : username, Password : pass},
+            data: {  FirstName: firstName, LastName: lastName, role : userRole, gender: gender, BirthData: birthDay, Email: email, UserName : username, Password : pass},
             url: '/Manager/SubmitNewCustomer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New Customer Submitted") {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Customer Added Succesfully</h3>")
                     dataRequest();
                     listofCustomers();
@@ -343,13 +366,15 @@ $(function () {
         let email = $('.Email').val();
         let pass = $('.Password').val();
         let username = $('.Username').val();
+        let userRole = $('.Role').val();
 
         $.ajax({
             type: 'GET',
-            data: { ID: customerID, FirstName: firstName, LastName: lastName, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
+            data: { ID: customerID, FirstName: firstName, LastName: lastName, role: userRole, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
             url: '/Manager/SubmitEditCustomer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Customer edit submitted") {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Customer Edited Succesfully</h3>")
                     dataRequest();
                     listofCustomers();
@@ -383,11 +408,14 @@ $(function () {
 
 
     // Creating list of cars
-    $('#carList').on('click', function () {
+
+  
+
+        var listofCars = function () {
 
         $('footer').removeClass('bottomfooter');
         $('.column-one').empty();
-        $('.column-two').empty();
+        
         var table = document.createElement('table');
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
@@ -397,28 +425,49 @@ $(function () {
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);   
-        row.innerHTML = "<th>ID of Car</th><th>Mileage</th><th>CarNumber</th><th>Branch ID</th><th>Model ID</th><th>Edit Car</th>";
+        row.innerHTML = "<th>ID of Car</th><th>Model ID</th><th>Branch ID</th><th>Mileage</th><th>CarNumber</th><th>Edit Car</th>";
         var body = table.createTBody();
+
+        function branch(num) {
+            if (num == 1) {
+                return "King David";
+            }
+
+            else if (num == 2) {
+                return "Ramat Aviv";
+            }
+
+            else if (num == 3)
+            {
+                return "Hof ha Carmel";
+            }
+
+        }
+
 
         for (var model of  arrayofCars)
         {
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.BranchID + "</td><td>" + model.ModelID +
-                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary carEdit'>Edit</button>     <button class='btn btn-sm btn-danger carDelete'>Delete</button></span></td></tr>");
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.ModelID + "</td><td>" + branch(model.BranchID) + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary carEdit'>Edit</button>     <button class='btn btn-xs btn-danger carDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
         $('#mytable').DataTable();
-    });
+    };
 
 
+        $('#carList').on('click', function () {
+            $('.column-two').empty();
+            listofCars();
+        });
 
 
 
 
     // Requesting form for car edit
 
-    var listofCars = function () {
-
+   
+    $('.column-one').on('click', '.carEdit', function () {
+        $('.column-two').empty();
         var id = $(this).parent().attr('id');
 
         $.ajax({
@@ -426,18 +475,10 @@ $(function () {
             data: { ManagerAction: 'EditCar', ID: id },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);
-                console.log("Client Edit");
-                console.log(id);
+                $('.column-two').html(data);              
             }
         });
-    }
-
-
-
-    $('.column-one').on('click', '.carEdit', function () {
-
-        listofCars();
+       
     });
 
 
@@ -453,8 +494,9 @@ $(function () {
                 type: 'GET',
                 data: { ManagerAction: 'DeleteCar', ID: id },
                 url: '/Manager/ManagerActions',
-                success: function (data, textStatus, jqXHR) {                    
-                    $(".actionSuccses").text("Car Deleted Succesfully");
+                success: function (data, textStatus, jqXHR) {
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Car Deleted Succesfully</h3>");
                     dataRequest();
                     listofCars();
                 }
@@ -479,7 +521,8 @@ $(function () {
             url: '/Manager/SubmitNewCar',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New car submitted") {
-                    $(".actionSuccses").text("Car Submitted Succesfully");
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Car Added Succesfully</h3>");
                     dataRequest();
                     listofCars();
                 }
@@ -506,7 +549,8 @@ $(function () {
             url: '/Manager/SubmitEditCar',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Car edit submitted") {
-                    $(".actionSuccses").text("Car Edited Succesfully");
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'>Car Edited Succesfully</h3>");
                     dataRequest();
                     listofCars();
                 }
@@ -567,7 +611,7 @@ $(function () {
             }
 
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.StartDate + "</td><td>" + model.SupposedReturn + "</td><td>" + returnDate + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
-                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary dealEdit'>Edit</button>     <button class='btn btn-sm btn-danger dealDelete'>Delete</button></span></td></tr>")
+                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary dealEdit'>Edit</button>     <button class='btn btn-xs btn-danger dealDelete'>Delete</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
@@ -577,6 +621,7 @@ $(function () {
 
 
     $('#dealList').on('click', function () {
+        $('.column-two').empty();
         creatinglistOfDeals();
     });
 
@@ -608,7 +653,7 @@ $(function () {
                 data: { ManagerAction: 'DeleteDeal', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
-                 
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Deal Deleted Succesfully</h3>")
                     dataRequest();
                     creatinglistOfDeals();
@@ -633,9 +678,10 @@ $(function () {
             url: '/Manager/SubmitNewDeal',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New deal submitted") {
-                    $('.column-two').prepend("<h3 class='actionSuccses'> Deal Added Succesfully</h3>")
+                    $('.column-two').empty();                   
                     dataRequest();
                     creatinglistOfDeals();
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Deal Added Succesfully</h3>")
                 }
                 else {
                     $('.column-two').html(data);
@@ -661,6 +707,7 @@ $(function () {
             url: '/Manager/SubmitEditDeal',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Deal edit submitted") {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Deal Edited Succesfully</h3>")
                     dataRequest();
                     creatinglistOfDeals();
@@ -715,7 +762,7 @@ $(function () {
         for (var model of  arrayofManufactorers)
         {
             $(table).append("<tr><td>" + model.ID + "</td><td>" + model.manufacturerName
-                + "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary manEdit'>Edit</button>     <button class='btn btn-sm btn-danger manDelete'>Delete</button></span></td></tr>");
+                + "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary manEdit'>Edit</button>     <button class='btn btn-xs btn-danger manDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
@@ -726,6 +773,7 @@ $(function () {
 
 
     $('#manufactorerList').on('click', function () {
+        $('.column-two').empty();
         listofManufactorers();    
     });
 
@@ -761,7 +809,7 @@ $(function () {
                 data: { ManagerAction: 'DeleteManufactorer', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
-                
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Manufactorer Deleted Succesfully</h3>")
                     dataRequest();
                     listofManufactorers();
@@ -781,6 +829,7 @@ $(function () {
             url: '/Manager/SubmitNewManufacturer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New manufactorer submitted") {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Manufactorer Added Succesfully</h3>")
                     dataRequest();
                     listofManufactorers();

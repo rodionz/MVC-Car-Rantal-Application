@@ -36,7 +36,7 @@ namespace CarRental.Controllers
         }
 
 
-        // GET: Customer
+       
         [Authorize(Roles = "Employee, Manager, Customer")]
         [HttpPost]
         public ActionResult GetInfo(HelpViewModel hvm)

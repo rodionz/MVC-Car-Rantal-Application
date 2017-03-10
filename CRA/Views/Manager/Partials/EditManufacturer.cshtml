@@ -11,14 +11,14 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID, new { @class = "manID" })
         <div class="form-group">
-            @Html.LabelFor(model => model.manufacturerName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.manufacturerName, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.manufacturerName, new { htmlAttributes = new { @class = "manname form-control" } })
                 @Html.ValidationMessageFor(model => model.manufacturerName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-5">
+            <div class="col-sm-offset-2 col-sm-5">
                 <input type="button"  value="Save" class="btn btn-success" id="submitEditManuf" />  <input type="button" value="Cancel" class="btn btn-danger cancel" />
             </div>
         </div>

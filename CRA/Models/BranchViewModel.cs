@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using CarRental;
 using CarRental.Data;
+using System.Data.Entity.Spatial;
 
 namespace CarRental.MVC.Models
 {
@@ -23,9 +24,11 @@ namespace CarRental.MVC.Models
        
         public string District { get; set; }
 
-        //Location
+        public DbGeography Location { get; set; }
 
 
+
+        public BranchViewModel() { }
 
 
         public  Branch toBaseBranchDetails ()
@@ -35,7 +38,9 @@ namespace CarRental.MVC.Models
                 BranchID = ID,
                 BranchName = BranchName,
                 City = City,
-                District = District
+                District = District,
+                Location = Location
+                
             };
         }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using CarRental.Data;
 using System.ComponentModel.DataAnnotations;
+using CarRental.Models;
 
 namespace CarRental.MVC.Models
 {
@@ -25,14 +26,22 @@ namespace CarRental.MVC.Models
 
         [Required]
         [Display(Name = "Id of Branch")]
+        [BranchIDValidation]
         public int? BranchID { get; set; }
     
 
         [Required]
         [Display (Name = "Id of Model")]
+        [ModelIDValidation]
         public int? ModelID { get; set; }
 
-    
+        [Required]
+        [Display(Name = "Car is in proper state")]
+        public bool ProperState { get; set; }
+
+
+
+        public CarViewModel() { }
 
 
         public  Car toBaseCarDetails ()
@@ -43,7 +52,8 @@ namespace CarRental.MVC.Models
                 Mileage = Mileage,                             
                 CarNumber = CarNumber,
                 BranchID = BranchID,
-                ModelID = ModelID,                       
+                ModelID = ModelID,   
+                ProperState = ProperState                    
             };
         }
 
@@ -56,7 +66,8 @@ namespace CarRental.MVC.Models
             this.Mileage = domainCarDetails.Mileage;                   
             this.CarNumber = domainCarDetails.CarNumber;
             this.BranchID = domainCarDetails.BranchID;
-            this.ModelID = domainCarDetails.ModelID;           
+            this.ModelID = domainCarDetails.ModelID;
+            this.ProperState = domainCarDetails.ProperState;          
         }
 
     }

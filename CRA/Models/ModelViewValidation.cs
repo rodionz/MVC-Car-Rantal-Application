@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CarRental.Models
 {
-    public class ValidationViewModel
+    public class ModelViewValidation
     {
         public bool isValid { get; set; }
 

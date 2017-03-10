@@ -96,5 +96,6 @@ footer{
 .actionSuccses{
     background-color:#66ff66;
     padding: 20px 50px;
-    margin-right: 500px;
+    margin-right: 250px;
+    text-align:center;
 }

@@ -12,7 +12,7 @@ namespace CRA.BL
   public class GuestBL
     {
 
-        public IEnumerable<Car> GetAllCars()
+        public IEnumerable<Car> GetAllCarsinProperState()
         {
             IEnumerable<Car> allCars;
 
@@ -67,6 +67,20 @@ namespace CRA.BL
 
             }
         }
+
+
+        public IEnumerable<Branch> GetAllBranches()
+        {
+            using (var context = new CarRentalContext())
+            {
+                var all = (from m in context.Branches
+                           select m).ToArray();
+
+                return all;
+
+            }
+        }
+
 
 
         public bool ClientExist(User user)

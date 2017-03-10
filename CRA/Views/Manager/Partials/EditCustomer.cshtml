@@ -13,24 +13,32 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "FirstName form-control" } })
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "LastName form-control" } })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.role, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
+
+                @Html.EnumDropDownListFor(model => model.role, "Select Role", new { @class = "Role form-control" })
+                @Html.ValidationMessageFor(model => model.role, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.gender, new { htmlAttributes = new { @class = "Gender form-control" } })
                 @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
             </div>
@@ -40,31 +48,31 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BirthData, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.BirthData, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.BirthData, new { htmlAttributes = new { @class = "BirthData form-control", id = "datepicker1" } })
                 @Html.ValidationMessageFor(model => model.BirthData, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "Email form-control" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-5">
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "Password form-control" } })
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-5">
+            <div class="col-sm-offset-2 col-sm-5">
                 <input type="button" value="Save" class="btn btn-default" id="submitEditCustomer" />  <input type="button" value="Cancel" class="btn btn-default cancel" />
             </div>
         </div>

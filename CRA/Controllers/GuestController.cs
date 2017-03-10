@@ -43,7 +43,7 @@ namespace CarRental.Controllers
 
         public ActionResult Index()
         {
-           domaninCars = guest.GetAllCars();
+           domaninCars = guest.GetAllCarsinProperState();
 
             allCars = domaninCars.Select(c => new CarViewModel(c));
 

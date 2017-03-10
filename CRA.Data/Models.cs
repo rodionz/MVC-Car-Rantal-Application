@@ -18,7 +18,7 @@ namespace CarRental.Data
 
       
 
-        public int? ManufacturerId { get; set; }
+        public int ManufacturerId { get; set; }
 
         public Manufacturers Manufacturer { get; set; }
 
