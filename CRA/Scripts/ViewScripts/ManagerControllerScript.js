@@ -388,6 +388,177 @@ $(function () {
     
 
 
+
+ ///////////////////////EMPLOYEES////////////////////////
+
+
+
+    // Requesting form for adding new customer
+    $('.column-one').on('click', '.addnewClient', function () {
+        $('.column-two').empty();
+        $.ajax({
+            type: "GET",
+            data: { ManagerAction: 'AddCustomer' },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-two').html(data);
+            }
+        });
+    });
+
+
+
+    // Creating list of customers
+    var listofEmployees = function () {
+
+        $('.column-one').empty();
+
+
+        var table = document.createElement('table');
+        table.className = "table table-striped table-bordered table-hover";
+        var addButton = document.createElement('button');
+        addButton.className = "addbutton addnewClient btn btn-success btn-sm";
+        addButton.textContent = "Add New Customer";
+        $('.column-one').prepend(addButton);
+        table.setAttribute("id", "mytable");
+        var header = table.createTHead();
+        var row = header.insertRow(0);
+        row.innerHTML = "<th>ID of Customer</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Username</th><th>Password</th><th>Customers Editing</th>";
+        var body = table.createTBody();
+
+        for (var model of arrayofCustomers) {
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + moment(model.BirthData).format('MM/DD/YYYY') + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
+                "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary clientEdit'>Edit</button>     <button class='btn btn-xs btn-danger clientDelete'>Delete</button></span></td></tr>")
+        }
+
+        $('.column-one').append(table);
+        $('#mytable').DataTable(
+        );
+    }
+
+
+
+
+
+    $('#clientList').on('click', function () {
+        $('.column-two').empty();
+        listofEmployees();
+    });
+
+
+
+
+    // Requesting form for customer editing
+    $('.column-one').on('click', '.clientEdit', function () {
+        $('.column-two').empty();
+        var id = $(this).parent().attr('id');
+
+        $.ajax({
+            type: 'GET',
+            data: { ManagerAction: 'EditCustomer', ID: id },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-two').html(data);
+            }
+        });
+
+
+
+    });
+
+    // Deleting customer
+    $('.column-one').on('click', '.clientDelete', function () {
+        $('.column-two').empty();
+        var id = $(this).parent().attr('id');
+
+        var del = confirm("Are you sure that you want to delete this customer?");
+
+        if (del) {
+            $.ajax({
+                type: 'GET',
+                data: { ManagerAction: 'DeleteCustomer', ID: id },
+                url: '/Manager/ManagerActions',
+                success: function (data, textStatus, jqXHR) {
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Customer Deleted Succsesfully</h3>")
+                    dataRequest();
+                    listofEmployees();
+                }
+            });
+        }
+    });
+
+    // New customer submission
+    $('.column-two').on('click', '#submitNewCustomer', function () {
+
+        let firstName = $('.FirstName').val();
+        let gender = $('.Gender').val();
+        let lastName = $('.LastName').val();
+        let birthDay = $('.BirthData').val();
+        let email = $('.Email').val();
+        let pass = $('.Password').val();
+        let username = $('.Username').val();
+        let userRole = $('.Role').val();
+
+        $.ajax({
+            type: 'GET',
+            data: { FirstName: firstName, LastName: lastName, role: userRole, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
+            url: '/Manager/SubmitNewCustomer',
+            success: function (data, textStatus, jqXHR) {
+                if (data.ActionResult == "New Employee Submitted") {
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Employee Added Succesfully</h3>")
+                    dataRequest();
+                    listofCustomers();
+                }
+
+                else {
+                    $('.column-two').html(data);
+                }
+            }
+        })
+    });
+
+
+    // Customer editing submission
+    $('.column-two').on('click', '#submitEditCustomer', function () {
+
+        let customerID = $('customerID').val();
+        let firstName = $('.FirstName').val();
+        let gender = $('.Gender').val();
+        let lastName = $('.LastName').val();
+        let birthDay = $('.BirthData').val();
+        let email = $('.Email').val();
+        let pass = $('.Password').val();
+        let username = $('.Username').val();
+        let userRole = $('.Role').val();
+
+        $.ajax({
+            type: 'GET',
+            data: { ID: customerID, FirstName: firstName, LastName: lastName, role: userRole, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
+            url: '/Manager/SubmitEditCustomer',
+            success: function (data, textStatus, jqXHR) {
+                if (data.ActionResult == "Customer edit submitted") {
+                    $('.column-two').empty();
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Employee Edited Succesfully</h3>")
+                    dataRequest();
+                    listofCustomers();
+                }
+                else {
+                    $('.column-two').html(data);
+                }
+            }
+        })
+    });
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////
+
 ////////////////////////// CARS /////////////////////////
 
 
