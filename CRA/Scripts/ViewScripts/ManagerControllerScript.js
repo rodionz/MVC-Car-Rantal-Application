@@ -397,7 +397,7 @@ $(function () {
 
 
     // Requesting form for adding new employee
-    $('.column-one').on('click', '.addnewClient', function () {
+    $('.column-one').on('click', '.addnewEmployee', function () {
         $('.column-two').empty();
         $.ajax({
             type: "GET",
@@ -470,7 +470,7 @@ $(function () {
     });
 
     // Deleting customer
-    $('.column-one').on('click', '.clientDelete', function () {
+    $('.column-one').on('click', '.employeeDelete', function () {
         $('.column-two').empty();
         var id = $(this).parent().attr('id');
 
@@ -479,7 +479,7 @@ $(function () {
         if (del) {
             $.ajax({
                 type: 'GET',
-                data: { ManagerAction: 'DeleteEmployee', ID: id },
+                data: { ManagerAction: 'DeleteCustomer', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
                     $('.column-two').empty();
@@ -506,7 +506,7 @@ $(function () {
         $.ajax({
             type: 'GET',
             data: { FirstName: firstName, LastName: lastName, role: userRole, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
-            url: '/Manager/SubmitNewCustomer',
+            url: '/Manager/SubmitNewEmployee',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New Employee Submitted") {
                     $('.column-two').empty();
@@ -539,7 +539,7 @@ $(function () {
         $.ajax({
             type: 'GET',
             data: { ID: customerID, FirstName: firstName, LastName: lastName, role: userRole, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
-            url: '/Manager/SubmitEditCustomer',
+            url: '/Manager/SubmitEditEmployee',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Employee edit submitted") {
                     $('.column-two').empty();

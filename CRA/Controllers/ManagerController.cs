@@ -214,7 +214,9 @@ namespace CarRental.Controllers
         }
 
 
+   
 
+        //CarModel
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditModel(ModelView cmv)
         {
@@ -233,6 +235,14 @@ namespace CarRental.Controllers
             }
         }
 
+
+
+        /// //////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+        ///////////////Customers//////////////////////////    
 
 
 
@@ -254,10 +264,8 @@ namespace CarRental.Controllers
         }
 
 
-
-
-
-
+        
+     
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditCustomer(UserViewModel cmv)
@@ -275,6 +283,64 @@ namespace CarRental.Controllers
             }
         }
 
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        //////////////////////////////EMPLOYEES/////////////////////////
+
+        [Authorize(Roles = "Manager")]
+        public ActionResult SubmitNewEmployee(UserViewModel cmv)
+        {
+            if (ModelState.IsValid)
+            {
+                var managerHelper = new HelpViewModel();
+
+                var domainclient = cmv.toBaseClient_Details();
+
+                //TODO
+                domainclient.Roles.Add();
+
+                _manager.AddClient(domainclient);
+                managerHelper.ActionResult = "New Employee Submitted";
+                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            }
+
+            else
+            {
+                return PartialView("~/Views/Manager/Partials/AddCustomer.cshtml");
+            }
+        }
+
+
+
+
+
+        [Authorize(Roles = "Manager")]
+        public ActionResult SubmitEditEmployee(UserViewModel cmv)
+        {
+            if (ModelState.IsValid)
+            {
+                var managerHelper = new HelpViewModel();
+                _manager.UpdateClient(cmv.toBaseClient_Details());
+                managerHelper.ActionResult = "Customer edit submitted";
+                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return PartialView("~/Views/Manager/Partials/EditCustomer.cshtml", cmv);
+            }
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+        //////////////////////CARS////////////////////////////////////
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewCar(CarViewModel cmv)
@@ -310,6 +376,16 @@ namespace CarRental.Controllers
                 return PartialView("~/Views/Manager/Partials/EditCar.cshtml",cmv);
             }
         }
+
+
+
+
+
+/// /////////////////////////////////////////////////////////////////////////////////////
+
+
+            /////////////////////DEALS//////////////////////////////////////////////
+
 
 
         [Authorize(Roles = "Manager")]
@@ -349,6 +425,11 @@ namespace CarRental.Controllers
         }
 
 
+
+/// ///////////////////////////////////////////////////////////////////////////////////////////////
+/// 
+
+   ///// ////////////////////MANUFACTORERS//////////////////////
 
 
         [Authorize(Roles = "Manager")]
