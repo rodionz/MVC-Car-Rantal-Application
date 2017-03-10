@@ -13,6 +13,8 @@ $(function () {
  
     var arrayofCustomers = [];
 
+    var arrayofEmployees = [];
+
     var arrayofDeals = [];
 
 
@@ -27,6 +29,7 @@ $(function () {
              arrayofCars = result.AllCars;
              arrayofManufactorers = result.AllManufacturers;
              arrayofCustomers = result.AllCustomers;
+             arrayofEmployees = result.AllEmployees;
              arrayofDeals = result.AllDeals;
             
             }
@@ -393,7 +396,7 @@ $(function () {
 
 
 
-    // Requesting form for adding new customer
+    // Requesting form for adding new employee
     $('.column-one').on('click', '.addnewClient', function () {
         $('.column-two').empty();
         $.ajax({
@@ -408,7 +411,7 @@ $(function () {
 
 
 
-    // Creating list of customers
+    // Creating list of employees
     var listofEmployees = function () {
 
         $('.column-one').empty();
@@ -418,7 +421,7 @@ $(function () {
         table.className = "table table-striped table-bordered table-hover";
         var addButton = document.createElement('button');
         addButton.className = "addbutton addnewClient btn btn-success btn-sm";
-        addButton.textContent = "Add New Customer";
+        addButton.textContent = "Add New Employee";
         $('.column-one').prepend(addButton);
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
@@ -440,7 +443,7 @@ $(function () {
 
 
 
-    $('#clientList').on('click', function () {
+    $('#employeesList').on('click', function () {
         $('.column-two').empty();
         listofEmployees();
     });
@@ -471,16 +474,16 @@ $(function () {
         $('.column-two').empty();
         var id = $(this).parent().attr('id');
 
-        var del = confirm("Are you sure that you want to delete this customer?");
+        var del = confirm("Are you sure that you want to delete this Employee?");
 
         if (del) {
             $.ajax({
                 type: 'GET',
-                data: { ManagerAction: 'DeleteCustomer', ID: id },
+                data: { ManagerAction: 'DeleteEmployee', ID: id },
                 url: '/Manager/ManagerActions',
                 success: function (data, textStatus, jqXHR) {
                     $('.column-two').empty();
-                    $('.column-two').prepend("<h3 class='actionSuccses'> Customer Deleted Succsesfully</h3>")
+                    $('.column-two').prepend("<h3 class='actionSuccses'> Employee Deleted Succsesfully</h3>")
                     dataRequest();
                     listofEmployees();
                 }
@@ -538,7 +541,7 @@ $(function () {
             data: { ID: customerID, FirstName: firstName, LastName: lastName, role: userRole, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
             url: '/Manager/SubmitEditCustomer',
             success: function (data, textStatus, jqXHR) {
-                if (data.ActionResult == "Customer edit submitted") {
+                if (data.ActionResult == "Employee edit submitted") {
                     $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Employee Edited Succesfully</h3>")
                     dataRequest();
