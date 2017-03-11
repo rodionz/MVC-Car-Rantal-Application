@@ -105,7 +105,7 @@ $(function () {
         $('.column-one').prepend(addButton);
         var header = table.createTHead();
         var row = header.insertRow(0);
-        row.innerHTML = "<th>ID of Model</th><th>Manufactorer</th><th>Name of Model</th><th>Transmission</th><th>Daily Price</th><th>Late Return Fine</th><th></th>";
+        row.innerHTML = "<th class='col-xs-1'>ID of Model</th><th class='col-xs-1'>Manufactorer</th><th class='col-xs-1'>Name of Model</th><th class='col-xs-1'>Transmission</th><th class='col-xs-1'>Daily Price</th><th class='col-xs-1'>Late Return Fine</th><th class='col-xs-2'></th>";
         var body = table.createTBody();
 
         for (var model of arrayofModels)
@@ -260,7 +260,7 @@ $(function () {
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);
-        row.innerHTML = "<th>ID of Customer</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Username</th><th>Password</th><th>Customers Editing</th>";
+        row.innerHTML = "<th class='col-xs-1'>ID of Customer</th><th class='col-xs-1'>Full Name</th><th class='col-xs-1'>Birth Data</th><th class='col-xs-1'>Email</th><th class='col-xs-1'>Username</th><th class='col-xs-1'>Password</th><thclass='col-xs-2'>Customers Editing</th>";
         var body = table.createTBody();
 
         for (var model of  arrayofCustomers)
@@ -426,7 +426,7 @@ $(function () {
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);
-        row.innerHTML = "<th>ID of Employee</th><th>Full Name</th><th>Birth Data</th><th>Email</th><th>Username</th><th>Password</th><th>Customers Editing</th>";
+        row.innerHTML = "<th class='col-xs-1'>ID of Employee</th><th class='col-xs-1'>Full Name</th><th class='col-xs-1'>Birth Data</th><th class='col-xs-1'>Email</th><th class='col-xs-1'>Username</th><th class='col-xs-1'>Password</th><th class='col-xs-2'></th>";
         var body = table.createTBody();
 
         for (var model of arrayofEmployees) {
@@ -599,7 +599,7 @@ $(function () {
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);   
-        row.innerHTML = "<th>ID of Car</th><th>Model ID</th><th>Branch ID</th><th>Mileage</th><th>CarNumber</th><th>Edit Car</th>";
+        row.innerHTML = "<th class='col-xs-1'>ID of Car</th><th class='col-xs-1'>Model ID</th><th class='col-xs-1'>Branch ID</th><th class='col-xs-1'>Mileage</th><th class='col-xs-1'>CarNumber</th><th class='col-xs-2'></th>";
         var body = table.createTBody();
 
         function branch(num) {
@@ -768,7 +768,7 @@ $(function () {
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);
-        row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID</th><th>Edit Deal</th>";
+        row.innerHTML = "<th class='col-xs-1'>ID of Deal</th><th class='col-xs-1'>Start Date</th><th class='col-xs-1'>Supposed Return</th><th class='col-xs-1'>Real Return</th><th class='col-xs-1'>Client ID</th><th class='col-xs-1'>Car ID</th><th class='col-xs-2'></th>";
         var body = table.createTBody();
 
         let returnDate;
@@ -930,7 +930,7 @@ $(function () {
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);
-        row.innerHTML = "<th>ID of Manufactorer</th><th>Name of Manufactorer</th><th>Edit Manufactorers</th>";
+        row.innerHTML = "<th class='col-xs-1'>ID of Manufactorer</th><th class='col-xs-1'>Name of Manufactorer</th><th class='col-xs-2'>Edit Manufactorers</th>";
         var body = table.createTBody();
 
         for (var model of  arrayofManufactorers)
