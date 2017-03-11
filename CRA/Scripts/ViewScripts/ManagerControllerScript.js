@@ -116,7 +116,7 @@ $(function () {
         }
 
         $('.column-one').append(table);
-        $('#mytable').DataTable();
+        $('table').DataTable();
 
     }
 
@@ -249,29 +249,28 @@ $(function () {
     var listofCustomers = function () {
 
         $('.column-one').empty();
-       
-        
+
+
         var table = document.createElement('table');
         table.className = "table table-bordered table-hover";
         var addButton = document.createElement('button');
-        addButton.className = "addbutton addnewClient btn btn-success btn-sm";
+        addButton.className = "addbutton addnewEmployee btn btn-success btn-sm";
         addButton.textContent = "Add New Customer";
         $('.column-one').prepend(addButton);
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);
-        row.innerHTML = "<th class='col-xs-1'>ID of Customer</th><th class='col-xs-1'>Full Name</th><th class='col-xs-1'>Birth Data</th><th class='col-xs-1'>Email</th><th class='col-xs-1'>Username</th><th class='col-xs-1'>Password</th><thclass='col-xs-2'>Customers Editing</th>";
+        row.innerHTML = "<th class='col-xs-1'>ID of Customer</th><th class='col-xs-1'>Full Name</th><th class='col-xs-1'>Birth Data</th><th class='col-xs-1'>Email</th><th class='col-xs-1'>Username</th><th class='col-xs-1'>Password</th><th class='col-xs-2'></th>";
         var body = table.createTBody();
 
-        for (var model of  arrayofCustomers)
-        {
+        for (var model of arrayofCustomers) {
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + moment(model.BirthData).format('MM/DD/YYYY') + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
                 "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-xs btn-primary clientEdit'>Edit</button>     <button class='btn btn-xs btn-danger clientDelete'>Delete</button></span></td></tr>")
         }
 
         $('.column-one').append(table);
-        $('#mytable').DataTable(
-     );
+        $('table').DataTable(
+        );
     }
 
 
@@ -435,7 +434,7 @@ $(function () {
         }
 
         $('.column-one').append(table);
-        $('#mytable').DataTable(
+        $('table').DataTable(
         );
     }
 
@@ -625,7 +624,7 @@ $(function () {
         }
 
         $('.column-one').append(table);
-        $('#mytable').DataTable();
+        $('table').DataTable();
     };
 
 
@@ -789,7 +788,7 @@ $(function () {
         }
 
         $('.column-one').append(table);
-        $('#mytable').DataTable();
+        $('table').DataTable();
     }
 
 
@@ -940,7 +939,7 @@ $(function () {
         }
 
         $('.column-one').append(table);
-        $('#mytable').DataTable();
+        $('table').DataTable();
     }
 
 
