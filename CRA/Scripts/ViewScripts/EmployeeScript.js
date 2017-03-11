@@ -80,8 +80,8 @@ var listofDeals = function () {
 
 function dateisValid(date) {
     
-
-
+    // date validation
+    return true;
 }
 
 
@@ -184,7 +184,7 @@ function dateisValid(date) {
             let date2;
 
 
-            $("#datepickerClosing").change(function () {
+            $('.column-two').on('change', '#datepickerClosing', function () {
 
                 $('#lateRetrunFine').text("");
                
