@@ -6,6 +6,13 @@ using System.Web;
 
 namespace CarRental.Models
 {
+
+
+
+    /* HelpViewModel is a special generic object for the Client-Server  communication,
+    It contains all possible properties for the AJAX requests, i found it much more convenient to use
+    same class then different classes for  every request.
+    */
     public class HelpViewModel
     {
         public int ID { get; set; }
