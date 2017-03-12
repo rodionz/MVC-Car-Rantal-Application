@@ -12,8 +12,8 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ModelID, htmlAttributes: new { @class = "control-label col-sm-2" })
-            <div class="col-sm-5">
+            @Html.LabelFor(model => model.ModelID, htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-8">
                 @Html.EditorFor(model => model.ModelID, new { htmlAttributes = new { @class = "Model form-control" } })
                 @Html.ValidationMessageFor(model => model.ModelID, "", new { @class = "text-danger" })
             </div>
@@ -21,8 +21,8 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BranchID, htmlAttributes: new { @class = "control-label col-sm-2" })
-            <div class="col-sm-5">
+            @Html.LabelFor(model => model.BranchID, htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-8">
                 @Html.EditorFor(model => model.BranchID, new { htmlAttributes = new { @class = "Branch form-control" } })
                 @Html.ValidationMessageFor(model => model.BranchID, "", new { @class = "text-danger" })
             </div>
@@ -30,8 +30,8 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CarNumber, htmlAttributes: new { @class = "control-label col-sm-2" })
-            <div class="col-sm-5">
+            @Html.LabelFor(model => model.CarNumber, htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-8">
                 @Html.EditorFor(model => model.CarNumber, new { htmlAttributes = new { @class = "CarNumber form-control" } })
                 @Html.ValidationMessageFor(model => model.CarNumber, "", new { @class = "text-danger" })
             </div>
@@ -44,8 +44,8 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Mileage, htmlAttributes: new { @class = "control-label col-sm-2" })
-            <div class="col-sm-5">
+            @Html.LabelFor(model => model.Mileage, htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-8">
                 @Html.EditorFor(model => model.Mileage, new { htmlAttributes = new { @class = "Mileage form-control" } })
                 @Html.ValidationMessageFor(model => model.Mileage, "", new { @class = "text-danger" })
             </div>
@@ -56,7 +56,7 @@
         
         <div class="form-group">
             @Html.LabelFor(model => model.ProperState, htmlAttributes: new { @class = "control-label col-sm-2 col-sm-offset-2" })
-            <div class="col-sm-5">
+            <div class="col-sm-8">
                 <div class="checkbox-inline">
                     @Html.EditorFor(model => model.ProperState)
                     @Html.ValidationMessageFor(model => model.ProperState, "", new { @class = "text-danger" })
