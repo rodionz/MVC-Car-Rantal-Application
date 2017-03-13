@@ -50,12 +50,14 @@ $(function () {
     function priceCal() {
 
         let dayRate = modeltoCalculate.DailyPrice;
+        let fine = modeltoCalculate.LateReturnFine;
         dateStart = $('#datepickerStart').datepicker('getDate');
         dateEnd = $('#datepickerEnd').datepicker('getDate');
         let totalDays = (dateEnd - dateStart) / 24 / 60 / 60 / 1000; //we get total days          
         let price = totalDays * dayRate;
         if (price > 0) {
             $('#price').text("Totall price: " + price + "$");
+            $('#fine').text("The fine for overdue return is: " + fine + "$ per day");
         }
 
         else {
