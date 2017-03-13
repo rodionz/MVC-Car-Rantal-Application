@@ -155,7 +155,10 @@ $(function () {
 
     //Price calculation dialog
         $(".carlist").on("click", ".calculate", function () {
+
             $("#dialog").dialog("open");
+
+            let clickedCar = $(this).parent();
            
             let modelID = $(this).parent().attr('id');
 
@@ -168,6 +171,8 @@ $(function () {
             $('#modelName').text(modeltoCalculate.NameofModel);
 
             $('#modelId').val(modeltoCalculate.ID);
+
+            
             
         });
 
