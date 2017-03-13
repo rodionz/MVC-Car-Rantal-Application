@@ -190,25 +190,32 @@ $(function () {
 
             $(clickedCar).clone().appendTo('#interested');
 
-            let cars = [];
+            let carsinLocalStorage = [];
 
-            cars = JSON.parse(localStorage.getItem('Selectedcars'));
+            carsinLocalStorage = JSON.parse(localStorage.getItem('Selectedcars'));
 
-            if (cars) {
-
-                cars.push(carID);
-                localStorage.setItem('Selectedcars', JSON.stringify(carsinLocalStorage));
-            }
-
-            else {
-
-                let carsinLocalStorage = [];
+            if (carsinLocalStorage)
+            {
                 carsinLocalStorage.push(carID);
                 localStorage.setItem('Selectedcars', JSON.stringify(carsinLocalStorage));
             }
 
-            
-            
+            else {
+                carsinLocalStorage = [];
+                carsinLocalStorage.push(carID);
+                localStorage.setItem('Selectedcars', JSON.stringify(carsinLocalStorage));
+
+            }                                               
+        });
+
+
+
+        $('#clearselection').click(function () {
+
+            $('#interested').empty();
+
+            localStorage.removeItem('Selectedcars');
+
         });
 
     // Price confirmation
