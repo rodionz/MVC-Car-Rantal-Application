@@ -45,6 +45,22 @@ $(function () {
 
 
 
+    let localcars = JSON.parse(localStorage.getItem('Selectedcars'));
+
+    if (localcars) {
+
+        for (let carid of localcars) {
+
+            let element = $('.carlist').find("[data-carid = '" + carid + "']");
+
+            $(element).clone().appendTo('#interested');
+
+        }
+
+    }
+
+
+
     // Price calculation according to dates
 
     function priceCal() {
@@ -174,7 +190,22 @@ $(function () {
 
             $(clickedCar).clone().appendTo('#interested');
 
-          
+            let cars = [];
+
+            cars = JSON.parse(localStorage.getItem('Selectedcars'));
+
+            if (cars) {
+
+                cars.push(carID);
+                localStorage.setItem('Selectedcars', JSON.stringify(carsinLocalStorage));
+            }
+
+            else {
+
+                let carsinLocalStorage = [];
+                carsinLocalStorage.push(carID);
+                localStorage.setItem('Selectedcars', JSON.stringify(carsinLocalStorage));
+            }
 
             
             
