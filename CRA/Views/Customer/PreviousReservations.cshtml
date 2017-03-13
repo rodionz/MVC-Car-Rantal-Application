@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/_layout.cshtml";
 }
 
-<h3>Your Previuous Reservations</h3>
+
+<h3>Your Previous Reservations</h3>
 
 
 @if (TempData["Success"] != null)
@@ -17,48 +18,52 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-5">
-            <table class="table table-bordered table-hover table-condensed">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.StartDate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SupposedReturn)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.RealReturn)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ClientID)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CarID)
-                    </th>
-
-                </tr>
-
-                @foreach (var item in Model)
-                {
+            <table class="table table-bordered table-hover">
+                <thead>
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.StartDate)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SupposedReturn)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.RealReturn)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ClientID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CarID)
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StartDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupposedReturn)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RealReturn)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ClientID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CarID)
+                        </th>
 
                     </tr>
-                }
+                </thead>
 
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupposedReturn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RealReturn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ClientID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CarID)
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
             </table>
             </div>
         </div>
@@ -85,4 +90,16 @@
             <br />
             <br />
 <script src="~/Scripts/ScriptLibriaries/jquery-3.1.1.min.js"></script>
+<script src="~/Scripts/ScriptLibriaries/jquery-ui-1.12.1.min.js"></script>
+<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
 <script src="~/Scripts/ViewScripts/MainScript.js"></script>
+<script>
+
+    $(function () {
+
+        $('table').DataTable();
+
+    });
+
+
+</script>
