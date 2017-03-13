@@ -172,6 +172,10 @@ $(function () {
 
             $('#modelId').val(modeltoCalculate.ID);
 
+            $(clickedCar).clone().appendTo('#interested');
+
+          
+
             
             
         });

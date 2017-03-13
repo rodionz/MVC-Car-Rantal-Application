@@ -99,3 +99,9 @@ footer{
     margin-right: 250px;
     text-align:center;
 }
+
+#selectedcars{
+
+    border-top:dashed 1px black;
+
+}
