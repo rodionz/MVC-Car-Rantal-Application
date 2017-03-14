@@ -169,7 +169,7 @@ $(function () {
         });
 
 
-    //Price calculation dialog
+    //Price calculation dialog window
         $(".carlist").on("click", ".calculate", function () {
 
             $("#dialog").dialog("open");
@@ -207,6 +207,33 @@ $(function () {
 
             }                                               
         });
+
+
+
+
+    //Price calculation dialog window for selected cars
+
+
+        $('#interested').on("click", ".calculate", function () {
+
+            $("#dialog").dialog("open");
+
+            let clickedCar = $(this).parent();
+
+            let modelID = $(this).parent().attr('id');
+
+            let carID = $(this).parent().data('carid');
+
+            selectedCar = result.AllCars.find(function (x) { return x.ID == carID });
+
+            modeltoCalculate = result.AllCarModels.find(function (x) { return x.ID == modelID })
+
+            $('#modelName').text(modeltoCalculate.NameofModel);
+
+            $('#modelId').val(modeltoCalculate.ID);
+
+        });
+
 
 
 

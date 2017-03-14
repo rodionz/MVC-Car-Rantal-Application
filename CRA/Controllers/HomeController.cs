@@ -119,21 +119,30 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult SignUp(UserViewModel CVM)
         {
-          
-            if (_roleprovider.UserExists(CVM.UserName))
+
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError(string.Empty, "User Already Exists");
-                return View(CVM);
+
+                if (_roleprovider.UserExists(CVM.UserName))
+                {
+                    ModelState.AddModelError(string.Empty, "User Already Exists");
+                    return View(CVM);
+                }
+
+                else
+                {
+                    _manager.AddClient(CVM.toBaseClient_Details());
+
+                    TempData["Success"] = "You were Signed Up Successfully!";
+                    ModelState.Clear();
+                    var model = new UserViewModel();
+                    return View(model);
+                }
             }
 
             else
             {
-                _manager.AddClient(CVM.toBaseClient_Details());
-
-                TempData["Success"] = "You were Signed Up Successfully!";
-                ModelState.Clear();
-                var model = new UserViewModel();
-                return View(model);
+                return View("SignUp");
             }
 
         }
