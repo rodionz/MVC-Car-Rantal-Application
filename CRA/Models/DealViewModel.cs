@@ -16,13 +16,15 @@ namespace CarRental.MVC.Models
         public int ID { get; set; }
 
         [Required]
+        [DateValidation]
         public string StartDate { get; set; }
 
 
         [Required]
+        [DateValidation]
         public string SupposedReturn { get; set; }
 
-       
+        [DateValidation]
         public string RealReturn { get; set; }
 
         [Required]

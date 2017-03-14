@@ -85,7 +85,7 @@ namespace CarRental.MVC.Models
                 ID = ID,
                 FirstName = FirstName,
                 LastName = LastName,
-                BirthData = DateTime.ParseExact(BirthData, "dd-mm-yy", CultureInfo.InvariantCulture),
+                BirthData = DateTime.ParseExact(BirthData, "dd/MM/yyyy", CultureInfo.InvariantCulture),
                 gender = gender.Value,
                 Email = Email,
                 UserName = UserName,
