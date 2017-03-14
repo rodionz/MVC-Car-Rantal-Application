@@ -52,7 +52,7 @@
             @Html.LabelFor(model => model.ProperState, htmlAttributes: new { @class = "control-label  col-sm-2 col-sm-offset-2" })
             <div class="col-sm-8">
                 <div class="checkbox-inline">
-                    @Html.EditorFor(model => model.ProperState)
+                    @Html.EditorFor(model => model.ProperState, new { htmlAttributes = new { @class = "properState form-control" } })
                     @Html.ValidationMessageFor(model => model.ProperState, "", new { @class = "text-danger" })
                 </div>
             </div>
