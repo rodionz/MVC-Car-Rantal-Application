@@ -59,11 +59,19 @@
 <script>
     $(function () {
 
-        $('#datepicker').datepicker();
+        $('#datepicker').datepicker(
+            {
+                dateFormat: "dd-mm-yy"
+            }
+        );
 
-        $('#datepicker1').datepicker();
+        $('#datepicker1').datepicker({
+            dateFormat: "dd-mm-yy"
+        });
 
-        $('#datepicker2').datepicker();
+        $('#datepicker2').datepicker({
+            dateFormat: "dd-mm-yy"
+        });
     });
 
 </script>
