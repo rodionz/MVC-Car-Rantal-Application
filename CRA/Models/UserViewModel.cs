@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using CarRental.Data;
+using System.Globalization;
 
 namespace CarRental.MVC.Models
 {
@@ -44,8 +45,8 @@ namespace CarRental.MVC.Models
 
         [Required]
         [Display(Name = "Birth Data")]
-        [RegularExpression(@"^(([0-2]\d|[3][0-1])\/([0]\d|[1][0-2])\/[2][0]\d{2})$|^(([0-2]\d|[3][0-1])\/([0]\d|[1][0-2])\/[2][0]\d{2}\s([0-1]\d|[2][0-3])\:[0-5]\d\:[0-5]\d)$", ErrorMessage = "Not A DateTime")]
-        public DateTime? BirthData { get; set; }
+        /*[RegularExpression(@"^(([0-2]\d|[3][0-1])\/([0]\d|[1][0-2])\/[2][0]\d{2})$|^(([0-2]\d|[3][0-1])\/([0]\d|[1][0-2])\/[2][0]\d{2}\s([0-1]\d|[2][0-3])\:[0-5]\d\:[0-5]\d)$", ErrorMessage = "No*/t A DateTime")]
+        public string BirthData { get; set; }
 
         [Required]
         [Display(Name = "Gender")]
@@ -84,7 +85,7 @@ namespace CarRental.MVC.Models
                 ID = ID,
                 FirstName = FirstName,
                 LastName = LastName,
-                BirthData = BirthData,
+                BirthData = DateTime.ParseExact(BirthData, "dd-mm-yy", CultureInfo.InvariantCulture),
                 gender = gender.Value,
                 Email = Email,
                 UserName = UserName,
@@ -110,7 +111,7 @@ namespace CarRental.MVC.Models
 
             this.LastName = domainClieentDetails.LastName;
 
-            this.BirthData = domainClieentDetails.BirthData;
+            this.BirthData = domainClieentDetails.BirthData.Value.ToShortDateString();
 
             this.UserName = domainClieentDetails.UserName;
 

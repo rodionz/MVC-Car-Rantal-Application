@@ -5,6 +5,7 @@ using System.Web;
 using CarRental.Data;
 using System.ComponentModel.DataAnnotations;
 using CarRental.Models;
+using System.Globalization;
 
 namespace CarRental.MVC.Models
 {
@@ -45,9 +46,9 @@ namespace CarRental.MVC.Models
                 {
                     ID = ID,
 
-                    Start = Convert.ToDateTime(StartDate),
-                    SupposedReturn = Convert.ToDateTime(SupposedReturn),
-                    Realreturn = Convert.ToDateTime(RealReturn),
+                    Start = DateTime.ParseExact(StartDate, "dd-mm-yy", CultureInfo.InvariantCulture),
+                    SupposedReturn =  DateTime.ParseExact(SupposedReturn, "dd-mm-yy", CultureInfo.InvariantCulture),
+                    Realreturn =  DateTime.ParseExact(RealReturn, "dd-mm-yy", CultureInfo.InvariantCulture),   
                     UserId = ClientID,
                     CarID = CarID
 
@@ -59,8 +60,8 @@ namespace CarRental.MVC.Models
                 return new Deal
                 {
                     ID = ID,
-                    Start = Convert.ToDateTime(StartDate),
-                    SupposedReturn = Convert.ToDateTime(SupposedReturn),
+                    Start = DateTime.ParseExact(StartDate, "dd-mm-yy", CultureInfo.InvariantCulture),
+                    SupposedReturn = DateTime.ParseExact(SupposedReturn, "dd-mm-yy", CultureInfo.InvariantCulture),
                     Realreturn = null,
                     UserId = ClientID,
                     CarID = CarID
