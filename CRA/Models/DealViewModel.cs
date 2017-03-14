@@ -46,9 +46,10 @@ namespace CarRental.MVC.Models
                 {
                     ID = ID,
 
-                    Start = DateTime.ParseExact(StartDate, "dd-mm-yy", CultureInfo.InvariantCulture),
-                    SupposedReturn =  DateTime.ParseExact(SupposedReturn, "dd-mm-yy", CultureInfo.InvariantCulture),
-                    Realreturn =  DateTime.ParseExact(RealReturn, "dd-mm-yy", CultureInfo.InvariantCulture),   
+                    
+                    Start = DateTime.ParseExact(StartDate, "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    SupposedReturn =  DateTime.ParseExact(SupposedReturn, "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    Realreturn =  DateTime.ParseExact(RealReturn, "dd/MM/yyyy", CultureInfo.InvariantCulture),   
                     UserId = ClientID,
                     CarID = CarID
 
@@ -60,8 +61,8 @@ namespace CarRental.MVC.Models
                 return new Deal
                 {
                     ID = ID,
-                    Start = DateTime.ParseExact(StartDate, "dd-mm-yy", CultureInfo.InvariantCulture),
-                    SupposedReturn = DateTime.ParseExact(SupposedReturn, "dd-mm-yy", CultureInfo.InvariantCulture),
+                    Start = DateTime.ParseExact(StartDate, "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    SupposedReturn = DateTime.ParseExact(SupposedReturn, "dd/MM/yyyy", CultureInfo.InvariantCulture),
                     Realreturn = null,
                     UserId = ClientID,
                     CarID = CarID
