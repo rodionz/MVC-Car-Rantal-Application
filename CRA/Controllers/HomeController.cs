@@ -52,23 +52,31 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel login)
         {
-        
-            if (Validate(login))
+            if (ModelState.IsValid)
             {
-                var roles = _roleprovider.GetRolesForUser(login.Username);
 
-                foreach (var role in roles)
+                if (Validate(login))
                 {
-                    User.IsInRole(role);
-                }
+                    var roles = _roleprovider.GetRolesForUser(login.Username);
 
-                FormsAuthentication.SetAuthCookie(login.Username, false);
-                return Redirect(FormsAuthentication.DefaultUrl);
+                    foreach (var role in roles)
+                    {
+                        User.IsInRole(role);
+                    }
+
+                    FormsAuthentication.SetAuthCookie(login.Username, false);
+                    return Redirect(FormsAuthentication.DefaultUrl);
+                }
+                else
+                {
+
+                    return View(login);
+                }
             }
+
             else
             {
-
-                return View(login);
+                return View("Login");
             }
         }
 
