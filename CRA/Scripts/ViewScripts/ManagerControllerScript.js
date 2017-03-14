@@ -360,7 +360,7 @@ $(function () {
     // Customer editing submission
     $('.column-two').on('click', '#submitEditCustomer', function () {
 
-        let customerID = $('customerID').val();
+        let customerID = $('.customerID').val();
         let firstName = $('.FirstName').val();
         let gender = $('.Gender').val();
         let lastName = $('.LastName').val();
