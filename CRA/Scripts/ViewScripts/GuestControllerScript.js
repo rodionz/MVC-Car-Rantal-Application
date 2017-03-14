@@ -45,6 +45,22 @@ $(function () {
 
 
 
+    let localcars = JSON.parse(localStorage.getItem('Selectedcars'));
+
+    if (localcars) {
+
+        for (let carid of localcars) {
+
+            let element = $('.carlist').find("[data-carid = '" + carid + "']");
+
+            $(element).clone().appendTo('#interested');
+
+        }
+
+    }
+
+
+
     // Price calculation according to dates
 
     function priceCal() {
@@ -172,8 +188,34 @@ $(function () {
 
             $('#modelId').val(modeltoCalculate.ID);
 
-            
-            
+            $(clickedCar).clone().appendTo('#interested');
+
+            let carsinLocalStorage = [];
+
+            carsinLocalStorage = JSON.parse(localStorage.getItem('Selectedcars'));
+
+            if (carsinLocalStorage)
+            {
+                carsinLocalStorage.push(carID);
+                localStorage.setItem('Selectedcars', JSON.stringify(carsinLocalStorage));
+            }
+
+            else {
+                carsinLocalStorage = [];
+                carsinLocalStorage.push(carID);
+                localStorage.setItem('Selectedcars', JSON.stringify(carsinLocalStorage));
+
+            }                                               
+        });
+
+
+
+        $('#clearselection').click(function () {
+
+            $('#interested').empty();
+
+            localStorage.removeItem('Selectedcars');
+
         });
 
     // Price confirmation

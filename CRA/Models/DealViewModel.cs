@@ -44,6 +44,7 @@ namespace CarRental.MVC.Models
                 return new Deal
                 {
                     ID = ID,
+
                     Start = Convert.ToDateTime(StartDate),
                     SupposedReturn = Convert.ToDateTime(SupposedReturn),
                     Realreturn = Convert.ToDateTime(RealReturn),
