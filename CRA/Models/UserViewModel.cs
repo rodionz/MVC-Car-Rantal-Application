@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using CarRental.Data;
 using System.Globalization;
+using CarRental.Models;
 
 namespace CarRental.MVC.Models
 {
@@ -45,7 +46,7 @@ namespace CarRental.MVC.Models
 
         [Required]
         [Display(Name = "Birth Data")]
-        /*[RegularExpression(@"^(([0-2]\d|[3][0-1])\/([0]\d|[1][0-2])\/[2][0]\d{2})$|^(([0-2]\d|[3][0-1])\/([0]\d|[1][0-2])\/[2][0]\d{2}\s([0-1]\d|[2][0-3])\:[0-5]\d\:[0-5]\d)$", ErrorMessage = "No*//*t A DateTime")]*/
+        [DateValidation]
         public string BirthData { get; set; }
 
         [Required]
