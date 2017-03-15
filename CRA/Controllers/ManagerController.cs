@@ -48,6 +48,7 @@ namespace CarRental.Controllers
 
 
 
+        //This function creates Json object that serves all possible needs of manager's interface
 
         [Authorize(Roles = "Manager")]
         public JsonResult HelpAjax()
@@ -83,6 +84,15 @@ namespace CarRental.Controllers
         }
 
 
+
+
+
+
+        /*This function accepts 3 kinds of requests for all entities in the manager's UI:
+         * - request for the form for adding new entiy.
+         * - request for the form for editing entity.
+         * - deleteting entity
+         */
         [HttpGet]
         [Authorize(Roles = "Manager")]
         public ActionResult ManagerActions(HelpViewModel hvm)
@@ -93,7 +103,6 @@ namespace CarRental.Controllers
             switch (hvm.ManagerAction)
             {
                 
-
                    ///////// MODELS ///////////
 
                 case "AddModel":
@@ -194,6 +203,11 @@ namespace CarRental.Controllers
 
             }
         }
+
+
+
+
+
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewModel (ModelView cmv)
