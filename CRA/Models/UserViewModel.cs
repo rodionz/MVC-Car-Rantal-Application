@@ -63,8 +63,7 @@ namespace CarRental.MVC.Models
         [EmailAddress]       
         public string Email { get; set; }
 
-        [Required]
-        [UserNameValidation]
+        [Required]   
         [StringLength(30, MinimumLength = 6,ErrorMessage = "Username must contain at least 6 chatracters")]        
         public string UserName { get; set; }
 

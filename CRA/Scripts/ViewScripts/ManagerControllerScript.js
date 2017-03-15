@@ -335,11 +335,11 @@ $(function () {
         let email = $('.Email').val();
         let pass = $('.Password').val();
         let username = $('.Username').val();
-        let userRole = $('.Role').val();
+      
 
         $.ajax({
             type: 'GET',
-            data: {  FirstName: firstName, LastName: lastName, role : userRole, gender: gender, BirthData: birthDay, Email: email, UserName : username, Password : pass},
+            data: {  FirstName: firstName, LastName: lastName,  gender: gender, BirthData: birthDay, Email: email, UserName : username, Password : pass},
             url: '/Manager/SubmitNewCustomer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New Customer Submitted") {
@@ -368,7 +368,7 @@ $(function () {
         let email = $('.Email').val();
         let pass = $('.Password').val();
         let username = $('.Username').val();
-        let userRole = $('.Role').val();
+        
 
         $.ajax({
             type: 'GET',
@@ -522,7 +522,7 @@ $(function () {
     });
 
 
-    // Customer editing submission
+    // Employee editing submission
     $('.column-two').on('click', '#submitEditCustomer', function () {
 
         let customerID = $('customerID').val();

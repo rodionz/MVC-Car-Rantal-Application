@@ -340,7 +340,7 @@ namespace CarRental.Controllers
 
             else
             {
-                return PartialView("~/Views/Manager/Partials/AddCustomer.cshtml");
+                return PartialView("~/Views/Manager/Partials/AddUser.cshtml");
             }
         }
 
@@ -360,7 +360,8 @@ namespace CarRental.Controllers
             }
             else
             {
-                return PartialView("~/Views/Manager/Partials/EditCustomer.cshtml", cmv);
+                
+                return PartialView("~/Views/Manager/Partials/EditUser.cshtml", cmv);
             }
         }
 
