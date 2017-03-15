@@ -143,16 +143,16 @@ namespace CarRental.Controllers
                     return Json(carresult, JsonRequestBehavior.AllowGet);
 
 
-                /////////////// CUSTOMERS ////////////////////
+                /////////////// USERS ////////////////////
 
-                case "AddCustomer":
-                    return PartialView("~/Views/Manager/Partials/AddCustomer.cshtml");
+                case "AddUser":
+                    return PartialView("~/Views/Manager/Partials/AddUser.cshtml");
 
 
 
-                case "EditCustomer":
+                case "EditUser":
                     var customer = (from c in allCustomers where c.ID == hvm.ID select c).FirstOrDefault();
-                    return PartialView("~/Views/Manager/Partials/EditCustomer.cshtml", customer);
+                    return PartialView("~/Views/Manager/Partials/EditUser.cshtml", customer);
 
 
 
@@ -279,7 +279,7 @@ namespace CarRental.Controllers
 
             else
             {
-                return PartialView("~/Views/Manager/Partials/AddCustomer.cshtml");
+                return PartialView("~/Views/Manager/Partials/AddUser.cshtml");
             }
         }
 
@@ -299,7 +299,7 @@ namespace CarRental.Controllers
             }
             else
             {
-                return PartialView("~/Views/Manager/Partials/EditCustomer.cshtml",cmv);
+                return PartialView("~/Views/Manager/Partials/EditUser.cshtml", cmv);
             }
         }
 

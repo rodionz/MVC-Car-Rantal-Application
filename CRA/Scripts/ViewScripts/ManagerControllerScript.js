@@ -235,7 +235,7 @@ $(function () {
         $('.column-two').empty();
         $.ajax({
             type: "GET",
-            data: {ManagerAction : 'AddCustomer'},
+            data: { ManagerAction: 'AddUser'},
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);                       
@@ -292,7 +292,7 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            data: { ManagerAction: 'EditCustomer', ID: id },
+            data: { ManagerAction: 'EditUser', ID: id },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);               
@@ -372,7 +372,7 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            data: { ID: customerID, FirstName: firstName, LastName: lastName, role: userRole, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
+            data: { ID: customerID, FirstName: firstName, LastName: lastName,  gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
             url: '/Manager/SubmitEditCustomer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Customer edit submitted") {
@@ -400,7 +400,7 @@ $(function () {
         $('.column-two').empty();
         $.ajax({
             type: "GET",
-            data: { ManagerAction: 'AddCustomer' },
+            data: { ManagerAction: 'AddUser' },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);
@@ -457,7 +457,7 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            data: { ManagerAction: 'EditCustomer', ID: id },
+            data: { ManagerAction: 'EditUser', ID: id },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);
@@ -468,7 +468,7 @@ $(function () {
 
     });
 
-    // Deleting customer
+    // Deleting employee
     $('.column-one').on('click', '.employeeDelete', function () {
         $('.column-two').empty();
         var id = $(this).parent().attr('id');
@@ -490,7 +490,7 @@ $(function () {
         }
     });
 
-    // New customer submission
+    // New employee submission
     $('.column-two').on('click', '#submitNewCustomer', function () {
 
         let firstName = $('.FirstName').val();
@@ -504,14 +504,14 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            data: { FirstName: firstName, LastName: lastName, role: userRole, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
+            data: { FirstName: firstName, LastName: lastName,  gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
             url: '/Manager/SubmitNewEmployee',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New Employee Submitted") {
                     $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Employee Added Succesfully</h3>")
                     dataRequest();
-                    listofCustomers();
+                    listofEmployees();
                 }
 
                 else {
@@ -544,7 +544,7 @@ $(function () {
                     $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'> Employee Edited Succesfully</h3>")
                     dataRequest();
-                    listofCustomers();
+                    listofEmployees();
                 }
                 else {
                     $('.column-two').html(data);

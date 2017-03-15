@@ -1,15 +1,14 @@
 ﻿@model CarRental.MVC.Models.UserViewModel
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Edit Customer</h4>
+        <h4>Add New User</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID, new {@class = "customerID" })
 
 
         <div class="form-group">
@@ -19,6 +18,7 @@
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-sm-3" })
             <div class="col-sm-8">
@@ -27,12 +27,18 @@
             </div>
         </div>
 
-     
+      
+
+
+
+
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-sm-3" })
             <div class="col-sm-8">
-                @Html.EditorFor(model => model.gender, new { htmlAttributes = new { @class = "Gender form-control" } })
+                
+                @Html.EnumDropDownListFor(model => model.gender, "Select Gender", new { @class = "Gender form-control" })
                 @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -40,10 +46,11 @@
 
 
 
+
         <div class="form-group">
             @Html.LabelFor(model => model.BirthData, htmlAttributes: new { @class = "control-label col-sm-3" })
             <div class="col-sm-8">
-                @Html.EditorFor(model => model.BirthData, new { htmlAttributes = new { @class = "BirthData form-control", id = "datepicker1" } })
+                @Html.EditorFor(model => model.BirthData, new { htmlAttributes = new { @class = "BirthData form-control", id = "datepicker2" } })
                 @Html.ValidationMessageFor(model => model.BirthData, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -57,6 +64,17 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.UserName , htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-8">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "Username form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-sm-3" })
             <div class="col-sm-8">
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "Password form-control" } })
@@ -66,16 +84,17 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-5">
-                <input type="button" value="Save" class="btn btn-primary" id="submitEditCustomer" />  <input type="button" value="Cancel" class="btn btn-danger cancel" />
+                <input type="button" value="Create" class="btn btn-primary" id="submitNewCustomer" />  <input type="button" value="Cancel" class="btn btn-danger cancel" />
             </div>
         </div>
     </div>
 }
 
+
 <script>
     $(function () {
-        $("#datepicker1").datepicker({
-            dateFormat: "dd/mm/yy",           
+        $("#datepicker2").datepicker({
+            dateFormat: "dd/mm/yy",        
             changeYear: true
         });
 
@@ -85,3 +104,5 @@
 
 <script src="~/Scripts/ScriptLibriaries/jquery.validate.min.js"></script>
 <script src="~/Scripts/ScriptLibriaries/jquery.validate.unobtrusive.min.js"></script>
+
+

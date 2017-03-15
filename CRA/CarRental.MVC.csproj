@@ -469,8 +469,8 @@
     <Content Include="Views\Manager\Partials\AddDeal.cshtml" />
     <Content Include="Views\Manager\Partials\AddManufacturer.cshtml" />
     <Content Include="Views\Manager\Partials\EditManufacturer.cshtml" />
-    <Content Include="Views\Manager\Partials\AddCustomer.cshtml" />
-    <Content Include="Views\Manager\Partials\EditCustomer.cshtml" />
+    <Content Include="Views\Manager\Partials\AddUser.cshtml" />
+    <Content Include="Views\Manager\Partials\EditUser.cshtml" />
     <Content Include="Views\Manager\Partials\AddCar.cshtml" />
     <Content Include="Views\Manager\Partials\AddModel.cshtml" />
     <Content Include="Views\Manager\Partials\EditCar.cshtml" />
