@@ -7,10 +7,6 @@
 <h2>SignUp</h2>
 
 
-@if (TempData["Success"] != null)
-{
-    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
-}
 
 
 @using (Html.BeginForm()) 
@@ -136,6 +132,8 @@
     $(function () {
 
         $("#datepicker10").datepicker({
+            changeMonth: true,
+            changeYear: true,
             dateFormat: "dd/MM/yy"
         });
 

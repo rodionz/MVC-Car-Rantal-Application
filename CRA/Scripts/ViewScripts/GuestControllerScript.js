@@ -90,13 +90,21 @@ $(function () {
 
   
     // Using of Datepicker Feature : https://jqueryui.com/datepicker/
-        $("#datepicker1").datepicker();
+    $("#datepicker1").datepicker({
+        changeMonth: true,
+        changeYear: true});
 
-        $("#datepicker2").datepicker();
+    $("#datepicker2").datepicker({
+        changeMonth: true,
+        changeYear: true});
 
-        $("#datepicker3").datepicker();
+    $("#datepicker3").datepicker({
+        changeMonth: true,
+        changeYear: true});
 
-        $("#datepicker4").datepicker();
+    $("#datepicker4").datepicker({
+        changeMonth: true,
+        changeYear: true});
 
 
         $("#datepickerStart").datepicker(
