@@ -39,7 +39,7 @@ namespace CarRental.Controllers
        
         [Authorize(Roles = "Employee, Manager, Customer")]
         [HttpPost]
-        public ActionResult GetInfo(HelpViewModel hvm)
+        public ActionResult GetInfo(HelpModel hvm)
         {
             var date1 = hvm.StartDate.Split('-');
 

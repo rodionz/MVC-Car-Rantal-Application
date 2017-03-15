@@ -66,7 +66,7 @@ namespace CarRental.Controllers
 
             allEmployees = _manager.GetAllEmployees().Select(u => new UserViewModel(u));
 
-            var managerHelper = new HelpViewModel();
+            var managerHelper = new HelpModel();
 
             managerHelper.AllManufacturers = allManufacturers;
 
@@ -95,9 +95,9 @@ namespace CarRental.Controllers
          */
         [HttpGet]
         [Authorize(Roles = "Manager")]
-        public ActionResult ManagerActions(HelpViewModel hvm)
+        public ActionResult ManagerActions(HelpModel hvm)
         {
-            HelpViewModel result = new HelpViewModel();
+            HelpModel result = new HelpModel();
 
 
             switch (hvm.ManagerAction)
@@ -116,7 +116,7 @@ namespace CarRental.Controllers
 
                 case "DeleteModel":
                     _manager.DeleteModel(hvm.ID);
-                    HelpViewModel modelresult = new HelpViewModel();
+                    HelpModel modelresult = new HelpModel();
                     modelresult.ActionResult = "Model Deleted";
                     return Json(modelresult, JsonRequestBehavior.AllowGet);
 
@@ -133,7 +133,7 @@ namespace CarRental.Controllers
 
                 case "DeleteCar":
                     _manager.DeleteCar(hvm.ID);
-                    HelpViewModel carresult = new HelpViewModel();
+                    HelpModel carresult = new HelpModel();
                     carresult.ActionResult = "Model Deleted";
                     return Json(carresult, JsonRequestBehavior.AllowGet);
 
@@ -153,7 +153,7 @@ namespace CarRental.Controllers
 
                 case "DeleteCustomer":
                     _manager.DeleteClient(hvm.ID);
-                    HelpViewModel customerresult = new HelpViewModel();
+                    HelpModel customerresult = new HelpModel();
                     customerresult.ActionResult = "Model Deleted";
                     return Json(customerresult, JsonRequestBehavior.AllowGet);
 
@@ -175,7 +175,7 @@ namespace CarRental.Controllers
 
                 case "DeleteManufactorer":
                     _manager.DeleteManufactorer(hvm.ID);
-                    HelpViewModel manrresult = new HelpViewModel();
+                    HelpModel manrresult = new HelpModel();
                     manrresult.ActionResult = "Model Deleted";
                     return Json(manrresult, JsonRequestBehavior.AllowGet);
 
@@ -194,7 +194,7 @@ namespace CarRental.Controllers
 
                 case "DeleteDeal":
                     _manager.DeleteDeal(hvm.ID);
-                    HelpViewModel dealresult = new HelpViewModel();
+                    HelpModel dealresult = new HelpModel();
                     dealresult.ActionResult = "Model Deleted";
                     return Json(dealresult, JsonRequestBehavior.AllowGet);
 
@@ -216,7 +216,7 @@ namespace CarRental.Controllers
             {
                 var originalModel = cmv.toBaseModelDetail();
                 _manager.AddModel(originalModel);
-                var result = new HelpViewModel();
+                var result = new HelpModel();
                 result.ActionResult = "Model Added";
 
                 return Json(result, JsonRequestBehavior.AllowGet);
@@ -239,7 +239,7 @@ namespace CarRental.Controllers
             {
                 var originalModel = cmv.toBaseModelDetail();
                 _manager.UpdateModel(originalModel);
-                var result = new HelpViewModel();
+                var result = new HelpModel();
                 result.ActionResult = "Model Edited";
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
@@ -266,7 +266,7 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var managerHelper = new HelpViewModel();
+                var managerHelper = new HelpModel();
                 _manager.AddClient(cmv.toBaseClient_Details());
                 managerHelper.ActionResult = "New Customer Submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
@@ -287,7 +287,7 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var managerHelper = new HelpViewModel();
+                var managerHelper = new HelpModel();
                 _manager.UpdateClient(cmv.toBaseClient_Details());
                 managerHelper.ActionResult = "Customer edit submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
@@ -311,7 +311,7 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var managerHelper = new HelpViewModel();
+                var managerHelper = new HelpModel();
 
                 var domainclient = cmv.toBaseClient_Details();
 
@@ -338,7 +338,7 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var managerHelper = new HelpViewModel();
+                var managerHelper = new HelpModel();
                 _manager.UpdateClient(cmv.toBaseClient_Details());
                 managerHelper.ActionResult = "Customer edit submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
@@ -362,7 +362,7 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var managerHelper = new HelpViewModel();
+                var managerHelper = new HelpModel();
                 _manager.AddCar(cmv.toBaseCarDetails());
                 managerHelper.ActionResult = "New car submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
@@ -380,7 +380,7 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var managerHelper = new HelpViewModel();
+                var managerHelper = new HelpModel();
                 _manager.UpdateCar(cmv.toBaseCarDetails());
                 managerHelper.ActionResult = "Car edit submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
@@ -408,7 +408,7 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var managerHelper = new HelpViewModel();
+                var managerHelper = new HelpModel();
                 _manager.AddDeal(dvm.toBaseDateDetails());
                 managerHelper.ActionResult = "New deal submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
@@ -427,7 +427,7 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var managerHelper = new HelpViewModel();
+                var managerHelper = new HelpModel();
                 _manager.UpdateDeal(dvm.toBaseDateDetails());
                 managerHelper.ActionResult = "Deal edit submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
@@ -452,7 +452,7 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var managerHelper = new HelpViewModel();
+                var managerHelper = new HelpModel();
                 _manager.AddManufactorer(dvm.toBaseManufacturer());
                 managerHelper.ActionResult = "New manufactorer submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
@@ -473,7 +473,7 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var managerHelper = new HelpViewModel();
+                var managerHelper = new HelpModel();
                 _manager.UpdateManufactorer(dvm.toBaseManufacturer());
                 managerHelper.ActionResult = "Manufactorer edit submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);

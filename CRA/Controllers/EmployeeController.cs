@@ -39,7 +39,7 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Employee, Manager")]
         public JsonResult HelpAjax()
         {
-            var helper = new HelpViewModel();
+            var helper = new HelpModel();
 
             allDeals =_employee.GetAllDeals().Select(d => new DealViewModel(d));
 
@@ -59,9 +59,9 @@ namespace CarRental.Controllers
 
 
         [Authorize(Roles = "Employee, Manager")]
-        public ActionResult CloseTheDeal(HelpViewModel hvm)
+        public ActionResult CloseTheDeal(HelpModel hvm)
         {
-            var helper = new HelpViewModel();
+            var helper = new HelpModel();
 
             _employee.ReservationClosing(hvm.dealID,hvm.RealReturn);
 

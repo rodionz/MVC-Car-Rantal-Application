@@ -77,7 +77,7 @@ namespace CarRental.Controllers
 
         public ActionResult HelpAjax()
         {
-            var helper = new HelpViewModel();
+            var helper = new HelpModel();
 
             helper.AllManufacturers = allManufacturers;
 
