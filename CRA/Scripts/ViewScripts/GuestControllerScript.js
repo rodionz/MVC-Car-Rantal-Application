@@ -367,19 +367,32 @@ $(function () {
 
             if( selected != "")
             {
-                if (_gears.indexOf(selected.toLowerCase()) > -1)
+                if (_gears.indexOf(selected.toLowerCase()) > 0)
                 {
                     carSelection("data-gear", selected);
                 }
 
-                else if (_manufactorers.indexOf(selected.toLowerCase()) > -1)
+                else if (_manufactorers.indexOf(selected.toLowerCase()) > 0)
                 {
                     carSelection("data-manufacturer", selected);
                 }
 
-                else if (_models.indexOf(selected.toLowerCase()) > -1)
+                else if (_models.indexOf(selected.toLowerCase()) > 0)
                 {
+                    
+
                     carSelection("data-carModel", selected);
+                }
+
+              
+
+
+                else if (jQuery.grep(_models, function (value, i) { return value.indexOf(selected.toLowerCase()) != -1 }).length > 0)
+                {
+
+                    let arr = jQuery.grep(_models, function (value, i) { return value.indexOf(selected.toLowerCase()) != -1 });
+                    
+                    carSelection("data-carModel", arr[0])
                 }
 
                 else {

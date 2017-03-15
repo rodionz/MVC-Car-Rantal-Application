@@ -76,10 +76,21 @@ footer{
 
 .calculate{   
      margin: 15px 0 5px 30%;
+
+     
 }
 
+#interested .calculate {
+
+    margin: auto;
+    margin-top: 10px;
+   
+}
+
+
+
 #dialog {
-    background-color:dodgerblue;
+    background-color: dodgerblue;
     color: white;
 }
 
