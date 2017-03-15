@@ -7,6 +7,7 @@ using System.Web;
 using CarRental.Data;
 using System.Globalization;
 using CarRental.Models;
+using CarRental.Models.Validators;
 
 namespace CarRental.MVC.Models
 {
@@ -63,6 +64,7 @@ namespace CarRental.MVC.Models
         public string Email { get; set; }
 
         [Required]
+        [UserNameValidation]
         [StringLength(30, MinimumLength = 6,ErrorMessage = "Username must contain at least 6 chatracters")]        
         public string UserName { get; set; }
 

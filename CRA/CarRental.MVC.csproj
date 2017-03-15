@@ -452,6 +452,7 @@
     <Compile Include="Models\Validators\ModelIDValidation.cs" />
     <Compile Include="Models\ModelView.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\Validators\UserNameValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

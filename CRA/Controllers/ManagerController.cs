@@ -148,12 +148,17 @@ namespace CarRental.Controllers
                 case "AddUser":
                     return PartialView("~/Views/Manager/Partials/AddUser.cshtml");
 
-
+             
 
                 case "EditUser":
                     var customer = (from c in allCustomers where c.ID == hvm.ID select c).FirstOrDefault();
                     return PartialView("~/Views/Manager/Partials/EditUser.cshtml", customer);
 
+
+
+                case "EditEmployee":
+                    var employee = (from c in allEmployees where c.ID == hvm.ID select c).FirstOrDefault();
+                    return PartialView("~/Views/Manager/Partials/EditUser.cshtml", employee);
 
 
                 case "DeleteCustomer":

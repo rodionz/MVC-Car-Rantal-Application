@@ -264,7 +264,7 @@ $(function () {
         var body = table.createTBody();
 
         for (var model of arrayofCustomers) {
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + moment(model.BirthData).format('MM/DD/YYYY') + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
                 "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary clientEdit'>Edit</button>     <button class='btn btn-sm btn-danger clientDelete'>Delete</button></span></td></tr>")
         }
 
@@ -429,7 +429,7 @@ $(function () {
         var body = table.createTBody();
 
         for (var model of arrayofEmployees) {
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + moment(model.BirthData).format('MM/DD/YYYY') + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
                 "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary employeeEdit'>Edit</button>     <button class='btn btn-sm btn-danger employeeDelete'>Delete</button></span></td></tr>")
         }
 
@@ -457,7 +457,7 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            data: { ManagerAction: 'EditUser', ID: id },
+            data: { ManagerAction: 'EditEmployee', ID: id },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);
@@ -537,7 +537,7 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            data: { ID: customerID, FirstName: firstName, LastName: lastName, role: userRole, gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
+            data: { ID: customerID, FirstName: firstName, LastName: lastName,  gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
             url: '/Manager/SubmitEditEmployee',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Employee edit submitted") {
