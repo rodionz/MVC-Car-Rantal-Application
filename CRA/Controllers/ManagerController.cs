@@ -92,6 +92,7 @@ namespace CarRental.Controllers
          * - request for the form for adding new entiy.
          * - request for the form for editing entity.
          * - deleteting entity
+         * Based on the usage of the universal HelpModel i decided to combine all those functions in one.
          */
         [HttpGet]
         [Authorize(Roles = "Manager")]

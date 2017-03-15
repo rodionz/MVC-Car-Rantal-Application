@@ -10,8 +10,8 @@ namespace CarRental.Models
 
 
     /* HelpModel is a special generic object for the Client-Server  communication,
-    It contains all possible properties for the AJAX requests, i found it much more convenient to use
-    same class then different classes for  every request.
+    It contains all possible properties for the AJAX requests, i've found it much more convenient to use
+    same class instead of different classes for every request.
     */
     public class HelpModel
     {

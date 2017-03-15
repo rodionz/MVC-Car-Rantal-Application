@@ -133,7 +133,7 @@ $(function () {
 
 
 
-    // Autocomplete for freetextsearch - jQuerry UI: https://jqueryui.com/autocomplete/#default
+    // Autocomplete for free text search - jQuerry UI: https://jqueryui.com/autocomplete/#default
 
         var autocomplete = function () {
             for(let m of result.AllManufacturers)
@@ -277,7 +277,7 @@ $(function () {
         });
 
 
-    //Search by Model
+    ////////////Search by Model////////
         $('#searchbyModel').click(function () {
             $('#failure').empty();
             let selectedModel = $('#model').find(":selected").text();
@@ -290,7 +290,7 @@ $(function () {
 
 
 
-
+    /////////Search by manufacturer/////////
         $('#searchbyManufacturer').click(function () {
             $('#failure').empty();
             let selectedManufacturer = $('#manufa').find(":selected").text();
@@ -308,7 +308,7 @@ $(function () {
         }
 
 
-    //Search by Date
+    ///////Search by Date///////
         $('#searchbyDate').click(function () {
             $('#failure').empty();
             $('.alert').remove();

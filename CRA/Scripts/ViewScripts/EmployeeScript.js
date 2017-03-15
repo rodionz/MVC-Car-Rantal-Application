@@ -80,7 +80,7 @@ var listofDeals = function () {
 
 function dateisValid(date) {
     
-    // date validation
+    // date validation - not in use
     return true;
 }
 
