@@ -141,8 +141,15 @@ namespace CarRental.Controllers
                 {
                     var domainclient = CVM.toBaseClient_Details();
 
-                    domainclient.Roles.Add(new CarRent.Data.Roles { RoleName = "Customer", RoleId = (domainclient.Roles.Count + 1) });
+                   
                     _manager.AddClient(domainclient);
+
+
+                    string[] users = { CVM.UserName };
+
+                    string[] roles = { "Customer" };
+
+                    _roleprovider.AddUsersToRoles(users, roles);
 
                     TempData["Success"] = "You were Signed Up Successfully! Please Log In";
                     ModelState.Clear();

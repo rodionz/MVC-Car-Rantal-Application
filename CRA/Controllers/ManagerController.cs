@@ -317,7 +317,7 @@ namespace CarRental.Controllers
                 var domainclient = cmv.toBaseClient_Details();
 
                 //Need testing
-                domainclient.Roles.Add(new CarRent.Data.Roles { RoleName = "Employee", RoleId = (domainclient.Roles.Count + 1) });
+                domainclient.Roles.Add(new CarRent.Data.Roles { RoleName = "Employee", RoleId = 2});
 
                 _manager.AddClient(domainclient);
                 managerHelper.ActionResult = "New Employee Submitted";

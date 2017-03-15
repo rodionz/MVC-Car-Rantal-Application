@@ -12,8 +12,8 @@
 
 
 Regarding the role managment:
-There are 3 kinds of roles: Manager, Employee, Guest.
+There are 3 kinds of roles: Manager, Employee, Customer.
 
-Every authiticated user recieves the role of guest.
+Every authiticated user recieves the role of Customer.
 When manager adds new employee he automaticaly recieves role of Employee.
 Manager us only one and can't be asign 

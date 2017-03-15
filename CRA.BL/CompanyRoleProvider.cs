@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
+using System.Data.Entity;
 
 namespace CarRent.BL
 {
@@ -35,7 +36,7 @@ namespace CarRent.BL
             {
                 foreach(string role in roleNames)
                 {
-                    var _role = context.CompanyRoles.Where(r => r.RoleName == role).FirstOrDefault();
+                    var _role = context.CompanyRoles.Include(r => r.Users).Where(r => r.RoleName == role).FirstOrDefault();
 
 
                     foreach(string user in usernames)
