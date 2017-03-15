@@ -1,4 +1,5 @@
-﻿using CarRent.Data;
+﻿using CarRent.BL;
+using CarRent.Data;
 using CarRental.BL;
 using CarRental.Data;
 using CarRental.Models;
@@ -19,6 +20,8 @@ namespace CarRental.Controllers
 
         private readonly GuestBL guest;
 
+        private readonly CompanyRoleProvider _roleprovider;
+
         private static IEnumerable<ModelView> allmodels;
 
         private static IEnumerable<ManufactorerViewModel> allManufacturers;
@@ -36,6 +39,7 @@ namespace CarRental.Controllers
         {
             _manager = new ManagerBL();
             guest = new GuestBL();
+            _roleprovider = new CompanyRoleProvider();
         }
 
 
@@ -316,10 +320,15 @@ namespace CarRental.Controllers
 
                 var domainclient = cmv.toBaseClient_Details();
 
-                //Need testing
-                domainclient.Roles.Add(new CarRent.Data.Roles { RoleName = "Employee", RoleId = 2});
-
                 _manager.AddClient(domainclient);
+
+                string[] users = { cmv.UserName };
+
+                string[] roles = { "Employee" };
+
+                _roleprovider.AddUsersToRoles(users, roles);
+
+
                 managerHelper.ActionResult = "New Employee Submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
             }
