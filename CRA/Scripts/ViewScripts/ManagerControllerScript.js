@@ -500,7 +500,7 @@ $(function () {
         let email = $('.Email').val();
         let pass = $('.Password').val();
         let username = $('.Username').val();
-        let userRole = $('.Role').val();
+        
 
         $.ajax({
             type: 'GET',
@@ -533,7 +533,7 @@ $(function () {
         let email = $('.Email').val();
         let pass = $('.Password').val();
         let username = $('.Username').val();
-        let userRole = $('.Role').val();
+     
 
         $.ajax({
             type: 'GET',
