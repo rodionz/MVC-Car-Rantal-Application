@@ -173,8 +173,7 @@ function dateisValid(date) {
 
                 $('.column-two').append(dealClosingForm);
 
-                $('#datepickerClosing').datepicker({
-                    changeMonth: true,
+                $('#datepickerClosing').datepicker({                   
                     changeYear: true});
 
             

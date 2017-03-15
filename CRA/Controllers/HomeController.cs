@@ -139,12 +139,15 @@ namespace CarRental.Controllers
 
                 else
                 {
-                    _manager.AddClient(CVM.toBaseClient_Details());
+                    var domainclient = CVM.toBaseClient_Details();
+
+                    domainclient.Roles.Add(new CarRent.Data.Roles { RoleName = "Customer", RoleId = (domainclient.Roles.Count + 1) });
+                    _manager.AddClient(domainclient);
 
                     TempData["Success"] = "You were Signed Up Successfully! Please Log In";
                     ModelState.Clear();
                     var model = new UserViewModel();
-                    return View("Login");
+                     return  RedirectToAction("Login");
                 }
             }
 
