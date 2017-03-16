@@ -111,12 +111,12 @@ namespace CarRental.Controllers
                    ///////// MODELS ///////////
 
                 case "AddModel":
-                    return PartialView("~/Views/Manager/Partials/AddModel.cshtml");
+                    return PartialView("AddModel");
 
 
                 case "EditModel":
                     var model = (from m in allmodels where m.ID == hvm.ID select m).FirstOrDefault();
-                    return PartialView("~/Views/Manager/Partials/EditModel.cshtml", model);
+                    return PartialView("EditModel", model);
 
 
                 case "DeleteModel":
@@ -128,12 +128,12 @@ namespace CarRental.Controllers
                 /////////////  CARS /////////////
 
                 case "AddCar":
-                    return PartialView("~/Views/Manager/Partials/AddCar.cshtml");
+                    return PartialView("AddCar");
 
 
                 case "EditCar":
                     var car = (from c in allCars where c.ID == hvm.ID select c).FirstOrDefault();
-                    return PartialView("~/Views/Manager/Partials/EditCar.cshtml", car);
+                    return PartialView("EditCar", car);
 
 
                 case "DeleteCar":
@@ -146,19 +146,19 @@ namespace CarRental.Controllers
                 /////////////// USERS ////////////////////
 
                 case "AddUser":
-                    return PartialView("~/Views/Manager/Partials/AddUser.cshtml");
+                    return PartialView("AddUser");
 
              
 
                 case "EditUser":
                     var customer = (from c in allCustomers where c.ID == hvm.ID select c).FirstOrDefault();
-                    return PartialView("~/Views/Manager/Partials/EditUser.cshtml", customer);
+                    return PartialView("EditUser", customer);
 
 
 
                 case "EditEmployee":
                     var employee = (from c in allEmployees where c.ID == hvm.ID select c).FirstOrDefault();
-                    return PartialView("~/Views/Manager/Partials/EditUser.cshtml", employee);
+                    return PartialView("EditUser", employee);
 
 
                 case "DeleteCustomer":
@@ -175,12 +175,12 @@ namespace CarRental.Controllers
 
 
                 case "AddManufacturer":
-                    return PartialView("~/Views/Manager/Partials/AddManufacturer.cshtml");
+                    return PartialView("AddManufacturer");
 
 
                 case "EditManufactorer":
                     var manuf = (from m in allManufacturers where m.ID == hvm.ID select m).FirstOrDefault();
-                    return PartialView("~/Views/Manager/Partials/EditManufacturer.cshtml", manuf);
+                    return PartialView("EditManufacturer", manuf);
 
 
                 case "DeleteManufactorer":
@@ -196,11 +196,11 @@ namespace CarRental.Controllers
 
 
                 case "AddDeal":
-                    return PartialView("~/Views/Manager/Partials/AddDeal.cshtml");
+                    return PartialView("AddDeal");
 
                 case "EditDeal":
                     var deal = (from d in allDeals where d.ID == hvm.ID select d).FirstOrDefault();
-                    return PartialView("~/Views/Manager/Partials/EditDeal.cshtml", deal);           
+                    return PartialView("EditDeal", deal);           
 
                 case "DeleteDeal":
                     _manager.DeleteDeal(hvm.ID);
@@ -234,7 +234,7 @@ namespace CarRental.Controllers
 
             else
             {
-                  return PartialView("~/Views/Manager/Partials/AddModel.cshtml");
+                  return PartialView("AddModel");
             }
         }
 
@@ -256,7 +256,7 @@ namespace CarRental.Controllers
 
             else
             {
-                return PartialView("~/Views/Manager/Partials/EditModel.cshtml", cmv);
+                return PartialView("EditModel", cmv);
             }
         }
 
@@ -282,7 +282,7 @@ namespace CarRental.Controllers
                 {
                     ModelState.AddModelError(string.Empty, "Username already taken");
 
-                    return PartialView("~/Views/Manager/Partials/AddUser.cshtml");
+                    return PartialView("AddUser");
                 }
 
                 var managerHelper = new HelpModel();
@@ -293,7 +293,7 @@ namespace CarRental.Controllers
 
             else
             {
-                return PartialView("~/Views/Manager/Partials/AddUser.cshtml");
+                return PartialView("AddUser");
             }
         }
 
@@ -313,7 +313,7 @@ namespace CarRental.Controllers
             }
             else
             {
-                return PartialView("~/Views/Manager/Partials/EditUser.cshtml", cmv);
+                return PartialView("EditUser", cmv);
             }
         }
 
@@ -349,7 +349,7 @@ namespace CarRental.Controllers
 
             else
             {
-                return PartialView("~/Views/Manager/Partials/AddUser.cshtml");
+                return PartialView("AddUser");
             }
         }
 
@@ -370,7 +370,7 @@ namespace CarRental.Controllers
             else
             {
                 
-                return PartialView("~/Views/Manager/Partials/EditUser.cshtml", cmv);
+                return PartialView("EditUser", cmv);
             }
         }
 
@@ -394,7 +394,7 @@ namespace CarRental.Controllers
             }
             else
             {
-                return PartialView("~/Views/Manager/Partials/AddCar.cshtml");
+                return PartialView("AddCar");
             }
         }
 
@@ -413,7 +413,7 @@ namespace CarRental.Controllers
 
             else
             {
-                return PartialView("~/Views/Manager/Partials/EditCar.cshtml",cmv);
+                return PartialView("EditCar",cmv);
             }
         }
 
@@ -441,7 +441,7 @@ namespace CarRental.Controllers
 
             else
             {
-                return PartialView("~/Views/Manager/Partials/AddDeal.cshtml");
+                return PartialView("AddDeal");
             }
         }
 
@@ -460,7 +460,7 @@ namespace CarRental.Controllers
 
             else
             {
-                return PartialView("~/Views/Manager/Partials/EditDeal.cshtml",dvm);
+                return PartialView("EditDeal",dvm);
             }
         }
 
@@ -486,7 +486,7 @@ namespace CarRental.Controllers
             else
             {
                 IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
-                return PartialView("~/Views/Manager/Partials/AddManufacturer.cshtml");
+                return PartialView("AddManufacturer");
             }
         }
 
@@ -506,7 +506,7 @@ namespace CarRental.Controllers
 
             else
             {
-                return PartialView("~/Views/Manager/Partials/EditManufacturer.cshtml",dvm);
+                return PartialView("EditManufacturer",dvm);
             }
         }
          
