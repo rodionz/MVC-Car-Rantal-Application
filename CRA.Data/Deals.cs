@@ -23,7 +23,7 @@ namespace CarRental.Data
         [Required]
         public int? UserId { get; set; }
 
-        [Required]
+        
         public User User { get; set; }
 
         [Required]

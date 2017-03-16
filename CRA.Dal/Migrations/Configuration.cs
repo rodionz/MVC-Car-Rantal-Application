@@ -9,7 +9,7 @@ namespace CarRental.Dal.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(CarRental.Dal.CarRentalContext context)

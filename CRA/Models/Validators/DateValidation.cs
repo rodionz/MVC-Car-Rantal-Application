@@ -19,7 +19,7 @@ namespace CarRental.Models
                 return isValid;
             }
 
-            else return false;
+            else return true;
         }
 
 
