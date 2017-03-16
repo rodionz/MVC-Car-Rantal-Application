@@ -12,16 +12,21 @@ namespace CarRental.Data
         [Key]
         public int ID { get; set; }
 
+        [Required]
         public DateTime? Start { get; set; }
 
+        [Required]
         public DateTime? SupposedReturn { get; set; }
 
         public DateTime? Realreturn { get; set; }
 
+        [Required]
         public int? UserId { get; set; }
 
+        [Required]
         public User User { get; set; }
 
+        [Required]
         public int? CarID { get; set; }
 
         public virtual Car Car { get; set; }

@@ -16,20 +16,23 @@ namespace CarRental.Data
         [Key]
         public int ModelID { get; set; }
 
-      
 
+        [Required]
         public int ManufacturerId { get; set; }
 
         public Manufacturers Manufacturer { get; set; }
 
 
         [StringLength(30)]
+        [Required]
         public string NameofModel { get; set; }
 
         [Column(TypeName = "money")]
+        [Required]
         public decimal DailyPrice { get; set; }
 
         [Column(TypeName = "money")]
+        [Required]
         public decimal LateReturnFine { get; set; }
 
         public Gear gear { get; set; }

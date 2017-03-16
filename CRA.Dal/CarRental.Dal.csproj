@@ -79,6 +79,10 @@
     <Compile Include="Migrations\201703091134348_nullable.Designer.cs">
       <DependentUpon>201703091134348_nullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703161652335_lastUpdate.cs" />
+    <Compile Include="Migrations\201703161652335_lastUpdate.Designer.cs">
+      <DependentUpon>201703161652335_lastUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -112,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703091134348_nullable.resx">
       <DependentUpon>201703091134348_nullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161652335_lastUpdate.resx">
+      <DependentUpon>201703161652335_lastUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

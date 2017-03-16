@@ -22,17 +22,14 @@ namespace CarRental.Data
 
        
 
-        [Required]
-        [StringLength(15)]      
+        [Required]          
         public string FirstName { get; set; }
 
 
-        [Required]
-        [StringLength(15)]      
+        [Required]       
         public string LastName { get; set; }
 
-        [Required]
-        [StringLength(15)]
+        [Required]       
         public string UserName { get; set; }
 
         public DateTime? BirthData { get; set; }
@@ -40,13 +37,10 @@ namespace CarRental.Data
         [Required]
         public Gender gender { get; set; }
 
-        [Required]
-        [EmailAddress]
-        [StringLength(30)]      
+        [Required]                  
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(20)]
+        [Required]       
         public string Password { get; set; }
 
 
