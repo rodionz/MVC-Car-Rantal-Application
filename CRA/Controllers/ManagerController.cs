@@ -276,6 +276,15 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
+
+
+                if (_roleprovider.UserExists(cmv.UserName))
+                {
+                    ModelState.AddModelError(string.Empty, "Username already taken");
+
+                    return PartialView("~/Views/Manager/Partials/AddUser.cshtml");
+                }
+
                 var managerHelper = new HelpModel();
                 _manager.AddClient(cmv.toBaseClient_Details());
                 managerHelper.ActionResult = "New Customer Submitted";

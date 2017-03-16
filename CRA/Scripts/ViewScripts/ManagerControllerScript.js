@@ -264,7 +264,7 @@ $(function () {
         var body = table.createTBody();
 
         for (var model of arrayofCustomers) {
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.gender + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
                 "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary clientEdit'>Edit</button>     <button class='btn btn-sm btn-danger clientDelete'>Delete</button></span></td></tr>")
         }
 
@@ -429,7 +429,7 @@ $(function () {
         var body = table.createTBody();
 
         for (var model of arrayofEmployees) {
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.gender + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
                 "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary employeeEdit'>Edit</button>     <button class='btn btn-sm btn-danger employeeDelete'>Delete</button></span></td></tr>")
         }
 
