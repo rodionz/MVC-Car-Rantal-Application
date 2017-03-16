@@ -238,7 +238,8 @@ $(function () {
             data: { ManagerAction: 'AddUser'},
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);                       
+                $('.column-two').html(data); 
+                $('.submiting').attr('id','submitNewCustomer');
             }
         });
     });
@@ -254,17 +255,29 @@ $(function () {
         var table = document.createElement('table');
         table.className = "table table-bordered table-hover";
         var addButton = document.createElement('button');
-        addButton.className = "addbutton addnewEmployee btn btn-success btn-sm";
+        addButton.className = "addbutton addnewClient btn btn-success btn-sm";
         addButton.textContent = "Add New Customer";
         $('.column-one').prepend(addButton);
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);
-        row.innerHTML = "<th class='col-xs-1'>ID of Customer</th><th class='col-xs-1'>Full Name</th><th class='col-xs-1'>Birth Data</th><th class='col-xs-1'>Email</th><th class='col-xs-1'>Username</th><th class='col-xs-1'>Password</th><th class='col-xs-2'></th>";
+        row.innerHTML = "<th class='col-xs-1'>ID of Customer</th><th class='col-xs-1'>Full Name</th><th class='col-xs-1'>Gender</th><th class='col-xs-1'>Birth Data</th><th class='col-xs-1'>Email</th><th class='col-xs-1'>Username</th><th class='col-xs-1'>Password</th><th class='col-xs-2'></th>";
         var body = table.createTBody();
 
+
+        function _gender(num) {
+
+            if (num == 0) {
+                return "Male";
+            }
+            else {
+                return "Female";
+            }
+        }
+
+
         for (var model of arrayofCustomers) {
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.gender + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + _gender(model.gender) + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
                 "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary clientEdit'>Edit</button>     <button class='btn btn-sm btn-danger clientDelete'>Delete</button></span></td></tr>")
         }
 
@@ -404,6 +417,7 @@ $(function () {
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);
+                $('.submiting').attr('id', 'submitNewEmployee');
             }
         });
     });
@@ -425,11 +439,21 @@ $(function () {
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);
-        row.innerHTML = "<th class='col-xs-1'>ID of Employee</th><th class='col-xs-1'>Full Name</th><th class='col-xs-1'>Birth Data</th><th class='col-xs-1'>Email</th><th class='col-xs-1'>Username</th><th class='col-xs-1'>Password</th><th class='col-xs-2'></th>";
+        row.innerHTML = "<th class='col-xs-1'>ID of Employee</th><th class='col-xs-1'>Full Name</th><th class='col-xs-1'>Gender</th><th class='col-xs-1'>Birth Data</th><th class='col-xs-1'>Email</th><th class='col-xs-1'>Username</th><th class='col-xs-1'>Password</th><th class='col-xs-2'></th>";
         var body = table.createTBody();
 
+        function _gender(num) {
+
+            if (num == 0) {
+                return "Male";
+            }
+            else {
+                return "Female";
+            }
+        }
+
         for (var model of arrayofEmployees) {
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + model.gender + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.FullName + "</td><td>" + _gender(model.gender) + "</td><td>" + model.BirthData + "</td><td>" + model.Email + "</td><td>" + model.UserName + "</td><td>" + model.Password +
                 "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary employeeEdit'>Edit</button>     <button class='btn btn-sm btn-danger employeeDelete'>Delete</button></span></td></tr>")
         }
 
@@ -491,7 +515,7 @@ $(function () {
     });
 
     // New employee submission
-    $('.column-two').on('click', '#submitNewCustomer', function () {
+    $('.column-two').on('click', '#submitNewEmployee', function () {
 
         let firstName = $('.FirstName').val();
         let gender = $('.Gender').val();
