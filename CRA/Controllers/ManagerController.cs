@@ -296,6 +296,13 @@ namespace CarRental.Controllers
 
                 var managerHelper = new HelpModel();
                 _manager.AddClient(cmv.toBaseClient_Details());
+
+                string[] users = { cmv.UserName };
+
+                string[] roles = { "Customer" };
+
+                _roleprovider.AddUsersToRoles(users, roles);
+
                 managerHelper.ActionResult = "New Customer Submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
             }
