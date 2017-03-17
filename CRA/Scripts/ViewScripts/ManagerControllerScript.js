@@ -390,7 +390,7 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            data: { ID: customerID, FirstName: firstName, LastName: lastName,  gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
+            data: { ID: parseInt(customerID), FirstName: firstName, LastName: lastName,  gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
             url: '/Manager/SubmitEditCustomer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Customer edit submitted") {
@@ -539,7 +539,7 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            data: { FirstName: firstName, LastName: lastName,  gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
+            data: { ID:parseInt(employeeID),  FirstName: firstName, LastName: lastName,  gender: gender, BirthData: birthDay, Email: email, UserName: username, Password: pass },
             url: '/Manager/SubmitNewEmployee',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "New Employee Submitted") {
@@ -562,7 +562,7 @@ $(function () {
     // Employee editing submission
     $('.column-two').on('click', '#submitEditEmployee', function () {
 
-        let customerID = $('customerID').val();
+        let customerID = $('.customerID').val();
         let firstName = $('.FirstName').val();
         let gender = $('.Gender').val();
         let lastName = $('.LastName').val();

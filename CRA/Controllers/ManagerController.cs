@@ -390,7 +390,7 @@ namespace CarRental.Controllers
             {
                 var managerHelper = new HelpModel();
                 _manager.UpdateClient(cmv.toBaseClient_Details());
-                managerHelper.ActionResult = "Customer edit submitted";
+                managerHelper.ActionResult = "Employee edit submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
             }
             else
