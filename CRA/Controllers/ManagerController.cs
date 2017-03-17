@@ -280,7 +280,7 @@ namespace CarRental.Controllers
 
                 if (_roleprovider.UserExists(cmv.UserName))
                 {
-                    ModelState.AddModelError(string.Empty, "Username already taken");
+                    ModelState.AddModelError(string.Empty, "Username already in use");
 
                     return PartialView("AddUser");
                 }
@@ -330,6 +330,16 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (_roleprovider.UserExists(cmv.UserName))
+                {
+                    ModelState.AddModelError(string.Empty, "Username already in use");
+
+                    return PartialView("AddUser");
+                }
+
+
+
                 var managerHelper = new HelpModel();
 
                 var domainclient = cmv.toBaseClient_Details();
