@@ -175,5 +175,47 @@ namespace CarRent.BL
             }
 
         }
+
+        public bool ModelExists(string modelName) {
+
+            using (var context = new CarRentalContext()) {
+
+                var model = (from m in context.Models
+                             where m.NameofModel == modelName
+                             select m).FirstOrDefault();
+
+                if (model == null)
+                {
+                    return false;
+                }
+
+                else
+                    return true;
+            }
+
+        }
+
+
+        public bool ManufactorerExists(string manName) {
+
+            using (var context = new CarRentalContext()) {
+
+                var manuf = (from m in context.Manufacturer
+                             where m.Manufacturer == manName
+                             select m).FirstOrDefault();
+
+                if (manuf == null)
+                {
+                    return false;
+                }
+
+                else
+                    return true;
+
+            }
+
+        }
+
+
     }
 }
