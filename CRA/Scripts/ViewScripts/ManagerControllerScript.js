@@ -239,6 +239,7 @@ $(function () {
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data); 
+                $('.submiting').removeAttr('id');
                 $('.submiting').attr('id','submitNewCustomer');
             }
         });
@@ -364,6 +365,8 @@ $(function () {
 
                 else {
                     $('.column-two').html(data);
+                    $('.submiting').removeAttr('id');
+                    $('.submiting').attr('id', 'submitNewCustomer');
                 }
             }
         })
@@ -396,6 +399,8 @@ $(function () {
                 }
                 else {
                     $('.column-two').html(data);
+                    $('.submiting').removeAttr('id');
+                    $('.submiting').attr('id', 'submitNewCustomer');
                 }
             }
         })
@@ -417,6 +422,7 @@ $(function () {
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);
+                $('.submiting').removeAttr('id');
                 $('.submiting').attr('id', 'submitNewEmployee');
             }
         });
@@ -540,6 +546,8 @@ $(function () {
 
                 else {
                     $('.column-two').html(data);
+                    $('.submiting').removeAttr('id');
+                    $('.submiting').attr('id', 'submitNewEmployee');
                 }
             }
         })
@@ -572,6 +580,8 @@ $(function () {
                 }
                 else {
                     $('.column-two').html(data);
+                    $('.submiting').removeAttr('id');
+                    $('.submiting').attr('id', 'submitNewEmployee');
                 }
             }
         })
