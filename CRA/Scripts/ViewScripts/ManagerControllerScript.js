@@ -311,6 +311,7 @@ $(function () {
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);      
                 $('.editing').removeAttr('id');
+                $('.editing').attr('id','submitEditCustomer');
             }
         });
 
@@ -400,7 +401,8 @@ $(function () {
                 }
                 else {
                     $('.column-two').html(data);
-                   
+                    $('.editing').removeAttr('id');
+                    $('.editing').attr('id', 'submitEditCustomer');
                 }
             }
         })
@@ -491,6 +493,8 @@ $(function () {
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);
+                $('.editing').removeAttr('id');
+                $('.editing').attr('id', 'submitNewEmployee');
             }
         });
 
@@ -580,6 +584,8 @@ $(function () {
                 }
                 else {
                     $('.column-two').html(data);
+                    $('.editing').removeAttr('id');
+                    $('.editing').attr('id', 'submitNewEmployee');
                     
                 }
             }
