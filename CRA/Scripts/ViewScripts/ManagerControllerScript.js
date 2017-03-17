@@ -527,6 +527,7 @@ $(function () {
     // New employee submission
     $('.column-two').on('click', '#submitNewEmployee', function () {
 
+        let employeeID = $('.customerID').val();
         let firstName = $('.FirstName').val();
         let gender = $('.Gender').val();
         let lastName = $('.LastName').val();
