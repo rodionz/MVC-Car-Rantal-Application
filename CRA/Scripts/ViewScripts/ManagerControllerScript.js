@@ -494,7 +494,7 @@ $(function () {
             success: function (data, textStatus, jqXHR) {
                 $('.column-two').html(data);
                 $('.editing').removeAttr('id');
-                $('.editing').attr('id', 'submitNewEmployee');
+                $('.editing').attr('id', 'submitEditEmployee');
             }
         });
 
@@ -559,7 +559,7 @@ $(function () {
 
 
     // Employee editing submission
-    $('.column-two').on('click', '#submitEditCustomer', function () {
+    $('.column-two').on('click', '#submitEditEmployee', function () {
 
         let customerID = $('customerID').val();
         let firstName = $('.FirstName').val();
@@ -585,7 +585,7 @@ $(function () {
                 else {
                     $('.column-two').html(data);
                     $('.editing').removeAttr('id');
-                    $('.editing').attr('id', 'submitNewEmployee');
+                    $('.editing').attr('id', 'submitEditEmployee');
                     
                 }
             }
