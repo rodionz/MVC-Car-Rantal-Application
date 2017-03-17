@@ -216,7 +216,9 @@ namespace CarRental.Controllers
 
 
 
-
+       
+        /// ////////////////////////////////////////////////////////////////////////////////////////
+      
 
 
         [Authorize(Roles = "Manager")]
@@ -224,6 +226,13 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (_roleprovider.ModelExists(cmv.NameofModel)) {
+
+                    ModelState.AddModelError(string.Empty, "Model already exists");
+                    return PartialView("AddModel");
+                }
+
                 var originalModel = cmv.toBaseModelDetail();
                 _manager.AddModel(originalModel);
                 var result = new HelpModel();
@@ -487,6 +496,17 @@ namespace CarRental.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (_roleprovider.ManufactorerExists(dvm.manufacturerName))
+                {
+
+                    ModelState.AddModelError(string.Empty, "Manufactorer already exists");
+                    return PartialView("AddManufacturer");
+                }
+
+
+
+
                 var managerHelper = new HelpModel();
                 _manager.AddManufactorer(dvm.toBaseManufacturer());
                 managerHelper.ActionResult = "New manufactorer submitted";
