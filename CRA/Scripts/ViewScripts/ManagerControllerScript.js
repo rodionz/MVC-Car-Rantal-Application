@@ -309,7 +309,8 @@ $(function () {
             data: { ManagerAction: 'EditUser', ID: id },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-                $('.column-two').html(data);               
+                $('.column-two').html(data);      
+                $('.editing').removeAttr('id');
             }
         });
 
@@ -399,8 +400,7 @@ $(function () {
                 }
                 else {
                     $('.column-two').html(data);
-                    $('.submiting').removeAttr('id');
-                    $('.submiting').attr('id', 'submitNewCustomer');
+                   
                 }
             }
         })
@@ -580,8 +580,7 @@ $(function () {
                 }
                 else {
                     $('.column-two').html(data);
-                    $('.submiting').removeAttr('id');
-                    $('.submiting').attr('id', 'submitNewEmployee');
+                    
                 }
             }
         })
