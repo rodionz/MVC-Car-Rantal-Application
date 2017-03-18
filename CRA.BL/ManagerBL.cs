@@ -43,8 +43,13 @@ namespace CarRental.BL
                              where m.ModelID == modelID
                              select m).FirstOrDefault();
 
-                context.Models.Attach(model);
-                context.Entry(model).State = EntityState.Deleted;
+
+
+                var cars = context.Cars.Where(c => c.ModelID == modelID).ToArray();
+                context.Cars.RemoveRange(cars);
+                context.SaveChanges();
+
+                context.Models.Remove(model);
                 context.SaveChanges();
             }
 
