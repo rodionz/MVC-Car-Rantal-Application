@@ -27,13 +27,13 @@ namespace CarRental.MVC.Models
         [Required]
         [Display(Name = "Id of Branch")]
         [BranchIDValidation]
-        public int? BranchID { get; set; }
+        public int BranchID { get; set; }
     
 
         [Required]
         [Display (Name = "Id of Model")]
         [ModelIDValidation]
-        public int? ModelID { get; set; }
+        public int ModelID { get; set; }
 
         [Required]
         [Display(Name = "Car is in proper state")]

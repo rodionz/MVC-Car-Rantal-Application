@@ -21,14 +21,17 @@ namespace CarRental.Data
 
         public bool ProperState { get; set; }
 
+        [re]
         [StringLength(15)]
         public string CarNumber { get; set; }
 
-        public int? BranchID { get; set; }
+        [Required]
+        public int BranchID { get; set; }
 
         public virtual Branch Branch { get; set; }
 
-        public int? ModelID { get; set; }
+        [Required]
+        public int ModelID { get; set; }
 
         public virtual Model Model { get; set; }
     }
