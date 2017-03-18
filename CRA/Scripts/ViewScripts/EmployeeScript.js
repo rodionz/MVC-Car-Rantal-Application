@@ -46,23 +46,31 @@ var listofDeals = function () {
 
         var row = header.insertRow(0);
 
-        row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID</th><th>Deal Closing</th>";
+        row.innerHTML = "<th>ID of Deal</th><th>Start Date</th><th>Supposed Return</th><th>Real Return</th><th>Client ID</th><th>Car ID</th><th>Car Number</th><th>Deal Closing</th>";
 
         var body = table.createTBody();
+
+
+        function dealCarNumber(carid) {
+
+         let car = arrayofCars.find(function (x) {return x.ID == carid})
+
+         return car.CarNumber;
+        }
 
         for (var model of  arrayofDeals)
         {
             if (!isNaN(model.RealReturn)) {
 
                 $(body).append("<tr><td>" + model.ID + "</td><td>" + model.StartDate + "</td><td>" + model.SupposedReturn +
-                    "</td><td>" + "Car is not returned" + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
+                    "</td><td>" + "Car is not returned" + "</td><td>" + model.ClientID + "</td><td>" + model.CarID + "</td><td>" + dealCarNumber(model.CarID) +
                 "</td><td><button class ='btn btn-xs btn-warning dealclose' id='" + model.ID + "'>Close the Deal</button></td></tr>")
 
             }
 
             else {
                 $(body).append("<tr><td>" + model.ID + "</td><td>" + model.StartDate + "</td><td>" + model.SupposedReturn +
-                "</td><td>" + model.RealReturn + "</td><td>" + model.ClientID + "</td><td>" + model.CarID +
+                    "</td><td>" + model.RealReturn + "</td><td>" + model.ClientID + "</td><td>" + model.CarID + "</td><td>" + dealCarNumber(model.CarID) +
                 "</td><td>Deal is closed</td></tr>")
 
             }
