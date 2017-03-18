@@ -21,7 +21,7 @@ namespace CarRental.Data
 
         public bool ProperState { get; set; }
 
-        [re]
+        
         [StringLength(15)]
         public string CarNumber { get; set; }
 
