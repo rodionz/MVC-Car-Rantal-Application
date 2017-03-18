@@ -80,12 +80,25 @@ namespace CarRental.BL
         {
             using (var context = new CarRentalContext())
             {
-                var manufactorer = (from m in context.Manufacturer
+                var manufactorer = (from m in context.Manufacturer.Include(m => m.Models)
                              where m.ID == manlID
                                     select m).FirstOrDefault();
 
-                context.Manufacturer.Attach(manufactorer);
-                context.Entry(manufactorer).State = EntityState.Deleted;
+                var models = context.Models.Where(m => m.ManufacturerId == manlID).ToArray(); ;
+
+
+                foreach (var model in models)
+                {
+                    var cars = context.Cars.Where(c => c.ModelID == model.ModelID).ToArray();
+                    context.Cars.RemoveRange(cars);
+                    context.SaveChanges();
+                }
+
+                context.Models.RemoveRange(models);
+                    context.SaveChanges();
+                
+
+                context.Manufacturer.Remove(manufactorer);
                 context.SaveChanges();
             }
 
