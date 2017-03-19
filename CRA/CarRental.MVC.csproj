@@ -483,6 +483,7 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\MyBusket.cshtml" />
     <Content Include="Views\Customer\PreviousReservations.cshtml" />
+    <Content Include="Views\Manager\testcar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

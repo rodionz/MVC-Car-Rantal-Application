@@ -1,7 +1,7 @@
 ﻿@model CarRental.MVC.Models.CarViewModel
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("SubmitNewCar", "Manager",FormMethod.Post,  new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -64,6 +64,15 @@
             </div>
         </div>
     
+
+
+       
+            <label for="file">Upload Image:</label>
+            <input type="file" name="image" id="file" style="width: 100%;" />
+           
+       
+
+       
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-5">

@@ -5,6 +5,7 @@ using System.Web;
 using CarRental.Data;
 using System.ComponentModel.DataAnnotations;
 using CarRental.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarRental.MVC.Models
 {
@@ -39,7 +40,8 @@ namespace CarRental.MVC.Models
         [Display(Name = "Car is in proper state")]
         public bool ProperState { get; set; }
 
-
+        [Column(TypeName = "Picture")]
+        public HttpPostedFileBase  Picture { get; set; }
 
         public CarViewModel() { }
 
