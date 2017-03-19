@@ -253,20 +253,26 @@ $(function () {
 
     // Price confirmation
         $('#dialog').on('click', '.makeorder', function (event) {
+            if (finalPrice > 0) {
+                event.preventDefault();
+                let convertedStartDate = moment(dateStart).format("YYYY-M-D").toString();
+                let convertedReturnDate = moment(dateEnd).format("YYYY-M-D").toString();
 
-            event.preventDefault();
-            let convertedStartDate = moment(dateStart).format("YYYY-M-D").toString();
-            let convertedReturnDate = moment(dateEnd).format("YYYY-M-D").toString();
+                $.ajax({
+                    type: 'POST',
+                    data: { carID: selectedCar.ID, modelID: modeltoCalculate.ID, StartDate: convertedStartDate, SupposedReturn: convertedReturnDate, totallPrice: Math.round(finalPrice) },
+                    url: '/Customer/GetInfo',
+                    success: function () {
+                        window.location.replace('/Customer/Index');
 
-            $.ajax({
-                type: 'POST',
-                data: { carID: selectedCar.ID, modelID: modeltoCalculate.ID, StartDate: convertedStartDate, SupposedReturn: convertedReturnDate, totallPrice: finalPrice },
-                url: '/Customer/GetInfo',
-                success: function () {
-                    window.location.replace('/Customer/Index');
-                   
-                }
-            });
+                    }
+                });
+            }
+
+            else {
+
+                alert("Illigal Price!");
+            }
 
         });
    
