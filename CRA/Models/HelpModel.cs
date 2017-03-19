@@ -51,6 +51,8 @@ namespace CarRental.Models
 
         public string modelName { get; set; }
 
+		[Column(TypeName = "Picture")]
+		public HttpPostedFileBase Picture { get; set; }
        
     }
 }

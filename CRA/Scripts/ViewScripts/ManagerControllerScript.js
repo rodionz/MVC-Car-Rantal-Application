@@ -795,8 +795,29 @@ $(function () {
     //Adding picture - form submiting
 
     $('.column-two').on('click', '#submitPicture', function(){
+    let carID = $('.carID').val();
+        let miles = $('.Mileage').val();
+        let carNumber = $('.CarNumber').val();
+        let branchID = $('.Branch').val();
+        let modelID = $('.Model').val();
+        let state = $('.properState').is(':checked');
+        let image = $('#picture"').val();
+
+           $.ajax({
+            type: 'GET',
+            data: {ID: carID, Mileage: miles, CarNumber: carNumber, BranchID: branchID, ModelID: modelID,
+             ProperState: state, Picture: image},
+            url: '/Manager/SubmitPicture',
+            success: function (data, textStatus, jqXHR) {
+
+            if(data.ActionResult == ){}
 
 
+
+            else if(data.ActionResult ==){}
+
+            $('.column-two').html(data);
+        });
     })
 
 
