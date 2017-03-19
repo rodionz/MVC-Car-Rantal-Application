@@ -131,6 +131,11 @@ namespace CarRental.Controllers
                     return PartialView("AddCar");
 
 
+                case "AddPicture":
+                    var carp = (from c in allCars where c.ID == hvm.ID select c).FirstOrDefault();
+                    return PartialView("AddCarPicture",carp);
+
+
                 case "EditCar":
                     var car = (from c in allCars where c.ID == hvm.ID select c).FirstOrDefault();
                     return PartialView("EditCar", car);
@@ -443,6 +448,22 @@ namespace CarRental.Controllers
             }
         }
 
+        [Authorize(Roles = "Manager")]
+        [HttpPost]
+        public ActionResult SubmitPicture(CarViewModel car, HttpPostedFileBase picture ) {
+
+            if (ModelState.IsValid)
+            {
+
+                return Json(JsonRequestBehavior.AllowGet);
+            }
+
+            else
+            {
+                return PartialView("AddCarPicture",car);
+            }
+
+        }
 
 
 

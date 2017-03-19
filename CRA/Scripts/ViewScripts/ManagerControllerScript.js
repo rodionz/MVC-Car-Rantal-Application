@@ -638,7 +638,7 @@ $(function () {
         table.setAttribute("id", "mytable");
         var header = table.createTHead();
         var row = header.insertRow(0);   
-        row.innerHTML = "<th class='col-xs-1'>ID of Car</th><th class='col-xs-1'>Model ID</th><th class='col-xs-1'>Branch ID</th><th class='col-xs-1'>Mileage</th><th class='col-xs-1'>CarNumber</th><th class='col-xs-1'>Proper State</th><th class='col-xs-2'></th>";
+        row.innerHTML = "<th class='col-xs-1'>ID of Car</th><th class='col-xs-1'>Model ID</th><th class='col-xs-1'>Branch ID</th><th class='col-xs-1'>Mileage</th><th class='col-xs-1'>CarNumber</th><th class='col-xs-1'>Proper State</th><th class='col-xs-3'></th>";
         var body = table.createTBody();
 
         function branch(num) {
@@ -660,7 +660,7 @@ $(function () {
 
         for (var model of  arrayofCars)
         {
-            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.ModelID + "</td><td>" + branch(model.BranchID) + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.ProperState + "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary carEdit'>Edit</button>     <button class='btn btn-sm btn-danger carDelete'>Delete</button></span></td></tr>");
+            $(body).append("<tr><td>" + model.ID + "</td><td>" + model.ModelID + "</td><td>" + branch(model.BranchID) + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.ProperState + "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary carEdit'>Edit</button>  <button class='btn btn-sm btn-info addPicture'>Add Picture</button>  <button class='btn btn-sm btn-danger carDelete'>Delete</button></span></td></tr>");
         }
 
         $('.column-one').append(table);
@@ -775,6 +775,25 @@ $(function () {
             }
         })
     });
+
+
+    //////Adding picture
+
+    $('.column-one').on('click', '.addPicture', function () {
+        $('.column-two').empty();
+        var id = $(this).parent().attr('id');
+
+        $.ajax({
+            type: 'GET',
+            data: { ManagerAction: 'AddPicture', ID: id },
+            url: '/Manager/ManagerActions',
+            success: function (data, textStatus, jqXHR) {
+                $('.column-two').html(data);
+            }
+        });
+    });
+
+
 
 
 /////////////////// DEALS ////////////////////////////

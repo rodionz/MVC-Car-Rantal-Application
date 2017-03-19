@@ -1,0 +1,13 @@
+﻿@model CarRental.MVC.Models.CarViewModel
+
+<h2>Picture</h2>
+
+
+@using (Html.BeginForm("SubmitPicture", "Manager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    
+    <input id="picture" name="picture" type="file" />
+    @Html.HiddenFor(x => x.ID)
+
+    <input type="submit" value="submit" />
+}

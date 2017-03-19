@@ -484,6 +484,7 @@
     <Content Include="Views\Customer\MyBusket.cshtml" />
     <Content Include="Views\Customer\PreviousReservations.cshtml" />
     <Content Include="Views\Manager\testcar.cshtml" />
+    <Content Include="Views\Manager\AddCarPicture.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
