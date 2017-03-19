@@ -7,6 +7,7 @@ using CarRental.MVC.Models;
 using CRA.BL;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -454,8 +455,30 @@ namespace CarRental.Controllers
 
             if (ModelState.IsValid)
             {
+                var managerHelper = new HelpModel();
+                var domainCar = car.toBaseCarDetails();
 
-                return Json(JsonRequestBehavior.AllowGet);
+                try {
+
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        picture.InputStream.CopyTo(ms);
+                        byte[] array = ms.GetBuffer();
+                        domainCar.Picture = array;
+                        _manager.UpdateCar(domainCar);
+                    }
+
+                    managerHelper.ActionResult = "Upload Succeded";
+                    return Json(managerHelper, JsonRequestBehavior.AllowGet);
+                }
+
+                catch
+                {
+                    managerHelper.ActionResult = "Upload Failed";
+                    return Json(managerHelper, JsonRequestBehavior.AllowGet);
+                }
+
+              
             }
 
             else
