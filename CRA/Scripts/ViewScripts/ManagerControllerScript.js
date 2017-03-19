@@ -109,7 +109,7 @@ $(function () {
 
         
         $('.column-one').empty();
-        
+        $('.alert').remove();
         var table = document.createElement('table');
         table.setAttribute("id", "mytable");
         table.className = "table  table-bordered table-hover";
@@ -266,7 +266,7 @@ $(function () {
 
         $('.column-one').empty();
 
-
+        $('.alert').remove();
         var table = document.createElement('table');
         table.className = "table table-bordered table-hover";
         var addButton = document.createElement('button');
@@ -450,7 +450,7 @@ $(function () {
     var listofEmployees = function () {
 
         $('.column-one').empty();
-
+        $('.alert').remove();
 
         var table = document.createElement('table');
         table.className = "table table-bordered table-hover";
@@ -831,7 +831,7 @@ $(function () {
     // Creating list of deals
     var creatinglistOfDeals = function () {
         $('.column-one').empty();
-        
+        $('.alert').remove();
         var table = document.createElement('table');
         table.className = "table table-bordered table-hover";
         var addButton = document.createElement('button');
@@ -993,7 +993,7 @@ $(function () {
     var listofManufactorers = function () {
 
         $('.column-one').empty();
-        
+        $('.alert').remove();
         var table = document.createElement('table');
         var addButton = document.createElement('button');
         addButton.className = "addbutton addManufatorer btn btn-success btn-sm";
@@ -1102,8 +1102,9 @@ $(function () {
             url: '/Manager/SubmitEditManufactorer',
             success: function (data, textStatus, jqXHR) {
                 if (data.ActionResult == "Manufactorer edit submitted") {
+                    $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'>Manufactorer Edited Succesfully</h3>")
-                   
+                    
                     dataRequest();
                     listofManufactorers();
                 }
@@ -1117,7 +1118,7 @@ $(function () {
 
   
 
-    creatinglistOfDeals();
+    listofCars();
 
 
 

@@ -3,6 +3,22 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Manager/ManagersLayout.cshtml";
 }
+@if (TempData["message"] != null)
+{
+
+    if (TempData["message"].ToString() == "Upload Succeded!")
+    {
+
+        <p class="alert alert-success" id="successMessage">@TempData["message"]</p>
+    }
+
+    else
+    {
+        <p class="alert alert-danger">@TempData["message"]</p>
+
+    }
+
+}
 <br />
 <br />
 <main>

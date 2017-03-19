@@ -468,14 +468,17 @@ namespace CarRental.Controllers
                         _manager.UpdateCar(domainCar);
                     }
 
-                    managerHelper.ActionResult = "Upload Succeded";
-                    return Json(managerHelper, JsonRequestBehavior.AllowGet);
+                    TempData["message"] = "Upload Succeded!";
+                 
+                    return RedirectToAction("Index");
+
                 }
 
                 catch
                 {
-                    managerHelper.ActionResult = "Upload Failed";
-                    return Json(managerHelper, JsonRequestBehavior.AllowGet);
+                    TempData["message"] = "Upload Failed!";
+                  
+                    return RedirectToAction("Index");
                 }
 
               
