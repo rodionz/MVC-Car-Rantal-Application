@@ -453,7 +453,7 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult SubmitPicture(CarViewModel car, HttpPostedFileBase picture ) {
 
-            if (ModelState.IsValid && picture != null)
+            if (ModelState.IsValid)
             {
                 var managerHelper = new HelpModel();
                 var domainCar = car.toBaseCarDetails();
@@ -483,7 +483,6 @@ namespace CarRental.Controllers
 
             else
             {
-				ModelState.AddModelError(string.Empty, "Please select image" );
                 return PartialView("AddCarPicture",car);
             }
 

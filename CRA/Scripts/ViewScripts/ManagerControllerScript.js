@@ -777,7 +777,7 @@ $(function () {
     });
 
 
-    //////Adding picture - form Requesting
+    //////Adding picture
 
     $('.column-one').on('click', '.addPicture', function () {
         $('.column-two').empty();
@@ -788,16 +788,12 @@ $(function () {
             data: { ManagerAction: 'AddPicture', ID: id },
             url: '/Manager/ManagerActions',
             success: function (data, textStatus, jqXHR) {
-            $('.column-two').html(data);
+                $('.column-two').html(data);
+            }
         });
     });
 
-    //Adding picture - form submiting
 
-    $('.column-two').on('click', '#submitPicture', function(){
-
-
-    })
 
 
 /////////////////// DEALS ////////////////////////////
