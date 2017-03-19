@@ -9,7 +9,7 @@
 * pop-up windows
 -DataTable: for design and functionality of tables: https://www.datatables.net/
 -Moment.js : for parsing datetime formats (SQL-C#-Javascript): http://momentjs.com/
-
+-Jusny Bootstrap : for customising file upload buttons: https://jsfiddle.net/jasny/vtGxm/
 
 Regarding the role managment:
 There are 3 kinds of roles: Manager, Employee, Customer.
