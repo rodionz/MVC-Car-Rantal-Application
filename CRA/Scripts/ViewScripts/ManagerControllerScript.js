@@ -38,6 +38,20 @@ $(function () {
 
     dataRequest();
 
+    //function for filie uploading
+    $(document).on('change', ':file', function () {
+        var input = $(this),
+            numFiles = input.get(0).files ? input.get(0).files.length : 1,
+            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('fileselect', [numFiles, label]);
+    });
+
+    //Function succesfull uploding
+    $(document).ready(function () {
+        $(':file').on('fileselect', function (event, numFiles, label) {
+            alert(label);
+        })
+    });
 
     $('.column-two').on('click', '.cancel', function () {
         $('.column-two').empty();

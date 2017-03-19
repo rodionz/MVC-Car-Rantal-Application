@@ -1,23 +1,30 @@
 ﻿@model CarRental.MVC.Models.CarViewModel
 
 <h2>Picture</h2>
-
-
+<link rel="stylesheet" href="~/Content/jasny-bootstrap.css" />
+<script src="~/Scripts/ScriptLibriaries/jasny-bootstrap.js"></script>
 @using (Html.BeginForm("SubmitPicture", "Manager", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <label class="btn btn-default btn-file">
-        Browse   <input id="picture" name="picture" type="file" style="display:none" />
-    </label>
+
+    <div class="fileinput fileinput-new" data-provides="fileinput">
+        <span class="btn btn-default btn-file"><span>Choose file</span>
+            <input id="picture" name="picture" type="file" />
+        </span>
+        <span class="fileinput-filename"></span><span class="fileinput-new">No file chosen</span>
+     </div>
+
+        
+
+        <input type="submit" class="btn btn-success btn-sm" value="submit" />
+
+        @Html.HiddenFor(x => x.ID)
+        @Html.HiddenFor(x => x.BranchID)
+        @Html.HiddenFor(x => x.CarNumber)
+        @Html.HiddenFor(x => x.Mileage)
+        @Html.HiddenFor(x => x.ModelID)
+        @Html.HiddenFor(x => x.ProperState)
 
 
-    @Html.HiddenFor(x => x.ID)
-    @Html.HiddenFor(x => x.BranchID)
-    @Html.HiddenFor(x => x.CarNumber)
-    @Html.HiddenFor(x => x.Mileage)
-    @Html.HiddenFor(x => x.ModelID)
-    @Html.HiddenFor(x => x.ProperState)
 
 
-
-    <input type="submit" class="btn btn-success" value="submit" />
-}
+        }

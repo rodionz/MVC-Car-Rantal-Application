@@ -252,6 +252,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\jasny-bootstrap.css" />
     <Content Include="Content\logos\1_Primary_logo_on_transparent_190x72.png" />
     <Content Include="Content\logos\2_Flat_logo_on_transparent_190x72.png" />
     <Content Include="Content\logos\3_White_logo_on_color1_190x72.png" />
@@ -399,6 +400,7 @@
     <Content Include="Scripts\ScriptLibriaries\bootstrap.js" />
     <Content Include="Scripts\ScriptLibriaries\bootstrap.min.js" />
     <None Include="Scripts\ScriptLibriaries\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\ScriptLibriaries\jasny-bootstrap.js" />
     <Content Include="Scripts\ScriptLibriaries\jquery-1.10.2.js" />
     <Content Include="Scripts\ScriptLibriaries\jquery-1.10.2.min.js" />
     <Content Include="Scripts\ScriptLibriaries\jquery-1.10.2.min.map" />
