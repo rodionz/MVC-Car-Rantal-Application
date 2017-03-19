@@ -72,7 +72,7 @@ $(function () {
         let totalDays = (dateEnd - dateStart) / 24 / 60 / 60 / 1000; //we get total days          
         let price = totalDays * dayRate;
         if (price > 0) {
-            $('#price').text("Totall price: " + price + "$");
+            $('#price').text("Totall price: " + Math.round(price) + "$");
             $('#fine').text("The fine for overdue return is: " + fine + "$ per day");
         }
 
@@ -104,7 +104,8 @@ $(function () {
 
 
         $("#datepickerStart").datepicker(
-           {
+            {
+                changeYear: true,
                onSelect: select,
                onUpdate: select
            }
@@ -114,6 +115,7 @@ $(function () {
 
         $("#datepickerEnd").datepicker(
             {
+                changeYear: true,
                 onSelect: select,
                 onUpdate: select
             }
@@ -262,7 +264,7 @@ $(function () {
                 url: '/Customer/GetInfo',
                 success: function () {
                     window.location.replace('/Customer/Index');
-                    console.log("Success");
+                   
                 }
             });
 

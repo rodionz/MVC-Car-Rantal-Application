@@ -72,7 +72,7 @@ namespace CarRental.MVC.Models
         public string Password { get; set; }
 
 
-        public byte?[] Picture { get; set; }
+        public byte[] Picture { get; set; }
 
 
 

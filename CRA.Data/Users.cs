@@ -44,8 +44,8 @@ namespace CarRental.Data
         public string Password { get; set; }
 
 
-        [Column(TypeName = "image")]
-        public byte?[] Picture { get; set; }
+       
+        public byte[] Picture { get; set; }
 
 
         public ICollection<Roles> Roles { get; set; }
