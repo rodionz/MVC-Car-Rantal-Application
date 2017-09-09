@@ -47,6 +47,7 @@
         <label>Search by model</label>
     <div class="input-group col-md-3">            
         @Html.DropDownList("model", (IEnumerable<SelectListItem>)ViewBag.model, "-- Please Select --", new {  @class = "dropdown form-control" })
+     
         <span class="input-group-btn">
             <button class="btn btn-default" id="searchbyModel">Search</button>
         </span>     
@@ -105,7 +106,7 @@
         <ul class="list-inline carlist">
             @foreach (var car in Model)
             {
-                <li class="list-group-item model" data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer"
+                <li class="list-group-item model" data-carModel="@car.Model.NameofModel" data-manufacturer="@car.Model.Manufacturer.Manufacturer" 
                      data-gear="@car.Model.gear"  id="@car.Model.ModelID" data-carID="@car.CarID">
 
                     @Html.Partial("SingleCarPartialView", car)   
