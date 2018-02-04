@@ -105,7 +105,6 @@ namespace CarRental.Controllers
         {
             HelpModel result = new HelpModel();
 
-
             switch (hvm.ManagerAction)
             {
                 
@@ -153,7 +152,6 @@ namespace CarRental.Controllers
 
                 case "AddUser":
                     return PartialView("AddUser");
-
              
 
                 case "EditUser":
@@ -220,12 +218,7 @@ namespace CarRental.Controllers
             }
         }
 
-
-
-       
-        /// ////////////////////////////////////////////////////////////////////////////////////////
-      
-
+        #region CarModel
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewModel (ModelView cmv)
@@ -253,9 +246,6 @@ namespace CarRental.Controllers
             }
         }
 
-
-   
-
         //CarModel
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditModel(ModelView cmv)
@@ -275,16 +265,9 @@ namespace CarRental.Controllers
             }
         }
 
+        #endregion
 
-
-        /// //////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-        ///////////////Customers//////////////////////////    
-
-
+        #region Customers
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewCustomer(UserViewModel cmv)
@@ -340,12 +323,9 @@ namespace CarRental.Controllers
         }
 
 
-
-        ////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-        //////////////////////////////EMPLOYEES/////////////////////////
+        #endregion
+   
+        #region Employees
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewEmployee(UserViewModel cmv)
@@ -359,22 +339,12 @@ namespace CarRental.Controllers
 
                     return PartialView("AddUser");
                 }
-
-
-
                 var managerHelper = new HelpModel();
-
                 var domainclient = cmv.toBaseClient_Details();
-
                 _manager.AddClient(domainclient);
-
                 string[] users = { cmv.UserName };
-
                 string[] roles = { "Employee" };
-
                 _roleprovider.AddUsersToRoles(users, roles);
-
-
                 managerHelper.ActionResult = "New Employee Submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
             }
@@ -384,10 +354,6 @@ namespace CarRental.Controllers
                 return PartialView("AddUser");
             }
         }
-
-
-
-
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditEmployee(UserViewModel cmv)
@@ -406,13 +372,9 @@ namespace CarRental.Controllers
             }
         }
 
-        ////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-        //////////////////////CARS////////////////////////////////////
+        #endregion
+    
+        #region Cars
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewCar(CarViewModel cmv)
@@ -429,8 +391,6 @@ namespace CarRental.Controllers
                 return PartialView("AddCar");
             }
         }
-
-
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitEditCar(CarViewModel cmv)
@@ -457,9 +417,7 @@ namespace CarRental.Controllers
             {
                 var managerHelper = new HelpModel();
                 var domainCar = car.toBaseCarDetails();
-
                 try {
-
                     using (MemoryStream ms = new MemoryStream())
                     {
                         picture.InputStream.CopyTo(ms);
@@ -467,39 +425,24 @@ namespace CarRental.Controllers
                         domainCar.Picture = array;
                         _manager.UpdateCar(domainCar);
                     }
-
-                    TempData["message"] = "Upload Succeded!";
-                 
+                    TempData["message"] = "Upload Succeded!";                 
                     return RedirectToAction("Index");
-
                 }
-
                 catch
                 {
-                    TempData["message"] = "Upload Failed!";
-                  
+                    TempData["message"] = "Upload Failed!";                  
                     return RedirectToAction("Index");
-                }
-
-              
+                }              
             }
 
             else
             {
                 return PartialView("AddCarPicture",car);
             }
-
         }
+        #endregion
 
-
-
-
-/// /////////////////////////////////////////////////////////////////////////////////////
-
-
-            /////////////////////DEALS//////////////////////////////////////////////
-
-
+        #region Deals
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewDeal(DealViewModel dvm)
@@ -511,7 +454,6 @@ namespace CarRental.Controllers
                 managerHelper.ActionResult = "New deal submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
             }
-
             else
             {
                 return PartialView("AddDeal");
@@ -530,36 +472,26 @@ namespace CarRental.Controllers
                 managerHelper.ActionResult = "Deal edit submitted";
                 return Json(managerHelper, JsonRequestBehavior.AllowGet);
             }
-
             else
             {
                 return PartialView("EditDeal",dvm);
             }
         }
 
+        #endregion
 
-
-/// ///////////////////////////////////////////////////////////////////////////////////////////////
-/// 
-
-   ///// ////////////////////MANUFACTORERS//////////////////////
-
+        #region Manufactores
 
         [Authorize(Roles = "Manager")]
         public ActionResult SubmitNewManufacturer(ManufactorerViewModel dvm)
         {
             if (ModelState.IsValid)
             {
-
                 if (_roleprovider.ManufactorerExists(dvm.manufacturerName))
                 {
-
                     ModelState.AddModelError(string.Empty, "Manufactorer already exists");
                     return PartialView("AddManufacturer");
                 }
-
-
-
 
                 var managerHelper = new HelpModel();
                 _manager.AddManufactorer(dvm.toBaseManufacturer());
@@ -573,8 +505,6 @@ namespace CarRental.Controllers
                 return PartialView("AddManufacturer");
             }
         }
-
-
 
 
         [Authorize(Roles = "Manager")]
@@ -593,7 +523,8 @@ namespace CarRental.Controllers
                 return PartialView("EditManufacturer",dvm);
             }
         }
-         
+
+        #endregion
 
     }
 }
