@@ -10,8 +10,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CarRental.MVC.Models
 {
 
-   
-
     public class CarViewModel
     {
        
@@ -45,7 +43,6 @@ namespace CarRental.MVC.Models
 
         public CarViewModel() { }
 
-
         public  Car toBaseCarDetails ()
         {
             return new Car
@@ -58,8 +55,6 @@ namespace CarRental.MVC.Models
                 ProperState = ProperState                    
             };
         }
-
-
 
 
         public CarViewModel(Car domainCarDetails)

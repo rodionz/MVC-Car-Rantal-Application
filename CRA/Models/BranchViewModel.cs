@@ -11,8 +11,7 @@ namespace CarRental.MVC.Models
 {
     public class BranchViewModel
     {
-
-      
+    
         public int ID { get; set; }
 
        [Display(Name = "Branch Name")]
@@ -27,10 +26,7 @@ namespace CarRental.MVC.Models
 
         public DbGeography Location { get; set; }
 
-
-
         public BranchViewModel() { }
-
 
         public  Branch toBaseBranchDetails ()
         {
@@ -45,20 +41,12 @@ namespace CarRental.MVC.Models
             };
         }
 
-
-
-
         public BranchViewModel(Branch domainBranch)
         {
             this.ID = domainBranch.BranchID;
-
             this.BranchName = domainBranch.BranchName;
-
-            this.City = domainBranch.City;
-
+           this.City = domainBranch.City;
             this.District = domainBranch.City;
-
         }
-
     }
 }

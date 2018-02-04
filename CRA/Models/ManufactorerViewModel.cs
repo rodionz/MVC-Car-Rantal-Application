@@ -16,17 +16,12 @@ namespace CarRental.Models
         [Display (Name ="Manufactorer Name")]
         public string manufacturerName { get; set; }
 
-    
-
 
         public ManufactorerViewModel(Manufacturers domainManuf) {
 
             this.ID = domainManuf.ID;
             this.manufacturerName = domainManuf.Manufacturer;           
         }
-
-
-
 
         public Manufacturers toBaseManufacturer() {
 
@@ -36,7 +31,6 @@ namespace CarRental.Models
                 Manufacturer = manufacturerName,               
             };
         }
-
 
         public ManufactorerViewModel() { }
 

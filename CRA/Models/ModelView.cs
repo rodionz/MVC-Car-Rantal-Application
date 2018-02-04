@@ -11,13 +11,9 @@ using CarRental.Models;
 namespace CarRental.MVC.Models
 {
 
-   
-
-
     public class ModelView
     {
-
-        
+      
         public int ID { get; set; }
 
         [Required]
@@ -42,8 +38,6 @@ namespace CarRental.MVC.Models
         [EnumDataType(typeof(Gear), ErrorMessage = "Please enter a valid Gear")]
         public Gear? gear { get; set; }
 
-
-
         public  Model toBaseModelDetail()
         {
             return new Model
@@ -57,13 +51,7 @@ namespace CarRental.MVC.Models
             };
         }
 
-
-
-
-
-
         public ModelView() { }
-
 
         public ModelView(Model domainModelDetails)
 
@@ -75,10 +63,6 @@ namespace CarRental.MVC.Models
             this.LateReturnFine = domainModelDetails.LateReturnFine;  
             this.gear = domainModelDetails.gear;
     }
-
-
-
-
 
     }
 }

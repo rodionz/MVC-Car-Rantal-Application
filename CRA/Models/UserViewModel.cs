@@ -19,7 +19,6 @@ namespace CarRental.MVC.Models
     public class UserViewModel
     {
        
-
         public int ID { get; set; }
 
         [Required]
@@ -54,10 +53,6 @@ namespace CarRental.MVC.Models
         [Display(Name = "Gender")]
         [EnumDataType(typeof(Gender), ErrorMessage = "Please select a valid gender")]
         public Gender? gender { get; set; }
-
-
-
-
 
         [Required]
         [EmailAddress]       

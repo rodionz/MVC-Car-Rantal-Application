@@ -10,15 +10,12 @@ using System.Globalization;
 namespace CarRental.MVC.Models
 {
     public class DealViewModel
-    {
-
-     
+    {    
         public int ID { get; set; }
 
         [Required]
         [DateValidation]
         public string StartDate { get; set; }
-
 
         [Required]
         [DateValidation]
@@ -37,27 +34,20 @@ namespace CarRental.MVC.Models
         [Display(Name = "Id of Car")]
         public int? CarID { get; set; }
 
-
-
         public  Deal toBaseDateDetails ()
         {
-
             if (RealReturn != null)
             {
                 return new Deal
                 {
-                    ID = ID,
-
-                    
+                    ID = ID,                   
                     Start = DateTime.ParseExact(StartDate, "dd/MM/yyyy", CultureInfo.InvariantCulture),
                     SupposedReturn =  DateTime.ParseExact(SupposedReturn, "dd/MM/yyyy", CultureInfo.InvariantCulture),
                     Realreturn =  DateTime.ParseExact(RealReturn, "dd/MM/yyyy", CultureInfo.InvariantCulture),   
                     UserId = ClientID,
                     CarID = CarID
-
                 };
             }
-
             else
             {
                 return new Deal
@@ -76,15 +66,10 @@ namespace CarRental.MVC.Models
 
         public DealViewModel() { }
 
-
         public DealViewModel(Deal domainDealDetails)
-
-
         {
             this.ID = domainDealDetails.ID;
-
             this.StartDate = domainDealDetails.Start.Value.ToShortDateString();
-
             this.SupposedReturn = domainDealDetails.SupposedReturn.Value.ToShortDateString();
 
             if(domainDealDetails.Realreturn.HasValue)
@@ -92,16 +77,8 @@ namespace CarRental.MVC.Models
                 this.RealReturn = domainDealDetails.Realreturn.Value.ToShortDateString();
             }
             
-
             this.ClientID = domainDealDetails.UserId;
-
             this.CarID = domainDealDetails.CarID;
-
-
-
         }
-
-
-
     }
 }
