@@ -33,9 +33,7 @@ namespace CarRental.Controllers
 
         public GuestController()
         {
-
             manager = new ManagerBL();
-
             guest = new GuestBL();
         }
 
@@ -44,17 +42,11 @@ namespace CarRental.Controllers
         public ActionResult Index()
         {
            domaninCars = guest.GetAllCarsinProperState();
-
             allCars = domaninCars.Select(c => new CarViewModel(c));
-
-            allmodels = guest.GettAllModels().Select(c => new ModelView(c));
-
-            allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
-
+           allmodels = guest.GettAllModels().Select(c => new ModelView(c));
+           allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
             allDeals = manager.GetAllDeals().Select(d => new DealViewModel(d));
-
             List<SelectListItem> modelsItems = new List<SelectListItem>();
-
             List<SelectListItem> manufacturersItems = new List<SelectListItem>();
 
             foreach (var model in allmodels)
@@ -68,9 +60,7 @@ namespace CarRental.Controllers
             }
 
             ViewBag.model = modelsItems;
-
             ViewBag.manufac = manufacturersItems;
-
             return View(domaninCars);
         }
 
@@ -78,23 +68,13 @@ namespace CarRental.Controllers
         public ActionResult HelpAjax()
         {
             var helper = new HelpModel();
-
             helper.AllManufacturers = allManufacturers;
-
             helper.AllCarModels = allmodels;
-
             helper.AllDeals = allDeals;
-
             helper.AllCars = allCars;
-
             return Json(helper, JsonRequestBehavior.AllowGet);
         }
-
-    
-
-
-
-       
+     
         public ActionResult GetImage(int id)
         {           
                 var image = guest.GetImage(id);

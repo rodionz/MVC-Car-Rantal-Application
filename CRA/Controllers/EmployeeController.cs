@@ -22,7 +22,6 @@ namespace CarRental.Controllers
 
         public EmployeeController()
         {
-
             _employee = new EmployeeBL();
 
         }
@@ -40,17 +39,11 @@ namespace CarRental.Controllers
         public JsonResult HelpAjax()
         {
             var helper = new HelpModel();
-
             allDeals =_employee.GetAllDeals().Select(d => new DealViewModel(d));
-
             allCars = _employee.GettAllCars().Select(c => new CarViewModel(c));
-
-            allModels = _employee.GettAllModels().Select(m => new ModelView(m));
-              
-            helper.AllDeals = allDeals;
-
+            allModels = _employee.GettAllModels().Select(m => new ModelView(m));           
+           helper.AllDeals = allDeals;
             helper.AllCars = allCars;
-
             helper.AllCarModels = allModels;
           
            return Json(helper, JsonRequestBehavior.AllowGet);
@@ -62,11 +55,8 @@ namespace CarRental.Controllers
         public ActionResult CloseTheDeal(HelpModel hvm)
         {
             var helper = new HelpModel();
-
             _employee.ReservationClosing(hvm.dealID,hvm.RealReturn);
-
             helper.ActionResult = "Deal Deleted";
-
             return Json(helper,JsonRequestBehavior.AllowGet);
         }
     }

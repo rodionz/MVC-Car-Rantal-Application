@@ -21,20 +21,12 @@ namespace CarRental.Controllers
 
         private readonly CompanyRoleProvider _roleprovider;
 
-        
-
-
-
         public HomeController()
         {
             _guest = new GuestBL();
             _manager = new ManagerBL();
             _roleprovider = new CompanyRoleProvider();
         }
-
-
-
-
 
         // GET: Home
         public ActionResult Index()
@@ -93,7 +85,6 @@ namespace CarRental.Controllers
         {
 
             bool userExists = _guest.ClientExist(login.converttoUser(login));
-
             if (!userExists)
             {
                 ModelState.AddModelError(string.Empty, "User does not exist");
@@ -119,7 +110,6 @@ namespace CarRental.Controllers
 
         public ActionResult SignUp()
         {
-
             return View();
         }
 
@@ -127,10 +117,8 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult SignUp(UserViewModel CVM)
         {
-
             if (ModelState.IsValid)
             {
-
                 if (_roleprovider.UserExists(CVM.UserName))
                 {
                     ModelState.AddModelError(string.Empty, "User Already Exists");
@@ -139,18 +127,11 @@ namespace CarRental.Controllers
 
                 else
                 {
-                    var domainclient = CVM.toBaseClient_Details();
-
-                   
+                    var domainclient = CVM.toBaseClient_Details();                  
                     _manager.AddClient(domainclient);
-
-
                     string[] users = { CVM.UserName };
-
                     string[] roles = { "Customer" };
-
                     _roleprovider.AddUsersToRoles(users, roles);
-
                     TempData["Success"] = "You were Signed Up Successfully! Please Log In";
                     ModelState.Clear();
                     var model = new UserViewModel();
@@ -162,7 +143,6 @@ namespace CarRental.Controllers
             {
                 return View("SignUp");
             }
-
         }
     }
 }

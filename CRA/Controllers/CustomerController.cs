@@ -29,10 +29,7 @@ namespace CarRental.Controllers
       
 
         public CustomerController() {
-
-            _customer = new CustomerBL();
-
-          
+            _customer = new CustomerBL();         
         }
 
 
@@ -42,19 +39,12 @@ namespace CarRental.Controllers
         public ActionResult GetInfo(HelpModel hvm)
         {
             var date1 = hvm.StartDate.Split('-');
-
             var date2 = hvm.SupposedReturn.Split('-');
-
             startDate = new DateTime(int.Parse(date1[0]), int.Parse(date1[1]), int.Parse(date1[2]));
-
             supposedReturn = new DateTime(int.Parse(date2[0]), int.Parse(date2[1]), int.Parse(date2[2]));
-
             customerCar = new CarViewModel(_customer.GetCar(hvm.carID));
-
             customerModel = new ModelView(_customer.GetModel(hvm.modelID));
-
             totallPrice = hvm.totallPrice;
-
             return Json(JsonRequestBehavior.AllowGet);
         }
 
@@ -65,21 +55,13 @@ namespace CarRental.Controllers
         public ActionResult Index()
         {
             var UserID = _customer.GetUserId(User.Identity.Name);
-
             ViewBag._Model = customerModel;
-
             ViewBag._Car = customerCar;
-
             ViewBag.price = totallPrice;
-
             ViewBag.userId = UserID; 
-
             ViewBag.startDate = startDate;
-
             ViewBag.supposedReturn = supposedReturn;
-
-            var model = new DealViewModel();
-           
+            var model = new DealViewModel();         
             return View(model);
         }
 
@@ -87,7 +69,6 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult AddtoBusket(DealViewModel deal)
         {
-
             TempData["Success"] = "Reservation Succeded!";
             var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
 
@@ -97,9 +78,7 @@ namespace CarRental.Controllers
             }
 
             deals.Add(deal);
-
             Session[DEALS_IN_THE_BUSKET] = deals;
-
             return  RedirectToAction("MyBusket");
         }
 
@@ -108,9 +87,7 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Employee, Manager, Customer")]
         public ActionResult MyBusket()
         {
-            var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
-           
-            
+            var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;                   
             return View(deals);
         }
 
@@ -126,15 +103,10 @@ namespace CarRental.Controllers
         public ActionResult Confimation(int dealID)
         {
             var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
-
             var currenDeal = deals.Where(d => d.ID == dealID).FirstOrDefault();
-
             deals.Remove(currenDeal);
-
             Session[DEALS_IN_THE_BUSKET] = deals;
-
-            _customer.ConfirmDeal(currenDeal.toBaseDateDetails());
-
+           _customer.ConfirmDeal(currenDeal.toBaseDateDetails());
             TempData["Success"] = "Reservation Completed!";
 
             return RedirectToAction("PreviousReservations");
@@ -144,11 +116,8 @@ namespace CarRental.Controllers
         {
             var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
             var dealtoRemove = deals.Where(d => d.ID == dealID).FirstOrDefault();
-
             deals.Remove(dealtoRemove);
-
             Session[DEALS_IN_THE_BUSKET] = deals;
-
             TempData["Success"] = "Order Removed! ";
 
             return RedirectToAction("MyBusket");
@@ -163,21 +132,16 @@ namespace CarRental.Controllers
         public ActionResult QuantityOfItemsInBusket()
         {
             int count;
-
             var deals = Session[DEALS_IN_THE_BUSKET] as List<DealViewModel>;
-
             if(deals == null)
             {
                 count = 0;
             }
-
             else
             {
                 count = deals.Count;
             }
-
-
-            return Json(count,JsonRequestBehavior.AllowGet);
+           return Json(count,JsonRequestBehavior.AllowGet);
         }
     }
 }
