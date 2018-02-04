@@ -13,15 +13,13 @@ namespace CarRental.Data
         [Key]
         public  int CarID { get; set; }
 
-
         public double? Mileage { get; set; }
 
         [Column(TypeName = "image")]
         public byte[] Picture { get; set; }
 
         public bool ProperState { get; set; }
-
-        
+       
         [StringLength(15)]
         public string CarNumber { get; set; }
 

@@ -10,9 +10,7 @@ using CarRental.Dal;
 namespace CarRental.BL
 {
   public  class EmployeeBL
-    {
-
-       
+    {     
         public IEnumerable<Deal> GetAllDeals()
         {
             IEnumerable<Deal> alldeals;
@@ -23,7 +21,6 @@ namespace CarRental.BL
                             select d).ToArray();
 
             }
-
             return alldeals;
         }
 
@@ -55,13 +52,6 @@ namespace CarRental.BL
             return allModels;
         }
 
-
-
-
-
-
-
-
         public Deal ReservationSearch(string carNum)
         {
             Deal dd;
@@ -78,19 +68,15 @@ namespace CarRental.BL
 
         public void ReservationClosing(int dealid, string realreturn)
         {
-
             var arr = realreturn.Split('-');
-
             var returndate = new DateTime(int.Parse(arr[2]), int.Parse(arr[0]), int.Parse(arr[1]));
-
             Deal dealToClose;
 
             using (var context = new CarRentalContext())
             {
                 dealToClose = (from d in context.Deals
                                where d.ID == dealid
-                               select d).FirstOrDefault();
-                               
+                               select d).FirstOrDefault();                             
             }
 
             dealToClose.Realreturn = returndate;
@@ -100,14 +86,7 @@ namespace CarRental.BL
                 context.Deals.Attach(dealToClose);
                 context.Entry(dealToClose).State = EntityState.Modified;
                 context.SaveChanges();
-
-
-
             }
-
-
         }
-
-
     }
 }

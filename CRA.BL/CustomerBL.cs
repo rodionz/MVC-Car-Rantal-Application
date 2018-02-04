@@ -11,10 +11,7 @@ namespace CarRental.BL
 {
    public class CustomerBL
     {
-     
-
-       
-
+         
         public Car GetCar(int carID)
         {
             using (var context = new CarRentalContext())

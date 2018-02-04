@@ -14,7 +14,6 @@ namespace CarRent.BL
   public  class CompanyRoleProvider : RoleProvider
     {
 
-
         public override string ApplicationName
         {
             get
@@ -28,8 +27,6 @@ namespace CarRent.BL
             }
         }
 
-
-
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
             using (var context = new CarRentalContext())
@@ -38,17 +35,14 @@ namespace CarRent.BL
                 {
                     var _role = context.CompanyRoles.Include(r => r.Users).Where(r => r.RoleName == role).FirstOrDefault();
 
-
                     foreach(string user in usernames)
                     {
                         var _user = context.Users.Where(u => u.UserName == user).FirstOrDefault();
 
                         _role.Users.Add(_user);
-                    }
-                    
+                    }                   
                 }
-
-                context.SaveChanges();
+               context.SaveChanges();
 
             }
         }
@@ -76,17 +70,14 @@ namespace CarRent.BL
 
         public override string[] FindUsersInRole(string roleName, string usernameToMatch)
         {
-
             string[] matchingusers;
 
             using (var context = new CarRentalContext())
             {
                 matchingusers = context.CompanyRoles.Where(r => r.RoleName == roleName)
                     .FirstOrDefault()
-                    .Users.Select(u => u.UserName).ToArray();
-                
+                    .Users.Select(u => u.UserName).ToArray();              
             }
-
             return matchingusers;
         }
 
@@ -94,8 +85,7 @@ namespace CarRent.BL
         {
             using (var context = new CarRentalContext())
             {
-
-                var allroles = context.CompanyRoles.Select(r => r.RoleName);
+               var allroles = context.CompanyRoles.Select(r => r.RoleName);
 
                 return allroles.ToArray();
             }
@@ -104,23 +94,14 @@ namespace CarRent.BL
      
 
         public override string[] GetRolesForUser(string username)
-        {
-
-            
-
+        {          
             using (var context = new CarRentalContext())
             {
                 var roles = (from r in context.Users
                              where r.UserName == username
                              select r.Roles.Select(u => u.RoleName)).FirstOrDefault();
-
-
-                string[] result = roles.ToArray();
-
-              
-
+                string[] result = roles.ToArray();             
                 return result;
-
             }
         }
 
@@ -215,7 +196,5 @@ namespace CarRent.BL
             }
 
         }
-
-
     }
 }

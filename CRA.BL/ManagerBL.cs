@@ -11,11 +11,8 @@ using CarRental.Dal;
 namespace CarRental.BL
 {
    public class ManagerBL
-    {
-
-      
-        public void AddModel(Model model)
-
+    {     
+       public void AddModel(Model model)
         {
             using (var context = new CarRentalContext())
             {
@@ -43,8 +40,6 @@ namespace CarRental.BL
                              where m.ModelID == modelID
                              select m).FirstOrDefault();
 
-
-
                 var cars = context.Cars.Where(c => c.ModelID == modelID).ToArray();
                 context.Cars.RemoveRange(cars);
                 context.SaveChanges();
@@ -55,13 +50,7 @@ namespace CarRental.BL
 
         }
 
-
-
-
-
-
         public void AddManufactorer(Manufacturers man)
-
         {
             using (var context = new CarRentalContext())
             {
@@ -100,9 +89,7 @@ namespace CarRental.BL
                 }
 
                 context.Models.RemoveRange(models);
-                    context.SaveChanges();
-                
-
+                context.SaveChanges();              
                 context.Manufacturer.Remove(manufactorer);
                 context.SaveChanges();
             }
@@ -121,7 +108,6 @@ namespace CarRental.BL
                            orderby car.Model.NameofModel descending
                            select car).ToArray();
             }
-
             return allCars;
         }
 
@@ -155,7 +141,6 @@ namespace CarRental.BL
                                     where c.CarID == carId
                                     select c).FirstOrDefault();
 
-
                 context.Cars.Attach(car);
                 context.Entry(car).State = EntityState.Deleted;
                 context.SaveChanges();
@@ -171,7 +156,6 @@ namespace CarRental.BL
             {
                 var allusers = (from u in context.Users
                                 select u).ToArray();
-
                 return allusers;
             }
 
@@ -185,7 +169,6 @@ namespace CarRental.BL
                 var allusers = (from u in context.Users
                                 where u.Roles.FirstOrDefault().RoleName == "Customer"
                                 select u).ToArray();
-
                 return allusers;
             }
 
@@ -232,18 +215,11 @@ namespace CarRental.BL
                 var user = (from m in context.Users
                                     where m.ID == clientID
                                     select m).FirstOrDefault();
-
-
                 context.Users.Attach(user);
                 context.Entry(user).State = EntityState.Deleted;
                 context.SaveChanges();
             }
         }
-
-
-
-
-
 
         public IEnumerable<Deal> GetAllDeals()
         {
@@ -251,7 +227,6 @@ namespace CarRental.BL
             {
                 var alldeals = (from u in context.Deals
                                 select u).ToArray();
-
                 return alldeals;
             }
 
@@ -282,7 +257,6 @@ namespace CarRental.BL
         {
             using (var context = new CarRentalContext())
             {
-
                 var deal = (from m in context.Deals
                                     where m.ID == dealId
                                     select m).FirstOrDefault();

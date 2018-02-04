@@ -20,6 +20,5 @@ namespace CarRent.Data
 
         public ICollection<User> Users { get; set; }
 
-
     }
 }

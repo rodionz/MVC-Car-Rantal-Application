@@ -39,8 +39,7 @@ namespace CRA.BL
                            select c.Picture).FirstOrDefault();
                 return img;
             }
-
-            
+           
         }
 
         public IEnumerable<Model> GettAllModels()
@@ -50,10 +49,8 @@ namespace CRA.BL
                 var all = (from m in context.Models
                            select m).ToArray();
 
-                return all; 
-               
+                return all;               
             }
-
         }
 
         public IEnumerable<Manufacturers> GettAllManufacturers()
@@ -62,9 +59,7 @@ namespace CRA.BL
             {
                 var all = (from m in context.Manufacturer
                            select m).ToArray();
-
                 return all;
-
             }
         }
 
@@ -75,7 +70,6 @@ namespace CRA.BL
             {
                 var all = (from m in context.Branches
                            select m).ToArray();
-
                 return all;
 
             }
@@ -87,14 +81,11 @@ namespace CRA.BL
         {
             using (var context = new CarRentalContext())
             {
-
                 var result = context.Users.FirstOrDefault(u => u.UserName == user.UserName);
-
                 if (result == null)
                 {
                     return false;
                 }
-
                 else
                 {
                     return true;
@@ -110,7 +101,6 @@ namespace CRA.BL
         {
             using (var context = new CarRentalContext())
             {
-
                 var usertoTest = context.Users.FirstOrDefault(u => u.UserName == user.UserName);
 
                 if (usertoTest.Password != user.Password)
@@ -122,11 +112,7 @@ namespace CRA.BL
                 {
                     return true;
                 }
-
             }
         }
-
-
-
     }
 }
