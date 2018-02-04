@@ -9,19 +9,17 @@ using System.Threading.Tasks;
 namespace CarRental.Data
 {
 
-    public enum Gear {Automatic, Manual, Robotic };
+   public enum Gear {Automatic, Manual, Robotic };
 
    public class Model
     {
         [Key]
         public int ModelID { get; set; }
 
-
         [Required]
         public int ManufacturerId { get; set; }
 
         public Manufacturers Manufacturer { get; set; }
-
 
         [StringLength(30)]
         [Required]

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace CarRental.Data
 {
 
-    public enum Gender {Male, Female };
+   public enum Gender {Male, Female };
 
    public class User
     {
@@ -20,11 +20,8 @@ namespace CarRental.Data
         public int ID
         { get; set; }
 
-       
-
         [Required]          
         public string FirstName { get; set; }
-
 
         [Required]       
         public string LastName { get; set; }
@@ -42,11 +39,8 @@ namespace CarRental.Data
 
         [Required]       
         public string Password { get; set; }
-
-
-       
+   
         public byte[] Picture { get; set; }
-
 
         public ICollection<Roles> Roles { get; set; }
 
