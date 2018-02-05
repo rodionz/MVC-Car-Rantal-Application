@@ -14,7 +14,7 @@ namespace CarRental.MVC.Models
     
         public int ID { get; set; }
 
-       [Display(Name = "Branch Name")]
+        [Display(Name = "Branch Name")]
         [Required]
         public string BranchName { get; set; }
 

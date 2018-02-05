@@ -1,6 +1,4 @@
 ﻿
-
-
 $(function () {
 
     var result = {};
@@ -64,7 +62,6 @@ $(function () {
 
     ////////////CAR  MODELS//////////////////
 
-
     // Requesting form for adding new model
 
     $('.column-one').on('click', '.addnewModel', function () {
@@ -79,8 +76,6 @@ $(function () {
             }
         });
     });
-
-
 
     // Creating list of models
     $('#modelList').on('click', function () {
@@ -102,7 +97,6 @@ $(function () {
         else if (num == 2) {
             return "Robotic";
         }
-
     }
 
     var listofModels = function () {
@@ -155,27 +149,21 @@ $(function () {
     $('.column-one').on('click', '.modelDelete', function () {
         $('.column-two').empty();
         var id = $(this).parent().attr('id');
-
-
         var del = confirm("Are you sure that you want to delete this model?");
-
         if (del) {
             $.ajax({
                 type: 'GET',
                 data: { ManagerAction: 'DeleteModel', ID: id },
                 url: '/Manager/ManagerActions',
-                success: function (data, textStatus, jqXHR) {
-               
+                success: function (data, textStatus, jqXHR) {            
                     dataRequest();
                     listofModels();
                     $('.column-two').empty();
                     $('.column-two').prepend("<h3 class='actionSuccses'>Model Deleted Succesfully</h3>")
-
                 }
             });
         }
     });
-
 
 
     // New model submission
@@ -238,12 +226,7 @@ $(function () {
     });
 
 
-
-
     ////////// CUSTOMERS ////////////////
-
-
-
     // Requesting form for adding new customer
     $('.column-one').on('click', '.addnewClient', function () {
         $('.column-two').empty();
@@ -263,9 +246,7 @@ $(function () {
 
     // Creating list of customers
     var listofCustomers = function () {
-
         $('.column-one').empty();
-
         $('.alert').remove();
         var table = document.createElement('table');
         table.className = "table table-bordered table-hover";
@@ -278,7 +259,6 @@ $(function () {
         var row = header.insertRow(0);
         row.innerHTML = "<th class='col-xs-1'>ID of Customer</th><th class='col-xs-1'>Full Name</th><th class='col-xs-1'>Gender</th><th class='col-xs-1'>Birth Data</th><th class='col-xs-1'>Email</th><th class='col-xs-1'>Username</th><th class='col-xs-1'>Password</th><th class='col-xs-2'></th>";
         var body = table.createTBody();
-
 
         function _gender(num) {
 
@@ -301,17 +281,10 @@ $(function () {
         );
     }
 
-
-
-
-
     $('#clientList').on('click', function () {
         $('.column-two').empty();
         listofCustomers();
     });
-
-
-
 
     // Requesting form for customer editing
     $('.column-one').on('click', '.clientEdit', function () {
@@ -327,10 +300,7 @@ $(function () {
                 $('.editing').removeAttr('id');
                 $('.editing').attr('id','submitEditCustomer');
             }
-        });
-
-
-    
+        });   
     });
 
     // Deleting customer
@@ -423,11 +393,7 @@ $(function () {
     });
     
 
-
-
  ///////////////////////EMPLOYEES////////////////////////
-
-
 
     // Requesting form for adding new employee
     $('.column-one').on('click', '.addnewEmployee', function () {
@@ -444,14 +410,11 @@ $(function () {
         });
     });
 
-
-
     // Creating list of employees
     var listofEmployees = function () {
 
         $('.column-one').empty();
         $('.alert').remove();
-
         var table = document.createElement('table');
         table.className = "table table-bordered table-hover";
         var addButton = document.createElement('button');
@@ -520,7 +483,6 @@ $(function () {
     $('.column-one').on('click', '.employeeDelete', function () {
         $('.column-two').empty();
         var id = $(this).parent().attr('id');
-
         var del = confirm("Are you sure that you want to delete this Employee?");
 
         if (del) {
@@ -562,7 +524,6 @@ $(function () {
                     dataRequest();
                     listofEmployees();
                 }
-
                 else {
                     $('.column-two').html(data);
                     $('.submiting').removeAttr('id');
@@ -608,16 +569,9 @@ $(function () {
     });
 
 
-
-
-
-
-
 /////////////////////////////////////////////////////////
 
 ////////////////////////// CARS /////////////////////////
-
-
 
     // Requesting form for adding new car
     $('.column-one').on('click', '.addnewcar', function () {
@@ -632,17 +586,11 @@ $(function () {
     });
 
 
-
-
     // Creating list of cars
 
-  
-
         var listofCars = function () {
-
         $('footer').removeClass('bottomfooter');
-        $('.column-one').empty();
-        
+        $('.column-one').empty();      
         var table = document.createElement('table');
         table.className = "table  table-bordered table-hover";
         var addButton = document.createElement('button');
@@ -671,7 +619,6 @@ $(function () {
 
         }
 
-
         for (var model of  arrayofCars)
         {
             $(body).append("<tr><td>" + model.ID + "</td><td>" + model.ModelID + "</td><td>" + branch(model.BranchID) + "</td><td>" + model.Mileage + "</td><td>" + model.CarNumber + "</td><td>" + model.ProperState + "</td><td class='cellwhithbuttons'><span class='editdelete' id=" + model.ID + "><button class='btn btn-sm btn-primary carEdit'>Edit</button>  <button class='btn btn-sm btn-info addPicture'>Add Picture</button>  <button class='btn btn-sm btn-danger carDelete'>Delete</button></span></td></tr>");
@@ -681,18 +628,13 @@ $(function () {
         $('table').DataTable();
     };
 
-
         $('#carList').on('click', function () {
             $('.column-two').empty();
             listofCars();
         });
 
-
-
-
     // Requesting form for car edit
-
-   
+ 
     $('.column-one').on('click', '.carEdit', function () {
         $('.column-two').empty();
         var id = $(this).parent().attr('id');
@@ -707,8 +649,6 @@ $(function () {
         });
        
     });
-
-
 
     // Deleting car
     $('.column-one').on('click', '.carDelete', function () {
@@ -808,12 +748,7 @@ $(function () {
     });
 
 
-
-
 /////////////////// DEALS ////////////////////////////
-
-
-
 
     // Requesting form for adding new deal
     $('.column-one').on('click', '.addDeal', function () {
@@ -843,9 +778,7 @@ $(function () {
         var row = header.insertRow(0);
         row.innerHTML = "<th class='col-xs-1'>ID of Deal</th><th class='col-xs-1'>Start Date</th><th class='col-xs-1'>Supposed Return</th><th class='col-xs-1'>Real Return</th><th class='col-xs-1'>Client ID</th><th class='col-xs-1'>Car ID</th><th class='col-xs-2'></th>";
         var body = table.createTBody();
-
         let returnDate;
-
         for (var model of  arrayofDeals)
         {
           
@@ -1066,10 +999,8 @@ $(function () {
     });
 
 
-    $('.column-two').on('click', '#submitNewManuf', function () {
-       
+    $('.column-two').on('click', '#submitNewManuf', function () {     
         let manufacName = $('.manname').val();
-
         $.ajax({
             type: 'GET',
             data: { manufacturerName: manufacName },
@@ -1087,8 +1018,6 @@ $(function () {
             }
         })
     });
-
-
 
 
     $('.column-two').on('click', '#submitEditManuf', function () {
@@ -1115,13 +1044,7 @@ $(function () {
         })
     });
 
-
-  
-
     listofCars();
-
-
-
     });
 
 

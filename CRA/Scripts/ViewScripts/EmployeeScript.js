@@ -5,19 +5,17 @@ var arrayofDeals = [];
 
 var arrayofCars = [];
 
-let arrayofModels = [];
+var arrayofModels = [];
 
-let closingDate;
+var closingDate;
 
-let dealtoClose;
+var dealtoClose;
 
-let cartoReturn;
+var cartoReturn;
 
-let modeltoReturn;
+var modeltoReturn;
 
-let supposedReturn;
-
-
+var supposedReturn;
 
 
 var listofDeals = function () {
@@ -72,9 +70,7 @@ var listofDeals = function () {
                 $(body).append("<tr><td>" + model.ID + "</td><td>" + model.StartDate + "</td><td>" + model.SupposedReturn +
                     "</td><td>" + model.RealReturn + "</td><td>" + model.ClientID + "</td><td>" + model.CarID + "</td><td>" + dealCarNumber(model.CarID) +
                 "</td><td>Deal is closed</td></tr>")
-
             }
-
         }
 
         $('.column-one').append(table);
@@ -94,10 +90,7 @@ function dateisValid(date) {
 
 
 
-
     $(function () {
-
-
         $("#dialog").dialog({
             autoOpen: false,
             show: {
@@ -121,24 +114,12 @@ function dateisValid(date) {
             }
         });
 
-
-      
-
-
-
-
-
-
         listofDeals();
-
-
 
         //Closing existing Deal
 
         $('.column-one').on('click', '.dealclose', function () {
-
-            
-
+           
                 let clickeddID = $(this).attr('id');
 
                 dealtoClose = arrayofDeals.find(function (x) { return x.ID == clickeddID })
@@ -187,11 +168,7 @@ function dateisValid(date) {
             
         })
 
-
-
-
-            let date2;
-
+            var date2;
 
             $('.column-two').on('change', '#datepickerClosing', function () {
 
@@ -207,8 +184,6 @@ function dateisValid(date) {
 
                 let fine;
 
-
-
                 if (closingDate > sResturn) {
 
                     let differenceinDays = closingDate - sResturn;
@@ -221,7 +196,6 @@ function dateisValid(date) {
                     $('#lateRetrunFine').text("Theris no fine to charge, you can close the deal");
                 }
             })
-
 
 
             $('#dialog').on('click', '#confirm', function () {
@@ -241,8 +215,6 @@ function dateisValid(date) {
             });
 
 
-
-
             $('#dialog').on('click', '#cancell', function () {
 
                 $("#dialog").dialog("close");
@@ -252,10 +224,6 @@ function dateisValid(date) {
             $('main').on('click', '#cancelClosing', function () {
                 $('.column-two').empty();
             })
-
-
-
-
         });
     
 
