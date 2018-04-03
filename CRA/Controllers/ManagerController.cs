@@ -1,77 +1,61 @@
-﻿using CarRent.BL;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using CarRent.BL;
 using CarRent.Data;
 using CarRental.BL;
 using CarRental.Data;
 using CarRental.Models;
 using CarRental.MVC.Models;
 using CRA.BL;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
-namespace CarRental.Controllers
-{
-    public class ManagerController : Controller
-    {
+namespace CarRental.Controllers {
+    public class ManagerController : Controller {
 
         private readonly ManagerBL _manager;
-
         private readonly GuestBL guest;
-
         private readonly CompanyRoleProvider _roleprovider;
-
         private static IEnumerable<ModelView> allmodels;
-
         private static IEnumerable<ManufactorerViewModel> allManufacturers;
-
         private static IEnumerable<CarViewModel> allCars;
-
         private static IEnumerable<DealViewModel> allDeals;
-
         private static IEnumerable<UserViewModel> allCustomers;
-
         private static IEnumerable<UserViewModel> allEmployees;
 
+        public ManagerController () {
+            _manager = new ManagerBL ();
+            guest = new GuestBL ();
+            _roleprovider = new CompanyRoleProvider ();
+        }
 
-        public ManagerController()
+        [Authorize (Roles = "Manager")]
+        public ActionResult Index ()
+
         {
-            _manager = new ManagerBL();
-            guest = new GuestBL();
-            _roleprovider = new CompanyRoleProvider();
+            return View ();
         }
-
-
-       [Authorize(Roles ="Manager")]
-        public ActionResult Index()
-        
-        {       
-            return View();
-        }
-
-
 
         //This function creates Json object that serves all possible needs of manager's interface
 
-        [Authorize(Roles = "Manager")]
-        public JsonResult HelpAjax()
-        {
+        [Authorize (Roles = "Manager")]
+        public JsonResult HelpAjax () {
 
-            allCars = _manager.GetAllCars().Select(c => new CarViewModel(c));
+            allCars = _manager.GetAllCars ().Select (c => new CarViewModel (c));
 
-            allmodels = guest.GettAllModels().Select(c => new ModelView(c));
+            allmodels = guest.GettAllModels ().Select (c => new ModelView (c));
 
-            allManufacturers = guest.GettAllManufacturers().Select(c => new ManufactorerViewModel(c));
+            allManufacturers = guest.GettAllManufacturers ().Select (c => new ManufactorerViewModel (c));
 
-            allDeals = _manager.GetAllDeals().Select(d => new DealViewModel(d));
+            allDeals = _manager.GetAllDeals ().Select (d => new DealViewModel (d));
 
-            allCustomers = _manager.GetAllCustomers().Select(u => new UserViewModel(u));
+            allCustomers = _manager.GetAllCustomers ().Select (u => new UserViewModel (u));
 
-            allEmployees = _manager.GetAllEmployees().Select(u => new UserViewModel(u));
+            allEmployees = _manager.GetAllEmployees ().Select (u => new UserViewModel (u));
 
-            var managerHelper = new HelpModel();
+            var managerHelper = new HelpModel ();
 
             managerHelper.AllManufacturers = allManufacturers;
 
@@ -85,13 +69,8 @@ namespace CarRental.Controllers
 
             managerHelper.AllCars = allCars;
 
-            return Json(managerHelper, JsonRequestBehavior.AllowGet);
+            return Json (managerHelper, JsonRequestBehavior.AllowGet);
         }
-
-
-
-
-
 
         /*This function accepts 3 kinds of requests for all entities in the manager's UI:
          * - request for the form for adding new entiy.
@@ -100,117 +79,93 @@ namespace CarRental.Controllers
          * Based on the usage of the universal HelpModel i've decided to combine all those functions in one.
          */
         [HttpGet]
-        [Authorize(Roles = "Manager")]
-        public ActionResult ManagerActions(HelpModel hvm)
-        {
-            HelpModel result = new HelpModel();
+        [Authorize (Roles = "Manager")]
+        public ActionResult ManagerActions (HelpModel hvm) {
+            HelpModel result = new HelpModel ();
 
-            switch (hvm.ManagerAction)
-            {
-                
-                   ///////// MODELS ///////////
+            switch (hvm.ManagerAction) {
+
+                ///////// MODELS ///////////
 
                 case "AddModel":
-                    return PartialView("AddModel");
-
+                    return PartialView ("AddModel");
 
                 case "EditModel":
-                    var model = (from m in allmodels where m.ID == hvm.ID select m).FirstOrDefault();
-                    return PartialView("EditModel", model);
-
+                    var model = (from m in allmodels where m.ID == hvm.ID select m).FirstOrDefault ();
+                    return PartialView ("EditModel", model);
 
                 case "DeleteModel":
-                    _manager.DeleteModel(hvm.ID);
-                    HelpModel modelresult = new HelpModel();
+                    _manager.DeleteModel (hvm.ID);
+                    HelpModel modelresult = new HelpModel ();
                     modelresult.ActionResult = "Model Deleted";
-                    return Json(modelresult, JsonRequestBehavior.AllowGet);
+                    return Json (modelresult, JsonRequestBehavior.AllowGet);
 
-                /////////////  CARS /////////////
+                    /////////////  CARS /////////////
 
                 case "AddCar":
-                    return PartialView("AddCar");
-
+                    return PartialView ("AddCar");
 
                 case "AddPicture":
-                    var carp = (from c in allCars where c.ID == hvm.ID select c).FirstOrDefault();
-                    return PartialView("AddCarPicture",carp);
-
+                    var carp = (from c in allCars where c.ID == hvm.ID select c).FirstOrDefault ();
+                    return PartialView ("AddCarPicture", carp);
 
                 case "EditCar":
-                    var car = (from c in allCars where c.ID == hvm.ID select c).FirstOrDefault();
-                    return PartialView("EditCar", car);
-
+                    var car = (from c in allCars where c.ID == hvm.ID select c).FirstOrDefault ();
+                    return PartialView ("EditCar", car);
 
                 case "DeleteCar":
-                    _manager.DeleteCar(hvm.ID);
-                    HelpModel carresult = new HelpModel();
+                    _manager.DeleteCar (hvm.ID);
+                    HelpModel carresult = new HelpModel ();
                     carresult.ActionResult = "Model Deleted";
-                    return Json(carresult, JsonRequestBehavior.AllowGet);
+                    return Json (carresult, JsonRequestBehavior.AllowGet);
 
-
-                /////////////// USERS ////////////////////
+                    /////////////// USERS ////////////////////
 
                 case "AddUser":
-                    return PartialView("AddUser");
-             
+                    return PartialView ("AddUser");
 
                 case "EditUser":
-                    var customer = (from c in allCustomers where c.ID == hvm.ID select c).FirstOrDefault();
-                    return PartialView("EditUser", customer);
-
-
+                    var customer = (from c in allCustomers where c.ID == hvm.ID select c).FirstOrDefault ();
+                    return PartialView ("EditUser", customer);
 
                 case "EditEmployee":
-                    var employee = (from c in allEmployees where c.ID == hvm.ID select c).FirstOrDefault();
-                    return PartialView("EditUser", employee);
-
+                    var employee = (from c in allEmployees where c.ID == hvm.ID select c).FirstOrDefault ();
+                    return PartialView ("EditUser", employee);
 
                 case "DeleteCustomer":
-                    _manager.DeleteClient(hvm.ID);
-                    HelpModel customerresult = new HelpModel();
+                    _manager.DeleteClient (hvm.ID);
+                    HelpModel customerresult = new HelpModel ();
                     customerresult.ActionResult = "Model Deleted";
-                    return Json(customerresult, JsonRequestBehavior.AllowGet);
+                    return Json (customerresult, JsonRequestBehavior.AllowGet);
 
-
-
-                ///////////////////// MANUFACTORERS /////////////////////
-
-
-
-
+                    ///////////////////// MANUFACTORERS /////////////////////
                 case "AddManufacturer":
-                    return PartialView("AddManufacturer");
-
+                    return PartialView ("AddManufacturer");
 
                 case "EditManufactorer":
-                    var manuf = (from m in allManufacturers where m.ID == hvm.ID select m).FirstOrDefault();
-                    return PartialView("EditManufacturer", manuf);
-
+                    var manuf = (from m in allManufacturers where m.ID == hvm.ID select m).FirstOrDefault ();
+                    return PartialView ("EditManufacturer", manuf);
 
                 case "DeleteManufactorer":
-                    _manager.DeleteManufactorer(hvm.ID);
-                    HelpModel manrresult = new HelpModel();
+                    _manager.DeleteManufactorer (hvm.ID);
+                    HelpModel manrresult = new HelpModel ();
                     manrresult.ActionResult = "Model Deleted";
-                    return Json(manrresult, JsonRequestBehavior.AllowGet);
+                    return Json (manrresult, JsonRequestBehavior.AllowGet);
 
-
-
-
-                /////////////// DEALS ///////////////////////
-
+                    /////////////// DEALS ///////////////////////
 
                 case "AddDeal":
-                    return PartialView("AddDeal");
+                    return PartialView ("AddDeal");
 
                 case "EditDeal":
-                    var deal = (from d in allDeals where d.ID == hvm.ID select d).FirstOrDefault();
-                    return PartialView("EditDeal", deal);           
+                    var deal = (from d in allDeals where d.ID == hvm.ID select d).FirstOrDefault ();
+                    return PartialView ("EditDeal", deal);
 
                 case "DeleteDeal":
-                    _manager.DeleteDeal(hvm.ID);
-                    HelpModel dealresult = new HelpModel();
+                    _manager.DeleteDeal (hvm.ID);
+                    HelpModel dealresult = new HelpModel ();
                     dealresult.ActionResult = "Model Deleted";
-                    return Json(dealresult, JsonRequestBehavior.AllowGet);
+                    return Json (dealresult, JsonRequestBehavior.AllowGet);
 
                 default:
                     return null;
@@ -220,48 +175,38 @@ namespace CarRental.Controllers
 
         #region CarModel
 
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitNewModel (ModelView cmv)
-        {
-            if (ModelState.IsValid)
-            {
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitNewModel (ModelView cmv) {
+            if (ModelState.IsValid) {
 
-                if (_roleprovider.ModelExists(cmv.NameofModel)) {
+                if (_roleprovider.ModelExists (cmv.NameofModel)) {
 
-                    ModelState.AddModelError(string.Empty, "Model already exists");
-                    return PartialView("AddModel");
+                    ModelState.AddModelError (string.Empty, "Model already exists");
+                    return PartialView ("AddModel");
                 }
 
-                var originalModel = cmv.toBaseModelDetail();
-                _manager.AddModel(originalModel);
-                var result = new HelpModel();
+                var originalModel = cmv.toBaseModelDetail ();
+                _manager.AddModel (originalModel);
+                var result = new HelpModel ();
                 result.ActionResult = "Model Added";
 
-                return Json(result, JsonRequestBehavior.AllowGet);
-            }
-
-            else
-            {
-                  return PartialView("AddModel");
+                return Json (result, JsonRequestBehavior.AllowGet);
+            } else {
+                return PartialView ("AddModel");
             }
         }
 
         //CarModel
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitEditModel(ModelView cmv)
-        {
-            if (ModelState.IsValid)
-            {
-                var originalModel = cmv.toBaseModelDetail();
-                _manager.UpdateModel(originalModel);
-                var result = new HelpModel();
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitEditModel (ModelView cmv) {
+            if (ModelState.IsValid) {
+                var originalModel = cmv.toBaseModelDetail ();
+                _manager.UpdateModel (originalModel);
+                var result = new HelpModel ();
                 result.ActionResult = "Model Edited";
-                return Json(result, JsonRequestBehavior.AllowGet);
-            }
-
-            else
-            {
-                return PartialView("EditModel", cmv);
+                return Json (result, JsonRequestBehavior.AllowGet);
+            } else {
+                return PartialView ("EditModel", cmv);
             }
         }
 
@@ -269,212 +214,151 @@ namespace CarRental.Controllers
 
         #region Customers
 
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitNewCustomer(UserViewModel cmv)
-        {
-            if (ModelState.IsValid)
-            {
-
-
-                if (_roleprovider.UserExists(cmv.UserName))
-                {
-                    ModelState.AddModelError(string.Empty, "Username already in use");
-
-                    return PartialView("AddUser");
-                }
-
-                var managerHelper = new HelpModel();
-                _manager.AddClient(cmv.toBaseClient_Details());
-
-                string[] users = { cmv.UserName };
-
-                string[] roles = { "Customer" };
-
-                _roleprovider.AddUsersToRoles(users, roles);
-
-                managerHelper.ActionResult = "New Customer Submitted";
-                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitNewCustomer (UserViewModel cmv) {
+            if (!ModelState.IsValid) {
+                return PartialView ("AddUser");
             }
 
-            else
-            {
-                return PartialView("AddUser");
+            if (_roleprovider.UserExists (cmv.UserName)) {
+                ModelState.AddModelError (string.Empty, "Username already in use");
+                return PartialView ("AddUser");
             }
+
+            var managerHelper = new HelpModel ();
+            _manager.AddClient (cmv.toBaseClient_Details ());
+            string[] users = { cmv.UserName };
+            string[] roles = { "Customer" };
+            _roleprovider.AddUsersToRoles (users, roles);
+            managerHelper.ActionResult = "New Customer Submitted";
+            return Json (managerHelper, JsonRequestBehavior.AllowGet);
         }
 
-
-        
-     
-
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitEditCustomer(UserViewModel cmv)
-        {
-            if (ModelState.IsValid)
-            {
-                var managerHelper = new HelpModel();
-                _manager.UpdateClient(cmv.toBaseClient_Details());
-                managerHelper.ActionResult = "Customer edit submitted";
-                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitEditCustomer (UserViewModel cmv) {
+            if (!ModelState.IsValid) {
+                return PartialView ("EditUser", cmv);
             }
-            else
-            {
-                return PartialView("EditUser", cmv);
-            }
+            var managerHelper = new HelpModel ();
+            _manager.UpdateClient (cmv.toBaseClient_Details ());
+            managerHelper.ActionResult = "Customer edit submitted";
+            return Json (managerHelper, JsonRequestBehavior.AllowGet);
         }
-
 
         #endregion
-   
+
         #region Employees
 
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitNewEmployee(UserViewModel cmv)
-        {
-            if (ModelState.IsValid)
-            {
-
-                if (_roleprovider.UserExists(cmv.UserName))
-                {
-                    ModelState.AddModelError(string.Empty, "Username already in use");
-
-                    return PartialView("AddUser");
-                }
-                var managerHelper = new HelpModel();
-                var domainclient = cmv.toBaseClient_Details();
-                _manager.AddClient(domainclient);
-                string[] users = { cmv.UserName };
-                string[] roles = { "Employee" };
-                _roleprovider.AddUsersToRoles(users, roles);
-                managerHelper.ActionResult = "New Employee Submitted";
-                return Json(managerHelper, JsonRequestBehavior.AllowGet);
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitNewEmployee (UserViewModel cmv) {
+            if (!ModelState.IsValid) {
+                return PartialView ("AddUser");
             }
 
-            else
-            {
-                return PartialView("AddUser");
+            if (_roleprovider.UserExists (cmv.UserName)) {
+                ModelState.AddModelError (string.Empty, "Username already in use");
+                return PartialView ("AddUser");
             }
+            var managerHelper = new HelpModel ();
+            var domainclient = cmv.toBaseClient_Details ();
+            _manager.AddClient (domainclient);
+            string[] users = { cmv.UserName };
+            string[] roles = { "Employee" };
+            _roleprovider.AddUsersToRoles (users, roles);
+            managerHelper.ActionResult = "New Employee Submitted";
+            return Json (managerHelper, JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitEditEmployee(UserViewModel cmv)
-        {
-            if (ModelState.IsValid)
-            {
-                var managerHelper = new HelpModel();
-                _manager.UpdateClient(cmv.toBaseClient_Details());
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitEditEmployee (UserViewModel cmv) {
+            if (ModelState.IsValid) {
+                var managerHelper = new HelpModel ();
+                _manager.UpdateClient (cmv.toBaseClient_Details ());
                 managerHelper.ActionResult = "Employee edit submitted";
-                return Json(managerHelper, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                
-                return PartialView("EditUser", cmv);
+                return Json (managerHelper, JsonRequestBehavior.AllowGet);
+            } else {
+
+                return PartialView ("EditUser", cmv);
             }
         }
 
         #endregion
-    
+
         #region Cars
 
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitNewCar(CarViewModel cmv)
-        {
-            if (ModelState.IsValid)
-            {
-                var managerHelper = new HelpModel();
-                _manager.AddCar(cmv.toBaseCarDetails());
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitNewCar (CarViewModel cmv) {
+            if (ModelState.IsValid) {
+                var managerHelper = new HelpModel ();
+                _manager.AddCar (cmv.toBaseCarDetails ());
                 managerHelper.ActionResult = "New car submitted";
-                return Json(managerHelper, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return PartialView("AddCar");
+                return Json (managerHelper, JsonRequestBehavior.AllowGet);
+            } else {
+                return PartialView ("AddCar");
             }
         }
 
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitEditCar(CarViewModel cmv)
-        {
-            if (ModelState.IsValid)
-            {
-                var managerHelper = new HelpModel();
-                _manager.UpdateCar(cmv.toBaseCarDetails());
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitEditCar (CarViewModel cmv) {
+            if (ModelState.IsValid) {
+                var managerHelper = new HelpModel ();
+                _manager.UpdateCar (cmv.toBaseCarDetails ());
                 managerHelper.ActionResult = "Car edit submitted";
-                return Json(managerHelper, JsonRequestBehavior.AllowGet);
-            }
-
-            else
-            {
-                return PartialView("EditCar",cmv);
+                return Json (managerHelper, JsonRequestBehavior.AllowGet);
+            } else {
+                return PartialView ("EditCar", cmv);
             }
         }
 
-        [Authorize(Roles = "Manager")]
+        [Authorize (Roles = "Manager")]
         [HttpPost]
-        public ActionResult SubmitPicture(CarViewModel car, HttpPostedFileBase picture ) {
+        public ActionResult SubmitPicture (CarViewModel car, HttpPostedFileBase picture) {
 
-            if (ModelState.IsValid)
-            {
-                var managerHelper = new HelpModel();
-                var domainCar = car.toBaseCarDetails();
+            if (ModelState.IsValid) {
+                var managerHelper = new HelpModel ();
+                var domainCar = car.toBaseCarDetails ();
                 try {
-                    using (MemoryStream ms = new MemoryStream())
-                    {
-                        picture.InputStream.CopyTo(ms);
-                        byte[] array = ms.GetBuffer();
+                    using (MemoryStream ms = new MemoryStream ()) {
+                        picture.InputStream.CopyTo (ms);
+                        byte[] array = ms.GetBuffer ();
                         domainCar.Picture = array;
-                        _manager.UpdateCar(domainCar);
+                        _manager.UpdateCar (domainCar);
                     }
-                    TempData["message"] = "Upload Succeded!";                 
-                    return RedirectToAction("Index");
+                    TempData["message"] = "Upload Succeded!";
+                    return RedirectToAction ("Index");
+                } catch {
+                    TempData["message"] = "Upload Failed!";
+                    return RedirectToAction ("Index");
                 }
-                catch
-                {
-                    TempData["message"] = "Upload Failed!";                  
-                    return RedirectToAction("Index");
-                }              
-            }
-
-            else
-            {
-                return PartialView("AddCarPicture",car);
+            } else {
+                return PartialView ("AddCarPicture", car);
             }
         }
         #endregion
 
         #region Deals
 
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitNewDeal(DealViewModel dvm)
-        {
-            if (ModelState.IsValid)
-            {
-                var managerHelper = new HelpModel();
-                _manager.AddDeal(dvm.toBaseDateDetails());
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitNewDeal (DealViewModel dvm) {
+            if (ModelState.IsValid) {
+                var managerHelper = new HelpModel ();
+                _manager.AddDeal (dvm.toBaseDateDetails ());
                 managerHelper.ActionResult = "New deal submitted";
-                return Json(managerHelper, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return PartialView("AddDeal");
+                return Json (managerHelper, JsonRequestBehavior.AllowGet);
+            } else {
+                return PartialView ("AddDeal");
             }
         }
 
-
-
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitEditDeal(DealViewModel dvm)
-        {
-            if (ModelState.IsValid)
-            {
-                var managerHelper = new HelpModel();
-                _manager.UpdateDeal(dvm.toBaseDateDetails());
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitEditDeal (DealViewModel dvm) {
+            if (ModelState.IsValid) {
+                var managerHelper = new HelpModel ();
+                _manager.UpdateDeal (dvm.toBaseDateDetails ());
                 managerHelper.ActionResult = "Deal edit submitted";
-                return Json(managerHelper, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return PartialView("EditDeal",dvm);
+                return Json (managerHelper, JsonRequestBehavior.AllowGet);
+            } else {
+                return PartialView ("EditDeal", dvm);
             }
         }
 
@@ -482,45 +366,33 @@ namespace CarRental.Controllers
 
         #region Manufactores
 
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitNewManufacturer(ManufactorerViewModel dvm)
-        {
-            if (ModelState.IsValid)
-            {
-                if (_roleprovider.ManufactorerExists(dvm.manufacturerName))
-                {
-                    ModelState.AddModelError(string.Empty, "Manufactorer already exists");
-                    return PartialView("AddManufacturer");
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitNewManufacturer (ManufactorerViewModel dvm) {
+            if (ModelState.IsValid) {
+                if (_roleprovider.ManufactorerExists (dvm.manufacturerName)) {
+                    ModelState.AddModelError (string.Empty, "Manufactorer already exists");
+                    return PartialView ("AddManufacturer");
                 }
 
-                var managerHelper = new HelpModel();
-                _manager.AddManufactorer(dvm.toBaseManufacturer());
+                var managerHelper = new HelpModel ();
+                _manager.AddManufactorer (dvm.toBaseManufacturer ());
                 managerHelper.ActionResult = "New manufactorer submitted";
-                return Json(managerHelper, JsonRequestBehavior.AllowGet);
-            }
-
-            else
-            {
-                IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
-                return PartialView("AddManufacturer");
+                return Json (managerHelper, JsonRequestBehavior.AllowGet);
+            } else {
+                IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany (v => v.Errors);
+                return PartialView ("AddManufacturer");
             }
         }
 
-
-        [Authorize(Roles = "Manager")]
-        public ActionResult SubmitEditManufactorer(ManufactorerViewModel dvm)
-        {
-            if (ModelState.IsValid)
-            {
-                var managerHelper = new HelpModel();
-                _manager.UpdateManufactorer(dvm.toBaseManufacturer());
+        [Authorize (Roles = "Manager")]
+        public ActionResult SubmitEditManufactorer (ManufactorerViewModel dvm) {
+            if (ModelState.IsValid) {
+                var managerHelper = new HelpModel ();
+                _manager.UpdateManufactorer (dvm.toBaseManufacturer ());
                 managerHelper.ActionResult = "Manufactorer edit submitted";
-                return Json(managerHelper, JsonRequestBehavior.AllowGet);
-            }
-
-            else
-            {
-                return PartialView("EditManufacturer",dvm);
+                return Json (managerHelper, JsonRequestBehavior.AllowGet);
+            } else {
+                return PartialView ("EditManufacturer", dvm);
             }
         }
 

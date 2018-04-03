@@ -13,17 +13,12 @@ namespace CarRental.Controllers
     public class EmployeeController : Controller
     {
         public readonly EmployeeBL _employee;
-
         private static IEnumerable<DealViewModel> allDeals;
-
         private static IEnumerable<CarViewModel> allCars;
-
         private static IEnumerable<ModelView> allModels;
-
         public EmployeeController()
         {
             _employee = new EmployeeBL();
-
         }
 
 

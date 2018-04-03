@@ -23,9 +23,7 @@ namespace CarRental.Models
             return new User
             {
                 UserName = Username,
-
                 Password = Password
-
             };
         }
 

@@ -11,20 +11,12 @@ namespace CarRental.Controllers
 {
     public class CustomerController : Controller
     {
-
-
         private readonly CustomerBL _customer;
-     
         private static ModelView customerModel;
-
         private static CarViewModel customerCar;
-
         private  static double totallPrice;
-
         private static DateTime startDate;
-
         private static DateTime supposedReturn;
-
         private const string DEALS_IN_THE_BUSKET = "dealsinfo";
       
 

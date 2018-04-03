@@ -17,13 +17,10 @@ namespace CarRental.MVC.Models
         [Display(Name = "Branch Name")]
         [Required]
         public string BranchName { get; set; }
-
         [Required]
         public string City { get; set; }
-
         [Required]
         public string District { get; set; }
-
         public DbGeography Location { get; set; }
 
         public BranchViewModel() { }

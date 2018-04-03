@@ -11,11 +11,8 @@ using CarRental.Models.Validators;
 
 namespace CarRental.MVC.Models
 {
-
-
     public enum Roles { Manager, Employee, Customer };
   
-
     public class UserViewModel
     {
        
@@ -65,16 +62,7 @@ namespace CarRental.MVC.Models
         [Required]
         [StringLength(30, MinimumLength = 6, ErrorMessage = "Password must contain  at least 6 characters")]
         public string Password { get; set; }
-
-
         public byte[] Picture { get; set; }
-
-
-
-        
-
-
-
         public   User toBaseClient_Details()
         {
             return new User
@@ -88,9 +76,6 @@ namespace CarRental.MVC.Models
                 UserName = UserName,
                 Password = Password,
                 Picture = Picture,
-                
-
-
             };
         }
 
@@ -99,28 +84,16 @@ namespace CarRental.MVC.Models
 
 
         public UserViewModel(User domainClieentDetails)
-        {
-            
-
+        {           
             this.ID = domainClieentDetails.ID;
-
             this.FirstName = domainClieentDetails.FirstName;
-
             this.LastName = domainClieentDetails.LastName;
-
             this.BirthData = domainClieentDetails.BirthData.Value.ToShortDateString();
-
             this.UserName = domainClieentDetails.UserName;
-
             this.gender = domainClieentDetails.gender;
-
             this.Email = domainClieentDetails.Email;
-
             this.Password = domainClieentDetails.Password;
-
             this.Picture = domainClieentDetails.Picture;
-
         }
-
     }
 }
